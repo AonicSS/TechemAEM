@@ -1,27 +1,3 @@
-<style>
-.leftImage {
-	width:50%;
-	display: inline-block;
-}
-.rightImage{
-	width: 50%;
-	display: inline-block;
-	position: absolute;
-}
-.leftText {
-	width: 48%;
-	display: inline-block;
-	margin-left: 1%;
-	margin-right: 1%;
-}
-.rightText {
-	width: 47%;
-	display: inline-block;
-	position: absolute;
-	margin-left: 1%;
-	margin-right: 1%;
-}
-</style>
 <div data-sly-use.teaser="com.adobe.cq.wcm.core.components.models.Teaser"
      data-sly-use.textimage="com.techem.core.models.TextImage"
      data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
@@ -36,31 +12,13 @@
      id="${component.id}"
      class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''}"
      data-cmp-data-layer="${teaser.data.json}">
-
-    <div data-sly-test="${textimage.textPosition=='right'}">
-
-        <div class="leftImage" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
-
-        <div class="cmp-teaser__content rightText">
-            <sly data-sly-call="${pretitleTemplate.pretitle @ teaser=teaser}"></sly>
-            <sly data-sly-call="${titleTemplate.title @ teaser=teaser}"></sly>
-            <sly data-sly-call="${descriptionTemplate.description @ teaser=teaser}"></sly>
-            <sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
-            <sly data-sly-call="${locationTemplate.textPosition @ textimage=textimage}"></sly>
-        </div>
-    </div>
-
-    <div data-sly-test="${textimage.textPosition=='left'}">
-        <div class="cmp-teaser__content leftText">
-            <sly data-sly-call="${pretitleTemplate.pretitle @ teaser=teaser}"></sly>
-            <sly data-sly-call="${titleTemplate.title @ teaser=teaser}"></sly>
-            <sly data-sly-call="${descriptionTemplate.description @ teaser=teaser}"></sly>
-            <sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
-            <sly data-sly-call="${locationTemplate.textPosition @ textimage=textimage}"></sly>
-        </div>
-        <span class="rightImage">
-        <sly data-sly-call="${imageTemplate.image @ teaser=teaser}"></sly>
-		</span>
+    <div class="cmp-image__${textimage.textPosition}" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
+    <div class="cmp-teaser__content cmp-content__${textimage.textPosition}">
+        <sly data-sly-call="${pretitleTemplate.pretitle @ teaser=teaser}"></sly>
+        <sly data-sly-call="${titleTemplate.title @ teaser=teaser}"></sly>
+        <sly data-sly-call="${descriptionTemplate.description @ teaser=teaser}"></sly>
+        <sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
+        <sly data-sly-call="${locationTemplate.textPosition @ textimage=textimage}"></sly>
     </div>
 </div>
 <sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>
