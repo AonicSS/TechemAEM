@@ -1,3 +1,23 @@
-.cmp-title {}
-.cmp-title__text {}
-.cmp-title__link {}
+.cmp-title {
+  color: $color-background-dark;
+  font-family: "Univers LT Std";
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto;
+
+  .cmp-title__text {
+    font-size: 46px;
+    letter-spacing: 0;
+    line-height: 58px;
+    padding-top: 114px;
+    padding-bottom: 23px;
+  }
+  .cmp-title__description {
+    line-height: 26px;
+    font-size: 16px;
+    letter-spacing: -0.1px;
+    padding-bottom: 83px;
+  }
+}
+.cmp-title__link {
+}

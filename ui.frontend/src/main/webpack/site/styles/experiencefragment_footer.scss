@@ -1,16 +1,85 @@
-
 //== XF Footer style, used on page template
 
 footer.experiencefragment {
-    padding: .5em 1em;
-    border-top: 1px solid $color-foreground;
+  padding: 0.5em 1em;
+  border-top: 1px solid $color-foreground;
+  background-color: $color-background-dark;
+  color: $color-foreground-dark;
 
-    @media (prefers-color-scheme: dark) {
-        border-color: $color-foreground-dark;
+  font-family: $font-universe-roman;
+  font-size: 14px;
+
+  @media (prefers-color-scheme: dark) {
+    border-color: $color-foreground-dark;
+  }
+
+  .cmp-container {
+    @media (min-width: $mobile-dimension) {
+      max-width: $max-width-page;
+      margin: 0 auto;
+    }
+
+    .footer-wrapper {
+      padding: 30px 0px;
+      .cmp-footer-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .footer-subtitle {
+          font-family: $font-universe-roman-bold;
+          padding-bottom: 15px;
+          font-size: 16px;
+        }
+
+        .footer-items {
+          display: flex;
+          flex-direction: column;
+          a {
+            display: block;
+            padding-right: 20px;
+            color: $color-foreground-dark;
+            margin-block-start: 5px;
+            margin-block-end: 5px;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .footer-third {
+      padding: 30px 0px;
+      .cmp-footer-third {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .footer-third-container {
+          display: flex;
+          flex-direction: row;
+          a {
+            display: block;
+            padding-right: 20px;
+            color: $color-foreground-dark;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .separator {
+      border-top: 1px solid $color-separator-dark;
     }
 
     .cmp-separator__horizontal-rule {
-        margin: 0;
-        border: 0;
+      margin: 0;
+      border: 0;
     }
+  }
 }

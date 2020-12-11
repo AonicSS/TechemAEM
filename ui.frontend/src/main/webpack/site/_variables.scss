@@ -1,18 +1,33 @@
-
 //== Font
 
-$font-family:           "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-size:             16px;
-$font-height:           1.5;
+$font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-size: 16px;
+$font-height: 1.5;
+$font-universe-roman: "Univers LT Std 55 Roman";
+$font-universe-roman-bold: "Univers LT Std 65 Bold";
+$font-universe-std: "Univers LT Std";
 
 //== Color
 
 // Normal mode
-$color-foreground:      #202020;
-$color-background:      #ECECEC;
-$color-link:            #2020E0;
+$color-foreground: #202020;
+$color-background: #ffffff;
+$color-foreground-header: #222222;
+$color-separator: #c8c8c8;
+$color-link: #2020e0;
 
 // Dark mode
-$color-foreground-dark: invert($color-foreground);
-$color-background-dark: invert($color-background);
-$color-link-dark:       invert($color-link);
+$color-foreground-dark: #ffffff;
+$color-background-dark: #1d1d1b;
+$color-separator-dark: #4c4c4c;
+$color-link-dark: invert($color-link);
+
+//Buttons
+$color-primary-button: #e20613;
+$border-secondary-button: #e20714;
+
+// Margins
+$max-width-page: 1232px;
+
+// Mobile
+$mobile-dimension: 769px;
