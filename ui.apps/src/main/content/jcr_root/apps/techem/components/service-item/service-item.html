@@ -6,7 +6,6 @@
      data-sly-use.titleTemplate="title.html"
      data-sly-use.descriptionTemplate="description.html"
      data-sly-use.actionsTemplate="actions.html"
-	 data-sly-use.iconTemplate="icon.html"
      data-sly-test.hasContent="${teaser.imageResource || teaser.pretitle || teaser.title || teaser.description || teaser.actions.size > 0}"
      id="${component.id}"
      class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''}"
@@ -15,10 +14,12 @@
 		<div class="item-category">${properties.category}</div>
 		<div class="item-title">${properties.productTitle}</div>
     </div>
-	<div class="cmp-item-second>"
+	<div class="cmp-item-second">
         <div class="item-icon" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
         <div class="item-description">${properties.description}</div>
-		<div class="item-arrow" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
+		<a href="${properties.linkURL2}.html">
+			<img class="item-arrow" src="${properties.fileReference2}">
+		</a>
 	</div>
 </div>
 <sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>
