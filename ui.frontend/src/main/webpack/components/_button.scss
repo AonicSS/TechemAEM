@@ -1,4 +1,38 @@
-.cmp-button {}
-.cmp-button__text {}
-.cmp-button__icon {}
+.cmp-button__text {
+}
+.cmp-button__icon {
+}
 //.cmp-button__icon--myIcon {}
+
+.cmp-button {
+  font-family: $font-universe-std;
+  box-sizing: border-box;
+  font-size: 1em;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-width: 0px;
+  border-radius: 30px;
+
+  &.button-primary {
+    background-color: $color-primary-button;
+    color: #ffffff;
+  }
+
+  &.button-secondary {
+    box-sizing: border-box;
+    border: 2px solid $border-secondary-button;
+    color: $border-secondary-button;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  &.button-small {
+    height: 40px;
+    width: 151px;
+  }
+
+  &.button-huge {
+    height: 54px;
+    width: 300px;
+  }
+}
