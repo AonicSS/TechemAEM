@@ -4,6 +4,9 @@
 $font-family:           "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-size:             16px;
 $font-height:           1.5;
+$font-universe-roman: "Univers LT Std 55 Roman";
+$font-universe-roman-bold: "Univers LT Std 65 Bold";
+$font-universe-std: "Univers LT Std";
 
 //== Color
 
@@ -11,8 +14,11 @@ $font-height:           1.5;
 $color-foreground:      #202020;
 $color-background:      #ECECEC;
 $color-link:            #2020E0;
+$color-foreground-header: #222222;
 
 // Dark mode
 $color-foreground-dark: invert($color-foreground);
 $color-background-dark: invert($color-background);
 $color-link-dark:       invert($color-link);
+
+$max-width-page: 1232px;
