@@ -5,12 +5,16 @@
     justify-content: center;
     flex-wrap: wrap;
 
-    .cmp-tile:first-child {
-      border-radius: 40px 0 0 0;
-    }
-    .cmp-tile:last-child {
-      border-radius: 0 0 40px 0;
-    }
+    .service-item:first-child {
+          .cmp-tile {
+            border-radius: 40px 0 0 0;
+          }
+        }
+        .service-item:nth-last-child(2) {
+          .cmp-tile {
+            border-radius: 0 0 40px 0;
+          }
+        }
 
     .cmp-tile {
       height: 270px;
@@ -21,6 +25,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       margin: 20px;
+      position: relative;
 
       &:hover {
         cursor: pointer;
@@ -35,8 +40,19 @@
         .cmp-tile-subtitle {
           display: inline;
           font-family: $font-universe-roman;
-          padding: 18px 0px 0px 24px;
+          padding: 10px 0 0 24px;
+          position: absolute;
+          color: #4C4C4C;
+          font-size: 16px;
+          max-width: 194px;
         }
+      }
+      .cmp-tile-category {
+        font-family: $font-universe-roman-bold;
+        font-size: 16px;
+        padding: 18px 24px 0px 24px;
+        text-align: left;
+        color: #4C4C4C;
       }
 
       .cmp-tile-title {
@@ -46,7 +62,7 @@
         letter-spacing: 0.2px;
         line-height: 24px;
         text-align: left;
-        padding: 18px 24px 0px 24px;
+        padding: 0 24px 0px 24px;
       }
 
       .cmp-tile-subtitle {
@@ -60,9 +76,11 @@
         flex-wrap: wrap;
         .cmp-tile-left-icon {
           padding: 0px 0px 24px 24px;
+          max-width: 64px;
         }
         .cmp-tile-right-icon {
           padding: 0px 24px 24px 0px;
+          max-width: 64px;
         }
       }
     }

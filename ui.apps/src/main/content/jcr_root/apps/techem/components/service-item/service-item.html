@@ -8,17 +8,17 @@
      data-sly-use.actionsTemplate="actions.html"
      data-sly-test.hasContent="${teaser.imageResource || teaser.pretitle || teaser.title || teaser.description || teaser.actions.size > 0}"
      id="${component.id}"
-     class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''}"
+     class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-tile"
      data-cmp-data-layer="${teaser.data.json}">
-    <div class="cmp-teaser__content cmp-item-first">
-		<div class="item-category">${properties.category}</div>
-		<div class="item-title">${properties.productTitle}</div>
+    <div class="cmp-teaser__content">
+		<div class="cmp-tile-category">${properties.category}</div>
+		<div class="cmp-tile-title"><strong>${properties.productTitle}</strong></div>
+		<div class="cmp-tile-subtitle">${properties.description}</div>
     </div>
-	<div class="cmp-item-second">
-        <div class="item-icon" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
-        <div class="item-description">${properties.description}</div>
+	<div class="cmp-tile-icons">
+        <div class="cmp-tile-left-icon" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
 		<a href="${properties.linkURL2}.html">
-			<img class="item-arrow" src="${properties.fileReference2}">
+			<img class="cmp-tile-right-icon" src="${properties.fileReference2}">
 		</a>
 	</div>
 </div>
