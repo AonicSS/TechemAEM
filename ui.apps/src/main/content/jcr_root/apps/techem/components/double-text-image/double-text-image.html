@@ -1,0 +1,32 @@
+<div data-sly-use.teaser="com.adobe.cq.wcm.core.components.models.Teaser"
+     data-sly-use.textimage="com.techem.core.models.TextImage"
+     data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.imageTemplate="image.html"
+     data-sly-use.pretitleTemplate="pretitle.html"
+     data-sly-use.titleTemplate="title.html"
+     data-sly-use.descriptionTemplate="description.html"
+     data-sly-use.locationTemplate="location.html"
+     data-sly-use.actionsTemplate="actions.html"
+     data-sly-test.hasContent="${teaser.imageResource || teaser.pretitle || teaser.title || teaser.description || teaser.actions.size > 0}"
+     id="${component.id}"
+     data-cmp-data-layer="${teaser.data.json}">
+	<div class="first-text-image">
+        <div class="cmp-image__${textimage.textPosition}" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
+        <div class="cmp-teaser__content cmp-content__${textimage.textPosition}">
+            <div class="cmp-text-image-headline">${properties.imageTextHeadline1}</div>
+            <div class="cmp-text-image-description">${properties.description1}</div>
+            <sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
+        </div>
+	</div>
+	<div class="second-text-image">
+		<div class="cmp-teaser__content cmp-content__${properties.textPosition2}">
+            <div class="cmp-text-image-headline">${properties.imageTextHeadline2}</div>
+            <div class="cmp-text-image-description">${properties.description2}</div>
+        </div>
+        <a href="${properties.linkURL2}.html">
+            <img class="cmp-image__${properties.textPosition2}" src="${properties.fileReference2}">
+        </a>
+	</div>
+</div>
+<sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>
