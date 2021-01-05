@@ -15,7 +15,7 @@
     <div class="cmp-image__${textimage.textPosition} aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--tablet--6 aem-GridColumn--phone--12" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
     <div class="cmp-content__${textimage.textPosition} aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--tablet--6 aem-GridColumn--phone--12 cmp-teaser__content">
         <div class="cmp-text-image-headline">${properties.imageTextHeadline}</div>
-        <sly class="cmp-text-image-description" data-sly-call="${descriptionTemplate.description @ teaser=teaser}"></sly>
+        <div class="cmp-teaser__description">${properties.descriptionTextImage}</div>
         <sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
     </div>
 </div>

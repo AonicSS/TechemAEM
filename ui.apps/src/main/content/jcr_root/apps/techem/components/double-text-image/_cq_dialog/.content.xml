@@ -52,14 +52,6 @@
                                                 fieldLabel="Text Position 1"
                                                 name="./textPosition">
                                                 <items jcr:primaryType="nt:unstructured">
-                                                    <top
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Top"
-                                                        value="top"/>
-                                                    <bottom
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Bottom"
-                                                        value="bottom"/>
                                                     <left
                                                         jcr:primaryType="nt:unstructured"
                                                         text="Left"
@@ -215,14 +207,6 @@
                                                 fieldLabel="Text Position 2"
                                                 name="./textPosition2">
                                                 <items jcr:primaryType="nt:unstructured">
-                                                    <top
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Top"
-                                                        value="top"/>
-                                                    <bottom
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Bottom"
-                                                        value="bottom"/>
                                                     <left
                                                         jcr:primaryType="nt:unstructured"
                                                         text="Left"

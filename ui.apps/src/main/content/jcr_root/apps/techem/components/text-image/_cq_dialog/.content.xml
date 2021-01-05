@@ -32,13 +32,19 @@
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items
                                             jcr:primaryType="nt:unstructured"
-                                            sling:hideChildren="[titleGroup,id,pretitle]">
+                                            sling:hideChildren="[titleGroup,id,pretitle,descriptionGroup]">
                                             <headline
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldDescription="A pretitle that will be displayed above the Image-Text headline."
+                                                fieldDescription="A headline that will be displayed above the Text-Image headline."
                                                 fieldLabel="Headline"
                                                 name="./imageTextHeadline"/>
+                                            <description
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="A description that will be displayed above the Text-Image headline."
+                                                fieldLabel="Description"
+                                                name="./descriptionTextImage"/>
                                             <descriptionGroup
                                                 granite:hide="${cqDesign.descriptionHidden}"
                                                 jcr:primaryType="nt:unstructured"
@@ -194,14 +200,6 @@
                                                 fieldLabel="textPosition"
                                                 name="./textPosition">
                                                 <items jcr:primaryType="nt:unstructured">
-                                                    <top
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Top"
-                                                        value="top"/>
-                                                    <bottom
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Bottom"
-                                                        value="bottom"/>
                                                     <left
                                                         jcr:primaryType="nt:unstructured"
                                                         text="Left"
