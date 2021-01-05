@@ -19,13 +19,14 @@
             <sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
         </div>
 	</div>
-	<div class="second-text-image cmp-teaser aem-Grid aem-Grid--12 aem-Grid--default--12">
-		<div class="cmp-teaser__content cmp-content__${properties.textPosition2} aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--tablet--6 aem-GridColumn--phone--12">
+    <div class="second-text-image cmp-teaser aem-Grid aem-Grid--12 aem-Grid--default--12">
+        <div class="cmp-teaser__content cmp-content__${properties.textPosition2} aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--tablet--6 aem-GridColumn--phone--12">
             <div class="cmp-text-image-headline">${properties.imageTextHeadline2}</div>
             <div class="cmp-text-image-description">${properties.description2}</div>
-            <sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
         </div>
-        <div class="cmp-image__${textimage.textPosition2} aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--tablet--6 aem-GridColumn--phone--12" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
-	</div>
+        <a href="${properties.linkURL2}.html">
+            <img class="cmp-image__${properties.textPosition2} aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--tablet--6 aem-GridColumn--phone--12" src="${properties.fileReference2}">
+        </a>
+    </div>
 </div>
 <sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>
