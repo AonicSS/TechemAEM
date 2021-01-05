@@ -1,11 +1,27 @@
 .double-text-image{
+  .first-text-image{
+      .cmp-image__left img {
+          margin-left:-10px;
+          border-radius: 0 40px 0 0!important;
+      }
+      .cmp-image__right img {
+          margin-left: 10px;
+          border-radius: 40px 0 0 0!important;
+      }
+  }
   .second-text-image{
     margin-top:-20px!important;
-    .cmp-image {
-      img {
-        margin-left:-20px;
+      .cmp-image__left img {
+          margin-left:-10px;
+          border-radius: 0 0 40px 0!important;
       }
-    }
+      .cmp-image__right img {
+          margin-left: 10px;
+          border-radius: 0 0 0 40px !important;
+      }
+      .cmp-content__right {
+        order: 2;
+      }
   }
   .cmp-teaser {
     display: flex;
@@ -19,7 +35,12 @@
     }
     .cmp-image__right{
       img{
-        border-radius: 40px 0 0 0!important;
+        max-width: 100%;
+      }
+    }
+    .cmp-image__left{
+      img{
+        max-width: 100%;
       }
     }
     .cmp-content__right {
