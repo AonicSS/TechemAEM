@@ -1,0 +1,102 @@
+.fullbleed {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+
+    .cmp-teaser__image {
+        position: relative;
+        .img{
+            max-width: 100%;
+        }
+    }
+    .cmp-teaser__content {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        min-height: auto;
+        min-width: auto;
+        width: 55%;
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+        text-align: center;
+    }
+    .cmp-teaser__pretitle {
+        font-family: Univers65;
+        font-size: 50px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.28;
+        letter-spacing: normal;
+        text-align: center;
+    }
+    .cmp-teaser__title-link {
+        color: #fff;
+        text-decoration: none;
+    }
+    .cmp-teaser__description {
+        font-family: Univers55;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.75;
+        letter-spacing: -0.1px;
+        margin: 20px 0 60px;
+    }
+    .cmp-teaser__action-container {
+        .cmp-teaser__action-link:last-child{
+            background-color: #fff;
+            color: #E20613;
+            position: relative;
+            &:after{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    border-radius: 30px;
+                    border: 3px solid #e20613;
+            }
+            &:hover{
+                background-color: #000;
+                color: #fff;
+                &:after{
+                    border: 3px solid #fff;
+                }
+            }
+        }
+        
+    }
+    .cmp-teaser__action-link {
+        display: inline-block;
+        margin: 0 0 10px 0;
+        padding: 14px 30px;
+        border: 0;
+        border-radius: 30px;
+        font-family: FiraSans;
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.63;
+        letter-spacing: 0.4px;
+        text-transform: none;
+        text-decoration: none;
+        border:0;
+        color: #fff;
+        background-color: #e20613;
+        &:hover{
+            background-color: #000;
+        }
+    }
+}
