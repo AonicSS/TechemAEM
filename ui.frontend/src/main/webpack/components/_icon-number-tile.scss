@@ -1,0 +1,64 @@
+.icon-number-tile{
+    &:first-of-type{
+        padding-right:4%;
+    }
+    &:nth-of-type(2){
+        padding: 0 2%;
+    }
+    &:nth-of-type(3){
+        padding-left:4%;
+    }
+    .cmp-icon-number-tile-icon {
+        .cmp-teaser__image{
+            width: 68px;
+            height: 68px;
+            margin:0 auto;
+            border-radius: 100%;
+            background-color: $color-primary-button;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .cmp-image{
+                width: 32px;
+                height: 32px;
+            }
+            img{
+                width:32px;
+            }
+        }
+    }
+    .cmp-tile-number{
+        width: 68px;
+        height: 68px;
+        margin:0 auto;
+        border-radius: 100%;
+        background-color: $color-primary-button;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: Univers65;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+    .cmp-icon-number-tile-title,.cmp-icon-number-tile-body{
+        text-align: center;
+    }
+    .cmp-icon-number-tile-title{
+        font-family: Univers65;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.3;
+        letter-spacing: 0.2px;
+        margin: 25px 0;
+    }
+    .cmp-icon-number-tile-body{
+        font-family: Univers55;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 1.63;
+        letter-spacing: -0.1px;
+    }
+}

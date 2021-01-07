@@ -12,7 +12,8 @@
      class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-image-tile"
      data-cmp-data-layer="${teaser.data.json}">
 
-	<div class="cmp-tile-icons cmp-icon-number-tile-icon" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
+  <div class="cmp-tile-icons cmp-icon-number-tile-icon" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
+  <div class="cmp-tile-number"></div>
     <div class="cmp-teaser__content">
 		<div class="cmp-icon-number-tile-title"><strong>${properties.iconNumberTileTitle}</strong></div>
 		<div class="cmp-icon-number-tile-body">${properties.body}</div>
