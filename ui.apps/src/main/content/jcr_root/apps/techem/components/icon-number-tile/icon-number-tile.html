@@ -10,7 +10,7 @@
 	 data-sly-use.bodyTemplate="body.html"
      data-sly-test.hasContent="${teaser.imageResource || iconNumberTile.number || iconNumberTile.title || iconNumberTile.body || teaser.actions.size > 0}"
      id="${component.id}"
-     class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-image-tile"
+     class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-image-tile aem-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--12 aem-GridColumn aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0 aem-GridColumn--default--4"
      data-cmp-data-layer="${teaser.data.json}">
 
   <div data-sly-test="${properties.iconOrNumber=='icon'}" class="cmp-tile-icons cmp-icon-number-tile-icon" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
