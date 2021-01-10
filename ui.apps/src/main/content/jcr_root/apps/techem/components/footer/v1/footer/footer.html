@@ -1,0 +1,34 @@
+<sly data-sly-use.footer="com.techem.core.models.Footer"/>
+<sly data-sly-test.footerItems="${footer.footerItems.entrySet}"/>
+
+<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+    Configure ${component.properties.jcr:title}
+</div>
+
+<footer role="contentinfo" class="footer">
+    <div class="footer-container">
+        <div data-sly-test="${footerItems}" class="footer-category">
+            <ul data-sly-list="${footerItems.key}" role="presentation">
+                <li  data-sly-list.footerlink="${item.value}">
+                    <span data-sly-test="${itemList.first}" class="footer-headline">
+                        ${item.key.categoryTitle}
+                    </span>
+                    <a data-sly-test="${!itemList.first}" class="footer-link" href=" ${footerlink.linkUrl}.html"
+                       target="${footerlink.openNewTab ? '_blank' : ''}">
+                         ${footerlink.linkText}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="social-media-container">
+        <sly data-sly-test="${wcmmode.edit}"
+             data-sly-resource="${ @path='./social-media-widget',
+             resourceType='wcax-commons/components/content/social-media-widget/social-media-widget'}">
+        </sly>
+    </div>
+</footer>
+
+
+
+
