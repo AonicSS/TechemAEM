@@ -40,6 +40,23 @@
                                                 fieldLabel="Module Headline"
                                                 name="./headline"
                                                 required="{Boolean}true"/>
+                                            <background
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldDescription="Choose the background color"
+                                                    fieldLabel="Background color"
+                                                    name="./background">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <white
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="White"
+                                                            value="white"/>
+                                                    <number
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Gray"
+                                                            value="gray"/>
+                                                </items>
+                                            </background>
                                         </items>
                                     </column>
                                 </items>

@@ -8,7 +8,7 @@
      data-sly-use.actionsTemplate="actions.html"
      data-sly-test.hasContent="${teaser.imageResource || imageTile.headline || imageTile.body || teaser.actions.size > 0}"
      id="${component.id}"
-     class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-image-tile bg-${imageTile.background}"
+     class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-image-tile"
      data-cmp-data-layer="${teaser.data.json}">
 
 	<div class="cmp-tile-icons cmp-image-tile-icon" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>

@@ -23,6 +23,10 @@ public class GeneralContainer {
     @Default(values = "Headline")
     private String headline;
 
+    @Inject
+    @Default(values = "white")
+    private String background;
+
     public String getHeadline() {
         if (this.headline == null) {
             this.headline = this.resource.getValueMap().get("headline", String.class);
@@ -30,4 +34,10 @@ public class GeneralContainer {
         return headline;
     }
 
+    public String getBackground() {
+        if (this.background == null) {
+            this.background = this.resource.getValueMap().get("background", String.class);
+        }
+        return background;
+    }
 }

@@ -27,10 +27,6 @@ public class ImageTile {
     private String body;
 
     @Inject
-    @Default(values = "white")
-    private String background;
-
-    @Inject
     private String linkURL2;
 
     @Inject
@@ -48,13 +44,6 @@ public class ImageTile {
             this.body = this.resource.getValueMap().get("body", String.class);
         }
         return body;
-    }
-
-    public String getBackground() {
-        if (this.background == null) {
-            this.background = this.resource.getValueMap().get("background", String.class);
-        }
-        return background;
     }
 
     public String getLinkURL2() {
