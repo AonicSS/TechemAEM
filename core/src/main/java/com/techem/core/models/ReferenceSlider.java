@@ -27,6 +27,10 @@ public class ReferenceSlider {
     private String title;
 
     @Inject
+    @Default(values = "Source author")
+    private String sourceAuthor;
+
+    @Inject
     @Default(values = "Source details")
     private String sourceDetails;
 
@@ -46,6 +50,13 @@ public class ReferenceSlider {
             this.title = this.resource.getValueMap().get("title", String.class);
         }
         return title;
+    }
+
+    public String getSourceAuthor() {
+        if (this.sourceAuthor == null) {
+            this.sourceAuthor = this.resource.getValueMap().get("sourceAuthor", String.class);
+        }
+        return sourceAuthor;
     }
 
     public String getSourceDetails() {

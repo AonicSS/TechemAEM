@@ -3,6 +3,7 @@
      data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
      data-sly-use.imageTemplate="image.html"
+	 data-sly-use.sourceAuthorTemplate="sourceAuthor.html"
 	 data-sly-use.sourceDetailsTemplate="sourceDetails.html"
      data-sly-use.titleTemplate="title.html"
 	 data-sly-use.headlineTemplate="headline.html"
@@ -24,7 +25,10 @@
                     <img class="cmp-tile-icons cmp-image-tile-arrow" src="${properties.fileReference2}">
                 </a>
 			</div>
-			<sly data-sly-call="${sourceDetailsTemplate.sourceDetails @ referenceSlider=referenceSlider}"></sly>
+			<div>
+				<sly data-sly-call="${sourceAuthorTemplate.sourceAuthor @ referenceSlider=referenceSlider}"></sly>
+				<sly data-sly-call="${sourceDetailsTemplate.sourceDetails @ referenceSlider=referenceSlider}"></sly>
+			</div>
 			<sly data-sly-call="${descriptionTemplate.description @ referenceSlider=referenceSlider}"></sly>
         </div>
 	</div>
