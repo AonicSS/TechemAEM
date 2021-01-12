@@ -75,6 +75,7 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldDescription="A headline for the image tile"
                                                 fieldLabel="Headline"
+                                                maxlength="{Long}40"
                                                 name="./headline"
                                                 required="true"/>
                                             <body
@@ -82,6 +83,7 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldDescription="The body to display the text for the tile"
                                                 fieldLabel="Body"
+                                                maxlength="{Long}173"
                                                 name="./body"/>
                                         </items>
                                     </column>

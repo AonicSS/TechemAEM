@@ -2,6 +2,7 @@
     data-sly-use.generalContainer="com.techem.core.models.GeneralContainer"
     class="bg-${generalContainer.background}">
 	<div class="cmp-container-headline">${generalContainer.headline}</div>
+    <div data-sly-test.subtitle="${generalContainer.subtitle}" class="cmp-container-text">${generalContainer.subtitle}</div>
     <sly data-sly-test.responsive="${container.layout == 'RESPONSIVE_GRID'}"
          data-sly-use.responsiveGridTemplate="responsiveGrid.html"
          data-sly-call="${responsiveGridTemplate.responsiveGrid @ container=container}"></sly>

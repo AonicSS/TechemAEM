@@ -24,6 +24,9 @@ public class GeneralContainer {
     private String headline;
 
     @Inject
+    private String subtitle;
+
+    @Inject
     @Default(values = "white")
     private String background;
 
@@ -32,6 +35,13 @@ public class GeneralContainer {
             this.headline = this.resource.getValueMap().get("headline", String.class);
         }
         return headline;
+    }
+
+    public String getSubtitle() {
+        if (this.subtitle == null) {
+            this.subtitle = this.resource.getValueMap().get("subtitle", String.class);
+        }
+        return subtitle;
     }
 
     public String getBackground() {
