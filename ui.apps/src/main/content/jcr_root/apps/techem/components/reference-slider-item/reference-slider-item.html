@@ -6,7 +6,6 @@
 	 data-sly-use.sourceAuthorTemplate="sourceAuthor.html"
 	 data-sly-use.sourceDetailsTemplate="sourceDetails.html"
      data-sly-use.titleTemplate="title.html"
-	 data-sly-use.headlineTemplate="headline.html"
      data-sly-use.descriptionTemplate="description.html"
      data-sly-use.actionsTemplate="actions.html"
      data-sly-test.hasContent="${teaser.imageResource || referenceSlider.headline || referenceSlider.title || referenceSlider.description || teaser.actions.size > 0}"
@@ -15,7 +14,6 @@
      data-cmp-data-layer="${teaser.data.json}">
 
 	<div class="cmp-reference-slider-item">
-		<sly data-sly-call="${headlineTemplate.headline @ referenceSlider=referenceSlider}"></sly>
         <div class="cmp-reference-icon" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
 
         <div class="cmp-teaser__content">
