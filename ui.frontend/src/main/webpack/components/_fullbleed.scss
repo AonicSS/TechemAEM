@@ -52,7 +52,7 @@
         margin: 20px 0 60px;
     }
     .cmp-teaser__action-container {
-        .cmp-teaser__action-link:last-child{
+        .cmp-teaser__action-link:nth-of-type(2){
             background-color: #fff;
             color: #E20613;
             position: relative;
@@ -68,10 +68,10 @@
                     border: 3px solid #e20613;
             }
             &:hover{
-                background-color: #000;
+                background-color:  #e20613;
                 color: #fff;
                 &:after{
-                    border: 3px solid #fff;
+                    border: 3px solid  #e20613;
                 }
             }
         }
@@ -96,7 +96,7 @@
         color: #fff;
         background-color: #e20613;
         &:hover{
-            background-color: #000;
+            background-color: #C50A15;
         }
     }
 }
