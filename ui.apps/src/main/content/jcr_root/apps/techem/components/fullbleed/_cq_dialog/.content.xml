@@ -75,6 +75,7 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldDescription="A headline that will be displayed for the FullBleed component."
                                                 fieldLabel="Headline"
+                                                maxlength="{Long}63"
                                                 name="./headline"
                                                 required="{Boolean}true"/>
                                             <body
@@ -82,6 +83,7 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldDescription="The text body that will be displayed for the FullBleed component."
                                                 fieldLabel="Body"
+                                                maxlength="{Long}87"
                                                 name="./body"
                                                 required="{Boolean}true"/>
                                         </items>
