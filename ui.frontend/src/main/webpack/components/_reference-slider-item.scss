@@ -10,7 +10,7 @@
             padding-right: 8.333%;
             position: relative;
         img{
-            border-radius: 40px 0 40px 0;
+            border-radius: $border-radius-top-l-bottom-r;
         }
         &:after{
             content: '\2019 \2019';
@@ -19,8 +19,8 @@
             font-size: 260px;
             top: 25%;
             right: 0;
-            font-family: "Univers LT Std 65 Bold";
-            color: #e20613;
+            font-family: $font-universe-roman-bold;
+            color: $color-primary-button;
             letter-spacing: -28px;
             line-height: 0;
         }
@@ -53,7 +53,7 @@
         }
     }
     .cmp-reference-sourceAuthor,.cmp-reference-sourceDetails{
-        font-family: "Univers LT Std";
+        font-family: $font-universe-std;
         font-size: 16px;
         letter-spacing: 0;
         line-height: 26px;
@@ -66,7 +66,7 @@
         margin-top: 30px;
         opacity: 0.8;
         color: #4C4C4C;
-        font-family: "Univers LT Std";
+        font-family: $font-universe-std;
         font-size: 16px;
         letter-spacing: -0.1px;
         line-height: 26px;
