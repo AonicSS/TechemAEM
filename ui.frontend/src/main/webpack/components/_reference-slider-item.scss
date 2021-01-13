@@ -1,0 +1,108 @@
+.cmp-reference-slider-item {
+    display: flex!important;
+    flex-wrap: wrap;
+    .cmp-reference-icon{
+        display: flex!important;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .cmp-teaser__image{
+            padding-right: 8.333%;
+            position: relative;
+        img{
+            border-radius: $border-radius-top-l-bottom-r;
+        }
+        &:after{
+            content: '\2019 \2019';
+            display: inline-block;
+            position: absolute;
+            font-size: 260px;
+            top: 25%;
+            right: 0;
+            font-family: $font-universe-roman-bold;
+            color: $color-primary-button;
+            letter-spacing: -28px;
+            line-height: 0;
+        }
+    }
+    .cmp-teaser__content{
+        display: flex!important;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .cmp-reference-title-link{
+        margin-bottom: 30px;
+        a{
+            color: #222222;
+            font-family: "Univers LT Std";
+            font-weight: bold;
+            font-size: 34px;
+            letter-spacing: 0;
+            line-height: 46px;
+            text-decoration: none;
+            width: 84%;
+            display: inline-block;
+            .cmp-reference-title{
+                display: inline;
+            }
+        }
+        .cmp-image-tile-arrow{
+            display: inline;
+            max-width: 28px;
+            vertical-align: middle;
+        }
+    }
+    .cmp-reference-sourceAuthor,.cmp-reference-sourceDetails{
+        font-family: $font-universe-std;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 26px;
+        font-weight: bold;
+    }
+    .cmp-reference-sourceDetails{
+        font-weight: normal;
+    }
+    .cmp-reference-description{
+        margin-top: 30px;
+        opacity: 0.8;
+        color: #4C4C4C;
+        font-family: $font-universe-std;
+        font-size: 16px;
+        letter-spacing: -0.1px;
+        line-height: 26px;
+    }
+}
+@media only screen and (max-width: 720px) {
+    .cmp-reference-slider-item {
+        .cmp-teaser__image{
+                padding-right: 0;
+            &:after{
+                font-size: 200px;
+                top: 25%;
+                right: 0;
+                letter-spacing: -28px;
+            }
+        }
+        .cmp-teaser__content{
+            display: flex!important;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cmp-reference-title-link{
+            margin-top: 30px;
+            margin-bottom: 25px;
+            a{
+                font-size: 22px;
+                letter-spacing: -0.1px;
+                line-height: 30px;
+            }
+        }
+        .cmp-reference-sourceAuthor,.cmp-reference-sourceDetails{
+            font-size: 14px;
+        }
+        .cmp-reference-description {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+    }
+  }
