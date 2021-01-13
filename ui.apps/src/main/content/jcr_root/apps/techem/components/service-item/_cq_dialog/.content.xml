@@ -33,23 +33,20 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <category
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldDescription="Sub-text for category"
-                                                fieldLabel="Category (Optional)"
-                                                name="./category"/>
                                             <title
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldDescription="A title for the service item"
                                                 fieldLabel="Product/Service Title"
-                                                name="./productTitle"/>
+                                                maxlength="{Long}34"
+                                                name="./productTitle"
+                                                required="{Boolean}true"/>
                                             <description
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldDescription="A description to display as the subheadline for the teaser."
                                                 fieldLabel="Description"
+                                                maxlength="{Long}118"
                                                 name="./description"/>
                                         </items>
                                     </column>
@@ -182,6 +179,7 @@
                                                 mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
                                                 multiple="{Boolean}false"
                                                 name="./arrow"
+                                                required="{Boolean}true"
                                                 title="Upload Icon Asset"
                                                 uploadUrl="${suffix.path}"
                                                 useHTML5="{Boolean}true"/>
