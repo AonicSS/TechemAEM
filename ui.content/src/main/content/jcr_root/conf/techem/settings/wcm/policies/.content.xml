@@ -33,9 +33,9 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Image"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    disableLazyLoading="true"
                     allowUpload="false"
                     altValueFromDAM="true"
+                    disableLazyLoading="true"
                     displayPopupTitle="true"
                     isDecorative="false"
                     jpegQuality="{Long}85"
@@ -329,16 +329,26 @@
             </download>
             <page jcr:primaryType="nt:unstructured">
                 <policy
-                    ampMode="pairedAmp"
                     jcr:description="Includes the required client libraries."
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Generic Page"
                     sling:resourceType="wcm/core/components/policy/policy"
+                    ampMode="pairedAmp"
                     clientlibs="[techem.dependencies,techem.site]"
                     clientlibsJsHead="techem.dependencies">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
             </page>
+            <general-container jcr:primaryType="nt:unstructured">
+                <policy_general-container
+                    jcr:description="Allows the components to be dropped into this container"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="General Container"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[/apps/techem/components/image-tile]">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_general-container>
+            </general-container>
         </components>
     </techem>
 </jcr:root>
