@@ -1,0 +1,34 @@
+<div data-sly-use.teaser="com.adobe.cq.wcm.core.components.models.Teaser"
+	 data-sly-use.referenceSlider="com.techem.core.models.ReferenceSlider"
+     data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.imageTemplate="image.html"
+	 data-sly-use.sourceAuthorTemplate="sourceAuthor.html"
+	 data-sly-use.sourceDetailsTemplate="sourceDetails.html"
+     data-sly-use.titleTemplate="title.html"
+     data-sly-use.descriptionTemplate="description.html"
+     data-sly-use.actionsTemplate="actions.html"
+     data-sly-test.hasContent="${teaser.imageResource || referenceSlider.headline || referenceSlider.title || referenceSlider.description || teaser.actions.size > 0}"
+     id="${component.id}"
+     class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-image-tile"
+     data-cmp-data-layer="${teaser.data.json}">
+
+	<div class="cmp-reference-slider-item aem-Grid aem-Grid--12 aem-Grid--default--12">
+        <div class="cmp-reference-icon em-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--12 aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
+
+        <div class="cmp-teaser__content em-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--12 aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0">
+			<div class="cmp-reference-title-link">
+                <a href="${properties.linkURL2}.html">
+					<sly data-sly-call="${titleTemplate.title @ referenceSlider=referenceSlider}"></sly>
+                    <img class="cmp-tile-icons cmp-image-tile-arrow" src="${properties.fileReference2}">
+                </a>
+			</div>
+			<div>
+				<sly data-sly-call="${sourceAuthorTemplate.sourceAuthor @ referenceSlider=referenceSlider}"></sly>
+				<sly data-sly-call="${sourceDetailsTemplate.sourceDetails @ referenceSlider=referenceSlider}"></sly>
+			</div>
+			<sly data-sly-call="${descriptionTemplate.description @ referenceSlider=referenceSlider}"></sly>
+        </div>
+	</div>
+</div>
+<sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>
