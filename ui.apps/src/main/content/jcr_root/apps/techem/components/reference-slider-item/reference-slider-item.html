@@ -13,10 +13,10 @@
      class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-image-tile"
      data-cmp-data-layer="${teaser.data.json}">
 
-	<div class="cmp-reference-slider-item">
-        <div class="cmp-reference-icon" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
+	<div class="cmp-reference-slider-item aem-Grid aem-Grid--12 aem-Grid--default--12">
+        <div class="cmp-reference-icon em-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--12 aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
 
-        <div class="cmp-teaser__content">
+        <div class="cmp-teaser__content em-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--12 aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0">
 			<div class="cmp-reference-title-link">
                 <a href="${properties.linkURL2}.html">
 					<sly data-sly-call="${titleTemplate.title @ referenceSlider=referenceSlider}"></sly>

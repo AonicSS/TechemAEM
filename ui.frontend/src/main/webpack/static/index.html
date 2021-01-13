@@ -1,370 +1,171 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <title>Static Frontend file</title>
-    <meta name="template" content="page-content"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="template" content="page-content" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/etc.clientlibs/techem/clientlibs/clientlib-base.css" type="text/css">
     <script type="text/javascript" src="/etc.clientlibs/techem/clientlibs/clientlib-dependencies.js"></script>
     <link rel="stylesheet" href="/etc.clientlibs/techem/clientlibs/clientlib-dependencies.css" type="text/css">
 </head>
-<body class="page basicpage">
-<div class="root container responsivegrid">
-    <div class="cmp-container">
-        <header class="experiencefragment">
-            <div class="cmp-experiencefragment">
-                <div class="cmp-container">
-                    <div class="navigation">
-                        <nav class="cmp-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                            <ul class="cmp-navigation__group">
-                                <li class="cmp-navigation__item cmp-navigation__item--level-0 cmp-navigation__item--active">
-                                    <a href="/content/techem/us/en.html" title="Techem" aria-current="page" class="cmp-navigation__item-link">Techem</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="languagenavigation">
-                        <nav class="cmp-languagenavigation">
-                            <ul class="cmp-languagenavigation__group">
-                                <li class="cmp-languagenavigation__item cmp-languagenavigation__item--langcode-en cmp-languagenavigation__item--level-0">
-                                    <span class="cmp-languagenavigation__item-title" lang="en">United States</span>
-                                    <ul class="cmp-languagenavigation__group">
-                                        <li class="cmp-languagenavigation__item cmp-languagenavigation__item--langcode-en cmp-languagenavigation__item--level-1">
-                                            <a class="cmp-languagenavigation__item-link" href="/content/techem/us/en.html" hreflang="en" lang="en" rel="alternate" title="English">English</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="search">
-                        <section class="cmp-search" role="search" data-cmp-is="search" data-cmp-min-length="3" data-cmp-results-size="10">
-                            <form class="cmp-search__form" data-cmp-hook-search="form" method="get" action="/content/techem/us/en.searchresults.json/_jcr_content/root/search" autocomplete="off">
-                                <div class="cmp-search__field">
-                                    <i class="cmp-search__icon" data-cmp-hook-search="icon"></i>
-                                    <span class="cmp-search__loading-indicator" data-cmp-hook-search="loadingIndicator"></span>
-                                    <input class="cmp-search__input" data-cmp-hook-search="input" type="text" name="fulltext" placeholder="Search" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-invalid="false"/>
-                                    <button class="cmp-search__clear" data-cmp-hook-search="clear">
-                                        <i class="cmp-search__clear-icon"></i>
-                                    </button>
-                                </div>
-                            </form>
-                            <div class="cmp-search__results" data-cmp-hook-search="results" role="listbox" aria-multiselectable="false"></div>
-                            <script data-cmp-hook-search="itemTemplate" type="x-template">
-                                <a class="cmp-search__item" data-cmp-hook-search="item">
-                                    <span class="cmp-search__item-title" data-cmp-hook-search="itemTitle"></span>
-                                </a>
-                            </script>
-                        </section></div>
-                </div>
-            </div>
-        </header>
-        <header class="experiencefragment experiencefragment-nav">
-            <div class="cmp-experiencefragment">
-                <div class="cmp-container-navigation">
-                    <div class="navigation">
-                        <nav class="cmp-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                            <ul class="cmp-navigation__group">
-                                <li class="cmp-navigation__item-nav">
-                                    <a href="/content/techem/us/en.html" title="Techem" aria-current="page" class="cmp-navigation__item-link">Abrechnung</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="navigation">
-                        <nav class="cmp-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                            <ul class="cmp-navigation__group">
-                                <li class="cmp-navigation__item-nav">
-                                    <a href="/content/techem/us/en.html" title="Techem" aria-current="page" class="cmp-navigation__item-link">Gerate</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="navigation">
-                        <nav class="cmp-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                            <ul class="cmp-navigation__group">
-                                <li class="cmp-navigation__item-nav">
-                                    <a href="/content/techem/us/en.html" title="Techem" aria-current="page" class="cmp-navigation__item-link">Immobilienservices</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="navigation">
-                        <nav class="cmp-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                            <ul class="cmp-navigation__group">
-                                <li class="cmp-navigation__item-nav">
-                                    <a href="/content/techem/us/en.html" title="Techem" aria-current="page" class="cmp-navigation__item-link">Energieeffizienz</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="navigation">
-                        <nav class="cmp-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                            <ul class="cmp-navigation__group">
-                                <li class="cmp-navigation__item-nav">
-                                    <a href="/content/techem/us/en.html" title="Techem" aria-current="page" class="cmp-navigation__item-link">Unternehmen</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="navigation">
-                        <nav class="cmp-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                            <ul class="cmp-navigation__group">
-                                <li class="cmp-navigation__item-nav">
-                                    <a href="/content/techem/us/en.html" title="Techem" aria-current="page" class="cmp-navigation__item-link">Services</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="navigation">
-                        <nav class="cmp-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-                            <ul class="cmp-navigation__group">
-                                <li>
-                                    <a href="/content/techem/us/en.html" title="Techem" aria-current="page" class="cmp-navigation__item-link">Newsroom</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <main class="container responsivegrid">
-            <div class="cmp-container">
-                <div class="cmp-title">
-                    <h1 class="cmp-title__text">Unsere Lösungen für die Immobilienbranche</h1>
-                </div>
-                <div class="cmp-tile-list">
-                    <div class="cmp-tile">
-                        <div class="cmp-tile-title">Abrechnungsservices</div>
-                        <div class="cmp-tile-subtitle">DE</div>
-                        <div class="cmp-tile-icons">
-                            <div class="cmp-tile-left-icon">icon
-                                <img />
-                            </div>
-                            <div class="cmp-tile-right-icon">arrow
-                                <img />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cmp-tile">
-                        <div class="cmp-tile-title">Geräte</div>
-                        <div class="cmp-tile-subtitle">DE</div>
-                        <div class="cmp-tile-icons">
-                            <div class="cmp-tile-left-icon">icon
-                                <img />
-                            </div>
-                            <div class="cmp-tile-right-icon">arrow
-                                <img />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cmp-tile">
-                        <div class="cmp-tile-title">Immobilienservices</div>
-                        <div class="cmp-tile-subtitle">DE</div>
-                        <div class="cmp-tile-icons">
-                            <div class="cmp-tile-left-icon">icon
-                                <img />
-                            </div>
-                            <div class="cmp-tile-right-icon">arrow
-                                <img />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cmp-tile">
-                        <div class="cmp-tile-title">Energieeffiziente Technologien</div>
-                        <div class="cmp-tile-subtitle">DE</div>
-                        <div class="cmp-tile-icons">
-                            <div class="cmp-tile-left-icon">icon
-                                <img />
-                            </div>
-                            <div class="cmp-tile-right-icon">arrow
-                                <img />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cmp-container">
-                <div class="cmp-title">
-                    <h1 class="cmp-title__text">Der digitale Servicepartner der Immobilienbranche</h1>
-                    <h3 class="cmp-title__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet nisi dolor interdum venenatis. Aliquam fringilla tempus elementum. Mauris sagittis nunc id orci, sit amet rhoncus arcu viverra. </h3>
-                </div>
-            </div>
-            <div class="cmp-container">
-                <div class="cmp-title">
-                    <h1 class="cmp-title__text">Das sagen unsere Kunden</h1>
-                </div>
-            </div>
-            <div class="cmp-container">
-                <div class="cmp-title">
-                    <h1 class="cmp-title__text">Wissenwertes für Sie</h1>
-                    <button class="cmp-button button-primary button-huge">Zur Newsroom</button>
-                </div>
-            </div>
-            <div class="cmp-container">
-                <div class="cmp-title">
-                    <h1 class="cmp-title__text">Haben Sie Fragen? Vereinbaren Sie ein Beratungsgespräch.</h1>
-                    <h3 class="cmp-title__description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3>
-                    <button class="cmp-button button-primary button-huge">Beratungsgespräch vereinbaren</button>
-                </div>
-            </div>
-            <div class="cmp-container">
-                <div class="cmp-title">
-                    <h1 class="cmp-title__text">Techem für Bestandskunden</h1>
-                    <div>
-                        
-                    </div>
-                    <div class="buttons-aside">
-                        <button class="cmp-button button-secondary button-huge">Weitere Informationen</button>
-                        <button class="cmp-button button-primary button-huge">Jetzt registrieren</button>
-                    </div>
-                </div>
-            </div>
-            <div class="cmp-container">
-                <div class="cmp-title">
-                    <h1 class="cmp-title__text">Ratgeber</h1>
-                </div>
-            </div>
-            <div class="cmp-container">
-                <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
-                    <div class="title aem-GridColumn aem-GridColumn--default--12">
-                        <div class="cmp-title">
-                            <h1 class="cmp-title__text">Welcome to Techem!</h1>
-                        </div>
-                    </div>
-                    <div class="container responsivegrid aem-GridColumn aem-GridColumn--default--12">
-                        <div class="cmp-container">
-                            <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
-                                <div class="text aem-GridColumn aem-GridColumn--default--12">
-                                    <div class="cmp-text">
-                                        <p>This is the main welcome page of your web site. A few notes about this site:</p>
-                                        <ul>
-                                            <li>It is built entirely with the Core Components - see the <a href="https://www.adobe.com/go/aem_cmp_library">Component Library</a> to view the components in all their shapes and forms.</li>
-                                            <li>Only the Hello World component has been built custom to illustrate how further components can be built (which also shows how JavaScript is best initialized for components, so that it also works well with the Page Editor).</li>
-                                            <li>The page header and footer are assembled as Experience Fragments, which <a href="https://docs.adobe.com/content/help/en/experience-manager-core-components/using/components/experience-fragment.html#localized-site-structure">can also be localized if needed</a>.<br />
-                                            </li>
-                                            <li>The Style System is used to insert a sematic &lt;header&gt; and &lt;footer&gt; element to the corresponding Experience Fragment components, as well as a &lt;main&gt; element to the container of the page content. This allows to apply some CSS specifically to these sections of the page.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="helloworld aem-GridColumn aem-GridColumn--default--12"><div class="cmp-helloworld" data-cmp-is="helloworld">
-                                    <h2 class="cmp-helloworld__title">Hello World Component</h2>
-                                    <div class="cmp-helloworld__item">
-                                        <p class="cmp-helloworld__item-label">Model message:</p>
-                                        <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="model">Hello World!
-Resource type is: techem/components/helloworld
-Current page is:  /content/techem/us/en
-This is instance: 78f60b4a-a52a-4021-82d5-fb17f5fb95cf
-</pre>
 
-                                    </div>
-                                </div></div>
-                            </div>
+<body class="page basicpage">
+    <div id="container-1bdbcfb3f8" class="cmp-container">
+
+        <main class="container responsivegrid">
+
+
+            <div id="container-558fe0fe16" class="cmp-container">
+
+
+
+                <div class="aem-Grid aem-Grid--11 aem-Grid--default--11 ">
+
+                    <div class="title aem-GridColumn aem-GridColumn--default--11">
+                        <div data-cmp-data-layer="{&#34;title-2e86eaf842&#34;:{&#34;@type&#34;:&#34;techem/components/title&#34;,&#34;dc:title&#34;:&#34;Reference Slider&#34;}}"
+                            id="title-2e86eaf842" class="cmp-title">
+                            <h1 class="cmp-title__text">Reference Slider</h1>
                         </div>
+
+
+
                     </div>
+                    <div
+                        class="container responsivegrid aem-GridColumn--default--none aem-GridColumn aem-GridColumn--default--10 aem-GridColumn--offset--default--1">
+
+
+                        <div id="container-984e505b22" class="cmp-container">
+
+
+
+                            <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 aem-Grid--phone--12 ">
+
+                                <div
+                                    class="reference-slider-item teaser aem-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--12 aem-GridColumn aem-GridColumn--default--12 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0">
+                                    <div id="reference-slider-item-acda095f2d" class="cmp-teaser cmp-image-tile"
+                                        data-cmp-data-layer="{&#34;reference-slider-item-acda095f2d&#34;:{&#34;@type&#34;:&#34;techem/components/reference-slider-item&#34;,&#34;repo:modifyDate&#34;:&#34;2021-01-12T12:18:22Z&#34;}}">
+
+                                        <div
+                                            class="cmp-reference-slider-item aem-Grid aem-Grid--12 aem-Grid--default--12">
+                                            <div
+                                                class="cmp-reference-icon em-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--12 aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0">
+                                                <div class="cmp-teaser__image">
+                                                    <div data-cmp-is="image" data-cmp-lazythreshold="0"
+                                                        data-cmp-src="/content/techem/us/en/reference-slider0/_jcr_content/root/container/container/reference_slider_ite.coreimg{.width}.jpeg/1610453902073/snowy-mountain-glacier.jpeg"
+                                                        data-asset="/content/dam/core-components-examples/library/sample-assets/snowy-mountain-glacier.jpg"
+                                                        data-asset-id="45c6ee92-90e1-4af2-af69-b6dcbc7daeb7"
+                                                        data-title="Snowy mountain glacier" id="image-acda095f2d"
+                                                        data-cmp-data-layer="{&#34;image-acda095f2d&#34;:{&#34;image&#34;:{&#34;repo:id&#34;:&#34;45c6ee92-90e1-4af2-af69-b6dcbc7daeb7&#34;,&#34;@type&#34;:&#34;image/jpeg&#34;,&#34;repo:path&#34;:&#34;/content/dam/core-components-examples/library/sample-assets/snowy-mountain-glacier.jpg&#34;,&#34;xdm:tags&#34;:[],&#34;repo:modifyDate&#34;:&#34;2020-12-28T09:10:26Z&#34;},&#34;@type&#34;:&#34;techem/components/image&#34;,&#34;dc:title&#34;:&#34;Snowy mountain glacier&#34;,&#34;repo:modifyDate&#34;:&#34;2021-01-12T12:18:22Z&#34;}}"
+                                                        class="cmp-image" itemscope
+                                                        itemtype="http://schema.org/ImageObject">
+
+
+
+                                                        <img src="/content/techem/us/en/reference-slider0/_jcr_content/root/container/container/reference_slider_ite.coreimg.jpeg/1610453902073/snowy-mountain-glacier.jpeg"
+                                                            class="cmp-image__image" itemprop="contentUrl"
+                                                            data-cmp-hook-image="image" alt="Snowy mountain glacier"
+                                                            title="Snowy mountain glacier" />
+
+
+
+
+                                                        <meta itemprop="caption" content="Snowy mountain glacier" />
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="cmp-teaser__content em-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--12 aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0">
+                                                <div class="cmp-reference-title-link">
+                                                    <a href="/content/techem.html">
+
+                                                        <div class="cmp-reference-title">Seit Jahren fühle ich mich rundum bestens betreut. Phasellus sagittis ligula.</div>
+
+                                                        <img class="cmp-tile-icons cmp-image-tile-arrow"
+                                                            src="/content/dam/core-components-examples/library/components/form-button.svg" />
+                                                    </a>
+                                                </div>
+                                                <div>
+
+                                                    <span class="cmp-reference-sourceAuthor">Sandra Krämer, </span>
+
+
+                                                    <span class="cmp-reference-sourceDetails">private Vermieterin</span>
+
+                                                </div>
+
+                                                <div class="cmp-reference-description">Phasellus sagittis ligula quis metus porta vulputate. Suspendisse iaculis tortor eget pulvinar mollis. Phasellus mattis risus sapien.                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
                 </div>
+
             </div>
+
+
         </main>
         <footer class="experiencefragment">
-            <div class="cmp-experiencefragment">
-                <div class="cmp-container">
-                    
-                    <div class="footer-wrapper">
-                        <div class="cmp-footer-container">
-                            <p>Techem</p>
-                            <button class="cmp-button button-primary button-small">Kundenportal</button>
-                        </div>
-                    </div>
+            <div id="experiencefragment-c0c69f8ab7" class="cmp-experiencefragment cmp-experiencefragment--footer">
 
-                    <div class="separator">
-                        <div class="cmp-separator">
-                            <hr class="cmp-separator__horizontal-rule"/>
-                        </div></div>
 
-                    <div class="footer-wrapper">
-                        <div class="cmp-footer-container">
-                            <div class="footer-container">
-                                <div class="footer-subtitle">Abrechnung</div>
-                                <div class="footer-items">
-                                    <a>Heizkostenabrechnung</a>
-                                    <a>Betriebskostenabrechnung</a>
-                                    <a>Digitale Abrechnungsservices</a>
-                                    <a>Messstellenbetrieb (ab 2021)</a>
-                                </div>
-                            </div>
-                            <div class="footer-container">
-                                <div class="footer-subtitle">Energieffenz</div>
-                                <div class="footer-items">
-                                    <a>Contracting</a>
-                                    <a>E-Charging / Wallboxes</a>
-                                    <a>Adapterm</a>
-                                    <a>Hydraulischer Abgleich</a>
-                                    <a>Wiederruf</a>
-                                </div>
-                            </div>
-                            <div class="footer-container">
-                                <div class="footer-subtitle">Gerate</div>
-                                <div class="footer-items">
-                                    <a>Funktechnologie (Smart System)</a>
-                                    <a>Heizkostenverteiler</a>
-                                    <a>Wärme- und Kältezähler</a>
-                                    <a>Wasserzähler</a>
-                                </div>
-                            </div>
-                            <div class="footer-container">
-                                <div class="footer-subtitle">Immobilienservices</div>
-                                <div class="footer-items">
-                                    <a>Das Kundenportal</a>
-                                    <a>Service und Wartung</a>
-                                    <a>Energieausweis</a>
-                                    <a>Verbrauchsanalyse (in Zukunft Verbrauchsinfo 2021)</a>
-                                </div>
-                            </div>
-                            <div class="footer-container">
-                                <div class="footer-subtitle">Services</div>
-                                <div class="footer-items">
-                                    <a>Mieterinfos</a>
-                                    <a>FAQ</a>
-                                    <a>Rechtliche Themen</a>
-                                    <a>Downloads</a>
-                                </div>
-                            </div>
-                            <div class="footer-container">
-                                <div class="footer-subtitle">Uber Uns</div>
-                                <div class="footer-items">
-                                    <a>Unternehmen</a>
-                                    <a>Nachhaltigkeit</a>
-                                    <a>Newsroom</a>
-                                    <a>Karriere</a>
-                                </div>
+
+                <div id="container-c1236a62fe" class="cmp-container">
+
+
+
+                    <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+
+                        <div class="separator aem-GridColumn aem-GridColumn--default--12">
+                            <div id="separator-9c134f1fc6" class="cmp-separator">
+                                <hr class="cmp-separator__horizontal-rule" />
                             </div>
                         </div>
+                        <div class="text aem-GridColumn aem-GridColumn--default--12">
+                            <div id="text-0516786e85" class="cmp-text">
+                                <p>Copyright 2020, Techem. All rights reserved.</p>
+                                <p>345 Park Avenue, San Jose, CA 95110-2704, USA</p>
+
+                            </div>
+
+
+
+                        </div>
+
+
                     </div>
 
-                    <div class="separator">
-                        <div class="cmp-separator">
-                            <hr class="cmp-separator__horizontal-rule"/>
-                        </div></div>
-    
-                    <div class="footer-third">
-                        <div class="cmp-footer-third">
-                            <div class="footer-third-container">
-                                <a>Feedback Mondagezufriedenheit</a>
-                                <a>Impressum</a>
-                                <a>Datenschutz</a>
-                                <a>ABG</a>
-                                <a>Wiederruf</a>
-                            </div>
-                            <div>&copy; 2020 Techem</div>
-                        </div>
-                    </div>
                 </div>
+
+
             </div>
+
+
         </footer>
+
+
     </div>
-</div>
-<script type="text/javascript" src="/etc.clientlibs/techem/clientlibs/clientlib-site.js"></script>
-<script type="text/javascript" src="/etc.clientlibs/techem/clientlibs/clientlib-base.js"></script>
+
+    </div>
+    <script type="text/javascript" src="/etc.clientlibs/techem/clientlibs/clientlib-site.js"></script>
+    <script type="text/javascript" src="/etc.clientlibs/techem/clientlibs/clientlib-base.js"></script>
 </body>
+
 </html>
