@@ -60,6 +60,10 @@
         color: #4C4C4C;
       }
 
+      a {
+        text-decoration: none;
+      }
+
       .cmp-tile-title {
         color: $color-foreground-header;
         font-family: $font-universe-roman-bold;

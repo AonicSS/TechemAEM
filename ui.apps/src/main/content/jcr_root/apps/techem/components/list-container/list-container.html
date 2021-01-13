@@ -1,6 +1,6 @@
 <sly data-sly-use.container="com.adobe.cq.wcm.core.components.models.LayoutContainer"
     data-sly-use.listContainer="com.techem.core.models.ListContainer">
-    <div class="cmp-container-headline">${listContainer.headline}</div>
+    <h2 class="cmp-container-headline">${listContainer.headline}</h2>
     <sly data-sly-test.responsive="${container.layout == 'RESPONSIVE_GRID'}"
          data-sly-use.responsiveGridTemplate="responsiveGrid.html"
          data-sly-call="${responsiveGridTemplate.responsiveGrid @ container=container}"></sly>
