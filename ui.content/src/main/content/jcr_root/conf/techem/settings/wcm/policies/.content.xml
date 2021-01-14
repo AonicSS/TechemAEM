@@ -345,20 +345,10 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="General Container"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/apps/techem/components/image-tile]">
+                        components="[/apps/techem/components/image-tile,/apps/techem/components/icon-number-tile]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_general-container>
             </general-container>
-            <tabs-icon-number jcr:primaryType="nt:unstructured">
-                <policy_tabs-icon-number
-                        jcr:description="Allows the components to be dropped into the tabs"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Tabs Icon Number Tiles"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/apps/techem/components/icon-number-tile]">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_tabs-icon-number>
-            </tabs-icon-number>
         </components>
     </techem>
 </jcr:root>

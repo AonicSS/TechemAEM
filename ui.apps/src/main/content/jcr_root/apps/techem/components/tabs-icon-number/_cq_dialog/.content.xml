@@ -31,19 +31,6 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <headline
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldDescription="Headline for the module"
-                                                fieldLabel="Headline"
-                                                name="./headline"
-                                                required="{Boolean}true"/>
-                                            <subtitle
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldDescription="Subtitle for the module"
-                                                fieldLabel="Subtitle"
-                                                name="./subtitle"/>
                                             <tabitems
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="core/wcm/components/commons/editor/dialog/childreneditor/v1/childreneditor"/>

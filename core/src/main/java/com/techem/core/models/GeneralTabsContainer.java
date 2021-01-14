@@ -8,10 +8,10 @@ import org.apache.sling.models.annotations.Model;
 
 import javax.inject.Inject;
 
-@Model(adaptables = Resource.class, adapters = TabsIconNumber.class,
+@Model(adaptables = Resource.class, adapters = GeneralTabsContainer.class,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL,
-        resourceType = "techem/components/tabs-icon-number")
-public class TabsIconNumber {
+        resourceType = "techem/components/general-tabs-container")
+public class GeneralTabsContainer {
 
     /**
      * The current resource.
@@ -20,6 +20,7 @@ public class TabsIconNumber {
     private Resource resource;
 
     @Inject
+    @Default(values = "Headline General Tabs Container")
     private String headline;
 
     @Inject
