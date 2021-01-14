@@ -59,6 +59,10 @@
                                     cq:policy="techem/components/general-container/policy_tabs-icon-number"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
+                            <general-container
+                                cq:policy="techem/components/general-container/policy_general-container"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
                         </components>
                     </techem>
                 </container>

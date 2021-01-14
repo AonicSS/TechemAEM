@@ -1,3 +1,6 @@
+.button{
+  text-align: center;
+}
 .cmp-button__text {
 }
 .cmp-button__icon {
@@ -17,6 +20,9 @@
   &.button-primary {
     background-color: $color-primary-button;
     color: #ffffff;
+    &:hover{
+      background-color: #C50A15;
+    }
   }
 
   &.button-secondary {
@@ -24,6 +30,11 @@
     border: 2px solid $border-secondary-button;
     color: $border-secondary-button;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.3);
+    &:hover{
+      background-color: $color-primary-button;
+      color: #ffffff;
+      border: 0;
+    }
   }
 
   &.button-small {

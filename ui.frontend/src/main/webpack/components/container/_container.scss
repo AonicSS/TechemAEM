@@ -10,7 +10,7 @@
             border-radius: 40px 0 0 0;
           }
         }
-        .service-item:nth-last-child(2) {
+        .service-item:last-child {
           .cmp-tile {
             border-radius: 0 0 40px 0;
           }
@@ -27,24 +27,29 @@
       margin: 20px;
       position: relative;
 
-      &:hover {
+      &:hover{
         cursor: pointer;
         display: inline-block;
         background-color: $color-background;
         box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
 
-        .cmp-tile-icons {
+        .cmp-tile-left-icon {
           display: none;
         }
 
+        a{
+          display: block;
+          margin-left: auto;
+        }
+
         .cmp-tile-subtitle {
-          display: inline;
+          display: block;
           font-family: $font-universe-roman;
           padding: 10px 0 0 24px;
-          position: absolute;
           color: #4C4C4C;
           font-size: 16px;
           max-width: 194px;
+          height: 123px;
         }
       }
       .cmp-tile-category {
@@ -55,6 +60,10 @@
         color: #4C4C4C;
       }
 
+      a {
+        text-decoration: none;
+      }
+
       .cmp-tile-title {
         color: $color-foreground-header;
         font-family: $font-universe-roman-bold;
@@ -62,7 +71,7 @@
         letter-spacing: 0.2px;
         line-height: 24px;
         text-align: left;
-        padding: 0 24px 0px 24px;
+        padding: 22px 22px 0px 22px;
       }
 
       .cmp-tile-subtitle {
