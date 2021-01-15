@@ -372,7 +372,7 @@
             </page>
             <general-container jcr:primaryType="nt:unstructured">
                 <policy_general-container
-                    jcr:description="Allows the components to be dropped into this container"s
+                    jcr:description="Allows the components to be dropped into this container"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="General Container"
                     sling:resourceType="wcm/core/components/policy/policy"
