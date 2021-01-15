@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/conf/techem" mode="merge"/>
+    <filter root="/conf/techem" mode="replace"/>
     <filter root="/content/techem" mode="merge"/>
     <filter root="/content/dam/techem" mode="merge"/>
     <filter root="/content/experience-fragments/techem" mode="merge"/>
