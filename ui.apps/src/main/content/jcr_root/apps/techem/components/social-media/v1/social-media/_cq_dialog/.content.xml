@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Social Media"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <media
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Configure Social Media"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <categoryTitle
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldDescription="Text to display footer navigation categories."
+                                        fieldLabel="Category title"
+                                        name="./categoryTitle"/>
+                                    <multi
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        composite="{Boolean}true">
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            name="./socialItems">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <title
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Text to display in footer navigation."
+                                                    fieldLabel="Social Media Text Label"
+                                                    name="title"/>
+                                                <icon
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    emptyText="Select icon class here"
+                                                    fieldLabel="Social Media Icon"
+                                                    name="icon">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <facebookIcon
+                                                                jcr:primaryType="nt:unstructured"
+                                                                icon="facebook"
+                                                                text="Facebook"
+                                                                value="svg-icon-Facebook"/>
+                                                        <twitterIcon
+                                                                jcr:primaryType="nt:unstructured"
+                                                                icon="twitter"
+                                                                text="Twitter"
+                                                                value="svg-icon-Twitter"/>
+                                                        <instagramIcon
+                                                                jcr:primaryType="nt:unstructured"
+                                                                icon="instagram"
+                                                                text="Instagram"
+                                                                value="svg-icon-Instagram"/>
+                                                        <pinterestIcon
+                                                                jcr:primaryType="nt:unstructured"
+                                                                icon="pinterest"
+                                                                text="Pinterest"
+                                                                value="svg-icon-Pinterest"/>
+                                                        <youtubeIcon
+                                                                jcr:primaryType="nt:unstructured"
+                                                                icon="youTube"
+                                                                text="Youtube"
+                                                                value="svg-icon-Youtube"/>
+                                                        <linkedin
+                                                                jcr:primaryType="nt:unstructured"
+                                                                icon="linkedIn"
+                                                                text="Linkedin"
+                                                                value="svg-icon-Linkedin"/>
+                                                    </items>
+                                                </icon>
+                                                <link
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    emptyText="Type the website or browse to page to open"
+                                                    fieldLabel="Website to open"
+                                                    name="link"
+                                                    rootPath="/content"/>
+                                                <alttext
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    emptyText="Type in the Alt text here"
+                                                    fieldDescription="Alt Text to display."
+                                                    fieldLabel="Alt Text Label"
+                                                    name="altText"/>
+                                                <openNewTab
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    fieldDescription="Disable opening page in a new window/tab"
+                                                    name="./openNewTab"
+                                                    text="Open page within the same window"
+                                                    uncheckedValue="{Boolean}false"
+                                                    value="{Boolean}true"/>
+                                            </items>
+                                        </field>
+                                    </multi>
+                                </items>
+                            </column>
+                        </items>
+                    </media>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

@@ -93,6 +93,12 @@
                                         fieldDescription="Text to display footer copyright section"
                                         fieldLabel="Copyright Text Label"
                                         name="./copyright"/>
+                                    <logoLink
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldLabel="Logo Link"
+                                        name="./logoLink"
+                                        rootPath="/content"/>
                                         <bottomLinks jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                                 composite="{Boolean}true"

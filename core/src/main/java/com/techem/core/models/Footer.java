@@ -31,6 +31,9 @@ public class Footer {
     @ValueMapValue(name = "copyright")
     private String copyright;
 
+    @ValueMapValue(name = "logoLink")
+    private String logoLink;
+
     private Map<FooterCategory, List<FooterLink>> footerItems;
 
     private LinkedList<FooterLink> bottomItems;
@@ -84,4 +87,6 @@ public class Footer {
     public String getCopyright() {
         return copyright;
     }
+
+    public String getLogoLink() {return  logoLink;}
 }
