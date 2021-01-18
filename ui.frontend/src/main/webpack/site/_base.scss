@@ -1,5 +1,28 @@
 //== Base
-
+@font-face {
+  font-family: "UniversLTPro";
+  src: url("https://www.techem.de/fonts/Univers LT W02_55 Roman.eot");
+  src: url("https://www.techem.de/fonts/Univers LT W02_55 Roman.eot?#iefix") format("embedded-opentype"), url("https://www.techem.de/fonts/Univers LT W02_55 Roman.woff2") format("woff2"), url("https://www.techem.de/fonts/Univers LT W02_55 Roman.woff") format("woff"), url("https://www.techem.de/fonts/Univers LT W02_55 Roman.ttf") format("truetype"), url("https://www.techem.de/fonts/Univers LT W02_55 Roman.svg#svgFontName") format("svg");
+  font-weight: 400
+}
+@font-face {
+  font-family: "UniversLTPro";
+  src: url("https://www.techem.de/fonts/Univers LT W02_45 Light.eot");
+  src: url("https://www.techem.de/fonts/Univers LT W02_45 Light.eot?#iefix") format("embedded-opentype"), url("https://www.techem.de/fonts/Univers LT W02_45 Light.woff2") format("woff2"), url("https://www.techem.de/fonts/Univers LT W02_45 Light.woff") format("woff"), url("https://www.techem.de/fonts/Univers LT W02_45 Light.ttf") format("truetype"), url("https://www.techem.de/fonts/Univers LT W02_45 Light.svg#svgFontName") format("svg");
+  font-weight: 300
+}
+@font-face {
+  font-family: "UniversLTPro";
+  src: url("https://www.techem.de/fonts/Univers LT W02_65 Bold.eot");
+  src: url("https://www.techem.de/fonts/Univers LT W02_65 Bold.eot?#iefix") format("embedded-opentype"), url("https://www.techem.de/fonts/Univers LT W02_65 Bold.woff2") format("woff2"), url("https://www.techem.de/fonts/Univers LT W02_65 Bold.woff") format("woff"), url("https://www.techem.de/fonts/Univers LT W02_65 Bold.ttf") format("truetype"), url("https://www.techem.de/fonts/Univers LT W02_65 Bold.svg#svgFontName") format("svg");
+  font-weight: 700
+}
+@font-face {
+  font-family: "UniversLTPro Bold Cond";
+  src: url("https://www.techem.de/fonts/Univers LT W02_67 Bold Cond.eot");
+  src: url("https://www.techem.de/fonts/Univers LT W02_67 Bold Cond.eot?#iefix") format("embedded-opentype"), url("https://www.techem.de/fonts/Univers LT W02_67 Bold Cond.woff2") format("woff2"), url("https://www.techem.de/fonts/Univers LT W02_67 Bold Cond.woff") format("woff"), url("https://www.techem.de/fonts/Univers LT W02_67 Bold Cond.ttf") format("truetype"), url("https://www.techem.de/fonts/Univers LT W02_67 Bold Cond.svg#svgFontName") format("svg");
+  font-weight: 700
+}
 html,
 body {
   margin: 0;
