@@ -9,8 +9,8 @@
      data-sly-test.hasContent="${teaser.imageResource || fullBleed.headline || fullBleed.body || teaser.actions.size > 0}"
      id="${component.id}"
      class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''}"
-     data-cmp-data-layer="${teaser.data.json}">
-    <sly data-sly-call="${imageTemplate.image @ teaser=teaser}"></sly>
+     data-cmp-data-layer="${teaser.data.json}"
+	 style="background-image:url('${properties.fileReference @ context='styleString'}');">
     <div class="cmp-teaser__content">
         <sly data-sly-call="${headlineTemplate.headline @ fullBleed=fullBleed}"></sly>
         <sly data-sly-call="${bodyTemplate.body @ fullBleed=fullBleed}"></sly>
