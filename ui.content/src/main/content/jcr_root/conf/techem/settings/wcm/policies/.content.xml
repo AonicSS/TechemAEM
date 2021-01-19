@@ -33,9 +33,9 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Image"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    disableLazyLoading="true"
                     allowUpload="false"
                     altValueFromDAM="true"
+                    disableLazyLoading="true"
                     displayPopupTitle="true"
                     isDecorative="false"
                     jpegQuality="{Long}85"
@@ -302,6 +302,37 @@
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1575040440977>
+                <policy_1610637961704
+                    jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor in a Category Page Template)."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Category Page"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Techem - Content,/apps/techem/components/form/container]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:authoring jcr:primaryType="nt:unstructured">
+                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                            <mapping_1575030255082
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="media"
+                                assetMimetype="image/*"
+                                droptarget="image"
+                                resourceType="techem/components/image"/>
+                            <mapping_1575030260142
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="content"
+                                assetMimetype="text/html"
+                                droptarget="experiencefragment"
+                                resourceType="techem/components/experiencefragment"/>
+                            <mapping_1575030269139
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="media"
+                                assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
+                                droptarget="contentfragment"
+                                resourceType="techem/components/contentfragment"/>
+                        </assetToComponentMapping>
+                    </cq:authoring>
+                </policy_1610637961704>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
                 <policy_1575031387650
@@ -329,16 +360,27 @@
             </download>
             <page jcr:primaryType="nt:unstructured">
                 <policy
-                    ampMode="pairedAmp"
                     jcr:description="Includes the required client libraries."
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Generic Page"
                     sling:resourceType="wcm/core/components/policy/policy"
+                    ampMode="pairedAmp"
                     clientlibs="[techem.dependencies,techem.site]"
                     clientlibsJsHead="techem.dependencies">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
             </page>
+            <general-container jcr:primaryType="nt:unstructured">
+                <policy_general-container
+                    jcr:description="Allows the components to be dropped into this container"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="General Container"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[/apps/techem/components/image-tile]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_general-container>
+            </general-container>
         </components>
     </techem>
 </jcr:root>
