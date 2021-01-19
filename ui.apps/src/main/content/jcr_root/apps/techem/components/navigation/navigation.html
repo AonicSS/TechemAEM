@@ -43,36 +43,42 @@
                     <a class="navigation__sub-link"  href="#"> ${map.key.navTitle}</a>
                 </li>
             </ul>
-        </nav>
-    </div>
-
-    <div class="header__dropdown-wrapper">
-        <div data-sly-test="${navigationItems}" data-sly-list.map="${navigationItems}" data-sly-unwrap>
-            <div class="header__dropdown-content header__dropdown-hidden"  data-sly-attribute.name="${map.key.navTitle.toLowerCase}" data-sly-list.orientation="${map.value.entrySet.iterator}">
-                <div data-sly-unwrap>
-                    <div class="header-content__left" data-sly-test="${orientation.key == 'left'}">
-                        <div class="header-title-wrapper">
-                            <a data-sly-test="${map.key.pageTitle}" href="${map.key.pagePath}.html" class="header-title" target="_self">
-                                ${map.key.pageTitle}
-                                <i class="header-icon">
-                                    <div class="header-arrow"></div>
-                                </i>
-                            </a>
-                        </div>
-                        <div class="headline-wrapper" data-sly-list.pageDetails="${orientation.value}">
-                            <sly data-sly-use.lib="navigation-templates.html"
-                                 data-sly-call="${lib.dropdown_content_left @  pageDetails = pageDetails}">
-                            </sly>
+            <button class="header__button" data-sly-attribute.button-link="${navigation.button_link}">
+                <i class="header__button-icon">
+                    <div class="header__button-icon-circle"></div>
+                    <div class="header__button-icon-stroke"></div>
+                </i>
+                ${navigation.label}
+            </button>
+            <div class="header__dropdown-wrapper">
+                <div data-sly-test="${navigationItems}" data-sly-list.map="${navigationItems}" data-sly-unwrap>
+                    <div class="header__dropdown-content header__dropdown-hidden"  data-sly-attribute.name="${map.key.navTitle.toLowerCase}" data-sly-list.orientation="${map.value.entrySet.iterator}">
+                        <div data-sly-unwrap>
+                            <div class="header-content__left" data-sly-test="${orientation.key == 'left'}">
+                                <div class="header-title-wrapper">
+                                    <a data-sly-test="${map.key.pageTitle}" href="${map.key.pagePath}.html" class="header-title" target="_self">
+                                        ${map.key.pageTitle}
+                                        <i class="header-icon">
+                                            <div class="header-arrow"></div>
+                                        </i>
+                                    </a>
+                                </div>
+                                <div class="headline-wrapper" data-sly-list.pageDetails="${orientation.value}">
+                                    <sly data-sly-use.lib="navigation-templates.html"
+                                         data-sly-call="${lib.dropdown_content_left @  pageDetails = pageDetails}">
+                                    </sly>
+                                </div>
+                            </div>
+                            <div class="header-content__right" data-sly-test="${orientation.key == 'right'}" data-sly-list="${orientation.value}">
+                                <sly data-sly-use.lib="navigation-templates.html"
+                                     data-sly-call="${lib.dropdown_content_right @  pageDetails = item, itemList = itemList}">
+                                </sly>
+                            </div>
+                            <div data-sly-test="${orientation.key == 'right'}" class="close"><span>back</span></div>
                         </div>
                     </div>
-                    <div class="header-content__right" data-sly-test="${orientation.key == 'right'}" data-sly-list="${orientation.value}">
-                        <sly data-sly-use.lib="navigation-templates.html"
-                             data-sly-call="${lib.dropdown_content_right @  pageDetails = item, itemList = itemList}">
-                        </sly>
-                    </div>
-                    <div data-sly-test="${orientation.key == 'right'}" class="close"></div>
                 </div>
             </div>
-        </div>
+        </nav>
     </div>
 </header>

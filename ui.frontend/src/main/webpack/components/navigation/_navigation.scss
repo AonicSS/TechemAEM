@@ -4,6 +4,10 @@
         height: 120px;
     }
 }
+header.experiencefragment{
+    border-bottom: 0!important;
+    padding:0!important;
+}
 
 @keyframes burger-open-top {
     50% {
@@ -122,10 +126,10 @@
         &__button {
             display: flex;
             height: 42px;
-            color: #E20613;
+            color: $color-primary-button;
             border: none;
             background-color: #fff;
-            font-family: "Univers LT Std";
+            font-family: $font-universe-roman;
             font-size: 16px;
             letter-spacing: 0;
             text-align: center;
@@ -147,7 +151,7 @@
                     -webkit-box-sizing: border-box;
                     -moz-box-sizing: border-box;
                     box-sizing: border-box;
-                    border: 1.5px solid #E20613;
+                    border: 1.5px solid $color-primary-button;
                 }
 
                 &-stroke {
@@ -156,7 +160,7 @@
                     -webkit-box-sizing: border-box;
                     -moz-box-sizing: border-box;
                     box-sizing: border-box;
-                    border: 1.5px solid #E20613;
+                    border: 1.5px solid $color-primary-button;
                     border-top-left-radius: 100px;
                     border-top-right-radius: 100px;
                     border-bottom: 0;
@@ -196,7 +200,9 @@
         .navigation {
             position: relative;
             height: 55.5px;
-
+            .header__button{
+                display: none;
+            }
             &__links {
                 position: relative;
                 top: 0;
@@ -228,7 +234,7 @@
 
             &__sub-link {
                 color: #222222;
-                font-family: "Univers LT Std";
+                font-family: $font-universe-roman;
                 font-size: 16px;
                 letter-spacing: 0;
                 line-height: 26px;
@@ -237,7 +243,10 @@
         }
 
         &__dropdown-wrapper {
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
             background-color: #F3F3F3;
             overflow-y: scroll;
         }
@@ -274,7 +283,7 @@
             height: 26px;
             height: 26px;
             color: #1D1D1B;
-            font-family: "Univers LT Std";
+            font-family: $font-universe-roman;
             text-decoration: none;
             font-size: 20px;
             letter-spacing: 0.2px;
@@ -292,7 +301,7 @@
             position: absolute;
             height: 2px;
             width: 19.46px;
-            background-color: #E20613;
+            background-color: $color-primary-button;
 
             &::before {
                 top: 3px;
@@ -313,7 +322,7 @@
                 width: 50%;
                 height: 2px;
                 right: -2px;
-                background-color: #E20613;
+                background-color: $color-primary-button;
             }
         }
 
@@ -335,7 +344,7 @@
                 height: 26px;
                 height: 26px;
                 color: #1D1D1B;
-                font-family: "Univers LT Std";
+                font-family: $font-universe-roman;
                 font-size: 20px;
                 text-decoration: none;
                 letter-spacing: 0.2px;
@@ -346,7 +355,7 @@
                 height: 52px;
                 width: 312px;
                 color: #4C4C4C;
-                font-family: "Univers LT Std";
+                font-family: $font-universe-roman;
                 font-size: 16px;
                 letter-spacing: 0;
                 line-height: 26px;
@@ -358,7 +367,7 @@
             -ms-flex: 0;
             flex: 0;
             padding: 0 55px 0 47px;
-            border-left: 1px solid #C8C8C8;
+            border-left: 0;
 
             .image-wrapper {
                 position: relative;
@@ -385,7 +394,7 @@
                     width: 162px;
                     margin: 10px 0 0 20px;
                     color: #FFFFFF;
-                    font-family: "Univers LT Std";
+                    font-family: $font-universe-roman;
                     font-size: 16px;
                     letter-spacing: 0.16px;
                     line-height: 20px;
@@ -402,7 +411,7 @@
             &::after {
                 content: '';
                 height: 30px;
-                border-left: 2px solid #E20613;
+                border-left: 2px solid $color-primary-button;
                 position: absolute;
                 transform: rotate(45deg);
                 left: 15px;
@@ -411,10 +420,13 @@
             &::before {
                 content: '';
                 height: 30px;
-                border-left: 2px solid #E20613;
+                border-left: 2px solid $color-primary-button;
                 position: absolute;
                 transform: rotate(-45deg);
                 left: 15px;
+            }
+            span{
+                display:none;
             }
         }
 
@@ -440,23 +452,40 @@
             }
         }
     }
-    .sticky{
-        .header__logo-image{
+
+    .sticky {
+        .header__logo-image {
             height: 34px;
             width: 106px;
             transition: transform 400ms ease-out;
         }
+
         .header__components {
             position: relative;
-            height: 75px;
+            height: 60px;
             transition: transform 400ms ease-out;
+        }
+        .cmp-search {
+            height: 48px;
+            .cmp-search__input {
+                height: 48px;
+            }
+            .cmp-search__icon {
+                top: 15px;
+            }
         }
     }
 }
 
 @media only screen and (max-width: 1024px) {
+    header.experiencefragment{
+        .cmp-container{
+            height: 60px!important;
+        }
+    }
     .navigation {
         .header {
+            box-shadow: none;
             &_burger-menu {
                 display: block;
 
@@ -500,8 +529,9 @@
                 }
 
                 .active {
-                    .burger-menu-piece{
-                        background-color: #E20613;
+                    .burger-menu-piece {
+                        background-color: $color-primary-button;
+
                         &:nth-child(1) {
                             animation: burger-open-top 400ms ease-out forwards;
                         }
@@ -517,18 +547,161 @@
                     }
                 }
             }
-            &__button{
+
+            &__button {
                 display: none;
             }
-            &__search{
-                margin-right:23px;
+
+            &__search {
+                margin-right: 23px;
             }
         }
     }
-    .navigation{
-        .header{
-            .navigation{
+
+    .navigation {
+        .header {
+            .cmp-search {
+                width: 166px;
+                height: 40px;
+                .cmp-search__input {
+                    height: 41px;
+                }
+                .cmp-search__icon {
+                    right: 12px;
+                    top: 11px;
+                }
+            }
+            .navigation {
                 display: none;
+                height: auto;
+                position: relative;
+                height: 100vh;
+                overflow-y: scroll;
+                border-top: 1px solid #C8C8C8;
+                .header__button{
+                    display: flex;
+                    margin: 30px auto;
+                }
+                .navigation__links {
+                    flex-direction: column;
+                    min-height: 400px;
+                    padding-top: 40px;
+
+                    li {
+                        margin-right: 0;
+                        position: relative;
+                        padding: 15px 0 15px 0;
+
+                        &:after {
+                            content: ">";
+                            color: $color-primary-button;
+                            right: 25px;
+                            font-weight: bold;
+                            position: absolute;
+                        }
+
+                        a {
+                            font-family: Univers55;
+                            font-size: 18px;
+                            color: #000000;
+                        }
+                    }
+                }
+                .navigation-active {
+                    border-bottom: 0;
+                }
+            }
+            .header__components{
+                height: 60px;
+            }
+            .header__divider{
+                display: none;
+            }
+            .header__logo-image{
+                width: 75px;
+            }
+            .header__dropdown-wrapper{
+                position: absolute;
+                top: 0;
+                width: 100%;
+                .header__dropdown-content{
+                    width: 100%;
+                    overflow-y: scroll;
+                    padding: 0;
+                }
+                .header-content__left{
+                    padding:0 1em;
+                }
+                .header-content__right{
+                    display: none;
+                }
+                .headline__description{
+                    display: none;
+                }
+                .header-title{
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    max-width: 220px;
+                    margin: 90px 0 40px;
+                    padding: 0 0.5em;
+                    font-family: $font-universe-roman;
+                    font-size: 18px;
+                    font-weight: bold;
+                    line-height: 1.42;
+                    letter-spacing: 0.18px;
+                }
+                .headline{
+                    width: 100%;
+                    padding: 20px 0;
+                    margin: 0;
+                    &:last-of-type{
+                        border-bottom: 0;
+                    }
+                }
+                .headline-title__wrapper{
+                    width: 100%;
+                }
+                .headline__title{
+                    width: 100%;
+                    max-width: 220px;
+                    padding: 0 0.5em;
+                    font-family: $font-universe-roman;
+                    font-size: 18px;
+                    font-weight: bold;
+                    line-height: 1.42;
+                    letter-spacing: 0.18px;
+                }
+                .header-icon{
+                    right: 40px;
+                }
+            }
+            .close{
+                position: absolute;
+                left: 1.5em;
+                top: 35px;
+                &:after{
+                    display: none;
+                }
+                &:before{
+                    display: none;
+                }
+                span{
+                    display: block;
+                    font-family: $font-universe-std;
+                    font-size: 14px;
+                    position: relative;
+                    padding-left: 15px;
+                    color: #000000;
+                    font-weight: 600;
+                    &:before{
+                        content: "<";
+                        font-weight: bold;
+                        color: $color-primary-button;
+                        position: absolute;
+                        left: 0;
+                    }
+                }
             }
         }
     }
