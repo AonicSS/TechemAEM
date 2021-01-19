@@ -1,24 +1,25 @@
-<sly data-sly-use.footer="com.techem.core.models.Footer"/>
-<sly data-sly-test.footerItems="${footer.footerItems.entrySet}"/>
+<sly data-sly-use.footerModel="com.techem.core.models.Footer"/>
+<sly data-sly-test.footerItems="${footerModel.footerItems.entrySet}"/>
 
 <div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
     Configure ${component.properties.jcr:title}
 </div>
 
-<footer role="contentinfo" class="cmp-footer">
+<footer role="contentinfo" class="cmp-footer" data-component-name="footer">
     <div class="cmp-footer__container">
-        <div class="aem-Grid aem-Grid--12 aem-Grid--default--12">
-            <a class="cmp-footer__logo" href="${footer.logoLink}" target="_self">
-                <svg width="93" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178.6 60.3">
-                    <g fill="#FFF">
-                        <g>
-                            <path fill="#FFF" d="M0 40.8h69.5a18.22 18.22 0 0 1 7.9 1.8 17.55 17.55 0 0 1 7.6 7.1 17.62 17.62 0 0 1 2.3 5.7 17.5 17.5 0 0
+        <div class="cmp-footer__category-wrapper aem-Grid aem-Grid--12 aem-Grid--default--12" data-sly-test="${footerItems}" data-sly-list.footer="${footerItems}">
+          <div data-sly-test="${footerList.first}" class="aem-GridColumn aem-GridColumn--phone--12 aem-GridColumn--default--2">
+                <a class="cmp-footer__logo" href="${footerModel.logoLink}" target="_self">
+                    <svg width="93" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178.6 60.3">
+                        <g fill="#FFF">
+                            <g>
+                                <path fill="#FFF" d="M0 40.8h69.5a18.22 18.22 0 0 1 7.9 1.8 17.55 17.55 0 0 1 7.6 7.1 17.62 17.62 0 0 1 2.3 5.7 17.5 17.5 0 0
                              1 .8 4.9 28.59 28.59 0 0 0-6.3-6.6c-4.3-2.8-9.6-3.2-15.9-3.1H10.4a12.37 12.37 0 0 1-3.6-.4A8.25 8.25 0 0 1 3
                             48a11.24 11.24 0 0 1-2.4-3.7 12.23 12.23 0 0 1-.6-3.5zM178.5 40.8H109a18.22 18.22 0 0 0-7.9 1.8 17.55 17.55 0 0 0-7.6 7.1 17.62
                              17.62 0 0 0-2.3 5.7 17.5 17.5 0 0 0-.8 4.9 28.59 28.59 0 0 1 6.3-6.6c4.3-2.8 9.6-3.2 15.9-3.1h55.5a12.37 12.37
                              0 0 0 3.6-.4 8.25 8.25 0 0 0 3.8-2.2 11.24 11.24 0 0 0 2.4-3.7 12.23 12.23 0 0 0 .6-3.5z">
-                            </path>
-                            <path d="M39.5 20.3H30c.1-1.2.1-5.6 4.8-5.6 5.1 0 4.6 4.2 4.7 5.6m8.2 3.7c0-3.2-.1-6-1.2-8.1-1.7-3.4-5-6.4-11.9-6.4-9.5
+                                </path>
+                                <path d="M39.5 20.3H30c.1-1.2.1-5.6 4.8-5.6 5.1 0 4.6 4.2 4.7 5.6m8.2 3.7c0-3.2-.1-6-1.2-8.1-1.7-3.4-5-6.4-11.9-6.4-9.5
                                  0-13.1 5.1-13.2 13.7-.1 7.7 5.2 12.9 14.5 12.5 4.2-.2 7.1-1 11.6-4L45.3 28a12.2 12.2 0 0 1-8.4 2.7c-6.6-.4-6.8-5-6.8-6.6zM125
                                  20.3h-9.5c.1-1.2.1-5.6 4.8-5.6 5.1 0 4.5 4.2 4.7 5.6m8.2 3.7c0-3.2-.1-6-1.2-8.1-1.7-3.4-5-6.4-11.9-6.4-9.5 0-13.1 5.1-13.2 13.7-.1
                                  7.7 5.2 12.9 14.5 12.5 4.2-.2 7.1-1 11.6-4l-2.2-3.7a12.2 12.2 0 0 1-8.4 2.7c-6.6-.4-6.8-5-6.8-6.6zM19.5 9.7v5.9h-5.9v9.5c0 3 0 5.3
@@ -28,45 +29,44 @@
                                  2.1 1.3 5.1 1.3 8v13.5h-9v-14c0-2.5 0-5.5-3.5-5.5a3.37 3.37 0 0 0-3.3 2.1 7.53 7.53 0 0 0-.5 3.5v13.9h-9.1v-14c0-2.2 0-5.4-3.6-5.4-3.1
                                  0-3.8 2.6-3.8 5.4v14.1h-9V10M67.4 30.5a7.54 7.54 0 0 1-7.6-7.9 7.72 7.72 0 0 1 7.2-8.1c2.4-.2 3.6.2 6 1.8l2-3.5c-1.8-1.2-4.4-3.4-10.9-3.4-8.1
                                  0-13.4 5.5-13.4 13.5 0 6.8 5.3 12.7 13.4 12.7 6.5 0 9.1-2.2 10.9-3.4l-2-3.5c-2.7 1.6-3.3 1.8-5.6 1.8">
-                            </path>
+                                </path>
+                            </g>
                         </g>
-                    </g>
-                </svg>
-            </a>
-        </div>
-        <div class="cmp-footer__category-wrapper" data-sly-test="${footerItems}" data-sly-list.footer="${footerItems}">
-          <div class="aem-Grid aem-Grid--12 aem-Grid--default--12">
-                <ul class="cmp-footer__category" role="presentation" data-sly-list.footerlink="${footer.value}" >
+                    </svg>
+                </a>
+          </div>
+          <div class="cmp-footer__category aem-GridColumn aem-GridColumn--phone--12 aem-GridColumn--default--2">
+                <span class="cmp-footer__headline">
+                     ${footer.key.categoryTitle}
+                </span>
+                <ul class="cmp-footer__links" role="presentation" data-sly-list.footerlink="${footer.value}">
                     <li>
-                        <span data-sly-test="${footerlinkList.first}" class="cmp-footer__headline">
-                            ${footer.key.categoryTitle}
-                        </span>
-                        <a data-sly-test="${!footerlinkList.first}" x-cq-linkchecker="skip" class="cmp-footer__link" href=" ${footerlink.linkUrl}.html"
+                        <a x-cq-linkchecker="skip" class="cmp-footer__link" href=" ${footerlink.linkUrl}.html"
                            target="${footerlink.openNewTab ? '_blank' : ''}">
                             ${footerlink.linkText}
                         </a>
                     </li>
                 </ul>
           </div>
+          <div data-sly-test="${footerList.last}" class="social-media__container aem-GridColumn aem-GridColumn--phone--12 aem-GridColumn--default--3">
+                <sly data-sly-resource="${ @path='./social-media',resourceType='techem/components/social-media/social-media'}"/>
+          </div>
         </div>
-    </div>
-    <div class="social-media-container">
-        <sly data-sly-resource="${ @path='./social-media',resourceType='techem/components/social-media/social-media'}"/>
-    </div>
-    <div class="aem-Grid aem-Grid--12 aem-Grid--default--12">
-        <div class="cmp-footer__bottom">
-            <div class="cmp-footer__left">
-                <ul data-sly-test="${footer.bottomItems}" data-sly-list.bottomItems="${footer.bottomItems}">
-                    <a  x-cq-linkchecker="skip" class="footer-link" href=" ${bottomItems.linkUrl}.html"
-                       target="${bottomItems.openNewTab ? '_blank' : ''}">
-                        ${bottomItems.linkText}
-                    </a>
-                </ul>
-            </div>
-            <div class="cmp-footer__right">
-                <div class="copyright-container">
-                    <div class="copyright-statement">
-                        <p>${footer.copyright @ context='html'}</p>
+        <div class="aem-Grid aem-Grid--12 aem-Grid--default--12">
+            <div class="cmp-footer__bottom aem-GridColumn aem-GridColumn--phone--12">
+                <div class="cmp-footer__left">
+                    <ul class="cmp-footer__links aem-Grid aem-Grid--12 aem-Grid--default--12" data-sly-test="${footerModel.bottomItems}" data-sly-list.bottomItems="${footerModel.bottomItems}">
+                        <a  x-cq-linkchecker="skip" class="footer-link aem-GridColumn aem-GridColumn--phone--12" href=" ${bottomItems.linkUrl}.html"
+                           target="${bottomItems.openNewTab ? '_blank' : ''}">
+                            ${bottomItems.linkText}
+                        </a>
+                    </ul>
+                </div>
+                <div class="cmp-footer__right">
+                    <div class="cmp-footer__copyright-container">
+                        <div class="cmp-footer__copyright-statement">
+                            <p class="cmp-footer__copyright">${footerModel.copyright @ context='html'}</p>
+                        </div>
                     </div>
                 </div>
             </div>

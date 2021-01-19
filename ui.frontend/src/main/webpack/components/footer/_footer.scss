@@ -1,7 +1,6 @@
 .aem-AuthorLayer-Edit {
     .cmp-footer {
 
-
     }
 }
 
@@ -13,39 +12,176 @@
     padding: 32px 0 0 0;
 
     &__container {
+        max-width: 77pc;
+        margin: 0 auto;
 
-    }
-
-    &__category-wrapper {
+        @media screen and (max-width: 767px) {
+            padding: 0 20px 0 20px;
+        }
     }
 
     &__category {
-        list-style:none;
+        &.active {
+              .cmp-footer__headline {
+                   &::before {
+                       transform: rotate(-135deg);
+                       -webkit-transform: rotate(-135deg);
+                   }
+              }
 
-        .cmp-footer__link {
-            height: 24px;
-            opacity: 0.8;
-            font-family: Univers55;
-            font-size: 14px;
-            font-weight: normal;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.71;
-            letter-spacing: -0.2px;
-            color: #ececec;
+              .cmp-footer__links {
+                   display: block;
+              }
         }
-        .footer__headline {
-            position: relative;
-            display: block;
-            font-size: 16px;
-            font-family: FiraSans;
-            font-weight: bold;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.63;
-            letter-spacing: normal;
-            color: #ffffff;
-            margin: 0 0 10px 0;
+
+         .cmp-footer__headline {
+               position: relative;
+               display: block;
+               font-size: 16px;
+               font-family: FiraSans;
+               font-weight: bold;
+               font-stretch: normal;
+               font-style: normal;
+               line-height: 1.63;
+               letter-spacing: normal;
+               color: #ffffff;
+               margin: 0 0 10px 0;
+
+               @media screen and (max-width: 767px) {
+                   margin: 0;
+                   cursor: pointer;
+                   padding: 13px 47px 12pt 8px;
+
+                   &::before {
+                       display: block;
+                       position: absolute;
+                       padding: 5px;
+                       right: 20px;
+                       border: 1px solid #ffffff;
+                       border-width: 0 2px 2px 0;
+                       content: "";
+                       transform: rotate(45deg);
+                       -webkit-transform: rotate(45deg);
+                       -webkit-transition: -webkit-transform .3s ease-in-out;
+                       transition: -webkit-transform .3s ease-in-out;
+                       transition: transform .3s ease-in-out;
+                       transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out;
+                    }
+               }
+         }
+
+        .cmp-footer__links {
+            list-style:none;
+            padding: 0;
+            margin:0;
+
+             @media screen and (max-width: 767px) {
+                padding-left: 8px;
+                display: none;
+             }
+
+            .cmp-footer__link {
+                height: 24px;
+                -webkit-text-decoration-line: none;
+                text-decoration-line: none;
+                opacity: 0.8;
+                font-family: Univers55;
+                font-size: 14px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.71;
+                letter-spacing: -0.2px;
+                color: #ececec;
+            }
         }
     }
+
+    &__category-wrapper {
+
+         @media screen and (max-width: 767px) {
+            div:first-child {
+                 border-bottom: 1px solid rgba(221,221,221,0.5);
+            }
+        }
+
+        .social-media__container {
+             @media screen and (max-width: 767px) {
+                   margin-top: 20px;
+             }
+        }
+    }
+
+    .cmp-footer__bottom {
+         border-top: 1px solid rgba(221,221,221,0.5);
+         line-height: 24px;
+         margin: 54px 0 0 0;
+         overflow: hidden;
+         padding: 23px 0 18px 0;
+         text-align: center;
+
+         .cmp-footer__left {
+                 float: left;
+
+                 @media screen and (max-width: 767px) {
+                    float: none;
+                    padding: 13px 47px 12pt 8px;
+                 }
+
+               .cmp-footer__links {
+                    list-style:none;
+                    padding: 0;
+                    margin: 0;
+
+                    .footer-link {
+                         height: 24px;
+                         text-decoration-line: none;
+                         margin-right: 20px;
+                         opacity: 0.8;
+                         font-family: Univers55;
+                         font-size: 14px;
+                         font-weight: normal;
+                         font-stretch: normal;
+                         font-style: normal;
+                         line-height: 1.71;
+                         letter-spacing: -0.2px;
+                         color: #b2b2b1;
+
+                          @media screen and (max-width: 767px) {
+                                margin: 0;
+                                text-align: left;
+                          }
+                    }
+               }
+         }
+
+         .cmp-footer__right {
+              float: right;
+
+               @media screen and (max-width: 767px) {
+                  float: none;
+                  padding: 13px 47px 12pt 8px;
+               }
+
+              .cmp-footer__copyright {
+                  height: 24px;
+                  padding: 0;
+                  margin: 0;
+                  opacity: 0.8;
+                  font-family: Univers55;
+                  font-size: 14px;
+                  font-weight: normal;
+                  font-stretch: normal;
+                  font-style: normal;
+                  line-height: 1.71;
+                  letter-spacing: -0.2px;
+                  color: #b2b2b1;
+
+                  @media screen and (max-width: 767px) {
+                        text-align: left;
+                        padding-top: 20px;
+                  }
+              }
+         }
+     }
 }

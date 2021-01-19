@@ -45,25 +45,22 @@
     </defs>
 </svg>
 
-<div class="aem-Grid aem-Grid--12 aem-Grid--default--12">
-    <div class="social-media" role="region" aria-label="Social Media">
-        <ul class="social-media__category" data-sly-test="${socialMedia.socialMediaList}" data-sly-list.medias="${socialMedia.socialMediaList}">
-            <li data-sly-test="${mediasList.first}">
-                <span class="social-media__headline">
-                    ${socialMedia.categoryTitle}
-                </span>
-            </li>
-            <li>
-                <a x-cq-linkchecker="skip" href="${medias.link @ context='unsafe'}" title="${medias.title}"
-                   target="${medias.openNewTab  ? '_self' : '_blank'}"
-                   aria-label="${medias.title} ${medias.openNewTab  ? ' - opens in a new tab' : ''}">
-                    <svg fill="white" width="32px" height="32px" viewBox="0 0 34 34" class="svg-icon ${medias.icon}">
-                        <use xlink:href="#${medias.icon}-SVG"/>
-                    </svg>
-                </a>
-            </li>
-        </ul>
-    </div>
+<div class="social-media" role="region" aria-label="Social Media">
+     <span class="social-media__headline">
+                ${socialMedia.categoryTitle}
+     </span>
+    <ul class="social-media__category" data-sly-test="${socialMedia.socialMediaList}" data-sly-list.medias="${socialMedia.socialMediaList}">
+        <li>
+            <a x-cq-linkchecker="skip" href="${medias.link @ context='unsafe'}" title="${medias.title}"
+               target="${medias.openNewTab  ? '_self' : '_blank'}"
+               aria-label="${medias.title} ${medias.openNewTab  ? ' - opens in a new tab' : ''}">
+                <svg fill="white" width="32px" height="32px" viewBox="0 0 32 32" class="svg-icon ${medias.icon}">
+                    <use xlink:href="#${medias.icon}-SVG"/>
+                </svg>
+            </a>
+        </li>
+    </ul>
 </div>
+
 
 
