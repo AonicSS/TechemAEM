@@ -23,10 +23,32 @@ public class TextImage {
     @Default(values = "left")
     private String textPosition;
 
+    @Inject
+    @Default(values = "headline")
+    private String headline;
+
+    @Inject
+    @Default(values = "description")
+    private String text;
+
     public String getTextPosition() {
         if (this.textPosition == null) {
             this.textPosition = this.resource.getValueMap().get("textPosition", String.class);
         }
         return textPosition;
+    }
+
+    public String getHeadline() {
+        if (this.headline == null) {
+            this.headline = this.resource.getValueMap().get("headline", String.class);
+        }
+        return headline;
+    }
+
+    public String getText() {
+        if (this.text == null) {
+            this.text = this.resource.getValueMap().get("text", String.class);
+        }
+        return text;
     }
 }

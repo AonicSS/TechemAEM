@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Teaser"
+    jcr:title="Container"
     sling:resourceType="cq/gui/components/authoring/dialog"
-    extraClientlibs="[core.wcm.components.teaser.v1.editor]"
-    helpPath="https://www.adobe.com/go/aem_cmp_teaser_v1"
-    trackingFeature="core-components:teaser:v1">
+    extraClientlibs="[core.wcm.components.container.v1.editor]"
+    helpPath="https://www.adobe.com/go/aem_cmp_container_v1"
+    trackingFeature="core-components:container:v1">
     <content
-        granite:class="cmp-teaser__editor"
+        granite:class="cmp-container__editor"
         jcr:primaryType="nt:unstructured"
         sling:resourceType="granite/ui/components/coral/foundation/container">
         <items jcr:primaryType="nt:unstructured">
@@ -16,92 +16,9 @@
                 sling:resourceType="granite/ui/components/coral/foundation/tabs"
                 maximized="{Boolean}true">
                 <items jcr:primaryType="nt:unstructured">
-                    <text
+                    <properties
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Text 1"
-                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                        margin="{Boolean}true">
-                        <items jcr:primaryType="nt:unstructured">
-                            <columns
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                                margin="{Boolean}true">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <column
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/container">
-                                        <items
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:hideChildren="[titleGroup,id,pretitle,descriptionGroup]">
-                                            <headline
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldDescription="A text that will be displayed for the first Image-Text headline."
-                                                fieldLabel="Headline"
-                                                name="./imageTextHeadline1"/>
-                                            <description
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldDescription="A text that will be displayed for the first Image-Text headline."
-                                                fieldLabel="Description 1"
-                                                name="./description1"/>
-                                            <textPosition
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                fieldDescription="Text Position 1"
-                                                fieldLabel="Text Position 1"
-                                                name="./textPosition">
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <left
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Left"
-                                                        value="left"/>
-                                                    <right
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Right"
-                                                        value="right"/>
-                                                </items>
-                                            </textPosition>
-                                        </items>
-                                    </column>
-                                </items>
-                            </columns>
-                        </items>
-                    </text>
-                    <actions
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Link 1"
-                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                        margin="{Boolean}true">
-                        <items jcr:primaryType="nt:unstructured">
-                            <columns
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                                margin="{Boolean}true">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <column
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/container">
-                                        <items
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:hideChildren="[actionsEnabled,actionsDisabled,actions]">
-                                            <linkURL
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="cq/gui/components/coral/common/form/pagefield"
-                                                fieldDescription="Link applied to teaser elements. URL or path to a content page."
-                                                fieldLabel="Link"
-                                                name="./linkURL"
-                                                rootPath="/content"
-                                                wrapperClass="foundation-toggleable cmp-teaser__editor-link-url"/>
-                                        </items>
-                                    </column>
-                                </items>
-                            </columns>
-                        </items>
-                    </actions>
-                    <image
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Image 1"
+                        jcr:title="Properties"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
@@ -114,146 +31,94 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <file
+                                            <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Layout"
+                                                name="./layout">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="(Default)"
+                                                        value=""/>
+                                                    <simple
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Simple"
+                                                        value="simple"/>
+                                                    <responsive
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Responsive Grid"
+                                                        value="responsiveGrid"/>
+                                                </items>
+                                                <granite:rendercondition
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/renderconditions/simple"
+                                                    expression="${!cqDesign.layoutDisabled}"/>
+                                            </layout>
+                                            <backgroundColor
+                                                granite:hide="${!cqDesign.backgroundColorEnabled || cqDesign.backgroundColorSwatchesOnly}"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+                                                fieldLabel="Background Color"
+                                                name="./backgroundColor"
+                                                showDefaultColors="{Boolean}false"
+                                                showProperties="{Boolean}true"
+                                                showSwatches="{Boolean}true">
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="core/wcm/components/commons/datasources/allowedcolorswatches/v1"/>
+                                            </backgroundColor>
+                                            <backgroundColorSwatchesOnly
+                                                granite:hide="${!cqDesign.backgroundColorEnabled || !cqDesign.backgroundColorSwatchesOnly}"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+                                                fieldLabel="Background Color"
+                                                name="./backgroundColor"
+                                                showDefaultColors="{Boolean}false"
+                                                showProperties="{Boolean}false"
+                                                showSwatches="{Boolean}true"
+                                                variant="swatch">
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="core/wcm/components/commons/datasources/allowedcolorswatches/v1"/>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cmp-container-v1-dialog-edit-hook="backgroundColorSwatchesOnly"/>
+                                            </backgroundColorSwatchesOnly>
+                                            <backgroundImageAsset
+                                                granite:hide="${!cqDesign.backgroundImageEnabled}"
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
                                                 allowUpload="{Boolean}false"
                                                 autoStart="{Boolean}false"
                                                 class="cq-droptarget"
-                                                fieldLabel="Image Asset"
+                                                fieldLabel="Background Image"
                                                 fileNameParameter="./fileName"
-                                                fileReferenceParameter="./fileReference"
-                                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                fileReferenceParameter="./backgroundImageReference"
+                                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff]"
                                                 multiple="{Boolean}false"
                                                 name="./file"
                                                 title="Upload Image Asset"
                                                 uploadUrl="${suffix.path}"
                                                 useHTML5="{Boolean}true"/>
-                                        </items>
-                                    </column>
-                                </items>
-                            </columns>
-                        </items>
-                    </image>
-                    <image2
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Image 2"
-                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                        margin="{Boolean}true">
-                        <items jcr:primaryType="nt:unstructured">
-                            <columns
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                                margin="{Boolean}true">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <column
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/container">
-                                        <items jcr:primaryType="nt:unstructured">
-                                            <file
+                                            <id
                                                 jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
-                                                allowUpload="{Boolean}false"
-                                                autoStart="{Boolean}false"
-                                                class="cq-droptarget"
-                                                fieldLabel="Image Asset"
-                                                fileNameParameter="./fileName2"
-                                                fileReferenceParameter="./fileReference2"
-                                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
-                                                multiple="{Boolean}false"
-                                                name="./file"
-                                                title="Upload Image Asset"
-                                                uploadUrl="${suffix.path}"
-                                                useHTML5="{Boolean}true"/>
-                                        </items>
-                                    </column>
-                                </items>
-                            </columns>
-                        </items>
-                    </image2>
-                    <text2
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Text 2"
-                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                        margin="{Boolean}true">
-                        <items jcr:primaryType="nt:unstructured">
-                            <columns
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                                margin="{Boolean}true">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <column
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/container">
-                                        <items
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:hideChildren="[titleGroup,id,pretitle,descriptionGroup]">
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="HTML ID attribute to apply to the component."
+                                                fieldLabel="ID"
+                                                name="./id"/>
                                             <headline
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldDescription="A text that will be displayed for the second Image-Text headline."
-                                                fieldLabel="Headline 2"
-                                                name="./imageTextHeadline2"/>
-                                            <description
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldDescription="A text that will be displayed for the first Image-Text headline."
-                                                fieldLabel="Description 2"
-                                                name="./description2"/>
-                                            <textPosition2
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                fieldDescription="Text Position 2"
-                                                fieldLabel="Text Position 2"
-                                                name="./textPosition2">
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <left
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Left"
-                                                        value="left"/>
-                                                    <right
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Right"
-                                                        value="right"/>
-                                                </items>
-                                            </textPosition2>
+                                                fieldDescription="Add a headline for the container of Double Text Image"
+                                                fieldLabel="Headline for container"
+                                                name="./headline"/>
                                         </items>
                                     </column>
                                 </items>
                             </columns>
                         </items>
-                    </text2>
-                    <actions2
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Link 1"
-                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                        margin="{Boolean}true">
-                        <items jcr:primaryType="nt:unstructured">
-                            <columns
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                                margin="{Boolean}true">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <column
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/container">
-                                        <items
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:hideChildren="[actionsEnabled,actionsDisabled,actions]">
-                                            <linkURL
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="cq/gui/components/coral/common/form/pagefield"
-                                                fieldDescription="Link applied to teaser elements. URL or path to a content page."
-                                                fieldLabel="Link"
-                                                name="./linkURL2"
-                                                rootPath="/content"
-                                                wrapperClass="foundation-toggleable cmp-teaser__editor-link-url"/>
-                                        </items>
-                                    </column>
-                                </items>
-                            </columns>
-                        </items>
-                    </actions2>
+                    </properties>
                 </items>
             </tabs>
         </items>
