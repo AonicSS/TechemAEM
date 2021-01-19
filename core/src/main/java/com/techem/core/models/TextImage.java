@@ -5,6 +5,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;
 
@@ -19,36 +20,21 @@ public class TextImage {
     @Inject
     private Resource resource;
 
-    @Inject
+    @ValueMapValue(name="textPosition")
     @Default(values = "left")
     private String textPosition;
 
-    @Inject
+    @ValueMapValue(name="headline")
     @Default(values = "headline")
     private String headline;
 
-    @Inject
+    @ValueMapValue(name="text")
     @Default(values = "description")
     private String text;
 
-    public String getTextPosition() {
-        if (this.textPosition == null) {
-            this.textPosition = this.resource.getValueMap().get("textPosition", String.class);
-        }
-        return textPosition;
-    }
+    public String getTextPosition() { return textPosition; }
 
-    public String getHeadline() {
-        if (this.headline == null) {
-            this.headline = this.resource.getValueMap().get("headline", String.class);
-        }
-        return headline;
-    }
+    public String getHeadline() { return headline; }
 
-    public String getText() {
-        if (this.text == null) {
-            this.text = this.resource.getValueMap().get("text", String.class);
-        }
-        return text;
-    }
+    public String getText() { return text;}
 }
