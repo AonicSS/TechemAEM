@@ -39,7 +39,7 @@
       }
 
       .cmp-text-image-headline {
-        font-family: "Univers 65 Bold";
+        font-family: $font-universe-roman-bold;
         font-weight: 900;
         font-size: 23px;
         letter-spacing: -0.4px;
@@ -50,7 +50,7 @@
 
       .cmp-teaser__description {
         color:#000;
-        font-family: "Univers LT Std";
+        font-family: $font-universe-std;
         font-size: 16px;
         letter-spacing: -0.1px;
         line-height: 28px;
