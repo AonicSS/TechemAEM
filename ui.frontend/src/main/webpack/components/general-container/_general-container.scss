@@ -1,4 +1,10 @@
 .general-container{
+  .cmp-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   .cmp-container-headline{
     font-family: Univers65;
     font-size: 40px;
