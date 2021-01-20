@@ -1,0 +1,120 @@
+.aem-AuthorLayer-Edit .double-text-image .second-text-image {
+  margin-top: 0 !important;
+}
+
+.double-text-image {
+  .cmp-container-headline {
+    font-family: Univers65;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1.4;
+    letter-spacing: -0.17px;
+    text-align: center;
+    color: #222222;
+    padding-top: 30px;
+    margin: 0 0 30px 0;
+  }
+  .first-text-image {
+    .cmp-image__left img {
+      margin-left: -10px;
+      border-radius: 0 40px 0 0 !important;
+    }
+
+    .cmp-image__right img {
+      margin-left: 10px;
+      border-radius: 40px 0 0 0 !important;
+    }
+  }
+
+  .second-text-image {
+    margin-top: -20px !important;
+
+    .cmp-image__left img {
+      margin-left: -10px;
+      border-radius: 0 0 40px 0 !important;
+    }
+
+    .cmp-image__right img {
+      margin-left: 10px;
+      border-radius: 0 0 0 40px !important;
+    }
+
+    .cmp-content__right {
+      order: 2;
+    }
+  }
+
+  .cmp-teaser {
+    display: flex;
+    justify-content: space-between;
+    max-width: $max-width-page;
+    margin: 0 auto;
+    color: $color-foreground-header;
+
+    .cmp-image__left {
+      order: 2;
+    }
+
+    .cmp-image__right {
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .cmp-image__left {
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .cmp-content__right {
+      padding: 0 80px;
+    }
+
+    .cmp-content__left {
+      padding: 0 80px;
+    }
+
+    .cmp-content__right {
+      @at-root .cmp-teaser {
+        flex-direction: row;
+      }
+    }
+
+    .cmp-teaser__image {
+      border-radius: 50%;
+
+      .cmp-image {
+        img {
+          border-radius: 0 0 40px 0;
+        }
+      }
+    }
+
+    .cmp-teaser__content {
+      position: relative;
+      font-family: $font-universe-roman;
+      text-align: left;
+      align-items: normal;
+
+      .cmp-text-image-headline {
+        font-family: $font-universe-roman-bold;
+        font-weight: 900;
+        font-size: 23px;
+        letter-spacing: -0.4px;
+        line-height: 30px;
+        color: #222222;
+        text-align: left;
+        margin-bottom: 20px;
+      }
+
+      .cmp-text-image-description {
+        color: #4c4c4c;
+        font-family: $font-universe-std;
+        font-size: 16px;
+        letter-spacing: -0.1px;
+        line-height: 28px;
+      }
+    }
+  }
+}

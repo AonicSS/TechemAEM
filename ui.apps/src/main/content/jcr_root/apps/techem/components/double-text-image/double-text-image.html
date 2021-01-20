@@ -1,0 +1,11 @@
+<sly data-sly-use.container="com.adobe.cq.wcm.core.components.models.LayoutContainer"
+	data-sly-use.doubleTextImage="com.techem.core.models.DoubleTextImage">
+	<h2 class="cmp-container-headline">${doubleTextImage.headline}</h2>
+    <sly data-sly-test.responsive="${container.layout == 'RESPONSIVE_GRID'}"
+         data-sly-use.responsiveGridTemplate="responsiveGrid.html"
+         data-sly-call="${responsiveGridTemplate.responsiveGrid @ container=container}"></sly>
+    <div>
+	<div data-sly-resource="${'text-image' @ decorationTagName='div', cssClassName='first-text-image', resourceType='techem/components/text-image' }"></div>
+	<div data-sly-resource="${'text-image2' @ decorationTagName='div', cssClassName='second-text-image', resourceType='techem/components/text-image' }"></div>
+	</div>
+</sly>
