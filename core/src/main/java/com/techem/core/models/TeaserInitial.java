@@ -2,17 +2,16 @@ package com.techem.core.models;
 
 
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;
 
-@Model(adaptables = Resource.class, adapters = DoubleTextImage.class,
+@Model(adaptables = Resource.class, adapters = TeaserInitial.class,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL,
-        resourceType = "techem/components/double-text-image")
-public class DoubleTextImage {
+        resourceType = "techem/components/teaser-initial")
+public class TeaserInitial {
 
     /**
      * The current resource.
@@ -20,8 +19,14 @@ public class DoubleTextImage {
     @Inject
     private Resource resource;
 
-    @ValueMapValue(name="headline")
-    private String headline;
+    @ValueMapValue(name="containerHeadline")
+    private String containerHeadline;
 
-    public String getHeadline() { return headline; }
+    @ValueMapValue(name="containerSubtitle")
+    private String containerSubtitle;
+
+    public String getContainerHeadline() { return containerHeadline; }
+
+    public String getContainerSubtitle() { return containerSubtitle; }
+
 }
