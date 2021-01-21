@@ -15,7 +15,7 @@
     <div class="cmp-content__${textimage.textPosition} aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--tablet--6 aem-GridColumn--phone--12 cmp-teaser__content">
         <sly data-sly-call="${headlineTemplate.headline @ textimage=textimage}"></sly>
 		<sly data-sly-call="${textTemplate.text @ textimage=textimage}"></sly>
-		<a data-sly-test.arrow="${properties.fileReference2}" href="${properties.linkURL2}.html">
+		<a data-sly-test.arrow="${properties.fileReference2}" href="${properties.linkURL2 @ extension='html'}">
 			<img class="cmp-arrow" src="${properties.fileReference2}">
 		</a>
         <sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>

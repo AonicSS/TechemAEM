@@ -4,39 +4,39 @@
 
 .double-text-image {
   .cmp-container-headline {
-    font-family: Univers65;
+    font-family: $font-universe-roman-bold;
     font-size: 40px;
     font-weight: bold;
     line-height: 1.4;
     letter-spacing: -0.17px;
     text-align: center;
-    color: #222222;
+    color: $color-foreground-header;
     padding-top: 30px;
     margin: 0 0 30px 0;
   }
   .first-text-image {
     .cmp-image__left img {
       margin-left: -10px;
-      border-radius: 0 40px 0 0 !important;
+      border-radius: $border-radius-top-r !important;
     }
 
     .cmp-image__right img {
       margin-left: 10px;
-      border-radius: 40px 0 0 0 !important;
+      border-radius: $border-radius-top-l !important;
     }
   }
 
   .second-text-image {
-    margin-top: -20px !important;
+    margin-top: -27px !important;
 
     .cmp-image__left img {
       margin-left: -10px;
-      border-radius: 0 0 40px 0 !important;
+      border-radius: $border-radius-bottom-r !important;
     }
 
     .cmp-image__right img {
       margin-left: 10px;
-      border-radius: 0 0 0 40px !important;
+      border-radius: $border-radius-bottom-l !important;
     }
 
     .cmp-content__right {
@@ -86,7 +86,7 @@
 
       .cmp-image {
         img {
-          border-radius: 0 0 40px 0;
+          border-radius: $border-radius-bottom-r;
         }
       }
     }
@@ -103,18 +103,43 @@
         font-size: 23px;
         letter-spacing: -0.4px;
         line-height: 30px;
-        color: #222222;
+        color: $color-foreground-header;
         text-align: left;
         margin-bottom: 20px;
       }
 
       .cmp-text-image-description {
-        color: #4c4c4c;
-        font-family: $font-universe-std;
+        color: $color-separator-dark;
+        font-family: $font-universe-roman;
         font-size: 16px;
         letter-spacing: -0.1px;
         line-height: 28px;
       }
+    }
+  }
+}
+@media only screen and (max-width: 769px) {
+  .double-text-image {
+    .first-text-image {
+      .cmp-image__left img {
+        margin-left: 0;
+      }
+  
+      .cmp-image__right img {
+        margin-left: 0;
+      }
+    }
+    .second-text-image {
+      margin-top: 0 !important;
+  
+      .cmp-image__left img {
+        margin-left: 0;
+      }
+  
+      .cmp-image__right img {
+        margin-left: 0;
+      }
+  
     }
   }
 }
