@@ -24,8 +24,8 @@ public class ListContainer {
     @Default(values = "Headline")
     private String headline;
 
-    @ValueMapValue(name="background")
-    private String background;
+    @ValueMapValue(name="bgColor")
+    private String bgColor;
 
     public String getHeadline() {
         if (this.headline == null) {
@@ -34,7 +34,7 @@ public class ListContainer {
         return headline;
     }
 
-    public String getBackground() {
-        return background;
+    public String getBgColor() {
+        return bgColor;
     }
 }

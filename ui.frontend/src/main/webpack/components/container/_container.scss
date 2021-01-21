@@ -95,3 +95,19 @@
     }
   }
 }
+.bg-gray > .cmp-container .cmp-tile-color {
+     background-color: $color-background;
+     &:hover{
+         background-color: $color-grey;
+         box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+     }
+ }
+
+ .bg-white > .cmp-container .cmp-tile-color {
+      background-color: $color-grey;
+      &:hover{
+          background-color: $color-background;
+          box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+      }
+  }
+

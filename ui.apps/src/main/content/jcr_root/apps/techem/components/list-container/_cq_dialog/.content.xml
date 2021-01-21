@@ -32,7 +32,7 @@
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items
                                             jcr:primaryType="nt:unstructured"
-                                            sling:hideChildren="[layout,id]">
+                                            sling:hideChildren="[layout,id,background]">
                                             <headline
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -70,12 +70,11 @@
                                                 fieldDescription="HTML ID attribute to apply to the component."
                                                 fieldLabel="ID"
                                                 name="./id"/>
-                                            <background
+                                            <bgColor
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                fieldDescription="Choose the background color"
-                                                fieldLabel="Background color"
-                                                name="./background">
+                                                fieldLabel="Container background color"
+                                                name="./bgColor">
                                                 <items jcr:primaryType="nt:unstructured">
                                                     <white
                                                         jcr:primaryType="nt:unstructured"
@@ -86,7 +85,7 @@
                                                         text="Gray"
                                                         value="gray"/>
                                                 </items>
-                                            </background>
+                                            </bgColor>
                                         </items>
                                     </column>
                                 </items>
