@@ -10,17 +10,15 @@
      id="${component.id}"
      class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-tile"
      data-cmp-data-layer="${teaser.data.json}">
+	<a href="${properties.linkURL @ extension='html'}">
     <div class="cmp-teaser__content">
-		<a href="${properties.linkURL}.html">
-		<div class="cmp-tile-title"><strong>${properties.productTitle}</strong></div>
-		</a>
+		<div class="cmp-tile-title">${properties.productTitle}</div>
 		<div class="cmp-tile-subtitle">${properties.description}</div>
     </div>
 	<div class="cmp-tile-icons">
         <div class="cmp-tile-left-icon" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
-		<a href="${properties.linkURL2}.html">
-			<img class="cmp-tile-right-icon" src="${properties.fileReference2}">
-		</a>
+		<img class="cmp-tile-right-icon" src="${properties.fileReference2}">
 	</div>
+	</a>
 </div>
 <sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>
