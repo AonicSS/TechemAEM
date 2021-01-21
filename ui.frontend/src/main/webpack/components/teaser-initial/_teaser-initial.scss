@@ -1,0 +1,35 @@
+.teaser-initial {
+  .cmp-container-headline {
+    font-family: $font-universe-roman-bold;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1.4;
+    letter-spacing: -0.17px;
+    text-align: center;
+    color: $color-foreground;
+    padding-top: 30px;
+    margin: 30px auto;
+    max-width: 720px;
+  }
+  .cmp-container-subtitle {
+    font-family: $font-universe-roman;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.63;
+    letter-spacing: -0.1px;
+    text-align: center;
+    color: $color-separator-dark;
+    padding-top: 5px;
+    margin: 0 0 20px 0;
+  }
+  .third-text-image {
+    margin-top: 70px;
+    .cmp-image__left img {
+      margin-left: -10px;
+    }
+
+    .cmp-image__right img {
+      margin-left: 10px;
+    }
+  }
+}
