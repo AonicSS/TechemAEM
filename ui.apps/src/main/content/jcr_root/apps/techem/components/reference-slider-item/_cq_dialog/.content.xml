@@ -38,6 +38,7 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldDescription="A title for the reference item and link"
                                                 fieldLabel="Title"
+                                                maxlength="{Long}80"
                                                 name="./title"
                                                 required="true"/>
                                             <sourceAuthor

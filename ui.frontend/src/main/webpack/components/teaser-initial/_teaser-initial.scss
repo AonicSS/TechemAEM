@@ -8,7 +8,8 @@
     text-align: center;
     color: $color-foreground;
     padding-top: 30px;
-    margin: 0 0 30px 0;
+    margin: 30px auto;
+    max-width: 720px;
   }
   .cmp-container-subtitle {
     font-family: $font-universe-roman;
@@ -18,7 +19,7 @@
     letter-spacing: -0.1px;
     text-align: center;
     color: $color-separator-dark;
-    padding-top: 20px;
+    padding-top: 5px;
     margin: 0 0 20px 0;
   }
   .third-text-image {
