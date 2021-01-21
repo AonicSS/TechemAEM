@@ -46,15 +46,6 @@
                                                 fieldDescription="Subtitle for the module"
                                                 fieldLabel="Subtitle text"
                                                 name="./subtitle"/>
-                                            <areTabs
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                                checked="${not empty cqDesign.autoplay ? cqDesign.autoplay : false}"
-                                                fieldDescription="If checked, tabs will be used for the components"
-                                                name="./areTabs"
-                                                text="Use Tabs for showing Icon Numbers Tiles"
-                                                uncheckedValue="false"
-                                                value="true"/>
                                         </items>
                                     </column>
                                 </items>

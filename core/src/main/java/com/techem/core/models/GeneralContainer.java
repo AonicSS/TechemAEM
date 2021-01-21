@@ -4,6 +4,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;
 
@@ -19,35 +20,24 @@ public class GeneralContainer {
     @Inject
     private Resource resource;
 
-    @Inject
-    @Default(values = "Headline")
+    @ValueMapValue(name="headline")
     private String headline;
 
-    @Inject
+    @ValueMapValue(name="subtitle")
     private String subtitle;
 
-    @Inject
-    @Default(values = "white")
+    @ValueMapValue(name="background")
     private String background;
 
     public String getHeadline() {
-        if (this.headline == null) {
-            this.headline = this.resource.getValueMap().get("headline", String.class);
-        }
         return headline;
     }
 
     public String getSubtitle() {
-        if (this.subtitle == null) {
-            this.subtitle = this.resource.getValueMap().get("subtitle", String.class);
-        }
         return subtitle;
     }
 
     public String getBackground() {
-        if (this.background == null) {
-            this.background = this.resource.getValueMap().get("background", String.class);
-        }
         return background;
     }
 }
