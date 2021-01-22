@@ -4,7 +4,6 @@ import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ResourceUtil;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
@@ -61,7 +60,7 @@ public class Navigation {
         if(StringUtils.isNotBlank(navigationRoot)) {
             final Resource resourceRoot = resourceResolver.getResource(navigationRoot);
 
-            if(!ResourceUtil.isNonExistingResource(resourceRoot)) {
+            if(Objects.nonNull(resourceRoot)) {
                 final List<Resource> children =  Lists.newArrayList(resourceRoot.getChildren().iterator());
 
                 if(Objects.nonNull(children) && children.size() > 0) {
@@ -94,7 +93,7 @@ public class Navigation {
     public String getLogoImage() { return logoImage; }
 
     private void setLogoImage() {
-        if(!ResourceUtil.isNonExistingResource(image)) {
+        if(Objects.nonNull(image)) {
             ValueMap valueMap = image.adaptTo(ValueMap.class);
             logoImage = valueMap.get("fileReference", String.class);
         } else {
