@@ -1,13 +1,13 @@
 .list-container{
   .cmp-container-headline{
-    font-family: Univers65;
+    font-family: $font-universe-roman-bold;
     font-size: 40px;
     font-weight: bold;
     line-height: 1.4;
     letter-spacing: -0.17px;
     text-align: center;
-    color: #222222;
+    color: $color-foreground-header;
     padding-top: 30px;
     margin: 0 0 30px 0;
   }
-  }
+}
