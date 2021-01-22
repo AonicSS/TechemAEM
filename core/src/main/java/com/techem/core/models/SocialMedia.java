@@ -2,7 +2,6 @@ package com.techem.core.models;
 
 import org.apache.commons.compress.utils.Lists;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceUtil;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ChildResource;
@@ -11,7 +10,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import javax.annotation.PostConstruct;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Objects;
 
 import static java.util.stream.Collectors.toCollection;
 
@@ -28,7 +27,7 @@ public class SocialMedia {
 
     @PostConstruct
     protected void init() {
-        if(!ResourceUtil.isNonExistingResource(socialItems)) {
+        if(Objects.nonNull(socialItems)) {
             socialMediaList = Lists.newArrayList(socialItems.getChildren().iterator()).
                     stream().map(socialItem -> socialItem.adaptTo(Media.class))
                     .collect(toCollection(LinkedList::new));
