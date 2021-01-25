@@ -1,15 +1,13 @@
 package com.techem.core.models;
 
-import com.day.cq.commons.DiffInfo;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceUtil;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
+import java.util.Objects;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class Header {
@@ -27,7 +25,7 @@ public class Header {
 
     @PostConstruct
     protected void init() {
-        if(!ResourceUtil.isNonExistingResource(resource)) {
+        if(Objects.nonNull(resource)) {
             pagePath = resource.getParent().getPath();
         }
     }
