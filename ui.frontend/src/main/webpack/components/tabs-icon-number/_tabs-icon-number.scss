@@ -13,6 +13,11 @@
     position: relative;
     margin: 0 30px;
     outline: 0;
+    font-family: $font-universe-roman-bold;
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+    color: $color-inactive-tab;
     &:after{
         display: block;
         content: '';
@@ -26,6 +31,7 @@
     }
 }
 .cmp-tabs__tab--active {
+    color: #000000;
     &:after{
         border-color: $color-primary-button;
     }
