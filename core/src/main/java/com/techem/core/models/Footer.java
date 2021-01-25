@@ -3,7 +3,6 @@ package com.techem.core.models;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.compress.utils.Lists;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceUtil;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ChildResource;
@@ -45,7 +44,7 @@ public class Footer {
     }
 
     private void setBottomLinks() {
-        if(!ResourceUtil.isNonExistingResource(bottomLinks)) {
+        if(Objects.nonNull(bottomLinks)) {
             final List<Resource> children =  Lists.newArrayList(bottomLinks.getChildren().iterator());
 
             if(CollectionUtils.isNotEmpty(children)) {
@@ -58,7 +57,7 @@ public class Footer {
     }
 
     private void setFooterItems() {
-        if(!ResourceUtil.isNonExistingResource(categories)) {
+        if(Objects.nonNull(categories)) {
            final List<Resource> children =  Lists.newArrayList(categories.getChildren().iterator());
 
            if(CollectionUtils.isNotEmpty(children)) {
