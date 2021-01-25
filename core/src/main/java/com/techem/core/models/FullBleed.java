@@ -4,6 +4,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;
 
@@ -18,25 +19,19 @@ public class FullBleed {
     @Inject
     private Resource resource;
 
-    @Inject
+    @ValueMapValue(name="headline")
     @Default(values = "Headline")
     private String headline;
 
-    @Inject
+    @ValueMapValue(name="body")
     @Default(values = "Body")
     private String body;
 
     public String getHeadline() {
-        if (this.headline == null) {
-            this.headline = this.resource.getValueMap().get("headline", String.class);
-        }
         return headline;
     }
 
     public String getBody() {
-        if (this.body == null) {
-            this.body = this.resource.getValueMap().get("body", String.class);
-        }
         return body;
     }
 }
