@@ -5,6 +5,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;
 
@@ -19,36 +20,25 @@ public class IconNumberTile {
     @Inject
     private Resource resource;
 
-    @Inject
-    @Default(values = "1")
+    @ValueMapValue(name="number")
     private String number;
 
-    @Inject
-    @Default(values = "Headline")
+    @ValueMapValue(name="title")
+    @Default(values = "Title of Icon-Number Tile")
     private String title;
 
-    @Inject
-    @Default(values = "left")
+    @ValueMapValue(name="body")
     private String body;
 
     public String getNumber() {
-        if (this.number == null) {
-            this.number = this.resource.getValueMap().get("number", String.class);
-        }
         return number;
     }
 
     public String getTitle() {
-        if (this.title == null) {
-            this.title = this.resource.getValueMap().get("title", String.class);
-        }
         return title;
     }
 
     public String getBody() {
-        if (this.body == null) {
-            this.body = this.resource.getValueMap().get("body", String.class);
-        }
         return body;
     }
 }
