@@ -5,6 +5,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;
 
@@ -19,23 +20,17 @@ public class TabsIconNumber {
     @Inject
     private Resource resource;
 
-    @Inject
+    @ValueMapValue(name="headline")
     private String headline;
 
-    @Inject
+    @ValueMapValue(name="subtitle")
     private String subtitle;
 
     public String getHeadline() {
-        if (this.headline == null) {
-            this.headline = this.resource.getValueMap().get("headline", String.class);
-        }
         return headline;
     }
 
     public String getSubtitle() {
-        if (this.subtitle == null) {
-            this.subtitle = this.resource.getValueMap().get("subtitle", String.class);
-        }
         return subtitle;
     }
 }
