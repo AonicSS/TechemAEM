@@ -94,4 +94,16 @@
       }
     }
   }
+  .cmp-container-headline{
+    font-family: $font-universe-roman-bold;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1.4;
+    letter-spacing: -0.17px;
+    text-align: center;
+    color: $color-foreground;
+    padding-top: 30px;
+    max-width: 764px;
+    margin: 30px auto;
+  }
 }
