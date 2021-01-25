@@ -7,12 +7,12 @@
 
     .service-item:first-child {
           .cmp-tile {
-            border-radius: 40px 0 0 0;
+            border-radius: $border-radius-top-l;
           }
         }
         .service-item:last-child {
           .cmp-tile {
-            border-radius: 0 0 40px 0;
+            border-radius: $border-radius-bottom-r;
           }
         }
 
@@ -41,12 +41,15 @@
           display: block;
           margin-left: auto;
         }
+        .cmp-tile-right-icon {
+          padding: 8px 24px 0px 0px!important;
+        }
 
         .cmp-tile-subtitle {
           display: block;
           font-family: $font-universe-roman;
           padding: 10px 0 0 24px;
-          color: #4C4C4C;
+          color: $color-separator-dark;
           font-size: 16px;
           max-width: 194px;
           height: 123px;
@@ -57,7 +60,7 @@
         font-size: 16px;
         padding: 18px 24px 0px 24px;
         text-align: left;
-        color: #4C4C4C;
+        color: $color-separator-dark;
       }
 
       a {
@@ -83,15 +86,63 @@
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
+        max-height: 84px;
         .cmp-tile-left-icon {
           padding: 0px 0px 24px 24px;
           max-width: 64px;
+          margin-right: auto;
         }
         .cmp-tile-right-icon {
-          padding: 0px 24px 24px 0px;
+          padding: 0px 24px 0px 0px;
           max-width: 64px;
         }
       }
     }
   }
 }
+.bg-gray > .cmp-container .cmp-tile-color {
+     background-color: $color-background;
+     &:hover{
+         background-color: $color-grey;
+         box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+     }
+ }
+
+ .bg-white > .cmp-container .cmp-tile-color {
+      background-color: $color-grey;
+      &:hover{
+          background-color: $color-background;
+          box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+      }
+  }
+
+  @media only screen and (max-width: 769px) {
+    .cmp-container {
+      .cmp-tile-list {
+        .cmp-tile {
+          &:hover{
+            cursor: pointer;
+            display: flex;
+            background-color: inherit;
+            box-shadow: 0;
+
+            .cmp-tile-left-icon {
+              display: block;
+            }
+
+            a{
+              display: block;
+              margin-left: 0;
+            }
+            .cmp-tile-right-icon {
+              padding: 0 24px 0px 0px!important;
+            }
+
+            .cmp-tile-subtitle {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }

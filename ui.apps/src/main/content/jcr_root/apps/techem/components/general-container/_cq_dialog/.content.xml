@@ -38,8 +38,7 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldDescription="Headline for the module"
                                                 fieldLabel="Module Headline"
-                                                name="./headline"
-                                                required="{Boolean}true"/>
+                                                name="./headline"/>
                                             <subtitle
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"

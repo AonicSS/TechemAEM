@@ -4,6 +4,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;
 
@@ -18,45 +19,32 @@ public class ImageTile {
     @Inject
     private Resource resource;
 
-    @Inject
+    @ValueMapValue(name="Image Tile Headline")
     @Default(values = "Headline")
     private String headline;
 
-    @Inject
-    @Default(values = "Body")
+    @ValueMapValue(name="body")
     private String body;
 
-    @Inject
+    @ValueMapValue(name="linkURL2")
     private String linkURL2;
 
-    @Inject
+    @ValueMapValue(name="fileReference2")
     private String fileReference2;
 
     public String getHeadline() {
-        if (this.headline == null) {
-            this.headline = this.resource.getValueMap().get("headline", String.class);
-        }
         return headline;
     }
 
     public String getBody() {
-        if (this.body == null) {
-            this.body = this.resource.getValueMap().get("body", String.class);
-        }
         return body;
     }
 
     public String getLinkURL2() {
-        if (this.linkURL2 == null) {
-            this.linkURL2 = this.resource.getValueMap().get("linkURL2", String.class);
-        }
         return linkURL2;
     }
 
     public String getFileReference2() {
-        if (this.fileReference2 == null) {
-            this.fileReference2 = this.resource.getValueMap().get("fileReference2", String.class);
-        }
         return fileReference2;
     }
 }

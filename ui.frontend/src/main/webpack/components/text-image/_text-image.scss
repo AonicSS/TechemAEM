@@ -1,4 +1,16 @@
 .text-image{
+  .cmp-container-headline {
+    font-family: $font-universe-roman-bold;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -.17px;
+    text-align: center;
+    color: #202020;
+    padding-top: 30px;
+    margin: 30px auto;
+    max-width: 720px;
+  }
   .cmp-teaser {
     display: flex;
     justify-content: space-between;

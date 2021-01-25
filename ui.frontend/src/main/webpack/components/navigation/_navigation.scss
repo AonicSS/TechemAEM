@@ -244,7 +244,7 @@ header.experiencefragment{
 
         &__dropdown-wrapper {
             position: absolute;
-            top: 0;
+            top: 55px;
             left: 0;
             right: 0;
             background-color: #F3F3F3;
@@ -601,7 +601,7 @@ header.experiencefragment{
                         }
 
                         a {
-                            font-family: Univers55;
+                            font-family: $font-universe-roman;
                             font-size: 18px;
                             color: #000000;
                         }

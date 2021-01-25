@@ -17,11 +17,11 @@
             display: inline-block;
             position: absolute;
             font-size: 260px;
-            top: 25%;
-            right: 0;
+            top: 18%;
+            right: -16px;
             font-family: $font-universe-roman-bold;
             color: $color-primary-button;
-            letter-spacing: -28px;
+            letter-spacing: -7px;
             line-height: 0;
         }
     }
@@ -29,12 +29,13 @@
         display: flex!important;
         flex-direction: column;
         justify-content: center;
+        padding-right: 10%;
     }
     .cmp-reference-title-link{
         margin-bottom: 30px;
         a{
             color: #222222;
-            font-family: "Univers LT Std";
+            font-family: $font-universe-roman;
             font-weight: bold;
             font-size: 34px;
             letter-spacing: 0;
@@ -53,20 +54,17 @@
         }
     }
     .cmp-reference-sourceAuthor,.cmp-reference-sourceDetails{
-        font-family: $font-universe-std;
+        font-family: $font-universe-roman-bold;
         font-size: 16px;
         letter-spacing: 0;
         line-height: 26px;
-        font-weight: bold;
-    }
-    .cmp-reference-sourceDetails{
-        font-weight: normal;
+        color: $color-separator-dark;
     }
     .cmp-reference-description{
         margin-top: 30px;
         opacity: 0.8;
-        color: #4C4C4C;
-        font-family: $font-universe-std;
+        color: $color-separator-dark;
+        font-family: $font-universe-roman;
         font-size: 16px;
         letter-spacing: -0.1px;
         line-height: 26px;
