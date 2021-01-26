@@ -51,9 +51,12 @@
       max-width: 100%;
       margin-top: 0;
     }
-  a{
+  .cmp-image-tile-arrow{
     position: absolute;
     bottom: 0;
+  }
+  a{
+    text-decoration: none;
   }
 }
 @media only screen and (max-width: 769px) {
