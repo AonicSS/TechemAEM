@@ -1,25 +1,16 @@
 .image-tile {
   display: flex!important;
   float: none!important;
-  padding: 0 2.5%;
+  padding: 0;
+  width: 340px!important;
   position: relative;
   cursor: pointer;
-  margin: 30px 0;
+  margin: 30px 38px!important;
   &:first-of-type{
-    padding: 0 5% 0 0;
     .cmp-teaser__image
       img{
         border-radius: $border-radius-top-l;
       }
-  }
-  &:nth-of-type(2){
-      padding: 0 2.5%;
-  }
-  &:nth-of-type(4n){
-    padding: 0 5% 0 0;
-  }
-  &:nth-of-type(3n){
-    padding: 0 0 0 5%;
   }
   &:last-of-type{
     .cmp-teaser__image
@@ -67,17 +58,7 @@
 }
 @media only screen and (max-width: 769px) {
   .image-tile {
-    &:first-of-type{
-      padding: 0;
-    }
-    &:nth-of-type(2){
-        padding: 0;
-    }
-    &:nth-of-type(4n){
-      padding: 0;
-    }
-    &:nth-of-type(3n){
-      padding: 0;
-    }
+   width: 90%!important;
+   margin: 30px auto!important;
   }
 }
