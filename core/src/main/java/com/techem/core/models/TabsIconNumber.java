@@ -1,5 +1,6 @@
 package com.techem.core.models;
 
+
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -8,11 +9,10 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.inject.Inject;
 
-
-@Model(adaptables = Resource.class, adapters = GeneralContainer.class,
+@Model(adaptables = Resource.class, adapters = TabsIconNumber.class,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL,
-        resourceType = "techem/components/general-container")
-public class GeneralContainer {
+        resourceType = "techem/components/tabs-icon-number")
+public class TabsIconNumber {
 
     /**
      * The current resource.
@@ -26,18 +26,11 @@ public class GeneralContainer {
     @ValueMapValue(name="subtitle")
     private String subtitle;
 
-    @ValueMapValue(name="background")
-    private String background;
-
     public String getHeadline() {
         return headline;
     }
 
     public String getSubtitle() {
         return subtitle;
-    }
-
-    public String getBackground() {
-        return background;
     }
 }
