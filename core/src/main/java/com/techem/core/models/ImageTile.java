@@ -19,7 +19,7 @@ public class ImageTile {
     @Inject
     private Resource resource;
 
-    @ValueMapValue(name="Image Tile Headline")
+    @ValueMapValue(name="headline")
     @Default(values = "Headline")
     private String headline;
 

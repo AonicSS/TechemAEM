@@ -1,8 +1,9 @@
 .button{
   text-align: center;
+  margin: 20px auto;
 }
 .cmp-button__text {
-  font-size: 1em;
+  font-size: 16px;
   display: inline-block;
   vertical-align: top;
   line-height: 1.5;
@@ -12,11 +13,11 @@
 //.cmp-button__icon--myIcon {}
 
 .cmp-button {
-  padding: 14px 15px;
+  padding: 14px 30px;
   display: inline-block;
-  font-family: $font-universe-std;
+  font-family: $font-universe-roman-bold;
   box-sizing: border-box;
-  font-size: 1em;
+  font-size: 16px;
   line-height: 1.5rem;
   text-align: center;
   cursor: pointer;
@@ -28,18 +29,19 @@
     background-color: $color-primary-button;
     color: #ffffff;
     &:hover{
-      background-color: #C50A15;
+      background-color: $color-primary-button-hover;
     }
   }
 
   &.button-secondary {
+    padding: 12px 30px;
     box-sizing: border-box;
     border: 2px solid $border-secondary-button;
     color: $border-secondary-button;
     &:hover{
       background-color: $color-primary-button;
       color: #ffffff;
-      border: 0;
+      border: 2px solid $border-secondary-button;
     }
   }
 
@@ -52,5 +54,17 @@
   &.button-huge {
     height: 54px;
     width: 300px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .button{
+    margin: 0 auto;
+  }
+  .cmp-button {
+    &.button-huge {
+      width: 93%;
+      margin: 20px auto;
+    }
   }
 }
