@@ -12,8 +12,8 @@
      class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} aem-Grid aem-Grid--12 aem-Grid--default--12"
      data-cmp-data-layer="${teaser.data.json}">
     <div class="cmp-image__${textimage.textPosition} aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--tablet--6 aem-GridColumn--phone--12" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
-    <a href="${properties.linkURL2 @ extension='html'}" class="${properties.linkURL2 ? 'is-link' : ''}">
-        <div class="cmp-content__${textimage.textPosition} aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--tablet--6 aem-GridColumn--phone--12 cmp-teaser__content">
+    <a href="${properties.linkURL2 @ extension='html'}" class="aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--tablet--6 aem-GridColumn--phone--12 cmp-teaser__content">
+        <div class="cmp-content__${textimage.textPosition}">
             <sly data-sly-call="${headlineTemplate.headline @ textimage=textimage}"></sly>
             <sly data-sly-call="${textTemplate.text @ textimage=textimage}"></sly>
             <img class="cmp-arrow" src="${properties.fileReference2}">

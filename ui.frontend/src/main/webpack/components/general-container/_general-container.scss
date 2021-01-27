@@ -4,25 +4,35 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 35px;
+    .aem-Grid{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
   .cmp-container-headline{
-    font-family: Univers65;
+    font-family: $font-universe-roman-bold;
     font-size: 40px;
     font-weight: bold;
     line-height: 1.4;
     letter-spacing: -0.17px;
     text-align: center;
-    color: #222222;
+    color: $color-foreground;
     padding-top: 30px;
-    margin: 0 0 30px 0;
+    max-width: 764px;
+    margin: 30px auto;
   }
   .cmp-container-text{
-    font-family: Univers55;
+    font-family: $font-universe-roman;
     font-size: 16px;
     font-weight: normal;
     line-height: 1.63;
     letter-spacing: -0.1px;
+    color: $color-separator-dark;
     text-align: center;
-    margin: 0 0 45px 0;
+    max-width: 764px;
+    margin: 30px auto 45px auto;
   }  
 }

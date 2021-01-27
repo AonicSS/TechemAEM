@@ -99,6 +99,29 @@
       }
     }
   }
+  .cmp-container-headline{
+    font-family: $font-universe-roman-bold;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1.4;
+    letter-spacing: -0.17px;
+    text-align: center;
+    color: $color-foreground;
+    padding-top: 30px;
+    max-width: 764px;
+    margin: 30px auto;
+  }
+  .cmp-container-text{
+    font-family: $font-universe-roman;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.63;
+    letter-spacing: -0.1px;
+    color: $color-separator-dark;
+    text-align: center;
+    max-width: 764px;
+    margin: 30px auto 45px auto;
+  }
 }
 .bg-gray > .cmp-container .cmp-tile-color {
      background-color: $color-background;

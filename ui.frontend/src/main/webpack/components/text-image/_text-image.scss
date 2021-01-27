@@ -6,7 +6,7 @@
     line-height: 1.4;
     letter-spacing: -.17px;
     text-align: center;
-    color: #202020;
+    color: $color-foreground;
     padding-top: 30px;
     margin: 30px auto;
     max-width: 720px;
@@ -52,23 +52,29 @@
       flex-direction: column;
       justify-content: center;
       color: #fff;
+        &:hover{
+          .cmp-text-image-headline {
+            color: $color-primary-button;
+          }
+        }
 
       .cmp-text-image-headline {
         font-family: $font-universe-roman-bold;
-        font-weight: 900;
+        font-weight: bold;
         font-size: 20px;
         letter-spacing: 0.2px;
-        line-height: 30px;
-        color: #222222;
+        line-height: 1.4;
+        color: $color-foreground-header;
         text-align: left;
+        margin-bottom: 20px;
       }
 
       .cmp-teaser__description {
-        color:#4c4c4c;
+        color: $color-separator-dark;
         font-family: $font-universe-roman;
         font-size: 16px;
-        letter-spacing: -0.1px;
-        line-height: 28px;
+        letter-spacing: -.1px;
+        line-height: 1.63;
       }
 
       .cmp-arrow{
