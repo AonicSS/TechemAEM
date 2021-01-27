@@ -18,16 +18,10 @@
         border-radius: $border-radius-bottom-r;
       }
   }
-  &:hover{
-    .cmp-image-tile-title{
-      color: $color-primary-button;
-    }
-  }
   .cmp-image-tile-title{
     margin: 20px 0 15px;
     font-family: $font-universe-roman-bold;
     font-size: 20px;
-    font-weight: bold;
     line-height: 1.4;
     letter-spacing: 0.2px;
     color: $color-foreground-header;
