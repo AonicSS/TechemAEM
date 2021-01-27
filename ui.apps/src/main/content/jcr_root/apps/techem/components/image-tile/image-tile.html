@@ -10,7 +10,7 @@
      id="${component.id}"
      class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-image-tile"
      data-cmp-data-layer="${teaser.data.json}">
-	<a href="${imageTile.linkURL2 @ extension='html'}">
+	<a href="${imageTile.linkURL2 @ extension='html'}" class="${properties.linkURL2 ? 'is-link' : ''}">
 	<div class="cmp-tile-icons cmp-image-tile-icon" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
     <div class="cmp-teaser__content">
 		<sly data-sly-call="${headlineTemplate.headline @ imageTile=imageTile}"></sly>
