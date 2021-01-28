@@ -144,6 +144,7 @@
   @media only screen and (max-width: 769px) {
     .cmp-container {
       .cmp-tile-list {
+        width: auto;
         .cmp-tile {
           &:hover{
             cursor: pointer;

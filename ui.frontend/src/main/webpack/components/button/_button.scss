@@ -67,4 +67,9 @@
       margin: 20px auto;
     }
   }
+  .button-secondary {
+    .cmp-button__text {
+      letter-spacing: -.2px;
+    }
+  }
 }

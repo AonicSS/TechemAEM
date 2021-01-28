@@ -79,13 +79,19 @@
     }
 }
 @media only screen and (max-width: 720px) {
+    .reference-slider-item{
+        padding: 80px 0 50px 0;
+    }
     .cmp-reference-slider-item {
         .cmp-teaser__image{
-                padding-right: 0;
+                padding: 0 20px;
+                img{
+                    max-width: 100%;
+                }
             &:after{
-                font-size: 154px;
-                top: 15%;
-                right: -8px;
+                font-size: 110px;
+                top: 10%;
+                right: 20px;
                 letter-spacing: 0;
             }
         }
@@ -93,6 +99,7 @@
             display: flex!important;
             flex-direction: column;
             justify-content: center;
+            padding: 0 20px;
         }
         .cmp-reference-title-link{
             margin-top: 30px;
