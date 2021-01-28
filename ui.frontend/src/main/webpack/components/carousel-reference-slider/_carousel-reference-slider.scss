@@ -19,7 +19,7 @@
             display: block;
             position: absolute;
             opacity: 0;
-            right: 0;
+            right: calc((100vw - 77pc)/2);
             top: 0;
             color: $color-primary-button;
             font-size: 100px;
@@ -38,7 +38,7 @@
             display: block;
             position: absolute;
             opacity: 0;
-            left: 0;
+            left: calc((100vw - 77pc)/2);
             top: 0;
             color: $color-primary-button;
             font-size: 100px;

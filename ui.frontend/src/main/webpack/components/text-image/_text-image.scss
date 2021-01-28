@@ -1,4 +1,5 @@
 .text-image{
+  margin-bottom: 50px;
   .cmp-container-headline {
     font-family: $font-universe-roman-bold;
     font-size: 40px;
@@ -21,10 +22,10 @@
       order: 2;
     }
     .cmp-content__right {
-      padding: 0 80px;
+      padding: 0 50px;
     }
     .cmp-content__left{
-      padding: 0 80px;
+      padding: 0 50px;
     }
     .cmp-content__right {
       @at-root .cmp-teaser {
