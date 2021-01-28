@@ -32,7 +32,7 @@
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items
                                             jcr:primaryType="nt:unstructured"
-                                            sling:hideChildren="[id,layout]">
+                                            sling:hideChildren="[id,layout,background]">
                                             <headline
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
