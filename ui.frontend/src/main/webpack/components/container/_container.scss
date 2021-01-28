@@ -4,6 +4,9 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    width: 77pc;
+    margin: 0 auto;
+    padding: 0 0 100px 0;
 
     .service-item:first-child {
           .cmp-tile {
@@ -126,7 +129,6 @@
 .bg-gray > .cmp-container .cmp-tile-color {
      background-color: $color-background;
      &:hover{
-         background-color: $color-grey;
          box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
      }
  }
@@ -146,8 +148,8 @@
           &:hover{
             cursor: pointer;
             display: flex;
-            background-color: inherit;
-            box-shadow: 0;
+            box-shadow: none;
+            background-color: $color-grey;
 
             .cmp-tile-left-icon {
               display: block;
@@ -167,5 +169,19 @@
           }
         }
       }
+    }
+    .bg-gray .cmp-container .cmp-tile-color {
+      &:hover{
+          box-shadow: none;
+          background-color: $color-background;
+      }
+    }
+  
+    .bg-white .cmp-container .cmp-tile-color {
+        background-color: $color-grey;
+        &:hover{
+            background-color: $color-background;
+            box-shadow: none;
+        }
     }
   }

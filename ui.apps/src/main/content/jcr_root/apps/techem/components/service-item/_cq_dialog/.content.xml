@@ -48,6 +48,7 @@
                                                 fieldLabel="Link for the Service Tile"
                                                 name="./linkURL"
                                                 rootPath="/content"
+                                                required="{Boolean}true"
                                                 wrapperClass="foundation-toggleable cmp-teaser__editor-link-url"/>
                                             <description
                                                 jcr:primaryType="nt:unstructured"
