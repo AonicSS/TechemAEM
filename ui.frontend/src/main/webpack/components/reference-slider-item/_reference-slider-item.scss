@@ -1,3 +1,10 @@
+.reference-slider-item{
+    background-color: $color-grey;
+    .cmp-teaser{
+        max-width: 77pc;
+        margin: 0 auto;
+    }
+}
 .cmp-reference-slider-item {
     display: flex!important;
     flex-wrap: wrap;
@@ -75,10 +82,10 @@
         .cmp-teaser__image{
                 padding-right: 0;
             &:after{
-                font-size: 200px;
-                top: 25%;
-                right: 0;
-                letter-spacing: -28px;
+                font-size: 154px;
+                top: 15%;
+                right: -8px;
+                letter-spacing: 0;
             }
         }
         .cmp-teaser__content{

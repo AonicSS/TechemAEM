@@ -94,7 +94,7 @@
         &__action-link {
             display: inline-block;
             margin: 0 0 10px 0;
-            padding: 14px 30px;
+            padding: 14px 10px;
             border: 0;
             border-radius: 30px;
             font-family: $font-universe-roman-bold;
@@ -136,7 +136,7 @@
             }
             .cmp-teaser__action-container {
                 .cmp-teaser__action-link{
-                    width: 80%;
+                    padding: 14px 0;
                 }
 
             }
