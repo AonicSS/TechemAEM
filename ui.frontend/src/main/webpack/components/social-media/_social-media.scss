@@ -36,11 +36,17 @@
             display: inline-block;
             font-size: 0;
             line-height: 0;
-            margin: 8px;
+            margin: 8px 10px;
+            svg{
+                overflow: visible;
+            }
             &:hover{
                 svg{
                     fill: $color-primary-button !important;
                 }
+            }
+            &:first-of-type{
+                margin-left: 0;
             }
         }
     }
