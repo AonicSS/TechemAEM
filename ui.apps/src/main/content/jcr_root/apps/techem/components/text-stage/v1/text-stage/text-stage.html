@@ -1,0 +1,16 @@
+<sly data-sly-use.stageModel="com.techem.core.models.TextStage"/>
+<sly data-sly-test.stage="${stageModel.stage}"/>
+
+<div class="cmp-text-stage">
+    <div data-sly-test="${stage.date && stage.category}" class="cmp-text-stage__date-wrapper">
+        <p class="cmp-text-stage__date">${stage.category} - ${stage.date}</p>
+    </div>
+    <h1 data-sly-test="${stage.headline}" class="cmp-text-stage__headline">
+        ${stage.headline}
+    </h1>
+    <div data-sly-test="${stage.text}" class="cmp-text-stage__text-wrapper">
+        <p class="cmp-text-stage__text">
+            ${stage.text @ context='html'}
+        </p>
+    </div>
+</div>
