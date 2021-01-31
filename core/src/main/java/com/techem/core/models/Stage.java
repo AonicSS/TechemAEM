@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Model(adaptables = Resource.class,  defaultInjectionStrategy =  DefaultInjectionStrategy.OPTIONAL)
-public class Stage {
+public class Stage{
 
     private static final String DATE_PATTERN = "dd.MM.yyy";
 
@@ -36,6 +36,10 @@ public class Stage {
             DateFormat formatter = new SimpleDateFormat(DATE_PATTERN);
             date = formatter.format(dateObject);
         }
+    }
+
+    public Date getDateObject() {
+        return dateObject;
     }
 
     public String getHeadline() {
