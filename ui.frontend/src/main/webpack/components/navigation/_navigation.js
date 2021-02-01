@@ -115,14 +115,29 @@
     /* ---------------------------------------------
     scroll shrink
     --------------------------------------------- */
-    $(window).scroll(function() {    
-        var scroll = $(window).scrollTop();
-    
-        if (scroll >= 500) {
-            $(".header").addClass("sticky");
-        } else {
-            $(".header").removeClass("sticky");
+    const body = document.body;
+    const scrollUp = "scroll-up";
+    const scrollDown = "scroll-down";
+    let lastScroll = 0;
+
+
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll <= 0) {
+            body.classList.remove(scrollUp);
+            return;
         }
+
+        if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
+            // down
+            body.classList.remove(scrollUp);
+            body.classList.add(scrollDown);
+        } else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
+            // up
+            body.classList.remove(scrollDown);
+            body.classList.add(scrollUp);
+        }
+        lastScroll = currentScroll;
     });
     /* ---------------------------------------------
     burger menu
@@ -130,8 +145,7 @@
     function burgermenuinit() {
         var clickDelay = 500,
             clickDelayTimer = null;
-
-        $('.burger-click-region').on('click', function() {
+        $('.burger-click-region').on('click', function () {
             if (clickDelayTimer === null) {
                 var $burger = $(this);
                 $burger.toggleClass('active');
@@ -142,7 +156,7 @@
                     $burger.addClass('closing');
                     $('nav.navigation').slideUp();
                 }
-                clickDelayTimer = setTimeout(function() {
+                clickDelayTimer = setTimeout(function () {
                     $burger.removeClass('closing');
                     clearTimeout(clickDelayTimer);
                     clickDelayTimer = null;
