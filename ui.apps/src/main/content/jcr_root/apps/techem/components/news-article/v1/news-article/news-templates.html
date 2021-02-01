@@ -1,0 +1,23 @@
+<template data-sly-template.news_textStage = "${ @ stageText, newsArticle}">
+    <a href="${newsArticle.articlePath}.html" target="_self" class="cmp-newsArticles_text-stage aem-GridColumn aem-GridColumn--phone--12 aem-GridColumn--default--4">
+        <div data-sly-test="${stageText.date && stageText.category}" class="cmp-newsArticles__date-wrapper">
+            <p class="cmp-newsArticles__date">${stageText.category} - ${stageText.date}</p>
+        </div>
+        <div data-sly-test="${newsArticle.articleImage}" class="cmp-newsArticles__image-wrapper">
+            <img class="cmp-newsArticles__image" src="${newsArticle.articleImage}" />
+        </div>
+        <h1 data-sly-test="${stageText.headline}" class="cmp-newsArticles__headline">
+            ${stageText.headline}
+        </h1>
+        <div data-sly-test="${stageText.text}" class="cmp-newsArticles__text-wrapper">
+            <div class="cmp-newsArticles__text">
+                ${stageText.text @ context='html'}
+            </div>
+        </div>
+        <div class="cmp-newsArticles-icon-wrapper">
+            <i class="cmp-newsArticles-icon">
+                <div class="cmp-newsArticles-arrow"></div>
+            </i>
+        </div>
+    </a>
+</template>
