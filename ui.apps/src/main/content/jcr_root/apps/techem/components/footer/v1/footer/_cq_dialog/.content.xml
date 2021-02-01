@@ -40,7 +40,8 @@
                                                 <categoryLink
                                                         jcr:primaryType="nt:unstructured"
                                                         sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                                        fieldLabel="Category Link Url to open"
+                                                        fieldDescription="Category Link Url to open"
+                                                        fieldLabel="Category Link"
                                                         name="./categoryLink"
                                                         rootPath="/content"/>
                                                 <footerItems
@@ -62,7 +63,8 @@
                                                             <linkUrl
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                                                    fieldLabel="Link Url to open"
+                                                                    fieldDescription="Link Url to open"
+                                                                    fieldLabel="Link Url"
                                                                     name="./linkUrl"
                                                                     rootPath="/content"/>
                                                             <openNewTab
