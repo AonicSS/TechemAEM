@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Headline"
+    jcr:title="Title"
     sling:resourceType="cq/gui/components/authoring/dialog"
     extraClientlibs="[core.wcm.components.title.v2.editor]"
     helpPath="https://www.adobe.com/go/aem_cmp_title_v2"
@@ -52,65 +52,15 @@
                                                         text="H4"
                                                         value="h4"/>
                                                 </items>
-                                                <granite:data
-                                                    jcr:primaryType="nt:unstructured"
-                                                    cq-dialog-dropdown-showhide-target=".headline-showhide-target"/>
                                             </types>
-                                            <textH2
-                                                granite:class="headline-showhide-target"
+                                            <headline
                                                 jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/container">
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <textH2
-                                                        jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                        fieldLabel="Headline"
-                                                        maxlength="{Long}50"
-                                                        name="./headlineH2"
-                                                        required="{Boolean}true"/>
-                                                </items>
-                                                <granite:data
-                                                    jcr:primaryType="nt:unstructured"
-                                                    showhidetargetvalue="h2"/>
-                                            </textH2>
-                                            <textH3
-                                                granite:class="headline-showhide-target"
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/container">
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <textH3
-                                                        jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                        fieldLabel="Headline"
-                                                        maxlength="{Long}75"
-                                                        name="./headlineH3"
-                                                        required="{Boolean}true">
-                                                        <granite:data
-                                                            jcr:primaryType="nt:unstructured"
-                                                            showhidetargetvalue="h3"/>
-                                                    </textH3>
-                                                </items>
-                                                <granite:data
-                                                    jcr:primaryType="nt:unstructured"
-                                                    showhidetargetvalue="h3"/>
-                                            </textH3>
-                                            <textH4
-                                                granite:class="headline-showhide-target"
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/container">
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <textH4
-                                                        jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                        fieldLabel="Headline"
-                                                        maxlength="{Long}75"
-                                                        name="./headlineH4"
-                                                        required="{Boolean}true"/>
-                                                </items>
-                                                <granite:data
-                                                    jcr:primaryType="nt:unstructured"
-                                                    showhidetargetvalue="h4"/>
-                                            </textH4>
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="The recommended length for a H2 element is 50 characters, and for H3/H4 is 75 characters"
+                                                fieldLabel="Headline"
+                                                maxlength="{Long}75"
+                                                name="./headline"
+                                                required="{Boolean}true"/>
                                             <text
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
