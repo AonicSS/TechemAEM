@@ -1,7 +1,14 @@
 @media only screen and (min-width: 1024px) {
     .stage-container {
         &.container {
-            margin-top: 142px;
+            margin-top: 190px;
+        }
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .stage-container {
+        &.container {
+            margin-top: 80px;
         }
     }
 }
@@ -44,7 +51,6 @@
             }
 
             &__headline {
-                  margin:7px 236px 50px 0;
                   font-family: $font-universe-roman-bold;
                   font-size: 50px;
                   font-weight: bold;
@@ -55,7 +61,6 @@
                   color: $color-foreground-header;
 
                    @media only screen and (max-width:1024px) {
-                        margin: 10px 20px 15px 0;
                         font-size: 26px;
                    }
             }
@@ -63,7 +68,8 @@
             &__text-wrapper {
                 .cmp-text-stage__text {
                       width: 780px;
-                      margin: 50px 236px 70px 205px;
+                      float: none;
+                      margin: 0 auto 70px auto;
                       font-family: $font-universe-roman;
                       font-size: $font-size;
                       font-weight: normal;
@@ -74,7 +80,7 @@
                       color: $color-separator-dark;
 
                       @media only screen and (max-width:1024px) {
-                           margin: 0;
+                           margin: 0 0 30px 0;
                            width: auto;
                       }
 
