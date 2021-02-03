@@ -1,9 +1,15 @@
+.new{
+  margin: 0;
+}
 .cmp-container {
   .cmp-tile-list {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    width: 77pc;
+    margin: 0 auto;
+    padding: 0 0 100px 0;
 
     .service-item:first-child {
           .cmp-tile {
@@ -42,7 +48,7 @@
           margin-left: auto;
         }
         .cmp-tile-right-icon {
-          padding: 8px 24px 0px 0px!important;
+          padding: 7px 24px 0px 0px!important;
         }
 
         .cmp-tile-subtitle {
@@ -65,6 +71,7 @@
 
       a {
         text-decoration: none;
+        min-height: 60%;
       }
 
       .cmp-tile-title {
@@ -86,7 +93,7 @@
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
-        max-height: 84px;
+        height: 84px;
         .cmp-tile-left-icon {
           padding: 0px 0px 24px 24px;
           max-width: 64px;
@@ -107,7 +114,7 @@
     letter-spacing: -0.17px;
     text-align: center;
     color: $color-foreground;
-    padding-top: 30px;
+    padding-top: 70px;
     max-width: 764px;
     margin: 30px auto;
   }
@@ -126,7 +133,6 @@
 .bg-gray > .cmp-container .cmp-tile-color {
      background-color: $color-background;
      &:hover{
-         background-color: $color-grey;
          box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
      }
  }
@@ -142,12 +148,13 @@
   @media only screen and (max-width: 769px) {
     .cmp-container {
       .cmp-tile-list {
+        width: auto;
         .cmp-tile {
           &:hover{
             cursor: pointer;
             display: flex;
-            background-color: inherit;
-            box-shadow: 0;
+            box-shadow: none;
+            background-color: $color-grey;
 
             .cmp-tile-left-icon {
               display: block;
@@ -167,5 +174,19 @@
           }
         }
       }
+    }
+    .bg-gray .cmp-container .cmp-tile-color {
+      &:hover{
+          box-shadow: none;
+          background-color: $color-background;
+      }
+    }
+  
+    .bg-white .cmp-container .cmp-tile-color {
+        background-color: $color-grey;
+        &:hover{
+            background-color: $color-background;
+            box-shadow: none;
+        }
     }
   }

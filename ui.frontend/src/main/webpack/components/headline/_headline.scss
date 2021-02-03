@@ -1,0 +1,31 @@
+.headline {
+  margin-bottom: 32px;
+  .cmp-headline__headline {
+    font-family: $font-universe-roman-bold;
+    line-height: 1.4;
+    letter-spacing: -.17px;
+    text-align: center;
+    color: $color-foreground-header;
+    padding-top: 30px;
+    margin: 0 0 30px;
+    font-size: 40px;
+  }
+  .cmp-headline__text {
+    color: $color-separator-dark;
+    font-family: $font-universe-roman;
+    font-size: 16px;
+    letter-spacing: -.1px;
+    line-height: 1.63;
+    color: $color-dark-grey;
+    text-align: center;
+    margin: 30px 104 0;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+    .headline {
+        .cmp-headline__headline {
+            font-size: 24px;
+        }
+    }
+}

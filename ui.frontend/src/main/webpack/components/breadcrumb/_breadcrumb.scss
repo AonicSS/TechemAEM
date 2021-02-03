@@ -1,5 +1,42 @@
 .cmp-breadcrumb {}
-.cmp-breadcrumb__list {}
-.cmp-breadcrumb__item {}
-.cmp-breadcrumb__item--active {}
+.cmp-breadcrumb__list {
+    padding: 0;
+}
+.cmp-breadcrumb__item {
+    vertical-align: middle;
+    font-family: $font-universe-roman;
+    a{
+        font-size: 14px;
+        letter-spacing: -0.1px;
+        color: $color-inactive-tab;
+        text-decoration: none;
+        margin-right: 24px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid transparent;
+        position: relative;
+        &:after{
+            content: '>';
+            font-size: 12px;
+            position: absolute;
+            right: -17px;
+            top: -1px;
+            bottom: 0;
+        }
+        &:hover{
+            color: $color-primary-button;
+            border-bottom: 1px solid $color-primary-button;
+            &:after{
+                color: $color-inactive-tab;
+            }
+        }
+    }
+}
+.cmp-breadcrumb__item--active {
+    color: $color-foreground-header;
+    font-size: 14px;
+    span{
+        padding-bottom: 4px;
+        border-bottom: 1px solid transparent;
+    }
+}
 .cmp-breadcrumb__item-link {}

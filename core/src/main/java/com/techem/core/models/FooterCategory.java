@@ -13,12 +13,18 @@ public class FooterCategory {
     @ValueMapValue(name = "categoryTitle")
     private String categoryTitle;
 
+    @ValueMapValue(name = "categoryLink")
+    private String categoryLink;
+
     @PostConstruct
     protected void init() {
-
     }
 
     public String getCategoryTitle() {
         return categoryTitle;
+    }
+
+    public String getCategoryLink() {
+        return categoryLink;
     }
 }

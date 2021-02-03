@@ -1,23 +1,21 @@
 <div data-sly-use.teaser="com.adobe.cq.wcm.core.components.models.Teaser"
      data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+	 data-sly-use.serviceItem="com.techem.core.models.ServiceItem"
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
      data-sly-use.imageTemplate="image.html"
-     data-sly-use.pretitleTemplate="pretitle.html"
-     data-sly-use.titleTemplate="title.html"
-     data-sly-use.descriptionTemplate="description.html"
      data-sly-use.actionsTemplate="actions.html"
-     data-sly-test.hasContent="${teaser.imageResource || teaser.pretitle || teaser.title || teaser.description || teaser.actions.size > 0}"
+     data-sly-test.hasContent="${teaser.imageResource || serviceItem.productTitle || serviceItem.description || serviceItem.linkURL || teaser.actions.size > 0}"
      id="${component.id}"
      class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-tile cmp-tile-color"
      data-cmp-data-layer="${teaser.data.json}">
-	<a href="${properties.linkURL @ extension='html'}">
+	<a href="${serviceItem.linkURL @ extension='html'}">
     <div class="cmp-teaser__content">
-		<div class="cmp-tile-title">${properties.productTitle}</div>
-		<div class="cmp-tile-subtitle">${properties.description}</div>
+		<div class="cmp-tile-title">${serviceItem.productTitle}</div>
+		<div class="cmp-tile-subtitle">${serviceItem.description}</div>
     </div>
 	<div class="cmp-tile-icons">
         <div class="cmp-tile-left-icon" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
-		<a href="${properties.linkURL @ extension='html'}">
+		<a href="${serviceItem.linkURL @ extension='html'}">
 		<img class="cmp-tile-right-icon" src="${properties.fileReference2}">
 		</a>
 	</div>

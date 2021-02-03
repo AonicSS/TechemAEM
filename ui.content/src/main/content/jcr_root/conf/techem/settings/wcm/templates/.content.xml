@@ -2,10 +2,12 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
+    <news-page/>
     <page-content/>
     <xf-web-variation/>
     <rep:policy/>
     <home-page/>
     <category-page/>
+    <stage-content-page/>
     <section-page/>
 </jcr:root>

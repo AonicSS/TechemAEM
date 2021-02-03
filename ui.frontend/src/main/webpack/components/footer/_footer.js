@@ -29,7 +29,7 @@
                      if($target.hasClass(this.attributes.category)) {
                            $category = $target;
                      } else {
-                           $category = $target.parent();
+                           $category = $target.closest(this.selectors.category);
                      }
 
                      $category && $category.toggleClass(this.attributes.active);

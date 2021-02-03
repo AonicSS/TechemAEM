@@ -1,0 +1,156 @@
+.cmp-newsArticles {
+    max-width: 77pc;
+    margin: 0 auto;
+    padding: 1em 1em;
+
+     .cmp-newsArticles-button {
+          height: 34px;
+          padding: 0 15px 0 15px;
+          border-radius: 30px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          cursor: pointer;
+          background-color: $color-primary-button;
+          font-family: $font-universe-roman-bold;
+          font-size: $font-size;
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.63;
+          letter-spacing: 0.3px;
+          color: $color-foreground-dark;
+     }
+
+    &__container {
+        .cmp-newsArticles_text-stage {
+            padding: 30px;
+            text-decoration: none;
+
+             &:hover {
+                .cmp-newsArticles-icon {
+                    -webkit-transition: all 0.5 ease-in-out;
+                    -moz-transition: all 0.2s ease-in-out;
+                    -o-transition: all 0.2s ease-in-out;
+                    -ms-transition: all 0.2s ease-in-out;
+                    transition: all 0.5s ease-in-out;
+                }
+             }
+
+            .cmp-newsArticles__date {
+                  width: 219px;
+                  height: 14px;
+                  margin: 0 123px 12px 0;
+                  font-family: $font-universe-roman;
+                  font-size: 12px;
+                  font-weight: normal;
+                  font-stretch: normal;
+                  font-style: normal;
+                  line-height: normal;
+                  letter-spacing: 0.51px;
+                  color: $color-separator-dark;
+            }
+
+            .cmp-newsArticles__image {
+                width: 339px;
+                height: 255px;
+
+                 @media (min-width: 769px) and (max-width: 1200px) {
+                    height: inherit;
+                }
+            }
+
+            .cmp-newsArticles__headline {
+                  width: 340px;
+                  margin: 15px 0 15px 1px;
+                  font-family: $font-universe-roman-bold;
+                  font-size: 20px;
+                  font-weight: bold;
+                  font-stretch: normal;
+                  font-style: normal;
+                  line-height: 1.4;
+                  letter-spacing: 0.2px;
+                  color: $color-foreground-header;
+
+                   @media (max-width: 769px) {
+                        width: 333px;
+                        height: 53px;
+                        margin: 20px 0 16px 2px;
+                        font-size: 18px;
+                        line-height: 1.48;
+                        letter-spacing: 0.18px;
+                   }
+            }
+
+            .cmp-newsArticles__text {
+                  width: 340px;
+                  height: 104px;
+                  margin: 15px 0 30px 1px;
+                  font-family: $font-universe-roman;
+                  font-size: $font-size;
+                  font-weight: normal;
+                  font-stretch: normal;
+                  font-style: normal;
+                  line-height: 1.63;
+                  letter-spacing: -0.1px;
+                  color: $color-separator-dark;
+                  word-wrap:break-word;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 4;
+                  -webkit-box-orient: vertical;
+
+                   @media (max-width: 769px) {
+                         width: 331px;
+                         height: 104px;
+                         margin: 16px 2px 30px;
+                   }
+
+                  p {
+                      padding: 0;
+                      margin: 0;
+                  }
+            }
+
+            .cmp-newsArticles-icon-wrapper {
+                position: relative;
+                top: -10px;
+            }
+
+            .cmp-newsArticles-icon {
+                position: absolute;
+                cursor: pointer;
+            }
+
+            .cmp-newsArticles-arrow {
+                position: absolute;
+                height: 2px;
+                width: 19.46px;
+                background-color: $color-primary-button;
+
+                &::before {
+                    top: 3px;
+                    -webkit-transform: rotate(-35deg);
+                    transform: rotate(-35deg);
+                }
+
+                &::after {
+                    top: -3px;
+                    -webkit-transform: rotate(35deg);
+                    transform: rotate(35deg);
+                }
+
+                &::after,
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 50%;
+                    height: 2px;
+                    right: -2px;
+                    background-color: $color-primary-button;
+                }
+            }
+        }
+    }
+}
