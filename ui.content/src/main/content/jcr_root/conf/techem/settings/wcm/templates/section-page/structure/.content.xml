@@ -16,11 +16,6 @@
                 sling:resourceType="techem/components/experiencefragment"
                 fragmentVariationPath="/content/experience-fragments/techem/us/en/site/header/master"
                 id="category-header"/>
-            <stage-container
-                    jcr:created="{Date}2021-02-03T10:44:36.764+02:00"
-                    jcr:createdBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="techem/components/stage-container">
             <breadcrumb
                 jcr:created="{Date}2021-02-03T10:44:36.764+02:00"
                 jcr:createdBy="admin"
@@ -31,7 +26,6 @@
                 jcr:createdBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="techem/components/stage-component"/>
-            </stage-container>
             <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="techem/components/container"
