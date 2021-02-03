@@ -24,7 +24,7 @@
 
     &__container {
         .cmp-newsArticles_text-stage {
-            margin-bottom: 30px;
+            padding: 30px;
             text-decoration: none;
 
              &:hover {
@@ -34,7 +34,6 @@
                     -o-transition: all 0.2s ease-in-out;
                     -ms-transition: all 0.2s ease-in-out;
                     transition: all 0.5s ease-in-out;
-                    transform: translateX(20em);
                 }
              }
 
@@ -55,6 +54,10 @@
             .cmp-newsArticles__image {
                 width: 339px;
                 height: 255px;
+
+                 @media (min-width: 769px) and (max-width: 1200px) {
+                    height: inherit;
+                }
             }
 
             .cmp-newsArticles__headline {
@@ -68,10 +71,20 @@
                   line-height: 1.4;
                   letter-spacing: 0.2px;
                   color: $color-foreground-header;
+
+                   @media (max-width: 769px) {
+                        width: 333px;
+                        height: 53px;
+                        margin: 20px 0 16px 2px;
+                        font-size: 18px;
+                        line-height: 1.48;
+                        letter-spacing: 0.18px;
+                   }
             }
 
             .cmp-newsArticles__text {
                   width: 340px;
+                  height: 104px;
                   margin: 15px 0 30px 1px;
                   font-family: $font-universe-roman;
                   font-size: $font-size;
@@ -82,6 +95,17 @@
                   letter-spacing: -0.1px;
                   color: $color-separator-dark;
                   word-wrap:break-word;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 4;
+                  -webkit-box-orient: vertical;
+
+                   @media (max-width: 769px) {
+                         width: 331px;
+                         height: 104px;
+                         margin: 16px 2px 30px;
+                   }
 
                   p {
                       padding: 0;
