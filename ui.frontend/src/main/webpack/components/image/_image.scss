@@ -1,9 +1,19 @@
-.cmp-image-border {
-  .cmp-image {
+.cmp-image-b-radius {
+  .cmp-image__image {
+    border-radius: $border-radius-top-l-bottom-r;
+    width: auto;
     max-width: 780px;
   }
-  .cmp-image__image {
-    border: 1px solid $color-border;
-    border-radius: $border-radius-top-l-bottom-r;
+
+  &.image-with-border {
+    .cmp-image__image {
+      border: 1px solid $color-border;
+    }
+  }
+
+  &.image-centered {
+    .cmp-image {
+      text-align: center;
+    }
   }
 }
