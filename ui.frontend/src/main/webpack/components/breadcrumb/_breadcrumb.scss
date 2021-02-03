@@ -1,4 +1,7 @@
-.cmp-breadcrumb {}
+.breadcrumb {
+    max-width: 77pc;
+    margin: 190px auto 0;
+}
 .cmp-breadcrumb__list {
     padding: 0;
 }
@@ -40,3 +43,9 @@
     }
 }
 .cmp-breadcrumb__item-link {}
+
+@media only screen and (max-width:1024px){
+    .breadcrumb {
+        display: none;
+    }
+}
