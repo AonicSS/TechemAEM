@@ -20,15 +20,6 @@
                 navigationRoot="/content/techem/us/en"
                 skipNavigationRoot="false"
                 structureDepth="1"/>
-            <languagenavigation
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="techem/components/languagenavigation"
-                navigationRoot="/content/techem/us"
-                structureDepth="2"/>
-            <search
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="techem/components/search"
-                searchRoot="/content/techem/us"/>
         </root>
     </jcr:content>
 </jcr:root>

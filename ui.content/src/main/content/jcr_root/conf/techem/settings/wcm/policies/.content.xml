@@ -383,8 +383,6 @@
             <general-tabs-container jcr:primaryType="nt:unstructured">
                 <policy_general-tabs-container
                     jcr:description="Allows to add General Container when we need more Icon-Number Tiles, or Tabs Icon Number when the Icon-Number Tiles have to be grouped in tabs"
-                    jcr:lastModified="{Date}2021-01-21T16:58:00.219+02:00"
-                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="General Tabs Container Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
@@ -396,8 +394,6 @@
             <tabs-icon-number jcr:primaryType="nt:unstructured">
                 <policy_tabs-icon-number
                     jcr:description="Allows only General Container to add in it the necessary Icon-Number-Tiles"
-                    jcr:lastModified="{Date}2021-01-21T16:59:03.864+02:00"
-                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Tabs Icon Number Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
