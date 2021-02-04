@@ -1,0 +1,15 @@
+<div data-sly-use.teaser="com.adobe.cq.wcm.core.components.models.Teaser"
+	 data-sly-use.contactTile="com.techem.core.models.ContactTile"
+     data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.imageTemplate="image.html"
+     data-sly-use.actionsTemplate="actions.html"
+	 class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-image-tile">
+	<div class="cmp-tile-icons" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
+    <div class="cmp-teaser__content">
+		<div class="headline">${contactTile.headline}</div>
+		<div class="subline" data-sly-test.subline="${contactTile.subline}">${contactTile.subline}</div>
+		<div class="phone" data-sly-test.phone="${contactTile.phone}">${contactTile.phone}</div>
+		<div class="email" data-sly-test.email="${contactTile.email}">${contactTile.email}</div>
+    </div>
+</div>
