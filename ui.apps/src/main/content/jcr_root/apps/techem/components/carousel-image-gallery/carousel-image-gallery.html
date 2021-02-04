@@ -1,0 +1,33 @@
+<div data-sly-use.carousel="com.adobe.cq.wcm.core.components.models.Carousel"
+     data-sly-use.carouselImageGallery="com.techem.core.models.CarouselImageGallery"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     id="${carousel.id}"
+     class="cmp-carousel-img-gallery"
+     role="group"
+     data-component-name="carousel-image-gallery"
+     data-cmp-loop="${carouselImageGallery.loop  ? 'true' : 'false'}"
+     data-cmp-pagination-type="${carouselImageGallery.paginationType}"
+     data-cmp-autoplay="${carousel.autoplay  ? 'true' : 'false'}"
+     data-cmp-delay="${carousel.delay}"
+     data-cmp-accessibility-label="${carousel.accessibilityLabel}"
+     data-cmp-data-layer="${carousel.data.json}">
+
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <div data-sly-repeat.item="${carousel.items}"
+                 data-sly-resource="${item.name @ decorationTagName='div'}"
+                 id="${item.id}"
+                 class="swiper-slide"
+                 data-cmp-data-layer="${item.data.json}"
+                 data-cmp-hook-carousel="item">
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <sly data-sly-resource="${resource.path @ resourceType='wcm/foundation/components/parsys/newpar', appendPath='/*', decorationTagName='div', cssClassName='new section aem-Grid-newComponent'}"
+         data-sly-test="${(wcmmode.edit || wcmmode.preview) && carousel.items.size < 1}"></sly>
+</div>
