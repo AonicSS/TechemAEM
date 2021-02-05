@@ -34,6 +34,7 @@
             $links.on('click', (event) => {
                 var $target = $(event.target);
                 var $link = undefined;
+                $('body').css('overflow', 'hidden');
 
                 if ($target.is("li")) {
                     $link = $target;
@@ -61,6 +62,7 @@
 
             $closeButton.on('click', () => {
                 this.hideAllDropDowns();
+                $('body').removeAttr( 'style' );
             });
         }.bind(this);
 
@@ -148,12 +150,14 @@
         $('.burger-click-region').on('click', function () {
             if (clickDelayTimer === null) {
                 var $burger = $(this);
+                $('body').css('overflow', 'hidden');
                 $burger.toggleClass('active');
                 $burger.parent().toggleClass('is-open');
                 $('nav.navigation').slideDown();
 
                 if (!$burger.hasClass('active')) {
                     $burger.addClass('closing');
+                    $('body').removeAttr( 'style' );
                     $('nav.navigation').slideUp();
                 }
                 clickDelayTimer = setTimeout(function () {

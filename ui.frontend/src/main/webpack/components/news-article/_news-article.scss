@@ -23,10 +23,31 @@
      }
 
     &__container {
+        display: grid;
+        max-width: 77pc;
+        grid-gap: 30px 88px;
+        grid-template-columns: repeat(auto-fill, minmax(340px,3fr));
+        grid-auto-rows: 10px;
+        align-items: start;
+        &:before{
+            display: none;
+        }
+        @media only screen and (max-width: 768px) {
+            display: block;
+        }
         .cmp-newsArticles_text-stage {
-            padding: 30px;
+            padding: 0;
+            margin: 0;
             text-decoration: none;
-
+            width: auto!important;
+            box-sizing: unset;
+            float: none!important;
+            @media only screen and (max-width: 768px) {
+                margin: 30px 0;
+            }
+            .a{
+                display: block;
+            }
              &:hover {
                 .cmp-newsArticles-icon {
                     -webkit-transition: all 0.5 ease-in-out;
@@ -38,9 +59,7 @@
              }
 
             .cmp-newsArticles__date {
-                  width: 219px;
                   height: 14px;
-                  margin: 0 123px 12px 0;
                   font-family: $font-universe-roman;
                   font-size: 12px;
                   font-weight: normal;
@@ -52,16 +71,14 @@
             }
 
             .cmp-newsArticles__image {
-                width: 339px;
-                height: 255px;
+                max-width: 100%;
 
-                 @media (min-width: 769px) and (max-width: 1200px) {
+                @media (min-width: 769px) and (max-width: 1200px) {
                     height: inherit;
                 }
             }
 
             .cmp-newsArticles__headline {
-                  width: 340px;
                   margin: 15px 0 15px 1px;
                   font-family: $font-universe-roman-bold;
                   font-size: 20px;
@@ -73,9 +90,8 @@
                   color: $color-foreground-header;
 
                    @media (max-width: 769px) {
-                        width: 333px;
-                        height: 53px;
-                        margin: 20px 0 16px 2px;
+                        height: auto;
+                        margin: 20px 0 5px 2px;
                         font-size: 18px;
                         line-height: 1.48;
                         letter-spacing: 0.18px;
@@ -83,7 +99,6 @@
             }
 
             .cmp-newsArticles__text {
-                  width: 340px;
                   height: 104px;
                   margin: 15px 0 30px 1px;
                   font-family: $font-universe-roman;
@@ -102,7 +117,6 @@
                   -webkit-box-orient: vertical;
 
                    @media (max-width: 769px) {
-                         width: 331px;
                          height: 104px;
                          margin: 16px 2px 30px;
                    }
