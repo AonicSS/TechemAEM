@@ -122,12 +122,6 @@
                                                             fieldDescription="Text for the link at the bottom of the footer"
                                                             fieldLabel="Link Text"
                                                             name="./linkText"/>
-                                                        <linkUrl
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                                                fieldLabel="Link Url to open"
-                                                                name="./linkUrl"
-                                                                rootPath="/content"/>
                                                         <openNewTab
                                                                 jcr:primaryType="nt:unstructured"
                                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
