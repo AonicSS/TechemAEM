@@ -57,6 +57,16 @@
   .stage-component.text-image.teaser {
     padding: 0 1em;
     margin: 60px auto 50px;
+    .cmp-image__left{
+      .cmp-text-image-headline{
+        font-size: 28px;
+      }
+    }
+    .cmp-teaser{
+      .cmp-teaser__description{
+        max-width: 100%;
+      }
+    }
   }
 }
 @media only screen and (max-width:768px){

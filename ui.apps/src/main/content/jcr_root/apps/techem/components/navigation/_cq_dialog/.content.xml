@@ -73,6 +73,12 @@
                                                     fieldLabel="Button Link"
                                                     name="./buttonLink"
                                                     rootPath="/content"/>
+                                            <backButtonText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Enter the back button text"
+                                                    fieldLabel="Back Button Text"
+                                                    name="./backButtonText"/>
                                         </items>
                                     </column>
                                 </items>
