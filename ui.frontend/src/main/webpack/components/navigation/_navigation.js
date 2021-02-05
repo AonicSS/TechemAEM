@@ -150,14 +150,14 @@
         $('.burger-click-region').on('click', function () {
             if (clickDelayTimer === null) {
                 var $burger = $(this);
-                $('body').css('overflow', 'hidden');
+                $('body').addClass('scroll-hidden');
                 $burger.toggleClass('active');
                 $burger.parent().toggleClass('is-open');
                 $('nav.navigation').slideDown();
 
                 if (!$burger.hasClass('active')) {
                     $burger.addClass('closing');
-                    $('body').removeAttr( 'style' );
+                    $('body').removeClass('scroll-hidden');
                     $('nav.navigation').slideUp();
                 }
                 clickDelayTimer = setTimeout(function () {
