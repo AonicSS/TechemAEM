@@ -71,9 +71,9 @@ function resizeGridItem(item){
   
   function resizeAllGridItems(){
     allItems = document.getElementsByClassName("cmp-newsArticles_text-stage");
-    for(x=0;x<allItems.length;x++){
-      resizeGridItem(allItems[x]);
-    }
+    Array.from(allItems).forEach((item) => {
+      resizeGridItem(item);
+    });
   }
   
   function resizeInstance(instance){
@@ -85,6 +85,6 @@ function resizeGridItem(item){
   window.addEventListener("resize", resizeAllGridItems);
   
   allItems = document.getElementsByClassName("cmp-newsArticles_text-stage");
-  for(x=0;x<allItems.length;x++){
-    imagesLoaded( allItems[x], resizeInstance);
-  }
+  Array.from(allItems).forEach((item) => {
+    imagesLoaded( item, resizeInstance);
+  });

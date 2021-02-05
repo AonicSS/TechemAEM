@@ -34,7 +34,7 @@
             $links.on('click', (event) => {
                 var $target = $(event.target);
                 var $link = undefined;
-                $('body').css('overflow', 'hidden');
+                $('body').addClass('scroll-hidden');
 
                 if ($target.is("li")) {
                     $link = $target;
@@ -62,7 +62,7 @@
 
             $closeButton.on('click', () => {
                 this.hideAllDropDowns();
-                $('body').removeAttr( 'style' );
+                $('body').removeClass('scroll-hidden');
             });
         }.bind(this);
 
