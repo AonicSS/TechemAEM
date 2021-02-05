@@ -45,6 +45,9 @@ public class Navigation {
     @ValueMapValue(name = "logoLink")
     private String logoLink;
 
+    @ValueMapValue(name = "backButtonText")
+    private String backButtonText;
+
     @ChildResource(name = "image")
     private Resource image;
 
@@ -91,6 +94,8 @@ public class Navigation {
     public String getLogoLink() { return logoLink; }
 
     public String getLogoImage() { return logoImage; }
+
+    public String getBackButtonText() { return backButtonText; }
 
     private void setLogoImage() {
         if(Objects.nonNull(image)) {
