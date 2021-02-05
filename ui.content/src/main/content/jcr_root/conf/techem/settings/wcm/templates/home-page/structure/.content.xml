@@ -12,16 +12,11 @@
             <experiencefragment
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="techem/components/experiencefragment"
-                id="home-header"/>
+                editable="{Boolean}true"/>
             <home-stage
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="techem/components/home-stage/">
-                <home_stage_item
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="techem/components/home-stage-item"
-                        headline="Ihr Servicepartner für grüne und smarte Gebäude">
-                </home_stage_item>
-            </home-stage>
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="techem/components/home-stage/"
+                editable="{Boolean}true"/>
             <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="techem/components/container"
@@ -30,7 +25,7 @@
             <experiencefragment_2088209270
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="techem/components/experiencefragment"
-                id="home-footer"/>
+                editable="{Boolean}true"/>
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">

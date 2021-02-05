@@ -8,11 +8,19 @@
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="techem/components/container">
+            <experiencefragment
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="techem/components/experiencefragment"
+                    id="news-header"/>
             <container
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="techem/components/container"
                     editable="{Boolean}true"
                     layout="responsiveGrid"/>
+            <experiencefragment_2088209270
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="techem/components/experiencefragment"
+                    id="news-footer"/>
         </root>
     </jcr:content>
 </jcr:root>

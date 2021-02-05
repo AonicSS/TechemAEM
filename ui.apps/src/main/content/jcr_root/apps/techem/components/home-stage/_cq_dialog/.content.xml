@@ -38,19 +38,19 @@
                                                 fieldLabel="Transition Speed"
                                                 name="./transitionSpeed">
                                                 <items jcr:primaryType="nt:unstructured">
-                                                    <medium
-                                                            jcr:primaryType="nt:unstructured"
-                                                            selected="{Boolean}medium"
-                                                            text="Medium"
-                                                            value="5500" />
                                                     <slow
-                                                            jcr:primaryType="nt:unstructured"
-                                                            text="Slow"
-                                                            value="8000" />
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Slow"
+                                                        value="10000"/>
+                                                    <medium
+                                                        jcr:primaryType="nt:unstructured"
+                                                        selected="{Boolean}false"
+                                                        text="Medium"
+                                                        value="5500"/>
                                                     <fast
-                                                            jcr:primaryType="nt:unstructured"
-                                                            text="Fast"
-                                                            value="3500" />
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Fast"
+                                                        value="3500"/>
                                                 </items>
                                             </transitionSpeed>
                                             <slides
@@ -109,7 +109,8 @@
                                                         min="0"
                                                         name="./delay"
                                                         step="100"
-                                                        value="${not empty cqDesign.delay ? cqDesign.delay : 5000}">
+                                                        value="${not empty cqDesign.delay ? cqDesign.delay : 5000}"
+                                                        sling:hideResource="{Boolean}true">
                                                         <granite:data
                                                             jcr:primaryType="nt:unstructured"
                                                             cmp-carousel-v1-dialog-hook="delay"/>
