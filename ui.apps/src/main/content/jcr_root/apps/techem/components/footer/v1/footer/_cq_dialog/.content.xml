@@ -1,42 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    jcr:primaryType="nt:unstructured"
-    jcr:title="Footer"
-    sling:resourceType="cq/gui/components/authoring/dialog">
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Footer"
+          sling:resourceType="cq/gui/components/authoring/dialog">
     <content
-        jcr:primaryType="nt:unstructured"
-        sling:resourceType="granite/ui/components/coral/foundation/container">
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
         <items jcr:primaryType="nt:unstructured">
             <tabs
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/tabs"
-                maximized="{Boolean}true">
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
                 <items jcr:primaryType="nt:unstructured">
                     <content
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Footer Configs"
-                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                        margin="{Boolean}true">
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Footer Configs"
+                            sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                            margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
                             <column
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
                                 <items jcr:primaryType="nt:unstructured">
                                     <categories jcr:primaryType="nt:unstructured"
-                                          sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                                          composite="{Boolean}true"
-                                          fieldLabel="New Category">
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="New Category">
                                         <field
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/container"
-                                            name="./categories">
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                name="./categories">
                                             <items jcr:primaryType="nt:unstructured">
                                                 <categoryTitle
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                    fieldDescription="Text to display footer navigation categories."
-                                                    fieldLabel="Category title"
-                                                    name="./categoryTitle"/>
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Text to display footer navigation categories."
+                                                        fieldLabel="Category title"
+                                                        name="./categoryTitle"/>
                                                 <categoryLink
                                                         jcr:primaryType="nt:unstructured"
                                                         sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
@@ -45,14 +46,14 @@
                                                         name="./categoryLink"
                                                         rootPath="/content"/>
                                                 <footerItems
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                                                    composite="{Boolean}true"
-                                                    fieldLabel="Footer Links">
-                                                    <field
                                                         jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                                                        name="./footerItems">
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        composite="{Boolean}true"
+                                                        fieldLabel="Footer Links">
+                                                    <field
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                            name="./footerItems">
                                                         <items jcr:primaryType="nt:unstructured">
                                                             <linkText
                                                                     jcr:primaryType="nt:unstructured"
@@ -86,53 +87,53 @@
                         </items>
                     </content>
                     <footerSettings
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Footer Settings"
-                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                        margin="{Boolean}true">
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Footer Settings"
+                            sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                            margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
                             <column
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
                                 <items jcr:primaryType="nt:unstructured">
                                     <copyright
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                        fieldDescription="Text to display footer copyright section"
-                                        fieldLabel="Copyright Text Label"
-                                        name="./copyright"/>
-                                    <logoLink
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                        fieldLabel="Logo Link"
-                                        name="./logoLink"
-                                        rootPath="/content"/>
-                                        <bottomLinks jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                                                composite="{Boolean}true"
-                                                fieldLabel="Bottom Links">
-                                                <field
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
-                                                    name="./bottomLinks">
-                                                    <items jcr:primaryType="nt:unstructured">
-                                                        <linkText
-                                                            jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                            fieldDescription="Text for the link at the bottom of the footer"
-                                                            fieldLabel="Link Text"
-                                                            name="./linkText"/>
-                                                        <openNewTab
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                                                fieldDescription="Opens the page in a new window/tab"
-                                                                name="./openNewTab"
-                                                                text="Open page in new window"
-                                                                uncheckedValue="{Boolean}false"
-                                                                value="{Boolean}true"/>
-                                                    </items>
-                                                </field>
-                                        </bottomLinks>
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldDescription="Text to display footer copyright section"
+                                            fieldLabel="Copyright Text Label"
+                                            name="./copyright"/>
+                                    <bottomLinks jcr:primaryType="nt:unstructured"
+                                                 sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                 composite="{Boolean}true"
+                                                 fieldLabel="Bottom Links">
+                                        <field
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                name="./bottomLinks">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <linkText
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Text for the link at the bottom of the footer"
+                                                        fieldLabel="Link Text"
+                                                        name="./linkText"/>
+                                                <linkUrl
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                        fieldLabel="Link Url to open"
+                                                        name="./linkUrl"
+                                                        rootPath="/content"/>
+                                                <openNewTab
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                        fieldDescription="Opens the page in a new window/tab"
+                                                        name="./openNewTab"
+                                                        text="Open page in new window"
+                                                        uncheckedValue="{Boolean}false"
+                                                        value="{Boolean}true"/>
+                                            </items>
+                                        </field>
+                                    </bottomLinks>
                                 </items>
                             </column>
                         </items>
