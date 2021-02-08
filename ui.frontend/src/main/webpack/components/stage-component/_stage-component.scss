@@ -57,14 +57,17 @@
   .stage-component.text-image.teaser {
     padding: 0 1em;
     margin: 60px auto 50px;
-    .cmp-image__left{
-      .cmp-text-image-headline{
-        font-size: 28px;
-      }
-    }
     .cmp-teaser{
-      .cmp-teaser__description{
-        max-width: 100%;
+      .cmp-teaser__content{
+        .cmp-content__left{
+          height: 400px;
+          .cmp-text-image-headline{
+            font-size: 28px;
+          }
+        }
+        .cmp-teaser__description{
+          max-width: 100%;
+        }
       }
     }
   }
