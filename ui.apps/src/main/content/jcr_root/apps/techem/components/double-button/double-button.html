@@ -5,18 +5,17 @@
 </div>
 
 <div class="cmp-double-button">
-    <button x-cq-linkchecker="skip" data-sly-element="${doubleButton.primaryLink ? 'a' : 'button'}"
-            class="cmp-button button-primary"
-            href="${doubleButton.primaryLink}"
-            aria-label="${doubleButton.accessibilityLabel}">
-        <span data-sly-test="${doubleButton.primaryButtonLabel}" class="cmp-button__text">${doubleButton.primaryButtonLabel}</span>
-    </button>
-
     <button x-cq-linkchecker="skip" data-sly-test="${doubleButton.showSecondaryButton}"
             data-sly-element="${doubleButton.secondaryLink ? 'a' : 'button'}"
             class="cmp-button button-secondary"
             href="${doubleButton.secondaryLink}"
             aria-label="${doubleButton.accessibilityLabel}">
         <span data-sly-test="${doubleButton.secondaryButtonLabel}" class="cmp-button__text">${doubleButton.secondaryButtonLabel}</span>
+    </button>
+    <button x-cq-linkchecker="skip" data-sly-element="${doubleButton.primaryLink ? 'a' : 'button'}"
+            class="cmp-button button-primary"
+            href="${doubleButton.primaryLink}"
+            aria-label="${doubleButton.accessibilityLabel}">
+        <span data-sly-test="${doubleButton.primaryButtonLabel}" class="cmp-button__text">${doubleButton.primaryButtonLabel}</span>
     </button>
 </div>
