@@ -64,9 +64,10 @@ header.experiencefragment{
         top: 0;
         left: 0;
         right: 0;
-        background: #fff;
+        background: $color-background;
         box-shadow: 0 1px 5px 0 rgba(83, 83, 83, 0.4);
         z-index: 1000;
+        transition: transform .35s ease-out,-webkit-transform .35s ease-out;
 
         &__components {
             position: relative;
@@ -128,7 +129,7 @@ header.experiencefragment{
             height: 42px;
             color: $color-primary-button;
             border: none;
-            background-color: #fff;
+            background-color: $color-background;
             font-family: $font-universe-roman;
             font-size: 16px;
             letter-spacing: 0;
@@ -193,7 +194,7 @@ header.experiencefragment{
             box-sizing: border-box;
             height: 1px;
             width: 100%;
-            border: 1px solid #C8C8C8;
+            border: 1px solid $color-separator;
             opacity: 0.51;
         }
 
@@ -233,7 +234,7 @@ header.experiencefragment{
             }
 
             &__sub-link {
-                color: #222222;
+                color: $color-foreground-header;
                 font-family: $font-universe-roman;
                 font-size: 16px;
                 letter-spacing: 0;
@@ -247,7 +248,7 @@ header.experiencefragment{
             top: 55px;
             left: 0;
             right: 0;
-            background-color: #F3F3F3;
+            background-color: $color-grey;
             overflow-y: auto;
         }
 
@@ -282,58 +283,75 @@ header.experiencefragment{
         &-title {
             height: 26px;
             height: 26px;
-            color: #1D1D1B;
-            font-family: $font-universe-roman;
+            color: $color-background-dark;
+            font-family: $font-universe-roman-bold;
             text-decoration: none;
             font-size: 20px;
             letter-spacing: 0.2px;
             line-height: 26px;
+            &:hover{
+                color: inherit;
+                text-decoration: none;
+                .header-arrow{
+                    &::before{
+                        right: -7px;
+                    }
+                    &::after{
+                        width: 26px;
+                    }
+                }
+            }
         }
 
         &-icon {
-            top: 13px;
-            padding-left: 10px;
-            position: absolute;
+            padding-left: 3px;
             cursor: pointer;
         }
 
         &-arrow {
-            position: absolute;
-            height: 2px;
-            width: 19.46px;
-            background-color: $color-primary-button;
+            display: inline-block;
+            position: relative;
+            width: 19px;
+            height: 8px;
 
             &::before {
-                top: 3px;
-                -webkit-transform: rotate(-35deg);
-                transform: rotate(-35deg);
+                content: "";
+                display: block;
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                border-style: solid;
+                border-color: $color-primary-button;
+                border-width: 2px 2px 0 0;
+                right: 0;
+                transform: rotate(45deg);
+                transition: all .2s ease-in;
             }
 
             &::after {
-                top: -3px;
-                -webkit-transform: rotate(35deg);
-                transform: rotate(35deg);
-            }
-
-            &::after,
-            &::before {
                 content: "";
+                display: block;
                 position: absolute;
-                width: 50%;
-                height: 2px;
-                right: -2px;
-                background-color: $color-primary-button;
+                border-style: solid;
+                border-color: $color-primary-button;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 19px;
+                height: 0;
+                border-width: 2px 0 0;
+                transition: all .2s ease-in;
             }
         }
 
         .headline {
             margin-right: 50px;
-            padding: 50px 0 50px 0;
-            border-bottom: 1px solid #C8C8C8;
+            padding: 30px 0 30px 0;
+            border-bottom: 1px solid $color-separator;
 
             &-wrapper {
                 display: flex;
                 flex-wrap: wrap;
+                padding-top: 30px;
             }
 
             &-title__wrapper {
@@ -343,8 +361,8 @@ header.experiencefragment{
             &__title {
                 height: 26px;
                 height: 26px;
-                color: #1D1D1B;
-                font-family: $font-universe-roman;
+                color: $color-background-dark;
+                font-family: $font-universe-roman-bold;
                 font-size: 20px;
                 text-decoration: none;
                 letter-spacing: 0.2px;
@@ -354,12 +372,24 @@ header.experiencefragment{
             &__description {
                 min-height: 52px;
                 width: 312px;
-                color: #4C4C4C;
+                color: $color-separator-dark;
                 font-family: $font-universe-roman;
                 font-size: 16px;
                 letter-spacing: 0;
                 line-height: 26px;
                 margin: 1em 0 0 0;
+            }
+            &:hover{
+                color: inherit;
+                text-decoration: none;
+                .header-arrow{
+                    &::before{
+                        right: -7px;
+                    }
+                    &::after{
+                        width: 26px;
+                    }
+                }
             }
         }
 
@@ -394,7 +424,7 @@ header.experiencefragment{
                     height: 20px;
                     width: 162px;
                     margin: 10px 0 0 20px;
-                    color: #FFFFFF;
+                    color: $color-background;
                     font-family: $font-universe-roman;
                     font-size: 16px;
                     letter-spacing: 0.16px;
@@ -449,7 +479,7 @@ header.experiencefragment{
                 padding-left: 1rem;
                 padding-right: 0;
                 box-shadow: 0 3px 15px 1px rgba(0, 0, 0, 0.1);
-                background-color: #ffffff;
+                background-color: $color-background;
                 border: 0;
             }
         }
@@ -563,12 +593,10 @@ header.experiencefragment{
             }
             .navigation {
                 display: none;
-                height: auto;
                 position: relative;
                 height: 100vh;
-                min-height: 730px;
                 overflow-y: auto;
-                border-top: 1px solid #C8C8C8;
+                border-top: 1px solid $color-separator;
                 .header__button{
                     display: block;
                     margin: 0 auto 80px;
@@ -594,6 +622,7 @@ header.experiencefragment{
                     li {
                         margin-right: 0;
                         position: relative;
+                        height: auto;
                         padding: 15px 0 15px 0;
 
                         &:after {
@@ -607,7 +636,7 @@ header.experiencefragment{
                         a {
                             font-family: $font-universe-roman;
                             font-size: 18px;
-                            color: #000000;
+                            color: $color-foreground-header;
                         }
                     }
                 }
@@ -648,7 +677,7 @@ header.experiencefragment{
                     width: 100%;
                     height: 100%;
                     max-width: 220px;
-                    margin: 30px 0 40px;
+                    margin: 30px 0 10px;
                     padding: 0 0.5em;
                     font-family: $font-universe-roman;
                     font-size: 18px;
@@ -697,7 +726,7 @@ header.experiencefragment{
                     font-size: 14px;
                     position: relative;
                     padding-left: 15px;
-                    color: #000000;
+                    color: $color-foreground-header;
                     font-weight: 600;
                     &:before{
                         content: "<";
