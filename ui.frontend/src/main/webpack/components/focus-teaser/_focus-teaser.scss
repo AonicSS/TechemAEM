@@ -1,11 +1,10 @@
 .cmp-focus-teaser {
        max-width: 77pc;
-       margin: 0 auto;
+       margin: 70px auto 70px;
        padding: 1em 1em;
 
       &__container {
           position: relative;
-          width: 1143px;
           margin: 0 auto;
       }
 
@@ -18,14 +17,17 @@
           line-height: 1.63;
           letter-spacing: -0.1px;
           color: $color-separator-dark;
+          max-width: 780px;
+          text-align: center;
+          margin-bottom: 70px;
       }
 
       &__headline-wrapper {
-           width: max-content;
            margin: 0 auto;
+           max-width: 780px;
 
           .cmp-focus-teaser__headline {
-                width: 942px;
+                max-width: 780px;
                 font-family: $font-universe-roman-bold;
                 font-size: 40px;
                 font-weight: bold;
@@ -35,18 +37,19 @@
                 letter-spacing: -0.17px;
                 text-align: center;
                 color: $color-foreground-header;
+                margin-bottom: 30px;
 
                  @media screen and (max-width: 767px) {
-                      width: 331px;
+                      width: auto;
                       font-size: 24px;
                  }
           }
 
           .cmp-focus-teaser__text {
-                width: 942px;
+                width: auto;
 
                 @media screen and (max-width: 767px) {
-                    width: 331px;
+                    margin-bottom: 30px;
                 }
           }
       }
@@ -55,35 +58,54 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 50px;
+            margin-bottom: 70px;
 
             &.left {
                 flex-direction: row;
+                @media screen and (max-width:768px){
+                    flex-direction: column-reverse;
+                    margin-bottom: 30px;
+                }
             }
 
             &.right {
                 flex-direction: row-reverse;
+                @media screen and (max-width:768px){
+                    flex-direction: column-reverse;
+                    margin-bottom: 30px;
+                }
             }
 
             .cmp-focus-teaser__text {
                  padding: 30px;
                  width: 468px;
+                 text-align: left;
+                 margin-bottom: 0;
 
-                 @media screen and (max-width: 767px) {
-                     width: 331px;
+                 @media screen and (max-width: 768px) {
+                     width: auto;
+                 }
+                 ul,ol{
+                    list-style-type: none;
+                    text-align: left;
+                    li {
+                        padding-left: 12px;
+                        position: relative;
+                    }
                  }
 
                  &.check {
                      ul, ol {
-                        list-style-type: none;
-
                         li {
                             &::before {
                                 content: '';
                                 display: inline-block;
+                                position: absolute;
+                                left: -10px;
+                                top: 3px;
                                 width: 7px;
                                 height: 13px;
-                                margin-right: 0.7rem;
+                                margin-right: 12px;
                                 border: solid $border-secondary-button;
                                 border-width: 0 2px 2px 0;
                                 -webkit-transform: rotate(45deg);
@@ -95,10 +117,11 @@
 
                  &.bulleted {
                        ul,ol {
-                           list-style-type: none;
-
                            li::before {
                                 display: inline-block;
+                                position: absolute;
+                                left: -10px;
+                                top: 3px;
                                 content: '';
                                 -webkit-border-radius: 0.375rem;
                                 border-radius: 0.375rem;
@@ -112,22 +135,16 @@
                  }
             }
             .cmp-focus-teaser__image {
-                  width: 624px;
-                  height: 468px;
+                  max-width: 50%;
+                  height: auto;
                   object-fit: cover;
                   border-bottom-right-radius: 40px;
                   border-top-left-radius: 40px;
 
-                   @media screen and (max-width: 767px) {
-                      width: 335px;
-                      height: 252px;
+                   @media screen and (max-width: 768px) {
                       margin: 30px 0 20px;
+                      max-width: 100%;
                    }
             }
-      }
-
-      &__button-wrapper {
-             width: max-content;
-             margin: 0 auto;
       }
 }

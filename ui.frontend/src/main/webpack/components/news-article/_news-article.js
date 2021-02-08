@@ -1,4 +1,4 @@
-(function($) {
+/*(function($) {
     "use strict";
 
     function NewsArticleModule(el) {
@@ -60,6 +60,7 @@
         });
     });
 }(jQuery));
+*/
 
 function resizeGridItem(item){
     grid = document.getElementsByClassName("cmp-newsArticles__container")[0];
