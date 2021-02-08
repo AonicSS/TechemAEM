@@ -1,10 +1,4 @@
-@media only screen and (min-width: 1024px) {
-    .stage-container {
-        &.container {
-            margin-top: 190px;
-        }
-    }
-}
+
 @media only screen and (max-width: 1024px) {
     .stage-container {
         &.container {
@@ -15,6 +9,7 @@
 
 .stage-container {
    border-bottom: 6px solid red;
+   margin-bottom: 70px;
 
     .breadcrumb {
        &.cq-Editable-dom {
@@ -62,6 +57,7 @@
 
                    @media only screen and (max-width:1024px) {
                         font-size: 26px;
+                        width: 100%!important;
                    }
             }
 
@@ -81,7 +77,7 @@
 
                       @media only screen and (max-width:1024px) {
                            margin: 0 0 30px 0;
-                           width: auto;
+                           width: 100%;
                       }
 
                       p {

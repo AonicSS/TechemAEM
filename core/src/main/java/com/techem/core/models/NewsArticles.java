@@ -44,8 +44,8 @@ public class NewsArticles {
             if(Objects.nonNull(unsortedArticles)) {
                 newsArticles = unsortedArticles.entrySet().stream()
                           .sorted((d1,d2) ->
-                                  Long.valueOf(d1.getKey().getDateObject().getTime())
-                                  .compareTo(d2.getKey().getDateObject().getTime()))
+                                  Long.compare(d1.getKey().getDateObject().getTime(),
+                                              d2.getKey().getDateObject().getTime())*-1)
                           .limit(maxArticles)
                           .collect(Collectors.toMap(
                                   Map.Entry::getKey, Map.Entry::getValue, (k,v) -> k, LinkedHashMap::new));

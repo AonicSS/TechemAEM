@@ -1,0 +1,29 @@
+<sly data-sly-use.focusModel="com.techem.core.models.FocusTeaser"/>
+
+<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+    Configure ${component.properties.jcr:title}
+</div>
+
+<div class="cmp-focus-teaser">
+    <div class="cmp-focus-teaser__container">
+        <div class="cmp-focus-teaser__headline-wrapper">
+            <h2 class="cmp-focus-teaser__headline" data-sly-test="${focusModel.headline}">
+                ${focusModel.headline}
+            </h2>
+            <div class="cmp-focus-teaser__text" data-sly-test="${focusModel.aboveText}">
+                ${focusModel.aboveText @ context='html'}
+            </div>
+        </div>
+        <div class="cmp-focus-teaser__content ${focusModel.alignnment}">
+            <div class="cmp-focus-teaser__text ${focusModel.preferenceList}" data-sly-test="${focusModel.text}">
+                ${focusModel.text @ context='html'}
+            </div>
+            <img class="cmp-focus-teaser__image" data-sly-test="${focusModel.image}" src="${focusModel.image}"/>
+        </div>
+        <div class="cmp-focus-teaser__button-wrapper">
+            <div data-sly-resource="${'double-button' @ decorationTagName='div',
+                    cssClassName='double-button', resourceType='techem/components/double-button'}">
+            </div>
+        </div>
+    </div>
+</div>

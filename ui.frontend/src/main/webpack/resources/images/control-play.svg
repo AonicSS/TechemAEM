@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="35px" height="38px" viewBox="0 0 35 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>control-play</title>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="control-play" transform="translate(-18.000000, -13.000000)" fill="#000000" fill-rule="nonzero">
+            <path d="M18,15 L18,49 C18,50.529653 19.6473144,51.4930806 20.9805225,50.7431511 L51.2027447,33.7431511 C52.5620481,32.9785429 52.5620481,31.0214571 51.2027447,30.2568489 L20.9805225,13.2568489 C19.6473144,12.5069194 18,13.470347 18,15 Z M22,18.42 L46.141,32 L22,45.579 L22,18.42 Z"></path>
+        </g>
+    </g>
+</svg>
