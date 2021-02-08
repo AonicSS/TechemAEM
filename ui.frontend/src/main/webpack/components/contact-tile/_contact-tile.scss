@@ -1,0 +1,71 @@
+.contact-tile {
+  display: flex!important;
+  float: none!important;
+  padding: 0;
+  width: 340px!important;
+  position: relative;
+  cursor: pointer;
+  margin: 30px 35px!important;
+  &:first-of-type{
+    .cmp-teaser__image
+      img{
+        border-radius: $border-radius-top-l;
+      }
+  }
+  &:last-of-type{
+    .cmp-teaser__image
+      img{
+        border-radius: $border-radius-bottom-r;
+      }
+  }
+  .cmp-contact-headline{
+    margin: 20px 0 6px;
+    font-family: $font-universe-roman-bold;
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+    color: $color-foreground-header;
+  }
+  .cmp-contact-body{
+    margin: 0 0 20px;
+    font-family: $font-universe-roman;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.63;
+    letter-spacing: -0.1px;
+    color: $color-foreground-header;
+  }
+  .phone, .email{
+    font-family: $font-universe-roman;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.63;
+    letter-spacing: -0.1px;
+    color: $color-foreground-header;
+  }
+  .email {
+    color: $color-primary-button;
+  }
+  .cmp-image-tile-arrow{
+    border-radius: 0;
+    max-width: 30px;
+  }
+  .cmp-teaser__image
+    img{
+      max-width: 100%;
+      margin-top: 0;
+    }
+  .cmp-image-tile-arrow{
+    position: absolute;
+    bottom: 0;
+  }
+  a{
+    text-decoration: none;
+  }
+}
+@media only screen and (max-width: 769px) {
+  .image-tile {
+   width: 90%!important;
+   margin: 30px auto!important;
+  }
+}

@@ -7,8 +7,8 @@
 	 class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-image-tile">
 	<div class="cmp-tile-icons" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
     <div class="cmp-teaser__content">
-		<div class="headline">${contactTile.headline}</div>
-		<div class="subline" data-sly-test.subline="${contactTile.subline}">${contactTile.subline}</div>
+		<div class="cmp-contact-headline">${contactTile.headline}</div>
+		<div class="cmp-contact-body" data-sly-test.subline="${contactTile.subline}">${contactTile.subline}</div>
 		<div class="phone" data-sly-test.phone="${contactTile.phone}">${contactTile.phone}</div>
 		<div class="email" data-sly-test.email="${contactTile.email}">${contactTile.email}</div>
     </div>
