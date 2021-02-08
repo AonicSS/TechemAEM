@@ -8,7 +8,6 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.sql.ResultSet;
 import java.util.Objects;
 
 @Model(adaptables = Resource.class ,defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
