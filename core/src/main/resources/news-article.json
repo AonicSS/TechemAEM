@@ -16,7 +16,7 @@
             "headline": "Lorem ipsum dolor sit amet",
             "date" : "2021-04-15T00:00:00.000+03:00",
             "text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
-            "category": "newCaregory"
+            "category": "newCategory"
           }
       }
     },
@@ -29,7 +29,7 @@
           "headline": "Lorem ipsum dolor sit amet",
           "date" : "2021-04-15T00:00:00.000+03:00",
           "text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
-          "category": "newCaregory"
+          "category": "newCategory"
         }
       }
     },
@@ -42,7 +42,7 @@
           "headline": "Lorem ipsum dolor sit amet",
           "date" : "2021-04-15T00:00:00.000+03:00",
           "text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
-          "category": "newCaregory"
+          "category": "newCategory"
         }
       }
     }
