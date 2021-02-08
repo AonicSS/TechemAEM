@@ -49,12 +49,13 @@
                 display: block;
             }
              &:hover {
-                .cmp-newsArticles-icon {
-                    -webkit-transition: all 0.5 ease-in-out;
-                    -moz-transition: all 0.2s ease-in-out;
-                    -o-transition: all 0.2s ease-in-out;
-                    -ms-transition: all 0.2s ease-in-out;
-                    transition: all 0.5s ease-in-out;
+                .cmp-newsArticles-arrow{
+                    &::before{
+                        right: -10px;
+                    }
+                    &::after{
+                        width: 29px;
+                    }
                 }
              }
 
@@ -72,6 +73,7 @@
 
             .cmp-newsArticles__image {
                 max-width: 100%;
+                margin-bottom: 15px;
 
                 @media (min-width: 769px) and (max-width: 1200px) {
                     height: inherit;
@@ -79,7 +81,7 @@
             }
 
             .cmp-newsArticles__headline {
-                  margin: 15px 0 15px 1px;
+                  margin: 0 0 15px 1px;
                   font-family: $font-universe-roman-bold;
                   font-size: 20px;
                   font-weight: bold;
@@ -138,31 +140,37 @@
             }
 
             .cmp-newsArticles-arrow {
-                position: absolute;
-                height: 2px;
-                width: 19.46px;
-                background-color: $color-primary-button;
+                display: inline-block;
+                position: relative;
+                width: 19px;
+                height: 8px;
 
                 &::before {
-                    top: 3px;
-                    -webkit-transform: rotate(-35deg);
-                    transform: rotate(-35deg);
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 6px;
+                    height: 6px;
+                    border-style: solid;
+                    border-color: $color-primary-button;
+                    border-width: 2px 2px 0 0;
+                    right: 0;
+                    transform: rotate(45deg);
+                    transition: all .2s ease-in;
                 }
 
                 &::after {
-                    top: -3px;
-                    -webkit-transform: rotate(35deg);
-                    transform: rotate(35deg);
-                }
-
-                &::after,
-                &::before {
                     content: "";
+                    display: block;
                     position: absolute;
-                    width: 50%;
-                    height: 2px;
-                    right: -2px;
-                    background-color: $color-primary-button;
+                    border-style: solid;
+                    border-color: $color-primary-button;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 19px;
+                    height: 0;
+                    border-width: 2px 0 0;
+                    transition: all .2s ease-in;
                 }
             }
         }

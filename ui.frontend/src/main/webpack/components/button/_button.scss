@@ -24,6 +24,7 @@
   border-width: 0px;
   border-radius: 30px;
   text-decoration: none;
+  width: 312px;
 
   &.button-primary {
     background-color: $color-primary-button;
@@ -59,7 +60,8 @@
 
 @media only screen and (max-width: 720px) {
   .button{
-    margin: 0 auto;
+    width: 93%;
+    margin: 20px auto;
   }
   .cmp-button {
     &.button-huge {
@@ -68,6 +70,7 @@
     }
   }
   .button-secondary {
+    margin-top: 30px;
     .cmp-button__text {
       letter-spacing: -.2px;
     }
