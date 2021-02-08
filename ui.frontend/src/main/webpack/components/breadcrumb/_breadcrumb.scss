@@ -19,7 +19,7 @@
         position: relative;
         &:after{
             content: '';
-            background-image: url('/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-bottom.svg?v=3');
+            background-image: url(#{$iconsPath}/navigation-chevron-bottom.svg?v=3);
             background-size: 8px 4px;
             position: absolute;
             height: 4px;
