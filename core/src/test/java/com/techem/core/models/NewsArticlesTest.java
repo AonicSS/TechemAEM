@@ -51,7 +51,6 @@ public class NewsArticlesTest {
       assertEquals(3, map.size());
       assertEquals(HEADLINE, stage.getHeadline());
       assertEquals(TEXT, stage.getText());
-      assertEquals(DATE, stage.getDate());
       assertEquals(CATEGORY, stage.getCategory());
 
       assertEquals(IMAGE_REFERENCE, newsArticle.getArticleImage());
