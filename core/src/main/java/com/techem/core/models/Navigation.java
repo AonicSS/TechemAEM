@@ -47,7 +47,7 @@ public class Navigation {
     @ValueMapValue(name = "backButtonText")
     private String backButtonText;
 
-    @ChildResource(name = "fileReference")
+    @ValueMapValue(name = "fileReference")
     private String logoImage;
 
     @SlingObject
