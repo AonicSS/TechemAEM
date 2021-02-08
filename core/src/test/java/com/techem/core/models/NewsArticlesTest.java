@@ -20,7 +20,7 @@ public class NewsArticlesTest {
     private static final String HEADLINE = "Lorem ipsum dolor sit amet";
     private static final String TEXT = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>";
     private static final String DATE = "15.04.2021";
-    private static final String CATEGORY = "newCaregory";
+    private static final String CATEGORY = "newCategory";
     private static final String SHOW_MORE_LABEL = "Show more";
     private static final String IMAGE_REFERENCE = "/content/dam/core-components-examples/library/sample-assets/mountain-range.jpg";
     private static final String ARTICLE_PATH = "/content/components/news-article/newsItems/item0/articlePath";
@@ -51,7 +51,6 @@ public class NewsArticlesTest {
       assertEquals(3, map.size());
       assertEquals(HEADLINE, stage.getHeadline());
       assertEquals(TEXT, stage.getText());
-      assertEquals(DATE, stage.getDate());
       assertEquals(CATEGORY, stage.getCategory());
 
       assertEquals(IMAGE_REFERENCE, newsArticle.getArticleImage());
