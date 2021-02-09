@@ -48,7 +48,9 @@ body {
     background: $color-background;
   }
 }
-
+.scroll-hidden{
+  overflow: hidden;
+}
 a {
   color: $color-link;
 

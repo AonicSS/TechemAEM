@@ -1,5 +1,6 @@
 package com.techem.core.models;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
@@ -12,6 +13,9 @@ public class NavigationDetails extends Header {
 
     @ValueMapValue(name = "image")
     private String pageImagePath;
+
+    @ValueMapValue(name = "hideImageInHeader")
+    private boolean hideImageInHeader;
 
     @ValueMapValue(name = "jcr:description")
     private String pageDescription;
@@ -26,6 +30,8 @@ public class NavigationDetails extends Header {
     }
 
     public String getPageImagePath() {
-        return pageImagePath;
+        return  hideImageInHeader == false ? pageImagePath : StringUtils.EMPTY;
     }
+
+    public boolean isHideImageInHeader() { return hideImageInHeader;}
 }

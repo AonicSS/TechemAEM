@@ -3,8 +3,6 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:lastModified="{Date}2021-01-24T14:59:29.009+02:00"
-        cq:lastModifiedBy="admin"
         cq:template="/conf/techem/settings/wcm/templates/news-page"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="techem/components/structure/news-page">
@@ -12,29 +10,50 @@
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <experiencefragment
+                jcr:created="{Date}2021-01-24T14:59:29.009+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2021-01-24T14:59:29.009+02:00"
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="techem/components/experiencefragment"
-                editable="{Boolean}true"/>
+                fragmentVariationPath="/content/experience-fragments/techem/us/en/site/header/master"
+                id="home-header"/>
             <stage-container
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="techem/components/stage-container">
+                jcr:created="{Date}2021-01-24T14:59:29.009+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2021-01-24T14:59:29.009+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="techem/components/stage-container">
                 <breadcrumb
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="techem/components/breadcrumb"/>
+                    jcr:created="{Date}2021-01-24T14:59:29.009+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2021-01-24T14:59:29.009+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="techem/components/breadcrumb"/>
                 <text-stage
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="techem/components/text-stage/text-stage"/>
+                    jcr:created="{Date}2021-01-24T14:59:29.009+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2021-01-24T14:59:29.009+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="techem/components/text-stage/text-stage"/>
             </stage-container>
             <container
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="techem/components/container"
-                    editable="{Boolean}true"
-                    layout="responsiveGrid">
-            </container>
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="techem/components/container"
+                editable="{Boolean}true"
+                layout="responsiveGrid"/>
             <experiencefragment_2088209270
+                jcr:created="{Date}2021-01-24T14:59:29.009+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2021-01-24T14:59:29.009+02:00"
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="techem/components/experiencefragment"
-                editable="{Boolean}true"/>
+                fragmentVariationPath="/content/experience-fragments/techem/us/en/site/footer/master"
+                id="home-footer"/>
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">

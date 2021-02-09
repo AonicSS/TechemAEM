@@ -1,6 +1,6 @@
 .breadcrumb {
     max-width: 77pc;
-    margin: 190px auto 0;
+    margin: 172px auto 0;
 }
 .cmp-breadcrumb__list {
     padding: 0;
@@ -18,11 +18,15 @@
         border-bottom: 1px solid transparent;
         position: relative;
         &:after{
-            content: '>';
-            font-size: 12px;
+            content: '';
+            background-image: url(#{$iconsPath}/navigation-chevron-bottom.svg?v=3);
+            background-size: 8px 4px;
             position: absolute;
-            right: -17px;
-            top: -1px;
+            height: 4px;
+            width: 8px;
+            right: -16px;
+            top: 9px;
+            transform: rotate(-90deg);
             bottom: 0;
         }
         &:hover{

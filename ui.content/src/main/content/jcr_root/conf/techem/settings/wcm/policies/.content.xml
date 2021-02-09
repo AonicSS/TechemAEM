@@ -72,6 +72,30 @@
                             jcr:primaryType="nt:unstructured"
                             features="-"/>
                     </plugins>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                                cq:styleGroupLabel="Style"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="image-with-border"
+                                        cq:styleId="1612294348100"
+                                        cq:styleLabel="Border"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                                cq:styleGroupLabel="Align"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="image-centered"
+                                        cq:styleId="1612294348101"
+                                        cq:styleLabel="Center"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                    </cq:styleGroups>
                 </policy_651483963895698>
             </image>
             <text jcr:primaryType="nt:unstructured">
@@ -376,7 +400,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="General Container"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[/apps/techem/components/image-tile,/apps/techem/components/icon-number-tile]">
+                    components="[/apps/techem/components/contact-tile,/apps/techem/components/image-tile,/apps/techem/components/icon-number-tile]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_general-container>
             </general-container>

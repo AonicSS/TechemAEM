@@ -40,6 +40,7 @@
             color: $color-background;
             svg{
                 overflow: visible;
+                cursor: pointer;
                 path{
                     fill: $color-background;
                 }

@@ -1,4 +1,4 @@
-(function($) {
+/*(function($) {
     "use strict";
 
     function NewsArticleModule(el) {
@@ -23,7 +23,7 @@
                    $newsLinks.on('mouseover', (event) => {
                      var $target = $(event.target);
                      var $newsLink = $target && $target.closest(this.selectors.textStage);
-                     var articleWidth = $newsLink && $newsLink.width() - 30;
+                     var articleWidth = $newsLink && $newsLink.width() / 2 - 30;
                      var $icon = $newsLink.find(this.selectors.newsIcon);
 
                      if($icon.length > 0) {
@@ -60,4 +60,32 @@
         });
     });
 }(jQuery));
+*/
 
+function resizeGridItem(item){
+    grid = document.getElementsByClassName("cmp-newsArticles__container")[0];
+    rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+    rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+    rowSpan = Math.ceil((item.querySelector('.cmp-newsArticles_link').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
+      item.style.gridRowEnd = "span "+rowSpan;
+  }
+  
+  function resizeAllGridItems(){
+    allItems = document.getElementsByClassName("cmp-newsArticles_text-stage");
+    Array.from(allItems).forEach((item) => {
+      resizeGridItem(item);
+    });
+  }
+  
+  function resizeInstance(instance){
+      item = instance.elements[0];
+    resizeGridItem(item);
+  }
+  
+  window.onload = resizeAllGridItems();
+  window.addEventListener("resize", resizeAllGridItems);
+  
+  allItems = document.getElementsByClassName("cmp-newsArticles_text-stage");
+  Array.from(allItems).forEach((item) => {
+    imagesLoaded( item, resizeInstance);
+  });

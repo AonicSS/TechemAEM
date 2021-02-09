@@ -1,10 +1,11 @@
 package com.techem.core.models;
 
+import com.day.crx.JcrConstants;
 import com.google.common.collect.Lists;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ChildResource;
@@ -26,10 +27,8 @@ public class Navigation {
 
     private Logger logger = LoggerFactory.getLogger(Navigation.class);
 
-    private static final String PRIMARY_TYPE = "jcr:primaryType";
     private static final String PAGE = "cq:Page";
     private static final String HIDDEN_PROPERTY = "hideInNav";
-    private static final String CONTENT = "jcr:content";
     private static final String RIGHT = "right";
     private static final String LEFT = "left";
 
@@ -45,15 +44,16 @@ public class Navigation {
     @ValueMapValue(name = "logoLink")
     private String logoLink;
 
-    @ChildResource(name = "image")
-    private Resource image;
+    @ValueMapValue(name = "backButtonText")
+    private String backButtonText;
+
+    @ValueMapValue(name = "fileReference")
+    private String logoImage;
 
     @SlingObject
     private ResourceResolver resourceResolver;
 
     private Map<Header, Map<String, List<NavigationDetails>>> navigationItems;
-
-    private String logoImage;
 
     @PostConstruct
     protected void init() {
@@ -63,12 +63,12 @@ public class Navigation {
             if(Objects.nonNull(resourceRoot)) {
                 final List<Resource> children =  Lists.newArrayList(resourceRoot.getChildren().iterator());
 
-                if(Objects.nonNull(children) && children.size() > 0) {
+                if(CollectionUtils.isNotEmpty(children)) {
                     final Map<Header, List<NavigationDetails>> items = getItems(children);
 
                     logger.info("All navigation item as map {}", items);
 
-                    if(Objects.nonNull(items) && items.size() > 0) {
+                    if(!items.isEmpty()) {
                         setNavigationItems(items);
                     }
                 }
@@ -76,8 +76,6 @@ public class Navigation {
         } else {
             logger.info("The navigationRoot is null or empty {}");
         }
-
-        setLogoImage();
     }
 
     public Map<Header, Map<String, List<NavigationDetails>>> getNavigationItems() {
@@ -92,14 +90,7 @@ public class Navigation {
 
     public String getLogoImage() { return logoImage; }
 
-    private void setLogoImage() {
-        if(Objects.nonNull(image)) {
-            ValueMap valueMap = image.adaptTo(ValueMap.class);
-            logoImage = valueMap.get("fileReference", String.class);
-        } else {
-            logger.info("The logoImage is null or empty {}");
-        }
-    }
+    public String getBackButtonText() { return backButtonText; }
 
     private void setNavigationItems(Map<Header,List<NavigationDetails>> items) {
         navigationItems = new LinkedHashMap<>();
@@ -114,17 +105,19 @@ public class Navigation {
 
     private Map<Header, List<NavigationDetails>> getItems(List<Resource> children) {
         return children.stream().filter(isPage()).filter(isNotNavHidden()).collect(Collectors.toMap(
-                resource -> resource.getChild(CONTENT).adaptTo(Header.class),
+                resource -> resource.getChild(JcrConstants.JCR_CONTENT).adaptTo(Header.class),
                 resourcePage -> Lists.newArrayList(resourcePage.getChildren().iterator()).
-                        stream().filter(isPage()).filter(isNotNavHidden()).map(page -> page.getChild(CONTENT).adaptTo(NavigationDetails.class))
+                        stream().filter(isPage()).
+                        filter(isNotNavHidden()).map(page ->
+                                            page.getChild(JcrConstants.JCR_CONTENT).adaptTo(NavigationDetails.class))
                         .collect(Collectors.toList()), (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
 
     private Predicate<Resource> isPage() {
-        return r -> r.getValueMap().get(PRIMARY_TYPE, String.class).equals(PAGE);
+        return r -> r.getValueMap().get(JcrConstants.JCR_PRIMARYTYPE, String.class).equals(PAGE);
     }
 
     private Predicate<Resource> isNotNavHidden() {
-        return r ->  Objects.isNull((r.getChild(CONTENT).getValueMap().get(HIDDEN_PROPERTY, Boolean.class)));
+        return r ->  Objects.isNull((r.getChild(JcrConstants.JCR_CONTENT).getValueMap().get(HIDDEN_PROPERTY, Boolean.class)));
     }
 }
