@@ -33,7 +33,7 @@ class HomeStageModelTest
 	{
 
 		page = context.create().page(CONTENT_TEST_RESOURCE);
-		resource = context.create().resource(page, "serviceItem",
+		resource = context.create().resource(page, "homeStageModel",
 				RESOURCE_TYPE, COMPONENT_RESOURCE_TYPE,
 				TRANSITION_SPEED, EXPECTED_TRANSITION_SPEED);
 

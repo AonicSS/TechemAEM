@@ -35,7 +35,7 @@ class HomeStageItemTest
 	{
 
 		page = context.create().page(CONTENT_TEST_RESOURCE);
-		resource = context.create().resource(page, "serviceItem",
+		resource = context.create().resource(page, "homeStageItem",
 				RESOURCE_TYPE, COMPONENT_RESOURCE_TYPE,
 				HEADLINE, EXPECTED_HEADLINE,
 				LINK_URL_2, EXPECTED_LINK_URL_2);
