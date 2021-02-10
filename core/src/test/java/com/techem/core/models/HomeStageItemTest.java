@@ -19,7 +19,7 @@ class HomeStageItemTest
 
 	private static final String CONTENT_TEST_RESOURCE = "/content/mypage";
 	private static final String RESOURCE_TYPE = "sling:resourceType";
-	private static final String COMPONENT_RESOURCE_TYPE = "techem/components/service-item";
+	private static final String COMPONENT_RESOURCE_TYPE = "techem/components/home-stage-item";
 
 	private static final String HEADLINE = "headline";
 	private static final String LINK_URL_2 = "linkURL2";
