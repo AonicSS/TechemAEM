@@ -38,7 +38,7 @@ class FooterLinkTest
 	{
 
 		page = context.create().page(CONTENT_TEST_RESOURCE);
-		resource = context.create().resource(page, "double",
+		resource = context.create().resource(page, "footerLink",
 				RESOURCE_TYPE, COMPONENT_RESOURCE_TYPE,
 				LINK_TEXT, EXPECTED_LINK_TEXT,
 				LINK_URL, EXPECTED_LINK_URL,

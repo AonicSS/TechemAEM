@@ -35,7 +35,7 @@ class FooterCategoryTest
 	{
 
 		page = context.create().page(CONTENT_TEST_RESOURCE);
-		resource = context.create().resource(page, "double",
+		resource = context.create().resource(page, "footerCategory",
 				RESOURCE_TYPE, COMPONENT_RESOURCE_TYPE,
 				CATEGORY_TITLE, EXPECTED_CATEGORY_TITLE,
                 CATEGORY_LINK, EXPECTED_CATEGORY_LINK);
