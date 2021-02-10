@@ -79,6 +79,14 @@
                                                 maxlength="{Long}59"
                                                 name="./headline"
                                                 required="{Boolean}true"/>
+                                            <linkURL2
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/coral/common/form/pagefield"
+                                                    fieldDescription="Link applied to the the hadline and arrow. URL or path to a content page."
+                                                    fieldLabel="Link"
+                                                    name="./linkURL2"
+                                                    rootPath="/content"
+                                                    wrapperClass="foundation-toggleable cmp-teaser__editor-link-url"/>
                                         </items>
                                     </column>
                                 </items>

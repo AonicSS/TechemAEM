@@ -13,7 +13,9 @@
     </div>
 
     <div class="cmp-teaser__content home-stage-teaser-item ">
-		<h1>${homeStageItem.headline}<span></span></h1>
+        <a href="${homeStageItem.linkURL2 @ extension='html'}">
+		    <h1>${homeStageItem.headline}<span></span></h1>
+        </a>
     </div>
 </div>
 <sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>

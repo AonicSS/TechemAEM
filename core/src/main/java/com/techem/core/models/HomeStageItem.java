@@ -20,8 +20,14 @@ public class HomeStageItem
     @Default(values = "Headline")
     private String headline;
 
+    @ValueMapValue(name="linkURL2")
+    private String linkURL2;
+
     public String getHeadline() {
         return headline;
     }
 
+    public String getLinkURL2() {
+        return linkURL2;
+    }
 }
