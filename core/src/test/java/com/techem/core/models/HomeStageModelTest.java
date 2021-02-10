@@ -21,7 +21,7 @@ class HomeStageModelTest
 	private static final String RESOURCE_TYPE = "sling:resourceType";
 	private static final String COMPONENT_RESOURCE_TYPE = "techem/components/service-item";
 
-	private static final String TRANSITION_SPEED = "headline";
+	private static final String TRANSITION_SPEED = "transitionSpeed";
 
 	private static final String EXPECTED_TRANSITION_SPEED = "10000";
 
