@@ -1,5 +1,7 @@
 .home-stage.carousel {
     margin-top: 141.5px;
+    max-width: 1920px;
+    margin: 0 auto;
     .home-stage-item{
         .cmp-teaser{
             background-repeat: no-repeat;
@@ -15,17 +17,68 @@
         flex-direction: row;
         align-items: center;
         align-self: center;
+        a{
+            text-decoration: none;
+            outline: none;
+        }
         h1{
             max-width: 571px;
             color: $color-foreground-dark;
+            font-size: 50px;
+            margin: 0;
+            font-family: $font-universe-roman-bold;
+            span{
+                display: inline-block;
+                margin-left: 20px;
+                position: relative;
+                width: 48px;
+                height: 18px;
+                transition: all .2s ease-in;
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    border-style: solid;
+                    border-color: $color-primary-button;
+                    border-width: 3px 3px 0 0;
+                    right: 0.5px;
+                    transform: rotate(45deg);
+                    transition: all .2s ease-in;
+                }
+
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    border-style: solid;
+                    border-color: $color-primary-button;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 48px;
+                    height: 0;
+                    border-width: 3px 0 0;
+                    transition: all .2s ease-in;
+                }
+            }
+            &:hover{
+                span{
+                    width: 58px;
+                    &::before{
+                        right: 0.5px;
+                    }
+                    &::after{
+                        width: 58px;
+                    }
+                }
+            }
         }
     }
 
     .cmp-carousel {
         position: relative;
 
-        .cmp-carousel__action--previous,
-        .cmp-carousel__action--next,
         .cmp-carousel__action--pause,
         .cmp-carousel__action--play {
             display: none;
@@ -35,14 +88,13 @@
             display: block;
             position: absolute;
             opacity: 0;
-            right: calc((100vw - 77pc)/2);
+            right: calc((100vw - 80vw)/2);
             top: 0;
             border: 0;
             background: 0;
             outline: none;
             height: 100%;
             width: 25%;
-            margin-left: auto;
             cursor: pointer;
             &::after{
                 display: none;
@@ -70,13 +122,13 @@
             display: block;
             position: absolute;
             opacity: 0;
-            left: calc((100vw - 77pc)/4);
+            left: calc((100vw - 80vw)/5);
             top: 30%;
             border: 0;
             background: 0;
             outline: none;
             height: 100%;
-            width: 25%;
+            width: 20%;
             cursor: pointer;
             &::after{
                 display: none;
@@ -121,12 +173,33 @@
         }
     }
 }
+@media only screen and (max-width: 1024px) {
+    .home-stage.carousel {
+        margin-top: 60px;
+    }
+}
 
 @media only screen and (max-width: 768px) {
     .home-stage.carousel {
-        margin-top: 60px;
         .home-stage-teaser-item {
             height: 400px;
+            h1{
+                font-size: 32px;
+                span{
+                    width: 28px;
+                    height: 13px;
+                    &::before {
+                        width: 11px;
+                        height: 11px;
+                        border-width: 2px 2px 0 0;
+                    }
+    
+                    &::after {
+                        width: 28px;
+                        border-width: 2px 0 0;
+                    }
+                }
+            }
         }
         .cmp-carousel {
             .cmp-carousel__action--next {
