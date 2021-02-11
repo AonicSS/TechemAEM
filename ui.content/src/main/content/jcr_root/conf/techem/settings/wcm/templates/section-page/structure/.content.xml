@@ -14,12 +14,16 @@
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="techem/components/experiencefragment"
                     editable="{Boolean}true"/>
-            <breadcrumb
+            <stage-container
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="techem/components/breadcrumb"/>
-            <stage_component
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="techem/components/stage-component"/>
+                    sling:resourceType="techem/components/stage-container">
+                <breadcrumb
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="techem/components/breadcrumb"/>
+                <stage_component
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="techem/components/stage-component"/>
+            </stage-container>
             <container
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="techem/components/container"
