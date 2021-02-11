@@ -97,7 +97,11 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             { from: path.resolve(__dirname, SOURCE_ROOT + '/resources'), to: './clientlib-site/' }
-        ])
+        ]),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
     ],
     stats: {
         assetsSort: 'chunks',
