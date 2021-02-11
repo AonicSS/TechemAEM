@@ -43,6 +43,7 @@
                                                 mimeTypes="[image/*,video/*,audio/*,.pdf,.doc,.zip,.txt]"
                                                 multiple="{Boolean}false"
                                                 name="./file"
+                                                required="{Boolean}true"
                                                 title="Upload Asset"
                                                 uploadUrl="${suffix.path}"
                                                 useHTML5="{Boolean}true"/>
@@ -73,23 +74,9 @@
                                                 fieldDescription="Title of the field"
                                                 fieldLabel="Text"
                                                 maxlength="{Long}70"
-                                                name="./text"/>
-                                            <file
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
-                                                allowUpload="{Boolean}false"
-                                                autoStart="{Boolean}false"
-                                                class="cq-droptarget"
-                                                fieldLabel="Format Icon"
-                                                fileNameParameter="./fileName2"
-                                                fileReferenceParameter="./fileReference2"
-                                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
-                                                multiple="{Boolean}false"
-                                                name="./formatIcon"
-                                                title="Upload Icon Asset"
-                                                uploadUrl="${suffix.path}"
-                                                useHTML5="{Boolean}true"/>
-                                            <format
+                                                name="./text"
+                                                required="{Boolean}true"/>
+                                            <iconFormat
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                 fieldDescription="Choose the type of document and the according icon will be displayed"
@@ -103,17 +90,21 @@
                                                     <pdf
                                                         jcr:primaryType="nt:unstructured"
                                                         text="PDF"
-                                                        value="pdf"/>
-                                                    <img
+                                                        value="PDF"/>
+                                                    <png
                                                         jcr:primaryType="nt:unstructured"
-                                                        text="IMG"
-                                                        value="img"/>
+                                                        text="PNG"
+                                                        value="PNG"/>
+                                                    <jpg
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="JPG"
+                                                        value="JPG"/>
                                                     <zip
                                                         jcr:primaryType="nt:unstructured"
                                                         text="Zip"
-                                                        value="zip"/>
+                                                        value="ZIP"/>
                                                 </items>
-                                            </format>
+                                            </iconFormat>
                                         </items>
                                     </column>
                                 </items>

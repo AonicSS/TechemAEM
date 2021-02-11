@@ -27,34 +27,11 @@ public class Download {
     @ValueMapValue(name="iconFormat")
     private String iconFormat;
 
-    @ValueMapValue(name="size")
-    private String size;
-
-    @ValueMapValue(name="linkURL2")
-    private String linkURL2;
-
-    @ValueMapValue(name="fileReference2")
-    private String fileReference2;
-
     public String getText() {
         return text;
     }
 
-    public String getIconFormatFormat() {
+    public String getIconFormat() {
         return iconFormat;
     }
-
-    public String getSize() {
-        return size;
-    }
-
-    public String getLinkURL2() {
-        return linkURL2;
-    }
-
-    public String getFileReference2() {
-        return fileReference2;
-    }
-
-
 }

@@ -12,18 +12,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(AemContextExtension.class)
-class DownloadListTest
+class DownloadTest
 {
 
-	private DownloadList downloadList;
+	private Download download;
 
 	private static final String CONTENT_TEST_RESOURCE = "/content/mypage";
 	private static final String RESOURCE_TYPE = "sling:resourceType";
-	private static final String COMPONENT_RESOURCE_TYPE = "techem/components/download-list";
+	private static final String COMPONENT_RESOURCE_TYPE = "techem/components/download";
 
-	private static final String HEADLINE = "headline";
+	private static final String TEXT = "text";
+	private static final String ICON_FORMAT = "iconFormat";
 
-	private static final String EXPECTED_HEADLINE = "Headline for Download List";
+	private static final String EXPECTED_TEXT = "Text for Download";
+	private static final String EXPECTED_ICON_FORMAT = "pdf";
 
 	private Page page;
 	private Resource resource;
@@ -33,17 +35,25 @@ class DownloadListTest
 	{
 
 		page = context.create().page(CONTENT_TEST_RESOURCE);
-		resource = context.create().resource(page, "downloadList",
+		resource = context.create().resource(page, "download",
 				RESOURCE_TYPE, COMPONENT_RESOURCE_TYPE,
-				HEADLINE, EXPECTED_HEADLINE);
+				TEXT, EXPECTED_TEXT,
+				ICON_FORMAT, EXPECTED_ICON_FORMAT);
 
-		downloadList = resource.adaptTo(DownloadList.class);
+		download = resource.adaptTo(Download.class);
 	}
 
 	@Test
-	void testDownloadListHeadline() throws Exception
+	void testDownloadText() throws Exception
 	{
-		assertNotNull(downloadList);
-		assertEquals(EXPECTED_HEADLINE, downloadList.getHeadline());
+		assertNotNull(download);
+		assertEquals(EXPECTED_TEXT, download.getText());
+	}
+
+	@Test
+	void testDownloadIconFormat() throws Exception
+	{
+		assertNotNull(download);
+		assertEquals(EXPECTED_ICON_FORMAT, download.getIconFormat());
 	}
 }

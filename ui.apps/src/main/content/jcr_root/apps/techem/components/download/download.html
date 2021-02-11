@@ -5,11 +5,17 @@
      id="${component.id}">
     <a data-sly-unwrap="${!download.url}" class="cmp-download__link" href="${download.url}">
         <sly data-sly-test.isPDF="${techemDownload.iconFormat=='pdf'}" >
-        <img class="cmp-tile-icons" src="${techemDownload.fileReference2}">
+            <span class="cmp-download-pdf"></span>
+        </sly>
+        <sly data-sly-test.isImg="${techemDownload.iconFormat=='img'}" >
+            <span class="cmp-download-img"></span>
+        </sly>
+        <sly data-sly-test.isZip="${techemDownload.iconFormat=='zip'}" >
+            <span class="cmp-download-zip"></span>
         </sly>
         <div class="cmp-download__title">${techemDownload.text}</div>
-        <dl data-sly-test="${(download.displaySize && download.size) || (download.displayFormat && download.format)}" class="cmp-download__properties">
-            <div class="cmp-download__format">${download.format} ${download.size}</div>
+        <dl data-sly-test="${(download.displaySize && download.size) || techemDownload.iconFormat}" class="cmp-download__properties">
+            <div class="cmp-download__format">${techemDownload.iconFormat} ${download.size}</div>
         </dl>
     </a>
 </div>
