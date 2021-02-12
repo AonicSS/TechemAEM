@@ -68,6 +68,22 @@
                                                 text="Show secondary buttton"
                                                 uncheckedValue="false"
                                                 value="true"/>
+                                            <openNewTabPrimary
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    fieldDescription="Opens the page from the primary button in a new window/tab"
+                                                    name="./openNewTabPrimary"
+                                                    text="Open primary page in new window"
+                                                    uncheckedValue="{Boolean}false"
+                                                    value="{Boolean}true"/>
+                                            <openNewTabSecondary
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    fieldDescription="Opens the page from the secondary button in a new window/tab"
+                                                    name="./openNewTabSecondary"
+                                                    text="Open secondary page in new window"
+                                                    uncheckedValue="{Boolean}false"
+                                                    value="{Boolean}true"/>
                                         </items>
                                     </column>
                                 </items>

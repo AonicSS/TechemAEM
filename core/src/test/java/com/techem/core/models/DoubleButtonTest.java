@@ -33,6 +33,8 @@ public class DoubleButtonTest {
                 .put("secondaryLink", LINK)
                 .put("showSecondaryButton", Boolean.TRUE)
                 .put("accessibilityLabel", ACCESSIBILITY_LABEL)
+                .put("openNewTabPrimary", Boolean.TRUE)
+                .put("openNewTabSecondary", Boolean.TRUE)
                 .build());
 
         doubleButton = resource.adaptTo(DoubleButton.class);
@@ -47,5 +49,8 @@ public class DoubleButtonTest {
         assertEquals(LINK, doubleButton.getSecondaryLink());
         assertEquals(Boolean.TRUE, doubleButton.isShowSecondaryButton());
         assertEquals(ACCESSIBILITY_LABEL, doubleButton.getAccessibilityLabel());
+        assertEquals(Boolean.TRUE, doubleButton.getOpenNewTabPrimary());
+        assertEquals(Boolean.TRUE, doubleButton.getOpenNewTabSecondary());
+
     }
 }
