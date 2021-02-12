@@ -1,4 +1,5 @@
 <button data-sly-use.button="com.adobe.cq.wcm.core.components.models.Button"
+        data-sly-use.techemButton="com.techem.core.models.Button"
         data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
         data-sly-element="${button.link ? 'a' : 'button'}"
         id="${component.id}"
@@ -6,6 +7,7 @@
         href="${button.link}"
         aria-label="${button.accessibilityLabel}"
         data-cmp-clickable="${button.data ? true : false}"
-        data-cmp-data-layer="${button.data.json}">
+        data-cmp-data-layer="${button.data.json}"
+        target="${techemButton.openNewTab ? '_blank' : ''}">
     <span data-sly-test="${button.text}" class="cmp-button__text">${button.text}</span>
 </button>
