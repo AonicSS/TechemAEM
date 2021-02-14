@@ -7,6 +7,10 @@
     font-weight: normal;
   }
 
+  a {
+    color: $color-primary-button;
+  }
+
   &.cmp-text__list-bulleted {
     ul {
       list-style-type: none;
