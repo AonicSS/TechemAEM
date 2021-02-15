@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 
 @Model(adaptables = Resource.class,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class Unit {
+public class KeyfactItem {
 
     @ValueMapValue(name = "number")
     private String number;
@@ -17,8 +17,8 @@ public class Unit {
     @ValueMapValue(name = "unit")
     private String unit;
 
-    @ValueMapValue(name = "unitDescription")
-    private String unitDescription;
+    @ValueMapValue(name = "description")
+    private String description;
 
     @PostConstruct
     protected void init() {
@@ -32,7 +32,7 @@ public class Unit {
         return unit;
     }
 
-    public String getUnitDescription() {
-        return unitDescription;
+    public String getDescription() {
+        return description;
     }
 }

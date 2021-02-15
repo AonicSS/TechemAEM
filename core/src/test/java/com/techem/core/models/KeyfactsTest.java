@@ -45,12 +45,12 @@ public class KeyfactsTest {
 
     @Test
     public void testGetUnitList() {
-        final List<Unit> unitList = keyfacts.getUnitList();
-        final Unit unit = unitList.get(0);
+        final List<KeyfactItem> keyfactItemList = keyfacts.getKeyfactItemList();
+        final KeyfactItem keyfactItem = keyfactItemList.get(0);
 
-        assertEquals(2, unitList.size());
-        assertEquals(NUMBER, unit.getNumber());
-        assertEquals(UNIT, unit.getUnit());
-        assertEquals(UNIT_DESCRIPTION, unit.getUnitDescription());
+        assertEquals(2, keyfactItemList.size());
+        assertEquals(NUMBER, keyfactItem.getNumber());
+        assertEquals(UNIT, keyfactItem.getUnit());
+        assertEquals(UNIT_DESCRIPTION, keyfactItem.getDescription());
     }
 }

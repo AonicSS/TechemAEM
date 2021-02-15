@@ -11,13 +11,13 @@
       "jcr:primaryType": "nt:unstructured",
       "number": "12.31231",
       "unit": "m2",
-      "unitDescription": "Unit description"
+      "description": "Unit description"
     },
     "item1": {
       "jcr:primaryType": "nt:unstructured",
       "number": "12.31231",
       "unit": "T",
-      "unitDescription": "Unit description"
+      "description": "Unit description"
     }
   }
 }

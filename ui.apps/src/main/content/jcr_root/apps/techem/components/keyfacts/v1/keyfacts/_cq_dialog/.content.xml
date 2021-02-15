@@ -174,12 +174,12 @@
                                                     fieldDescription="Add the unit of measurement for the keyfacts"
                                                     fieldLabel="Unit of measurement"
                                                     name="./unit"/>
-                                                <unitDescription
+                                                <description
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                    fieldDescription="Add the unit description for the keyfacts"
-                                                    fieldLabel="Unit description"
-                                                    name="./unitDescription"/>
+                                                    fieldDescription="Add the keyfactItem description for the keyfacts"
+                                                    fieldLabel="Description"
+                                                    name="./description"/>
                                             </items>
                                         </field>
                                     </multi>

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(AemContextExtension.class)
-public class UnitTest {
+public class KeyfactItemTest {
 
     private static final String NUMBER = "12.312312";
     private static final String UNIT_OF_MEASUREMENT = "m2";
@@ -20,7 +20,7 @@ public class UnitTest {
 
     private AemContext context = new AemContext(ResourceResolverType.JCR_MOCK);
 
-    private Unit unit;
+    private KeyfactItem keyfactItem;
 
     @BeforeEach
     public void setUp() throws Exception {
@@ -29,16 +29,16 @@ public class UnitTest {
                 ImmutableMap.<String, Object>builder()
                         .put("number", NUMBER)
                         .put("unit", UNIT_OF_MEASUREMENT)
-                        .put("unitDescription", UNIT_DESCRIPTION)
+                        .put("description", UNIT_DESCRIPTION)
                         .build());
 
-        unit = resource.adaptTo(Unit.class);
+        keyfactItem = resource.adaptTo(KeyfactItem.class);
     }
 
     @Test
     public void testGetters() {
-        assertEquals(NUMBER, unit.getNumber());
-        assertEquals(UNIT_OF_MEASUREMENT, unit.getUnit());
-        assertEquals(UNIT_DESCRIPTION, unit.getUnitDescription());
+        assertEquals(NUMBER, keyfactItem.getNumber());
+        assertEquals(UNIT_OF_MEASUREMENT, keyfactItem.getUnit());
+        assertEquals(UNIT_DESCRIPTION, keyfactItem.getDescription());
     }
 }

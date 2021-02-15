@@ -19,9 +19,9 @@
                 ${keyfacts.text @ context='html'}
             </div>
         </div>
-        <div class="cmp-keyfacts__units-teaser" data-sly-list="${keyfacts.unitList}">
+        <div class="cmp-keyfacts__units-teaser" data-sly-list="${keyfacts.keyfactItemList}">
             <sly data-sly-use.template="keyfacts-templates.html"
-                 data-sly-call="${template.units_teaser @  unit = item}">
+                 data-sly-call="${template.units_teaser @  item = item}">
             </sly>
         </div>
     <div/>

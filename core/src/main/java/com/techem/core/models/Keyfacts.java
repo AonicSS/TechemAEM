@@ -27,14 +27,14 @@ public class Keyfacts {
     @ValueMapValue(name = "text")
     private String text;
 
-    private List<Unit> unitList;
+    private List<KeyfactItem> keyfactItemList;
 
     @PostConstruct
     protected void init() {
          final List<Resource> keyfactsList = Lists.newArrayList(keyfactsItems.getChildren().iterator());
 
          if(CollectionUtils.isNotEmpty(keyfactsList)) {
-             unitList = keyfactsList.stream().map(item -> item.adaptTo(Unit.class))
+             keyfactItemList = keyfactsList.stream().map(item -> item.adaptTo(KeyfactItem.class))
             .collect(toCollection(LinkedList::new));
          }
     }
@@ -47,7 +47,7 @@ public class Keyfacts {
         return text;
     }
 
-    public List<Unit> getUnitList() {
-        return unitList;
+    public List<KeyfactItem> getKeyfactItemList() {
+        return keyfactItemList;
     }
 }
