@@ -8,7 +8,7 @@
         sling:resourceType="techem/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="techem/components/container"
+            sling:resourceType="wcm/foundation/components/responsivegrid"
             editable="{Boolean}true"/>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">

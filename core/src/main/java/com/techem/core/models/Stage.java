@@ -25,6 +25,9 @@ public class Stage{
     @ValueMapValue(name = "date")
     private Date dateObject;
 
+    @ValueMapValue(name = "cq:lastModified")
+    private Date lastModifiedObject;
+
     @ValueMapValue(name = "text")
     private String text;
 
@@ -42,6 +45,10 @@ public class Stage{
         return dateObject;
     }
 
+    public Date getLastModifiedObject() {
+        return lastModifiedObject;
+    }
+
     public String getHeadline() {
         return headline;
     }
@@ -55,4 +62,5 @@ public class Stage{
     }
 
     public String getDate() { return date; }
+
 }

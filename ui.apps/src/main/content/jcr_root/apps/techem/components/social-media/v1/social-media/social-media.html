@@ -46,7 +46,7 @@
     <ul class="social-media__category" data-sly-test="${socialMedia.socialMediaList}" data-sly-list.medias="${socialMedia.socialMediaList}">
         <li>
             <a x-cq-linkchecker="skip" href="${medias.link @ context='unsafe'}" title="${medias.title}"
-               target="${medias.openNewTab  ? '_self' : '_blank'}"
+               target="${medias.openNewTab  ? '_blank' : '_self'}"
                aria-label="${medias.title} ${medias.openNewTab  ? ' - opens in a new tab' : ''}">
                 <svg fill="white" width="32px" height="32px" viewBox="0 0 32 32" class="svg-icon ${medias.icon}">
                     <use xlink:href="#${medias.icon}-SVG"/>

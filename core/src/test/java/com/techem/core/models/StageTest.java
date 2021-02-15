@@ -23,7 +23,7 @@ class StageTest
 
 	private static final String HEADLINE = "headline";
 	private static final String CATEGORY = "category";
-	private static final String DATE = "dateObject";
+	private static final String DATE = "date";
 	private static final String TEXT = "text";
 
 	private static final String EXPECTED_HEADLINE = "Hello";
@@ -43,7 +43,7 @@ class StageTest
 				RESOURCE_TYPE, COMPONENT_RESOURCE_TYPE,
 				HEADLINE, EXPECTED_HEADLINE,
 				CATEGORY, EXPECTED_CATEGORY,
-				DATE, EXPECTED_DATE,
+				DATE, "2020-01-01T14:55:59.809+02:00",
 				TEXT, EXPECTED_TEXT);
 
 		stage = resource.adaptTo(Stage.class);
@@ -70,4 +70,10 @@ class StageTest
 		assertEquals(EXPECTED_HEADLINE, stage.getHeadline());
 	}
 
+	@Test
+	void testStageDate() throws Exception
+	{
+		assertNotNull(stage);
+		assertEquals(EXPECTED_DATE, stage.getDate());
+	}
 }

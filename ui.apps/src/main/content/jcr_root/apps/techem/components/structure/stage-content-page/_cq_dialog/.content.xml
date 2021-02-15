@@ -44,29 +44,36 @@
                                                     name="./id"/>
                                         </items>
                                     </htmlid>
-                                    <image
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                            fieldDescription="Select a image for the Page"
-                                            fieldLabel="Image for the Page"
-                                            name="./image"
-                                            rootPath="/content/dam"/>
-                                    <headline
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                            fieldDescription="A headline that will be displayed on the Stage component of the page."
-                                            fieldLabel="Stage Headline"
-                                            maxlength="{Long}75"
-                                            name="./headline"
-                                            required="{Boolean}true"/>
-                                    <text
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
-                                            fieldDescription="A description that will be displayed below the Stage headline."
-                                            fieldLabel="Stage Text"
-                                            maxlength="{Long}375"
-                                            name="./text"
-                                            required="{Boolean}true"/>
+                                    <field
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                             <image
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldDescription="Select a image for the Page"
+                                                fieldLabel="Image for the Page"
+                                                name="./image"
+                                                rootPath="/content/dam"/>
+                                             <headline
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="A headline that will be displayed on the Stage component of the page."
+                                                fieldLabel="Stage Headline"
+                                                maxlength="{Long}75"
+                                                name="./headline"
+                                                required="{Boolean}true"/>
+                                            <text
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldDescription="A description that will be displayed below the Stage headline."
+                                                fieldLabel="Stage Text"
+                                                maxlength="{Long}375"
+                                                name="./text"
+                                                required="{Boolean}true"/>
+                                        </items>
+                                    </field>
                                     <moretitles
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"

@@ -1,8 +1,11 @@
 .cmp-image-b-radius {
+  .cmp-image {
+    max-width: 780px;
+  }
   .cmp-image__image {
     border-radius: $border-radius-top-l-bottom-r;
     width: auto;
-    max-width: 780px;
+    max-width: 100%;
   }
 
   &.image-with-border {
@@ -14,6 +17,7 @@
   &.image-centered {
     .cmp-image {
       text-align: center;
+      margin: 0 auto;
     }
   }
 }

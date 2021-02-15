@@ -8,36 +8,24 @@
         sling:resourceType="techem/components/structure/home-page">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="techem/components/container">
+            sling:resourceType="wcm/foundation/components/responsivegrid">
             <experiencefragment
-                jcr:created="{Date}2020-12-07T15:44:59.203+02:00"
-                jcr:createdBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="techem/components/experiencefragment"
-                fragmentVariationPath="/content/experience-fragments/techem/us/en/site/header/master"
-                id="home-header"/>
-            <image
-                jcr:created="{Date}2020-12-07T15:47:48.090+02:00"
-                jcr:createdBy="admin"
+                editable="{Boolean}true"/>
+            <home-stage
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="techem/components/image"
-                altValueFromDAM="true"
-                displayPopupTitle="true"
-                fileReference="/content/dam/core-components-examples/library/sample-assets/lava-into-ocean.jpg"
-                isDecorative="false"
-                titleValueFromDAM="true"/>
+                sling:resourceType="techem/components/home-stage/"
+                editable="{Boolean}true"/>
             <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="techem/components/container"
                 editable="{Boolean}true"
                 layout="responsiveGrid"/>
             <experiencefragment_2088209270
-                jcr:created="{Date}2020-12-07T15:45:48.307+02:00"
-                jcr:createdBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="techem/components/experiencefragment"
-                fragmentVariationPath="/content/experience-fragments/techem/us/en/site/footer/master"
-                id="home-footer"/>
+                editable="{Boolean}true"/>
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">

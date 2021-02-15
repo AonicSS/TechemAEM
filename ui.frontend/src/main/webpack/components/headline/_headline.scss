@@ -7,7 +7,8 @@
     text-align: center;
     color: $color-foreground-header;
     padding-top: 30px;
-    margin: 0 0 30px;
+    margin: 0 auto 30px auto;
+    max-width: 764px;
     font-size: 40px;
   }
   .cmp-headline__text {
@@ -18,14 +19,19 @@
     line-height: 1.63;
     color: $color-dark-grey;
     text-align: center;
-    margin: 30px 104 0;
+    margin: 30px auto 30px auto;
+    max-width: 764px;
   }
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 768px) {
     .headline {
         .cmp-headline__headline {
             font-size: 24px;
+        }
+        .cmp-headline__headline,.cmp-headline__text{
+          max-width: 100%;
+          padding: 0 1em;
         }
     }
 }

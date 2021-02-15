@@ -1,0 +1,54 @@
+{
+  "jcr:created": "2021-01-31T14:50:13.506+02:00",
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "techem/components/news-article/news-article",
+  "maxArticles": "7",
+  "showMoreLabel": "Show more",
+  "unsorted": "true",
+  "newsItems": {
+    "jcr:primaryType": "nt:unstructured",
+
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "articlePath": "/content/techem/us/en/test-stagetext1",
+      "fileReference": "/content/dam/core-components-examples/library/sample-assets/mountain-range.jpg",
+      "articlePath" : {
+          "jcr:content": {
+            "cq:lastModified": "2021-02-14T12:04:19.868+02:00",
+            "headline": "Lorem ipsum dolor sit amet",
+            "date" : "2021-04-15T00:00:00.000+03:00",
+            "text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
+            "category": "newCategory"
+          }
+      }
+    },
+    "item1": {
+      "jcr:primaryType": "nt:unstructured",
+      "articlePath": "/content/techem/us/en/test-stagetext1",
+      "fileReference": "/content/dam/core-components-examples/library/sample-assets/mountain-range.jpg",
+      "articlePath" : {
+        "jcr:content": {
+          "cq:lastModified": "2021-02-14T12:04:19.868+02:00",
+          "headline": "Lorem ipsum dolor sit amet",
+          "date" : "2021-04-15T00:00:00.000+03:00",
+          "text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
+          "category": "newCategory"
+        }
+      }
+    },
+    "item2": {
+      "jcr:primaryType": "nt:unstructured",
+      "articlePath": "/content/techem/us/en/test-stagetext1",
+      "fileReference": "/content/dam/core-components-examples/library/sample-assets/mountain-range.jpg",
+      "articlePath" : {
+        "jcr:content": {
+          "cq:lastModified": "2021-02-14T12:04:19.868+02:00",
+          "headline": "Lorem ipsum dolor sit amet",
+          "date" : "2021-04-15T00:00:00.000+03:00",
+          "text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
+          "category": "newCategory"
+        }
+      }
+    }
+  }
+}

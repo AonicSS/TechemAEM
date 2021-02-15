@@ -1,8 +1,8 @@
 //== Font
 
-$font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family: "UniversLTW02-55Roman", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-size: 16px;
-$font-height: 1.5;
+$font-height: 1.75;
 $font-universe-roman: "UniversLTW02-55Roman";
 $font-universe-roman-bold: "UniversLTW02-65Bold";
 $font-universe-std: "UniversLTW02-45Light";
@@ -43,3 +43,5 @@ $border-radius-top-l: 40px 0 0 0;
 $border-radius-bottom-r: 0 0 40px 0;
 $border-radius-top-r: 0 40px 0 0;
 $border-radius-bottom-l: 0 0 0 40px;
+
+$iconsPath : "../resources/images/";
