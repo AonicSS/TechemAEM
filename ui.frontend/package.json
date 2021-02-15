@@ -54,6 +54,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "jquery": "^3.5.1",
     "swiper": "^6.4.10"
   },
   "browserslist": [

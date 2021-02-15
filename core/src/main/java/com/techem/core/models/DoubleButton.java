@@ -29,6 +29,12 @@ public class DoubleButton {
     @ValueMapValue(name = "accessibilityLabel")
     private String accessibilityLabel;
 
+    @ValueMapValue(name = "openNewTabPrimary")
+    private Boolean openNewTabPrimary;
+
+    @ValueMapValue(name = "openNewTabSecondary")
+    private Boolean openNewTabSecondary;
+
     @PostConstruct
     protected void init() {
 
@@ -56,5 +62,13 @@ public class DoubleButton {
 
     public String getAccessibilityLabel() {
         return accessibilityLabel;
+    }
+
+    public Boolean getOpenNewTabPrimary() {
+        return openNewTabPrimary;
+    }
+
+    public Boolean getOpenNewTabSecondary() {
+        return openNewTabSecondary;
     }
 }

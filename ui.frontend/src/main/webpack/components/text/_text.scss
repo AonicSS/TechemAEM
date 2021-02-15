@@ -1,2 +1,70 @@
-.cmp-text {}
+.cmp-text {
+  max-width: 985px;
+  margin: 0 auto;
+
+  b, strong {
+    font-family: $font-universe-roman-bold;
+    font-weight: normal;
+  }
+
+  &.cmp-text__list-bulleted {
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        padding-left: 30px;
+        margin-bottom: 30px;
+        position: relative;
+
+        &:before {
+          content: '';
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: $color-primary-button;
+          position: absolute;
+          left: 0;
+          top: 8px;
+        }
+      }
+    }
+  }
+
+  &.cmp-text__list-check {
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        padding-left: 30px;
+        margin-bottom: 30px;
+        position: relative;
+
+        &:before {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          left: 4px;
+          top: 4px;
+          width: 7px;
+          height: 13px;
+          margin-right: 12px;
+          border: solid $border-secondary-button;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  ol {
+    padding-left: 15px;
+    li {
+      padding-left: 15px;
+      margin-bottom: 30px;
+    }
+  }
+}
 .cmp-text__paragraph {}
