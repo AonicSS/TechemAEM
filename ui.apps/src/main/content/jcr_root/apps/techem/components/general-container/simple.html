@@ -2,7 +2,7 @@
     <sly data-sly-test="${wcmmode.edit}" data-sly-use.allowed="com.day.cq.wcm.foundation.AllowedComponentList"></sly>
     <div data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
          id="${container.id}"
-         class="cmp-container${wcmmode.edit ? ' {0}': '' @ format=[allowed.cssClass]} aem-Grid aem-Grid--12 aem-Grid--default--12"
+         class="cmp-container${wcmmode.edit ? ' {0}': '' @ format=[allowed.cssClass]} ${wcmmode.edit && !wcmmode.preview ? 'cmp-general-container-parsys' : ''}  aem-Grid aem-Grid--12 aem-Grid--default--12"
          style="${container.backgroundStyle @ context='styleString'}">
         <sly data-sly-test.isAllowedApplicable="${allowed.isApplicable}"
              data-sly-test="${isAllowedApplicable}"
@@ -11,6 +11,6 @@
         <sly data-sly-test="${!isAllowedApplicable}"
              data-sly-repeat="${container.items}" data-sly-resource="${item.path @ decoration=true}"></sly>
         <sly data-sly-test="${!isAllowedApplicable && !wcmmode.disabled}"
-             data-sly-resource="${resource.path @ resourceType='core/wcm/components/container/v1/container/new', appendPath='/*', decorationTagName='div', cssClassName='new section'}" />
+             data-sly-resource="${resource.path @ resourceType='core/wcm/components/container/v1/container/new', appendPath='/*', decorationTagName='div', cssClassName='new section cmp-general-container-parsys2'}" />
     </div>
 </template>
