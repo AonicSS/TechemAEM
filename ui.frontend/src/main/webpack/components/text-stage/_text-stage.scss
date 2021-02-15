@@ -1,4 +1,3 @@
-
 @media only screen and (max-width: 1024px) {
     .stage-container {
         &.container {
@@ -8,82 +7,98 @@
 }
 
 .stage-container {
-   border-bottom: 6px solid red;
-   margin-bottom: 70px;
+    margin-bottom: 70px;
 
     .breadcrumb {
-       &.cq-Editable-dom {
-             min-height: 50px;
-             width: 100%;
+        &.cq-Editable-dom {
+            min-height: 50px;
+            width: 100%;
         }
     }
 
     .text-stage {
-       &.cq-Editable-dom {
+        position: relative;
+        border-bottom: solid 6px $color-primary-button;
+        .cmp-text-stage{
+            max-width: 77pc;
+            margin: 0 auto;
+
+        }
+
+        &.cq-Editable-dom {
             min-height: 50px;
             width: 100%;
-       }
+        }
+        @media only screen and (max-width:1024px) {
+            .cmp-text-stage{
+                &__text, &__date-wrapper {
+                    padding: 0 1em;
+                }
+                &__headline {
+                    padding: 0 16px;
+                }
+    
+            }
+        }
     }
 
     .cmp-container {
-        max-width: 77pc;
-        margin: 0 auto;
-        padding: 0 1em;
+
 
         .cmp-text-stage {
             &__date-wrapper {
                 .cmp-text-stage__date {
-                      height: 14px;
-                      font-family: $font-universe-roman;
-                      font-size: 12px;
-                      font-weight: normal;
-                      font-stretch: normal;
-                      font-style: normal;
-                      line-height: normal;
-                      letter-spacing: 0.51px;
-                      color: $color-separator-dark;
+                    height: 14px;
+                    font-family: $font-universe-roman;
+                    font-size: 12px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: 0.51px;
+                    color: $color-separator-dark;
                 }
             }
 
             &__headline {
-                  font-family: $font-universe-roman-bold;
-                  font-size: 50px;
-                  font-weight: 300;
-                  font-stretch: normal;
-                  font-style: normal;
-                  line-height: 1.28;
-                  letter-spacing: -0.33px;
-                  color: $color-foreground-header;
+                font-family: $font-universe-roman-bold;
+                font-size: 50px;
+                font-weight: 300;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.28;
+                letter-spacing: -0.33px;
+                color: $color-foreground-header;
 
-                   @media only screen and (max-width:1024px) {
-                        font-size: 26px;
-                        width: 100%!important;
-                   }
+                @media only screen and (max-width:1024px) {
+                    font-size: 26px;
+                    width: 100% !important;
+                }
             }
 
             &__text-wrapper {
                 .cmp-text-stage__text {
-                      width: 780px;
-                      float: none;
-                      margin: 0 auto 70px auto;
-                      font-family: $font-universe-roman;
-                      font-size: $font-size;
-                      font-weight: normal;
-                      font-stretch: normal;
-                      font-style: normal;
-                      line-height: 1.75;
-                      letter-spacing: -0.1px;
-                      color: $color-separator-dark;
+                    width: 780px;
+                    float: none;
+                    margin: 0 auto 70px auto;
+                    font-family: $font-universe-roman;
+                    font-size: $font-size;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.75;
+                    letter-spacing: -0.1px;
+                    color: $color-separator-dark;
 
-                      @media only screen and (max-width:1024px) {
-                           margin: 0 0 30px 0;
-                           width: 100%;
-                      }
+                    @media only screen and (max-width:1024px) {
+                        margin: 0 0 30px 0;
+                        width: 100%;
+                    }
 
-                      p {
+                    p {
                         padding: 0;
                         margin: 0;
-                      }
+                    }
                 }
             }
         }
