@@ -1,0 +1,30 @@
+<sly data-sly-use.keyfacts="com.techem.core.models.Keyfacts"/>
+
+<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+    Configure ${component.properties.jcr:title}
+</div>
+
+<sly data-sly-test="${(wcmmode.edit || wcmmode.preview)}"
+     data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+    <sly data-sly-call="${clientlib.js @ categories='cq.authoring.dialog'}" />
+</sly>
+
+<div class="cmp-keyfacts">
+    <div class="cmp-keyfacts__container">
+        <div class="cmp-keyfacts__content">
+            <h2 class="cmp-keyfacts__headline" data-sly-test="${keyfacts.headline}">
+                ${keyfacts.headline}
+            </h2>
+            <div class="cmp-keyfacts__text" data-sly-test="${keyfacts.text}">
+                ${keyfacts.text @ context='html'}
+            </div>
+        </div>
+        <div class="cmp-keyfacts__units-teaser" data-sly-list="${keyfacts.unitList}">
+            <sly data-sly-use.template="keyfacts-templates.html"
+                 data-sly-call="${template.units_teaser @  unit = item}">
+            </sly>
+        </div>
+    <div/>
+</div>
+
+

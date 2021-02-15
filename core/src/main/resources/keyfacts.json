@@ -1,0 +1,23 @@
+{
+  "jcr:created": "2021-02-14T21:05:10.949+02:00",
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "techem/components/keyfacts/keyfacts",
+  "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
+  "headline": "Keyfacts Title",
+
+  "keyfactsItems": {
+    "jcr:primaryType": "nt:unstructured",
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "number": "12.31231",
+      "unit": "m2",
+      "unitDescription": "Unit description"
+    },
+    "item1": {
+      "jcr:primaryType": "nt:unstructured",
+      "number": "12.31231",
+      "unit": "T",
+      "unitDescription": "Unit description"
+    }
+  }
+}
