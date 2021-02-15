@@ -1,0 +1,10 @@
+<template data-sly-template.units_teaser = "${ @ item}">
+    <div class="cmp-keyfacts__unit-teaser">
+        <span class="cmp-keyfacts__unit-number" data-sly-test="${item.number || item.unit}">
+            ${item.number}  ${item.unit}
+        </span>
+        <div class="cmp-keyfacts__unit-description" data-sly-test="${item.description}">
+            ${item.description}
+        </div>
+    </div>
+</template>

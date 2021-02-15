@@ -1,0 +1,32 @@
+{
+  "item0": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "navTitle": "Monitoring",
+      "pageTitle": "Monitoring"
+    },
+    "item0": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:content": {
+        "jcr:primaryType": "cq:PageContent",
+        "hideImageInHeader": "false",
+        "image": "/content/dam/core-components-examples/library/sample-assets/lava-rock-formation.jpg",
+        "pageDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "navTitle": "Monitoring",
+        "pageTitle": "Monitoring"
+      }
+    },
+    "item1": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:content": {
+        "jcr:primaryType": "cq:PageContent",
+        "hideImageInHeader": "false",
+        "image": "/content/dam/core-components-examples/library/sample-assets/lava-rock-formation.jpg",
+        "pageDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "navTitle": "Monitoring",
+        "pageTitle": "Monitoring"
+      }
+    }
+  }
+}
