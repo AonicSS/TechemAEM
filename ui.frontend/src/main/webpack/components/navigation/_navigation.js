@@ -35,6 +35,7 @@
                 var $target = $(event.target);
                 var $link = undefined;
                 $('body').addClass('scroll-hidden');
+                $('.header__dropdown-wrapper').addClass('dropdown-wrapper-open-fx');
 
                 if ($target.is("li")) {
                     $link = $target;
@@ -62,7 +63,10 @@
 
             $closeButton.on('click', () => {
                 this.hideAllDropDowns();
-                $('body').removeClass('scroll-hidden');
+                if($(window).width() > 1024){
+                    $('body').removeClass('scroll-hidden');
+                }
+                $('.header__dropdown-wrapper').removeClass('dropdown-wrapper-open-fx')
             });
         }.bind(this);
 
