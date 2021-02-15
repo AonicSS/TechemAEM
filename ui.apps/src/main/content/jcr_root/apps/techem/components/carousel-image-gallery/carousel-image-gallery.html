@@ -2,7 +2,7 @@
      data-sly-use.carouselImageGallery="com.techem.core.models.CarouselImageGallery"
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
      id="${carousel.id}"
-     class="cmp-carousel-img-gallery"
+     class="cmp-carousel-img-gallery ${wcmmode.edit ? 'author-mode': ''}"
      role="group"
      data-component-name="carousel-image-gallery"
      data-cmp-loop="${carouselImageGallery.loop  ? 'true' : 'false'}"
