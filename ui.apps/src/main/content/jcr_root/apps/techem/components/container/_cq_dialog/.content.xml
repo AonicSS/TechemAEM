@@ -49,6 +49,10 @@
                                                         jcr:primaryType="nt:unstructured"
                                                         text="Responsive Grid"
                                                         value="responsiveGrid"/>
+                                                    <full
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Full Width"
+                                                            value="full"/>
                                                 </items>
                                                 <granite:rendercondition
                                                     jcr:primaryType="nt:unstructured"
