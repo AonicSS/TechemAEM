@@ -37,18 +37,7 @@
     box-sizing: border-box;
 
     &:after {
-      display: none;
-      content: '';
-      width: 30px;
-      height: 20px;
-      background: url(#{$iconsPath}/navigation-chevron-bottom-white.svg) center center no-repeat;
-      background-size: contain;
-    }
-
-    &:hover {
-      &:after {
-        display: block;
-      }
+      content: none;
     }
 
     @media only screen and (max-width: 1024px) {
@@ -60,8 +49,8 @@
     right: 0;
     padding-left: 10%;
 
-    &:after {
-      transform: rotate(-90deg);
+    &:hover {
+      cursor: url(#{$iconsPath}/navigation-chevron-right-white.svg), auto;
     }
   }
 
@@ -69,8 +58,8 @@
     left: 0;
     padding-right: 10%;
 
-    &:after {
-      transform: rotate(90deg);
+    &:hover {
+      cursor: url(#{$iconsPath}/navigation-chevron-left-white.svg), auto;
     }
   }
 
@@ -86,11 +75,50 @@
     background: $color-primary-button;
   }
 
+  // fix Safari 13 flickering issue
+  // https://github.com/nolimits4web/swiper/issues/3527
+  .swiper-slide {
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+  }
+
   .cmp-image-b-radius {
     text-align: center;
 
     .cmp-image__image {
       width: 100%;
+    }
+  }
+
+  &.author-mode {
+    min-height: 350px;
+    .cmp-image-b-radius {
+      position: relative;
+
+      > .cq-placeholder {
+          position: relative;
+          display: flex;
+
+        &:after {
+          content: 'Image placeholder';
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 350px;
+          background-color: $color-grey;
+          z-index: -1;
+          border-radius: $border-radius-top-l-bottom-r;
+        }
+      }
+    }
+
+    .swiper-container {
+      min-height: 350px;
     }
   }
 }
