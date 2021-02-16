@@ -16,7 +16,9 @@
 		<sly data-sly-call="${headlineTemplate.headline @ imageTile=imageTile}"></sly>
 		<sly data-sly-call="${bodyTemplate.body @ imageTile=imageTile}"></sly>
     </div>
-	<img class="cmp-tile-icons cmp-image-tile-arrow" src="${imageTile.fileReference2}">
+  <i class="cmp-image-tile-arrow cmp-newsArticles-icon" data-sly-test.isLinkArrow="${imageTile.linkURL2}">
+    <div class="cmp-newsArticles-arrow"></div>
+  </i>
 	</a>
 </div>
 <sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-teaser'}"></sly>

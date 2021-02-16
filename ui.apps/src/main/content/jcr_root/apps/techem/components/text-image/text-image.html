@@ -16,7 +16,9 @@
         <div class="cmp-content__${textimage.textPosition}">
             <sly data-sly-call="${headlineTemplate.headline @ textimage=textimage}"></sly>
             <sly data-sly-call="${textTemplate.text @ textimage=textimage}"></sly>
-            <img class="cmp-arrow" src="${properties.fileReference2}">
+            <i class="cmp-image-tile-arrow cmp-newsArticles-icon" data-sly-test.isLinkArrow="${properties.linkURL2}">
+                <div class="cmp-newsArticles-arrow"></div>
+              </i>
             <sly data-sly-call="${actionsTemplate.actions @ teaser=teaser}"></sly>
         </div>
     </a>
