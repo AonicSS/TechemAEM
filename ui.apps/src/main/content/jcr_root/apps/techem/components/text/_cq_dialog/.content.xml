@@ -81,6 +81,7 @@
                                                             <default_h1
                                                                 jcr:primaryType="nt:unstructured"
                                                                 description="Heading 1"
+                                                                sling:hideResource="{Boolean}true"
                                                                 tag="h1"/>
                                                             <default_h2
                                                                 jcr:primaryType="nt:unstructured"
