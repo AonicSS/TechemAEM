@@ -44,13 +44,20 @@
                                                 name="./id"/>
                                             </items>
                                         </htmlid>
-                                        <image
+                                        <field
+                                            cq:showOnCreate="{Boolean}true"
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                            fieldDescription="Select a image for the Page"
-                                            fieldLabel="Image for the Page"
-                                            name="./image"
-                                            rootPath="/content/dam"/>
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <image
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="Select a image for the Page"
+                                                    fieldLabel="Image for the Page"
+                                                    name="./image"
+                                                    rootPath="/content/dam"/>
+                                            </items>
+                                        </field>
                                         <moretitles
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"

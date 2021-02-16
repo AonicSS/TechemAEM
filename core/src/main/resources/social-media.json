@@ -1,0 +1,23 @@
+{
+  "jcr:created": "2021-01-19T14:55:59.809+02:00",
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "techem/components/social-media/social-media",
+  "categoryTitle": "Social Media Title",
+  "socialItems": {
+    "jcr:primaryType": "nt:unstructured",
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "altText": "Facebook",
+      "icon": "svg-icon-Facebook",
+      "openNewTab": "true",
+      "title": "Facebook"
+    },
+    "item1": {
+      "jcr:primaryType": "nt:unstructured",
+      "altText": "Twitter",
+      "icon": "svg-icon-Twitter",
+      "openNewTab": "true",
+      "title": "Twitter"
+    }
+  }
+}

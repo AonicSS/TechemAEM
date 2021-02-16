@@ -37,12 +37,21 @@
                                                     min="{Long}2"
                                                     name="./maxArticles"
                                                     value="9"/>
+                                                <unsorted
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                        fieldDescription="Check this to unsort the articles/will be displayed in the order how they are added in the dialog"
+                                                        name="./unsorted"
+                                                        text="Unsorted articles"
+                                                        uncheckedValue="false"
+                                                        value="true"/>
+                                                <!-- I have commented the showMore label for the MVP to not be confusing for the author
                                                 <showMoreLabel
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                     fieldDescription="Add text for the show more button"
                                                     fieldLabel="ShowMore label"
-                                                    name="./showMoreLabel"/>
+                                                    name="./showMoreLabel"/>-->
                                                 <multi
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/multifield"

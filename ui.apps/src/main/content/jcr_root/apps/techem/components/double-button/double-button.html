@@ -5,19 +5,19 @@
 </div>
 
 <div class="cmp-double-button">
-    <button x-cq-linkchecker="skip" data-sly-test="${doubleButton.showSecondaryButton}"
+    <button x-cq-linkchecker="skip" data-sly-test="${doubleButton.showSecondaryButton && doubleButton.secondaryButtonLabel}"
             data-sly-element="${doubleButton.secondaryLink ? 'a' : 'button'}"
             class="cmp-button button-secondary"
             href="${doubleButton.secondaryLink @ extension='html'}"
             aria-label="${doubleButton.accessibilityLabel}"
-            target="${doubleButton.openNewTabSecondary ? '_blank' : ''}">
+            target="${doubleButton.openNewTabSecondary ? '_blank' : '_self'}">
         <span data-sly-test="${doubleButton.secondaryButtonLabel}" class="cmp-button__text">${doubleButton.secondaryButtonLabel}</span>
     </button>
-    <button x-cq-linkchecker="skip" data-sly-element="${doubleButton.primaryLink ? 'a' : 'button'}"
+    <button data-sly-test="${doubleButton.primaryButtonLabel}" x-cq-linkchecker="skip" data-sly-element="${doubleButton.primaryLink ? 'a' : 'button'}"
             class="cmp-button button-primary"
             href="${doubleButton.primaryLink @ extension='html'}"
             aria-label="${doubleButton.accessibilityLabel}"
-            target="${doubleButton.openNewTabPrimary ? '_blank' : ''}">
+            target="${doubleButton.openNewTabPrimary ? '_blank' : '_self'}">
         <span data-sly-test="${doubleButton.primaryButtonLabel}" class="cmp-button__text">${doubleButton.primaryButtonLabel}</span>
     </button>
 </div>
