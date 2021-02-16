@@ -30,6 +30,9 @@ public class NewsArticles {
     @ValueMapValue(name = "showMoreLabel")
     private String showMoreLabel;
 
+    @ValueMapValue(name = "showMorelinkUrl")
+    private String showMorelinkUrl;
+
     @ValueMapValue(name = "unsorted")
     private boolean unsorted;
 
@@ -88,6 +91,8 @@ public class NewsArticles {
     }
 
     public String getShowMoreLabel() { return showMoreLabel; }
+
+    public String getShowMorelinkUrl() { return showMorelinkUrl; }
 
     public Map<Stage, NewsArticle> getNewsArticles() {
         return newsArticles;
