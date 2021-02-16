@@ -63,6 +63,7 @@
           height: 400px;
           .cmp-text-image-headline{
             font-size: 28px;
+            line-height: normal;
           }
         }
         .cmp-teaser__description{
@@ -85,6 +86,7 @@
         display: block;
         font-size: 26px;
         margin-bottom: 30px;
+        line-height: normal;
       }
       &:after{
         content: '';

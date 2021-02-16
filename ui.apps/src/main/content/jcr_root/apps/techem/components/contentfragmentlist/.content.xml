@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Content Fragment List"
     sling:resourceSuperType="core/wcm/components/contentfragmentlist/v1/contentfragmentlist"
-    componentGroup="Techem - Content"/>
+    componentGroup=".hidden"/>

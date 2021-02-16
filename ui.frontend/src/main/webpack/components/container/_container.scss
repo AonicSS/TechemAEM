@@ -1,28 +1,32 @@
-.new {
+.new{
   margin: 0;
 }
+.cmp-list-parsys {
+    width: 100%;
+}
 
+.cmp-list-parsys2{
+    width: 100%;
+}
 .cmp-container {
   .cmp-tile-list {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    width: 77pc;
     margin: 0 auto;
     padding: 0 0 100px 0;
 
     .service-item:first-child {
-      .cmp-tile {
-        border-radius: $border-radius-top-l;
-      }
-    }
-
-    .service-item:last-child {
-      .cmp-tile {
-        border-radius: $border-radius-bottom-r;
-      }
-    }
+          .cmp-tile {
+            border-radius: $border-radius-top-l;
+          }
+        }
+        .service-item:last-child {
+          .cmp-tile {
+            border-radius: $border-radius-bottom-r;
+          }
+        }
 
     .cmp-tile {
       height: 270px;
@@ -35,7 +39,7 @@
       margin: 20px;
       position: relative;
 
-      &:hover {
+      &:hover{
         cursor: pointer;
         display: inline-block;
         background-color: $color-background;
@@ -45,25 +49,12 @@
           display: none;
         }
 
-        a {
+        a{
           display: block;
           margin-left: auto;
-          position: relative;
         }
-
-        .cmp-tile-icons {
-          .cmp-tile-right-icon {
-
-            .cmp-newsArticles-arrow {
-              bottom: 17px;
-              &:before{
-                right: -4px;
-              }
-              &::after {
-                width: 28px;
-              }
-            }
-          }
+        .cmp-tile-right-icon {
+          padding: 7px 24px 0px 0px!important;
         }
 
         .cmp-tile-subtitle {
@@ -76,7 +67,6 @@
           height: 123px;
         }
       }
-
       .cmp-tile-category {
         font-family: $font-universe-roman-bold;
         font-size: 16px;
@@ -110,62 +100,22 @@
         justify-content: space-between;
         flex-wrap: wrap;
         height: 84px;
-
         .cmp-tile-left-icon {
           padding: 0px 0px 24px 24px;
           max-width: 64px;
           margin-right: auto;
         }
-
         .cmp-tile-right-icon {
           padding: 0px 24px 0px 0px;
           max-width: 64px;
-
-          .cmp-newsArticles-arrow {
-            display: inline-block;
-            position: absolute;
-            width: 24px;
-            height: 10px;
-            bottom: 24px;
-            right: 24px;
-
-            &::before {
-              content: "";
-              display: block;
-              position: absolute;
-              width: 7px;
-              height: 7px;
-              border-style: solid;
-              border-color: $color-primary-button;
-              border-width: 2px 2px 0 0;
-              right: 0;
-              transform: rotate(45deg);
-              transition: all .2s ease-in;
-            }
-
-            &::after {
-              content: "";
-              display: block;
-              position: absolute;
-              border-style: solid;
-              border-color: $color-primary-button;
-              top: 49%;
-              transform: translateY(-50%);
-              width: 24px;
-              height: 0;
-              border-width: 2px 0 0;
-              transition: all .2s ease-in;
-            }
-          }
         }
       }
     }
   }
-
-  .cmp-container-headline {
+  .cmp-container-headline{
     font-family: $font-universe-roman-bold;
     font-size: 40px;
-    font-weight: bold;
+    font-weight: 300;
     line-height: 1.4;
     letter-spacing: -0.17px;
     text-align: center;
@@ -174,8 +124,7 @@
     max-width: 764px;
     margin: 30px auto;
   }
-
-  .cmp-container-text {
+  .cmp-container-text{
     font-family: $font-universe-roman;
     font-size: 16px;
     font-weight: normal;
@@ -187,70 +136,63 @@
     margin: 30px auto 45px auto;
   }
 }
+.bg-gray > .cmp-container .cmp-tile-color {
+     background-color: $color-background;
+     &:hover{
+         box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+     }
+ }
 
-.bg-gray>.cmp-container .cmp-tile-color {
-  background-color: $color-background;
-
-  &:hover {
-    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+ .bg-white > .cmp-container .cmp-tile-color {
+      background-color: $color-grey;
+      &:hover{
+          background-color: $color-background;
+          box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+      }
   }
-}
 
-.bg-white>.cmp-container .cmp-tile-color {
-  background-color: $color-grey;
+  @media only screen and (max-width: 769px) {
+    .cmp-container {
+      .cmp-tile-list {
+        width: auto;
+        .cmp-tile {
+          &:hover{
+            cursor: pointer;
+            display: flex;
+            box-shadow: none;
+            background-color: $color-grey;
 
-  &:hover {
-    background-color: $color-background;
-    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
-  }
-}
+            .cmp-tile-left-icon {
+              display: block;
+            }
 
-@media only screen and (max-width: 769px) {
-  .cmp-container {
-    .cmp-tile-list {
-      width: auto;
+            a{
+              display: inline;
+              margin-left: 0;
+            }
+            .cmp-tile-right-icon {
+              padding: 0 24px 0px 0px!important;
+            }
 
-      .cmp-tile {
-        &:hover {
-          cursor: pointer;
-          display: flex;
-          box-shadow: none;
-          background-color: $color-grey;
-
-          .cmp-tile-left-icon {
-            display: block;
-          }
-
-          a {
-            display: inline;
-            margin-left: 0;
-          }
-
-          .cmp-tile-right-icon {
-            padding: 0 24px 0px 0px !important;
-          }
-
-          .cmp-tile-subtitle {
-            display: none;
+            .cmp-tile-subtitle {
+              display: none;
+            }
           }
         }
       }
     }
-  }
-
-  .bg-gray .cmp-container .cmp-tile-color {
-    &:hover {
-      box-shadow: none;
-      background-color: $color-background;
+    .bg-gray .cmp-container .cmp-tile-color {
+      &:hover{
+          box-shadow: none;
+          background-color: $color-background;
+      }
+    }
+  
+    .bg-white .cmp-container .cmp-tile-color {
+        background-color: $color-grey;
+        &:hover{
+            background-color: $color-background;
+            box-shadow: none;
+        }
     }
   }
-
-  .bg-white .cmp-container .cmp-tile-color {
-    background-color: $color-grey;
-
-    &:hover {
-      background-color: $color-background;
-      box-shadow: none;
-    }
-  }
-}

@@ -5,5 +5,5 @@
         cq:templateType="/conf/techem/settings/wcm/template-types/page"
         jcr:primaryType="cq:PageContent"
         jcr:title="Category Page"
-        status="enabled"/>
+        status="disabled"/>
 </jcr:root>

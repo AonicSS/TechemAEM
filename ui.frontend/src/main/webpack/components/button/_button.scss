@@ -39,6 +39,7 @@
     box-sizing: border-box;
     border: 2px solid $border-secondary-button;
     color: $border-secondary-button;
+    margin-right: 30px;
     &:hover{
       background-color: $color-primary-button;
       color: #ffffff;
@@ -69,8 +70,8 @@
       margin: 20px auto;
     }
   }
-  .button-secondary {
-    margin-top: 30px;
+  .cmp-button.button-secondary {
+    margin: 30px auto;
     .cmp-button__text {
       letter-spacing: -.2px;
     }
