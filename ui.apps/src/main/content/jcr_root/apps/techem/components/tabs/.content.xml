@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Tabs"
     sling:resourceSuperType="core/wcm/extensions/amp/components/tabs/v1/tabs"
-    componentGroup="Techem - Content"/>
+    componentGroup=".hidden"/>
