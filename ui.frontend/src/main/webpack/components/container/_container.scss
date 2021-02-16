@@ -135,6 +135,12 @@
     max-width: 764px;
     margin: 30px auto 45px auto;
   }
+
+  &.cmp-container-full {
+    // override aemGrid padding
+    margin: 0 -1rem;
+    overflow: hidden;
+  }
 }
 .bg-gray > .cmp-container .cmp-tile-color {
      background-color: $color-background;
