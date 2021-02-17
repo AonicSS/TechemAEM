@@ -20,7 +20,7 @@
                     <div data-sly-resource="${ @path='search', resourceType='techem/components/search'}" data-sly-unwrap=""></div>
                     <i class="header__search-icon" aria-hidden="false"></i>
                 </div>
-                <button class="header__button" data-sly-attribute.button-link="${navigation.button_link}">
+                <button class="header__button" data-sly-attribute.button-link="${navigation.buttonLink}">
                     <i class="header__button-icon">
                         <div class="header__button-icon-circle"></div>
                         <div class="header__button-icon-stroke"></div>
@@ -40,10 +40,12 @@
         <nav class="navigation">
             <ul class="navigation__links" data-sly-test="${navigationItems}" data-sly-list.map="${navigationItems}">
                 <li data-sly-test="${map.key.navTitle}" class="navigation__link"  data-sly-attribute.dropdown-item="${map.key.navTitle.toLowerCase}">
-                    <a class="navigation__sub-link"  href="#"> ${map.key.navTitle}</a>
+                    <a class="navigation__sub-link"  href="#"> ${map.key.navTitle} <i class="header-icon-mobile">
+                        <div class="header-arrow"></div>
+                    </i></a>
                 </li>
             </ul>
-            <button class="header__button" data-sly-attribute.button-link="${navigation.button_link}">
+            <button class="header__button" data-sly-attribute.button-link="${navigation.buttonLink}">
                 <i class="header__button-icon">
                     <div class="header__button-icon-circle"></div>
                     <div class="header__button-icon-stroke"></div>
@@ -74,7 +76,9 @@
                                      data-sly-call="${lib.dropdown_content_right @  pageDetails = item, itemList = itemList}">
                                 </sly>
                             </div>
-                            <div data-sly-test="${orientation.key == 'right'}" class="close"><span>${navigation.backButtonText}</span></div>
+                            <div data-sly-test="${orientation.key == 'right'}" class="close"><i class="header-icon">
+                                <div class="header-arrow"></div>
+                            </i><span>${navigation.backButtonText}</span></div>
                         </div>
                     </div>
                 </div>

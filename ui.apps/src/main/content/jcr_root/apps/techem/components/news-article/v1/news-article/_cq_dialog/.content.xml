@@ -33,16 +33,18 @@
                                                     fieldDescription="Choose the maximum number of articles that will be displayed"
                                                     fieldLabel="Max articles"
                                                     defaultValue="9"
-                                                    max="{Long}20"
+                                                    max="{Long}40"
                                                     min="{Long}2"
                                                     name="./maxArticles"
-                                                    value="9"/>
-                                                <showMoreLabel
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                    fieldDescription="Add text for the show more button"
-                                                    fieldLabel="ShowMore label"
-                                                    name="./showMoreLabel"/>
+                                                    value="20"/>
+                                                <unsorted
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                        fieldDescription="Check this to unsort the articles/will be displayed in the order how they are added in the dialog"
+                                                        name="./unsorted"
+                                                        text="Unsorted articles"
+                                                        uncheckedValue="false"
+                                                        value="true"/>
                                                 <multi
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
@@ -84,6 +86,17 @@
                                                         </items>
                                                     </field>
                                                 </multi>
+                                                <showMoreLabel
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Add text for the show more button"
+                                                        fieldLabel="ShowMore label"
+                                                        name="./showMoreLabel"/>
+                                                <showMorelinkUrl
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="External Link Url"
+                                                        name="./showMorelinkUrl"/>
                                             </items>
                                         </column>
                                     </items>

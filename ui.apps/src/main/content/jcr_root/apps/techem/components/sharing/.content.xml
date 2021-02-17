@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Social Media Sharing"
     sling:resourceSuperType="core/wcm/extensions/amp/components/sharing/v1/sharing"
-    componentGroup="Techem - Content"/>
+    componentGroup=".hidden"/>

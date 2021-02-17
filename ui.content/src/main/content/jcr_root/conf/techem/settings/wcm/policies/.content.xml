@@ -74,25 +74,25 @@
                     </plugins>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
-                            cq:styleGroupLabel="Style"
-                            jcr:primaryType="nt:unstructured">
+                                cq:styleGroupLabel="Style"
+                                jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
-                                    cq:styleClasses="image-with-border"
-                                    cq:styleId="1612294348100"
-                                    cq:styleLabel="Border"
-                                    jcr:primaryType="nt:unstructured"/>
+                                        cq:styleClasses="image-with-border"
+                                        cq:styleId="1612294348100"
+                                        cq:styleLabel="Border"
+                                        jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
                         <item1
-                            cq:styleGroupLabel="Align"
-                            jcr:primaryType="nt:unstructured">
+                                cq:styleGroupLabel="Align"
+                                jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
-                                    cq:styleClasses="image-centered"
-                                    cq:styleId="1612294348101"
-                                    cq:styleLabel="Center"
-                                    jcr:primaryType="nt:unstructured"/>
+                                        cq:styleClasses="image-centered"
+                                        cq:styleId="1612294348101"
+                                        cq:styleLabel="Center"
+                                        jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
                     </cq:styleGroups>
@@ -427,27 +427,24 @@
             </tabs-icon-number>
             <home-stage jcr:primaryType="nt:unstructured">
                 <policy_home-stage
-                    jcr:description="Allows the components to be dropped into this container"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Home Stage Component"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    components="/apps/techem/components/home-stage-item">
+                        jcr:description="Allows the components to be dropped into this container"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Home Stage Component"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="/apps/techem/components/home-stage-item">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_home-stage>
             </home-stage>
-            <download-list jcr:primaryType="nt:unstructured">
-                <policy_1613048840560
-                    jcr:description="Allowing which components to be added in the Download List"
-                    jcr:lastModified="{Date}2021-02-11T15:14:04.335+02:00"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Download List Container"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    components="/apps/techem/components/download"
-                    layoutDisabled="false">
+            <list-container jcr:primaryType="nt:unstructured">
+                <policy_list-container
+                        jcr:description="Allows the components to be dropped into this container"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="List Container Component"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="/apps/techem/components/service-item">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_1613048840560>
-            </download-list>
+                </policy_list-container>
+            </list-container>
         </components>
     </techem>
 </jcr:root>

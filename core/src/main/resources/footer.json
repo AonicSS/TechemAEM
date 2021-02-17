@@ -1,0 +1,64 @@
+{
+  "jcr:created": "2021-01-19T14:55:59.809+02:00",
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "techem/components/footer/footer",
+  "copyright": "© Techem GmbH",
+  "categoryTitle": "Social Media Title",
+  "logoLink": "/content/techem/us/en/Abrechnung",
+
+  "categories": {
+    "jcr:primaryType": "nt:unstructured",
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "categoryTitle": "Uber Uns",
+      "categoryLink": "/content/techem/us/en/Abrechnung/monitoring",
+      "footerItems" : {
+        "item0": {
+          "jcr:primaryType": "nt:unstructured",
+          "linkText" : "Impressum",
+          "linkUrl" : "/content/techem/us/en/Abrechnung",
+          "openNewTab": "true"
+        },
+        "item1": {
+          "jcr:primaryType": "nt:unstructured",
+          "linkText" : "Impressum",
+          "linkUrl" : "/content/techem/us/en/Abrechnung",
+          "openNewTab": "true"
+        }
+      }
+    },
+    "item1": {
+      "jcr:primaryType": "nt:unstructured",
+      "categoryTitle": "Leistungen",
+      "footerItems" : {
+        "item0": {
+          "jcr:primaryType": "nt:unstructured",
+          "linkText" : "Newsroom",
+          "linkUrl" : "/content/techem/us/en/Abrechnung",
+          "openNewTab": "true"
+        },
+        "item1": {
+          "jcr:primaryType": "nt:unstructured",
+          "linkText" : "Newsroom",
+          "linkUrl" : "/content/techem/us/en/Abrechnung",
+          "openNewTab": "true"
+        }
+      }
+    }
+  },
+  "bottomLinks":{
+    "jcr:primaryType": "nt:unstructured",
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "linkText": "Impressum",
+      "linkUrl": "/content/techem/us/en/Abrechnung",
+      "openNewTab": "true"
+    },
+    "item1": {
+      "jcr:primaryType": "nt:unstructured",
+      "linkText": "Impressum",
+      "linkUrl": "/content/techem/us/en/Abrechnung",
+      "openNewTab": "true"
+    }
+  }
+}

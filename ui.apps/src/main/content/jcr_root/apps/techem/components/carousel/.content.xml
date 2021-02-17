@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Carousel"
     sling:resourceSuperType="core/wcm/extensions/amp/components/carousel/v1/carousel"
-    componentGroup="Techem - Content"/>
+    componentGroup=".hidden"/>

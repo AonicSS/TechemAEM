@@ -27,16 +27,16 @@ public class Navigation {
 
     private Logger logger = LoggerFactory.getLogger(Navigation.class);
 
-    private static final String PAGE = "cq:Page";
-    private static final String HIDDEN_PROPERTY = "hideInNav";
-    private static final String RIGHT = "right";
-    private static final String LEFT = "left";
+    protected static final String PAGE = "cq:Page";
+    protected static final String HIDDEN_PROPERTY = "hideInNav";
+    protected static final String RIGHT = "right";
+    protected static final String LEFT = "left";
 
     @ValueMapValue(name = "navigationRoot")
     private String navigationRoot;
 
     @ValueMapValue(name = "buttonLink")
-    private String button_link;
+    private String buttonLink;
 
     @ValueMapValue(name = "label")
     private String label;
@@ -84,7 +84,7 @@ public class Navigation {
 
     public String getLabel() { return label; }
 
-    public String getButton_link() { return button_link; }
+    public String getButtonLink() { return buttonLink; }
 
     public String getLogoLink() { return logoLink; }
 

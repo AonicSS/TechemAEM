@@ -14,7 +14,8 @@ import javax.annotation.PostConstruct;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Model(adaptables = Resource.class,
+        defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class Footer {
 
     private Logger logger = LoggerFactory.getLogger(Footer.class);

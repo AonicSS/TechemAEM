@@ -1,13 +1,19 @@
 .new{
   margin: 0;
 }
+.cmp-list-parsys {
+    width: 100%;
+}
+
+.cmp-list-parsys2{
+    width: 100%;
+}
 .cmp-container {
   .cmp-tile-list {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    width: 77pc;
     margin: 0 auto;
     padding: 0 0 100px 0;
 
@@ -109,7 +115,7 @@
   .cmp-container-headline{
     font-family: $font-universe-roman-bold;
     font-size: 40px;
-    font-weight: bold;
+    font-weight: 300;
     line-height: 1.4;
     letter-spacing: -0.17px;
     text-align: center;
@@ -128,6 +134,12 @@
     text-align: center;
     max-width: 764px;
     margin: 30px auto 45px auto;
+  }
+
+  &.cmp-container-full {
+    // override aemGrid padding
+    margin: 0 -1rem;
+    overflow: hidden;
   }
 }
 .bg-gray > .cmp-container .cmp-tile-color {

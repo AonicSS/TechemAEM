@@ -32,13 +32,14 @@ public class NewsArticlesTest {
     @BeforeEach
     public void setUp() throws Exception {
         context.load().json("/news-article.json", "/content/components/news-article");
-        Resource newsArticle =  context.currentResource("/content/components/news-article");
+        Resource newsArticleResource =  context.currentResource("/content/components/news-article");
 
-        newsArticles = newsArticle.adaptTo(NewsArticles.class);
+        newsArticles = newsArticleResource.adaptTo(NewsArticles.class);
     }
 
     @Test
-    public void testGetArticles() {
+    public void testSortedArticles() {
+
       final Map<Stage, NewsArticle> map =  newsArticles.getNewsArticles();
       final NewsArticle newsArticle = map.values().stream().findFirst().get();
       final Set<Stage> stages = map.keySet();
@@ -48,13 +49,40 @@ public class NewsArticlesTest {
       assertNotNull(newsArticle);
       assertNotNull(stage);
 
-      assertEquals(3, map.size());
+      assertEquals(4, map.size());
       assertEquals(HEADLINE, stage.getHeadline());
       assertEquals(TEXT, stage.getText());
       assertEquals(CATEGORY, stage.getCategory());
 
       assertEquals(IMAGE_REFERENCE, newsArticle.getArticleImage());
       assertEquals(ARTICLE_PATH, newsArticle.getArticlePath());
+    }
+
+    @Test
+    public void testUnsortedArticles() {
+        final String expectedArticlePath = "/content/components/news-unsorted-article/newsItems/item0/articlePath";
+
+        context.load().json("/news-unsorted-article.json", "/content/components/news-unsorted-article");
+        Resource newsArticleResource =  context.currentResource("/content/components/news-unsorted-article");
+
+        newsArticles = newsArticleResource.adaptTo(NewsArticles.class);
+
+        final Map<Stage, NewsArticle> map =  newsArticles.getNewsArticles();
+        final NewsArticle newsArticle = map.values().stream().findFirst().get();
+        final Set<Stage> stages = map.keySet();
+        final Stage stage = stages.stream().findFirst().get();
+
+        assertNotNull(map);
+        assertNotNull(newsArticle);
+        assertNotNull(stage);
+
+        assertEquals(3, map.size());
+        assertEquals(HEADLINE, stage.getHeadline());
+        assertEquals(TEXT, stage.getText());
+        assertEquals(CATEGORY, stage.getCategory());
+
+        assertEquals(IMAGE_REFERENCE, newsArticle.getArticleImage());
+        assertEquals(expectedArticlePath, newsArticle.getArticlePath());
     }
 
     @Test

@@ -17,7 +17,7 @@ public class NavigationDetails extends Header {
     @ValueMapValue(name = "hideImageInHeader")
     private boolean hideImageInHeader;
 
-    @ValueMapValue(name = "jcr:description")
+    @ValueMapValue(name = "pageDescription")
     private String pageDescription;
 
     @PostConstruct

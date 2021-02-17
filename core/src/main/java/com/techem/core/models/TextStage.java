@@ -15,7 +15,7 @@ public class TextStage {
 
     private Logger logger = LoggerFactory.getLogger(TextStage.class);
 
-    @ScriptVariable
+    @ScriptVariable(name="currentPage")
     private Page currentPage;
 
     private Stage stage;
