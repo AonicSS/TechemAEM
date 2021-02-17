@@ -445,6 +445,17 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_list-container>
             </list-container>
+            <accordion jcr:primaryType="nt:unstructured">
+                <policy_accordion
+                        jcr:lastModified="{Date}2021-02-17T17:40:28.811+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Accordion container"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/apps/techem/components/container,/apps/techem/components/image,/apps/techem/components/text]">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_accordion>
+            </accordion>
         </components>
     </techem>
 </jcr:root>
