@@ -41,6 +41,10 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                         </form>
+                        <accordion
+                                cq:policy="techem/components/accordion/policy_accordion"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
                     </components>
                 </techem>
             </container>
