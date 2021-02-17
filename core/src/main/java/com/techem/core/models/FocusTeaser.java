@@ -10,12 +10,6 @@ import javax.annotation.PostConstruct;
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class FocusTeaser {
 
-    @ValueMapValue(name = "headline")
-    private String headline;
-
-    @ValueMapValue(name = "aboveText")
-    private String aboveText;
-
     @ValueMapValue(name = "text")
     private String text;
 
@@ -30,14 +24,6 @@ public class FocusTeaser {
 
     @PostConstruct
     protected void init() {
-    }
-
-    public String getHeadline() {
-        return headline;
-    }
-
-    public String getAboveText() {
-        return aboveText;
     }
 
     public String getText() {
