@@ -70,6 +70,12 @@
                                                 fieldDescription="HTML ID attribute to apply to the component."
                                                 fieldLabel="ID"
                                                 name="./id"/>
+                                            <description
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldDescription="Description for the module"
+                                                fieldLabel="Module Description"
+                                                name="./description"/>
                                         </items>
                                     </column>
                                 </items>

@@ -27,11 +27,18 @@ public class Download {
     @ValueMapValue(name="iconFormat")
     private String iconFormat;
 
+    @ValueMapValue(name="description")
+    private String description;
+
     public String getText() {
         return text;
     }
 
     public String getIconFormat() {
         return iconFormat;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

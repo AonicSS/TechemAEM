@@ -23,9 +23,11 @@ class DownloadTest
 
 	private static final String TEXT = "text";
 	private static final String ICON_FORMAT = "iconFormat";
+	private static final String DESCRIPTION = "description";
 
 	private static final String EXPECTED_TEXT = "Text for Download";
 	private static final String EXPECTED_ICON_FORMAT = "pdf";
+	private static final String EXPECTED_DESCRRIPTION= "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
 
 	private Page page;
 	private Resource resource;
@@ -38,7 +40,8 @@ class DownloadTest
 		resource = context.create().resource(page, "download",
 				RESOURCE_TYPE, COMPONENT_RESOURCE_TYPE,
 				TEXT, EXPECTED_TEXT,
-				ICON_FORMAT, EXPECTED_ICON_FORMAT);
+				ICON_FORMAT, EXPECTED_ICON_FORMAT,
+				DESCRIPTION, EXPECTED_DESCRRIPTION);
 
 		download = resource.adaptTo(Download.class);
 	}
@@ -55,5 +58,12 @@ class DownloadTest
 	{
 		assertNotNull(download);
 		assertEquals(EXPECTED_ICON_FORMAT, download.getIconFormat());
+	}
+
+	@Test
+	void testDownloadDescription() throws Exception
+	{
+		assertNotNull(download);
+		assertEquals(EXPECTED_DESCRRIPTION, download.getDescription());
 	}
 }

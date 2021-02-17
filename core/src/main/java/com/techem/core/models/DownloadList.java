@@ -24,7 +24,14 @@ public class DownloadList {
     @Default(values = "Download List Headline")
     private String headline;
 
+    @ValueMapValue(name="description")
+    private String description;
+
     public String getHeadline() {
         return headline;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

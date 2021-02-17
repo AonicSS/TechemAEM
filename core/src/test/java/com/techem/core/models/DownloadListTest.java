@@ -22,8 +22,10 @@ class DownloadListTest
 	private static final String COMPONENT_RESOURCE_TYPE = "techem/components/download-list";
 
 	private static final String HEADLINE = "headline";
+	private static final String DESCRIPTION = "description";
 
 	private static final String EXPECTED_HEADLINE = "Headline for Download List";
+	private static final String EXPECTED_DESCRIPTION = "5 Ergebnisse";
 
 	private Page page;
 	private Resource resource;
@@ -35,7 +37,8 @@ class DownloadListTest
 		page = context.create().page(CONTENT_TEST_RESOURCE);
 		resource = context.create().resource(page, "downloadList",
 				RESOURCE_TYPE, COMPONENT_RESOURCE_TYPE,
-				HEADLINE, EXPECTED_HEADLINE);
+				HEADLINE, EXPECTED_HEADLINE,
+				DESCRIPTION, EXPECTED_DESCRIPTION);
 
 		downloadList = resource.adaptTo(DownloadList.class);
 	}
@@ -45,5 +48,12 @@ class DownloadListTest
 	{
 		assertNotNull(downloadList);
 		assertEquals(EXPECTED_HEADLINE, downloadList.getHeadline());
+	}
+
+	@Test
+	void testDownloadListDescription() throws Exception
+	{
+		assertNotNull(downloadList);
+		assertEquals(EXPECTED_DESCRIPTION, downloadList.getDescription());
 	}
 }

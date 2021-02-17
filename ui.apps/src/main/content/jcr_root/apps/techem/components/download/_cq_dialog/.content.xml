@@ -105,6 +105,13 @@
                                                         value="ZIP"/>
                                                 </items>
                                             </iconFormat>
+                                            <description
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldDescription="Description of the component"
+                                                fieldLabel="Description"
+                                                maxlength="{Long}70"
+                                                name="./description"/>
                                         </items>
                                     </column>
                                 </items>
