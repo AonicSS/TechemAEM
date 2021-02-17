@@ -1,0 +1,23 @@
+<div data-sly-use.download="com.adobe.cq.wcm.core.components.models.Download"
+     data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+     data-sly-use.techemDownload="com.techem.core.models.Download"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     id="${component.id}">
+    <a data-sly-unwrap="${!download.url}" class="cmp-download__link" href="${download.url}">
+        <sly data-sly-test.isPDF="${techemDownload.iconFormat=='PDF'}" >
+            <span class="cmp-download-pdf"></span>
+        </sly>
+        <sly data-sly-test.isImg="${techemDownload.iconFormat=='PNG' || techemDownload.iconFormat=='JPG'}" >
+            <span class="cmp-download-img"></span>
+        </sly>
+        <sly data-sly-test.isZip="${techemDownload.iconFormat=='ZIP'}" >
+            <span class="cmp-download-zip"></span>
+        </sly>
+        <div class="cmp-download__title">${techemDownload.text}</div>
+        <dl data-sly-test="${(download.displaySize && download.size) || techemDownload.iconFormat}" class="cmp-download__properties">
+            <div class="cmp-download__format">${techemDownload.iconFormat} ${download.size}</div>
+        </dl>
+        <div data-sly-test.isDescription="${techemDownload.description}" class="cmp-download__description">${techemDownload.description}</div>
+        <span class="download-icon"></span>
+    </a>
+</div>
