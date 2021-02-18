@@ -1,11 +1,11 @@
-.contact-tile {
-  display: flex!important;
-  float: none!important;
+.image-tile.contact-tile {
+  display: flex;
+  float: none;
   padding: 0;
-  width: 340px!important;
+  width: 340px;
   position: relative;
-  cursor: pointer;
-  margin: 30px 35px!important;
+  cursor: default;
+  margin: 30px 35px;
   &:first-of-type{
     .cmp-teaser__image
       img{
@@ -42,6 +42,13 @@
     line-height: 1.63;
     letter-spacing: -0.1px;
     color: $color-foreground-header;
+    a{
+      text-decoration: none;
+      color: inherit;
+      &:hover{
+        color:$color-primary-button-hover;
+      }
+    }
   }
   .email {
     color: $color-primary-button;
@@ -64,8 +71,8 @@
   }
 }
 @media only screen and (max-width: 769px) {
-  .image-tile {
-   width: 90%!important;
-   margin: 30px auto!important;
+  .image-tile.contact-tile {
+   width: 90%;
+   margin: 30px auto;
   }
 }

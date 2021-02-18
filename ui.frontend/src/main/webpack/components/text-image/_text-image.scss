@@ -18,8 +18,12 @@
     margin: 0 auto;
     color: $color-foreground-header;
 
-    .cmp-image__left {
+    .cmp-image__left.aem-GridColumn {
       order: 2;
+      padding: 0;
+    }
+    .cmp-image__right.aem-GridColumn{
+      padding: 0;
     }
     .cmp-content__right {
       padding: 0 50px;
