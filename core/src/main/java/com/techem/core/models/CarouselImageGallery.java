@@ -21,7 +21,14 @@ public class CarouselImageGallery {
     @ValueMapValue(name = "loop")
     private Boolean loop;
 
+    @ValueMapValue(name = "autoHeight")
+    private Boolean autoHeight;
+
     public Boolean getLoop() {
         return loop;
+    }
+
+    public Boolean getAutoHeight() {
+        return autoHeight;
     }
 }
