@@ -68,6 +68,10 @@
     li {
       padding-left: 15px;
       margin-bottom: 30px;
+
+      &::marker {
+        font-family: $font-universe-roman-bold;
+      }
     }
   }
 }

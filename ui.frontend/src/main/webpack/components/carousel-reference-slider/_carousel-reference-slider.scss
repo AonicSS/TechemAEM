@@ -12,7 +12,7 @@
         letter-spacing: -0.2px;
         line-height: 58px;
         text-align: center;
-        margin: 58px 0;
+        margin: 0 0 78px 0;
         font-weight: 300;
     }
     .cmp-carousel {
@@ -36,8 +36,9 @@
             text-align: right;
             text-shadow: 0 3px 20px #0000001a;
             cursor: pointer;
+            z-index: 1;
             &:hover{
-                opacity: 1;
+                cursor: url(#{$iconsPath}/navigation-chevron-right-white.svg), auto;
             }
         }
         .cmp-carousel__action--previous{
@@ -57,7 +58,7 @@
             text-shadow: 0 3px 20px #0000001a;
             cursor: pointer;
             &:hover{
-                opacity: 1;
+                cursor: url(#{$iconsPath}/navigation-chevron-left-white.svg), auto;
             }
         }
         .cmp-carousel__indicators {

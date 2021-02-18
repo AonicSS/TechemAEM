@@ -20,7 +20,9 @@
 			<div class="cmp-reference-title-link">
                 <a href="${properties.linkURL2}.html">
 					<sly data-sly-call="${titleTemplate.title @ referenceSlider=referenceSlider}"></sly>
-                    <img class="cmp-tile-icons cmp-image-tile-arrow" src="${properties.fileReference2}">
+                    <i class="cmp-image-tile-arrow cmp-newsArticles-icon" data-sly-test.isLinkArrow="${properties.linkURL2}">
+                        <div class="cmp-newsArticles-arrow"></div>
+                    </i>
                 </a>
 			</div>
 			<div>

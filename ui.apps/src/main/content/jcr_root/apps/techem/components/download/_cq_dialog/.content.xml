@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Teaser"
+    jcr:title="Download"
     sling:resourceType="cq/gui/components/authoring/dialog"
-    extraClientlibs="[core.wcm.components.teaser.v1.editor]"
-    helpPath="https://www.adobe.com/go/aem_cmp_teaser_v1"
-    trackingFeature="core-components:teaser:v1">
+    extraClientlibs="[core.wcm.components.download.v1.editor]">
     <content
-        granite:class="cmp-teaser__editor"
+        granite:class="cmp-download__editor"
         jcr:primaryType="nt:unstructured"
         sling:resourceType="granite/ui/components/coral/foundation/container">
         <items jcr:primaryType="nt:unstructured">
@@ -17,10 +15,10 @@
                 maximized="{Boolean}true">
                 <items
                     jcr:primaryType="nt:unstructured"
-                    sling:hideChildren="[actions]">
-                    <image
+                    sling:hideChildren="[properties]">
+                    <asset
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Image"
+                        jcr:title="Asset"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
@@ -36,17 +34,17 @@
                                             <file
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
-                                                allowUpload="{Boolean}false"
+                                                allowUpload="${not empty cqDesign.allowUpload ? cqDesign.allowUpload : false}"
                                                 autoStart="{Boolean}false"
                                                 class="cq-droptarget"
-                                                fieldLabel="Image Asset"
+                                                fieldLabel="Download Asset"
                                                 fileNameParameter="./fileName"
                                                 fileReferenceParameter="./fileReference"
-                                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                mimeTypes="[image/*,video/*,audio/*,.pdf,.doc,.zip,.txt]"
                                                 multiple="{Boolean}false"
                                                 name="./file"
                                                 required="{Boolean}true"
-                                                title="Upload Image Asset"
+                                                title="Upload Asset"
                                                 uploadUrl="${suffix.path}"
                                                 useHTML5="{Boolean}true"/>
                                         </items>
@@ -54,66 +52,10 @@
                                 </items>
                             </columns>
                         </items>
-                    </image>
-                    <text
+                    </asset>
+                    <properties2
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Text"
-                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                        margin="{Boolean}true">
-                        <items jcr:primaryType="nt:unstructured">
-                            <columns
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                                margin="{Boolean}true">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <column
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/container">
-                                        <items
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:hideChildren="[titleGroup,id,pretitle,descriptionGroup]">
-                                            <headline
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldDescription="A headline that will be displayed above the Text-Image headline."
-                                                fieldLabel="Headline"
-                                                maxlength="{Long}53"
-                                                name="./headline"
-                                                required="{Boolean}true"/>
-                                            <text
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
-                                                fieldDescription="A description that will be displayed below the Text-Image headline."
-                                                fieldLabel="Text"
-                                                maxlength="{Long}270"
-                                                name="./text"
-                                                required="{Boolean}true"/>
-                                            <textPosition
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                fieldDescription="Text Position"
-                                                fieldLabel="textPosition"
-                                                name="./textPosition">
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <left
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Left"
-                                                        value="left"/>
-                                                    <right
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Right"
-                                                        value="right"/>
-                                                </items>
-                                            </textPosition>
-                                        </items>
-                                    </column>
-                                </items>
-                            </columns>
-                        </items>
-                    </text>
-                    <arrow
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Arrow"
+                        jcr:title="Properties"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
@@ -126,20 +68,56 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <linkURL2
+                                            <text
                                                 jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="cq/gui/components/coral/common/form/pagefield"
-                                                fieldDescription="Link applied to component elements. URL or path to a content page."
-                                                fieldLabel="Link"
-                                                name="./linkURL2"
-                                                rootPath="/content"
-                                                wrapperClass="foundation-toggleable cmp-teaser__editor-link-url"/>
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Title of the field"
+                                                fieldLabel="Text"
+                                                maxlength="{Long}70"
+                                                name="./text"
+                                                required="{Boolean}true"/>
+                                            <iconFormat
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldDescription="Choose the type of document and the according icon will be displayed"
+                                                fieldLabel="Icon for document format"
+                                                name="./iconFormat">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <noIcon
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="No icon displayed"
+                                                        value="noIcon"/>
+                                                    <pdf
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="PDF"
+                                                        value="PDF"/>
+                                                    <png
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="PNG"
+                                                        value="PNG"/>
+                                                    <jpg
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="JPG"
+                                                        value="JPG"/>
+                                                    <zip
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Zip"
+                                                        value="ZIP"/>
+                                                </items>
+                                            </iconFormat>
+                                            <description
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldDescription="Description of the component"
+                                                fieldLabel="Description"
+                                                maxlength="{Long}70"
+                                                name="./description"/>
                                         </items>
                                     </column>
                                 </items>
                             </columns>
                         </items>
-                    </arrow>
+                    </properties2>
                 </items>
             </tabs>
         </items>

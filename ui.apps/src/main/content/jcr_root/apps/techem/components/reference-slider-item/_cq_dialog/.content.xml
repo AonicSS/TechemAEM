@@ -72,7 +72,7 @@
                     </text-descriptions>
                     <arrow
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Arrow"
+                        jcr:title="Link"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
@@ -85,21 +85,6 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <file
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
-                                                allowUpload="{Boolean}false"
-                                                autoStart="{Boolean}false"
-                                                class="cq-droptarget"
-                                                fieldLabel="Icon Asset"
-                                                fileNameParameter="./fileName2"
-                                                fileReferenceParameter="./fileReference2"
-                                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
-                                                multiple="{Boolean}false"
-                                                name="./arrow"
-                                                title="Upload Icon Asset"
-                                                uploadUrl="${suffix.path}"
-                                                useHTML5="{Boolean}true"/>
                                             <linkURL
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="cq/gui/components/coral/common/form/pagefield"
@@ -154,7 +139,7 @@
                     </arrow>
                     <image
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Images"
+                        jcr:title="Image"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
@@ -180,21 +165,6 @@
                                                 multiple="{Boolean}false"
                                                 name="./file"
                                                 required="true"
-                                                title="Upload Image Asset"
-                                                uploadUrl="${suffix.path}"
-                                                useHTML5="{Boolean}true"/>
-                                            <quoteMarks
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
-                                                allowUpload="{Boolean}false"
-                                                autoStart="{Boolean}false"
-                                                class="cq-droptarget"
-                                                fieldLabel="Image Asset For Quote Marks"
-                                                fileNameParameter="./fileName"
-                                                fileReferenceParameter="./fileReferenceMarks"
-                                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
-                                                multiple="{Boolean}false"
-                                                name="./file"
                                                 title="Upload Image Asset"
                                                 uploadUrl="${suffix.path}"
                                                 useHTML5="{Boolean}true"/>
