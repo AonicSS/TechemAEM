@@ -11,6 +11,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import javax.annotation.PostConstruct;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 import static java.util.stream.Collectors.toCollection;
 
@@ -31,11 +32,13 @@ public class Keyfacts {
 
     @PostConstruct
     protected void init() {
-         final List<Resource> keyfactsList = Lists.newArrayList(keyfactsItems.getChildren().iterator());
+         if(Objects.nonNull(keyfactsItems)) {
+             final List<Resource> keyfactsList = Lists.newArrayList(keyfactsItems.getChildren().iterator());
 
-         if(CollectionUtils.isNotEmpty(keyfactsList)) {
-             keyfactItemList = keyfactsList.stream().map(item -> item.adaptTo(KeyfactItem.class))
-            .collect(toCollection(LinkedList::new));
+             if (CollectionUtils.isNotEmpty(keyfactsList)) {
+                 keyfactItemList = keyfactsList.stream().map(item -> item.adaptTo(KeyfactItem.class))
+                         .collect(toCollection(LinkedList::new));
+             }
          }
     }
 
