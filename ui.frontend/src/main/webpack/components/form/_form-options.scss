@@ -1,11 +1,71 @@
-.cmp-form-options {}
-.cmp-form-options__legend {}
-.cmp-form-options__field-label {}
-.cmp-form-options__field {}
+.cmp-form-options {
+  margin-bottom: 30px;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cmp-form-options__field--radio + .cmp-form-options__field-description::before {
+  display: block;
+  border: 2px solid $color-separator;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+.cmp-form-options__field--radio + .cmp-form-options__field-description::before {
+  display: block;
+  border: 2px solid $color-separator;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+.cmp-form-options__field--radio:checked + .cmp-form-options__field-description::before {
+  background-color: $color-primary-button;
+  box-shadow: inset 0 0 0 5px $color-background;
+}
+
+.cmp-form-options__legend {
+  font-family: $font-universe-roman-bold;
+  color: $color-foreground-header;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+  margin-bottom: 22px;
+}
+.cmp-form-options__field-label {
+  display: inherit;
+  margin: 0 30px 20px 0;
+  cursor: pointer;
+}
 .cmp-form-options__field--checkbox {}
-.cmp-form-options__field--radio {}
-.cmp-form-options__field-description {}
+.cmp-form-options__field--radio {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.cmp-form-options__field-description {
+  display: flex;
+  align-items: center;
+}
 .cmp-form-options__label {}
 .cmp-form-options__drop-down-field {}
-.cmp-form-options__multi-drop-down-field {}
+.cmp-form-options__field--drop-down {
+  &::-ms-expand {
+    display: none;
+  }
+  appearance: none;
+  border: 2px solid $color-separator;
+  width: 100%;
+  padding: 11px 20px;
+  background: transparent url(#{$iconsPath}/navigation-chevron-bottom-red.svg) no-repeat calc(100% - 16px)center ;
+  background-size: 16px auto;
+}
 .cmp-form-options__help-message {}
