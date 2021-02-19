@@ -12,7 +12,11 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.*;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
@@ -67,15 +71,16 @@ public class NewsArticles {
                         newsArticle -> newsArticle, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
 
-    protected Map<Stage, NewsArticle> getSortedArticles(Map<Stage, NewsArticle> unsortedArticles) {
-        return newsArticles = unsortedArticles.
-                                    entrySet()
-                                    .stream()
-                                    .sorted((d1,d2) -> compareByDate(d1, d2))
-                                    .limit(maxArticles)
-                                    .collect(Collectors.toMap(
-                                            Map.Entry::getKey, Map.Entry::getValue, (k,v) -> k, LinkedHashMap::new));
-    }
+	protected Map<Stage, NewsArticle> getSortedArticles(Map<Stage, NewsArticle> unsortedArticles)
+	{
+		return unsortedArticles.
+				entrySet()
+				.stream()
+				.sorted((d1, d2) -> compareByDate(d1, d2))
+				.limit(maxArticles)
+				.collect(Collectors.toMap(
+						Map.Entry::getKey, Map.Entry::getValue, (k, v) -> k, LinkedHashMap::new));
+	}
 
     public int compareByDate(Map.Entry<Stage, NewsArticle> object1, Map.Entry<Stage, NewsArticle> object2) {
         final Stage stage1 = object1.getKey();
