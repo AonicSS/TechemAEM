@@ -42,7 +42,6 @@ body {
   line-height: $font-height;
   color: $color-dark-grey;
   background: $color-background;
-  overflow-wrap: break-word;
 
   @media (prefers-color-scheme: dark) {
     color: $color-foreground;
