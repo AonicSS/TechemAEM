@@ -79,8 +79,7 @@ public class NewsArticles {
         final Stage stage1 = object1.getKey();
         final Stage stage2 = object2.getKey();
 
-        return  Objects.nonNull(stage1.getDateObject()) &&
-                Objects.nonNull(stage2.getDateObject()) ?
+        return  Objects.nonNull(stage1.getDateObject()) && Objects.nonNull(stage2.getDateObject()) ?
                 compare(stage1.getDateObject(), stage2.getDateObject()) :
                 compare(stage1.getLastModifiedObject(), stage2.getLastModifiedObject());
     }
