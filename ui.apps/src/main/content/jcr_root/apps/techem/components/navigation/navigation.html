@@ -58,9 +58,9 @@
                         <div data-sly-unwrap>
                             <div class="header-content__left" data-sly-test="${orientation.key == 'left'}">
                                 <div class="header-title-wrapper">
-                                    <a data-sly-test="${map.key.pageTitle}" href="${map.key.pagePath}.html" class="header-title" target="_self">
+                                    <a data-sly-test="${map.key.pageTitle}" href="${map.key.hidePagePathInFlyout == false ? map.key.pagePath : '#'}" class="header-title" target="_self">
                                         ${map.key.pageTitle}
-                                        <i class="header-icon">
+                                        <i data-sly-test="${map.key.hidePagePathInFlyout == false}" class="header-icon">
                                             <div class="header-arrow"></div>
                                         </i>
                                     </a>

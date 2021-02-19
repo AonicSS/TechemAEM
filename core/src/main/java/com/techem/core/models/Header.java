@@ -21,12 +21,15 @@ public class Header {
     @ValueMapValue(name = "pageTitle")
     private String pageTitle;
 
+    @ValueMapValue(name = "hidePagePathInFlyout")
+    private boolean hidePagePathInFlyout;
+
     private String pagePath;
 
     @PostConstruct
     protected void init() {
         if(Objects.nonNull(resource)) {
-            pagePath = resource.getParent().getPath();
+            pagePath = resource.getParent().getPath() + ".html";
         }
     }
 
@@ -34,9 +37,9 @@ public class Header {
         return navTitle;
     }
 
-    public String getPagePath() {
-        return pagePath;
-    }
+    public String getPagePath() { return pagePath; }
+
+    public boolean isHidePagePathInFlyout() { return hidePagePathInFlyout; }
 
     public String getPageTitle() {
         return pageTitle;

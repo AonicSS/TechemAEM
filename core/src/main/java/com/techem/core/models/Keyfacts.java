@@ -9,6 +9,7 @@ import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -28,7 +29,7 @@ public class Keyfacts {
     @ValueMapValue(name = "text")
     private String text;
 
-    private List<KeyfactItem> keyfactItemList;
+    private List<KeyfactItem> keyfactItemList = Collections.emptyList();
 
     @PostConstruct
     protected void init() {

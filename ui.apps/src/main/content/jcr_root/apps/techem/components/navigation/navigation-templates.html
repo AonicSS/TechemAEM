@@ -1,7 +1,7 @@
 <template data-sly-template.dropdown_content_left = "${ @ pageDetails}">
-    <div class="headline">
+      <div class="headline">
         <div class="headline-title__wrapper">
-            <a data-sly-test="${pageDetails.pageTitle }" class="headline__title" href="${pageDetails.pagePath}.html" target="_self">
+            <a data-sly-test="${pageDetails.pageTitle }" class="headline__title" href="${pageDetails.pagePath}" target="_self">
                 ${pageDetails.pageTitle}
                 <i class="header-icon">
                     <div class="header-arrow"></div>
@@ -13,7 +13,7 @@
 </template>
 
 <template data-sly-template.dropdown_content_right = "${ @ pageDetails, itemList}">
-    <div class="image-wrapper" data-sly-test="${pageDetails.pageImagePath}">
+    <div class="image-wrapper" data-sly-test="${pageDetails.pageImagePath && pageDetails.hideImageInHeader == false}">
         <a data-sly-test="${pageDetails.pageImagePath}" href="${pageDetails.pagePath}.html" target="_self">
             <h3 class="image-title">${pageDetails.pageTitle}</h3>
             <img class="image ${itemList.first ? 'image-first' : (itemList.last ? 'image-last' : '')}" src="${pageDetails.pageImagePath}" />
