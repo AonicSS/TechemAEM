@@ -1,0 +1,9 @@
+// Configuration created by Apache Sling JCR Installer
+{
+  "smtp.password":"febijxftgd6#",
+  "debug.email":false,
+  "smtp.port:Integer":587,
+  "smtp.user":"ihreanfrage@techem.de",
+  "smtp.starttls":true,
+  "smtp.host":"smtp.office365.com "
+}
