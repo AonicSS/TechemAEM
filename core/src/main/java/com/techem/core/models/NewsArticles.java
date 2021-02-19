@@ -71,22 +71,22 @@ public class NewsArticles {
                         newsArticle -> newsArticle, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
 
-	protected Map<Stage, NewsArticle> getSortedArticles(Map<Stage, NewsArticle> unsortedArticles)
-	{
-		return unsortedArticles.
-				entrySet()
-				.stream()
-				.sorted((d1, d2) -> compareByDate(d1, d2))
-				.limit(maxArticles)
-				.collect(Collectors.toMap(
-						Map.Entry::getKey, Map.Entry::getValue, (k, v) -> k, LinkedHashMap::new));
-	}
+    protected Map<Stage, NewsArticle> getSortedArticles(Map<Stage, NewsArticle> unsortedArticles) {
+        return  unsortedArticles.
+                entrySet()
+                .stream()
+                .sorted((d1,d2) -> compareByDate(d1, d2))
+                .limit(maxArticles)
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey, Map.Entry::getValue, (k,v) -> k, LinkedHashMap::new));
+    }
 
     public int compareByDate(Map.Entry<Stage, NewsArticle> object1, Map.Entry<Stage, NewsArticle> object2) {
         final Stage stage1 = object1.getKey();
         final Stage stage2 = object2.getKey();
 
-        return  Objects.nonNull(stage1.getDateObject()) && Objects.nonNull(stage2.getDateObject()) ?
+        return  Objects.nonNull(stage1.getDateObject()) &&
+                Objects.nonNull(stage2.getDateObject()) ?
                 compare(stage1.getDateObject(), stage2.getDateObject()) :
                 compare(stage1.getLastModifiedObject(), stage2.getLastModifiedObject());
     }
