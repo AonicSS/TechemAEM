@@ -25,10 +25,10 @@ public class Stage{
     private String category;
 
     @ValueMapValue(name = "date")
-    private Date dateObject = new Date();
+    private Date dateObject;
 
     @ValueMapValue(name = PN_PAGE_LAST_MOD)
-    private Date lastModifiedObject = new Date();
+    private Date lastModifiedObject;
 
     @ValueMapValue(name = "text")
     private String text;
@@ -43,13 +43,9 @@ public class Stage{
         }
     }
 
-    public Date getDateObject() {
-        return dateObject;
-    }
+    public Date getDateObject() { return Objects.nonNull(dateObject) ? (Date) dateObject.clone() : null; }
 
-    public Date getLastModifiedObject() {
-        return lastModifiedObject;
-    }
+    public Date getLastModifiedObject() { return  Objects.nonNull(lastModifiedObject) ? (Date) lastModifiedObject.clone() : null;}
 
     public String getHeadline() {
         return headline;
