@@ -1,28 +1,36 @@
-.download-list.container.responsivegrid.aem-GridColumn.aem-GridColumn--default--12{
-    max-width: 987px;
-    margin: 0 auto;
-    float: none;
-    padding: 100px 0;
+.download-list{
+    padding-top: 100px;
+    padding-bottom: 100px;
     .download-list-description{
         font-size: 16px;
         color: $color-dark-grey;
         text-align: center;
+        max-width: 987px;
+        margin: 0 auto;
     }
     @media only screen and (max-width: 1024px) {
         padding: 50px 1em;
     }
 }
 .cmp-download-list{
+    max-width: 987px;
+    margin: 0 auto;
     margin-top: 70px;
     .download{
         padding: 31px 0;
         border-top: solid 1px $color-separator;
+        background-color: $color-background;
+        position: relative;
+        z-index: 1;
         &:last-of-type{
             border-bottom: solid 1px $color-separator;
         }
         &:hover{
-            box-shadow: 0 3px 15px 1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.1);
             border-color: transparent;
+            z-index: 2;
+            margin-bottom: -1px;
+            padding-bottom: 32px;
         }
     }
     .cmp-download__link{
