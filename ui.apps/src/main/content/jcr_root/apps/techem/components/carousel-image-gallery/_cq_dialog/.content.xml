@@ -64,6 +64,15 @@
                                                     text="Enable continuous loop mode"
                                                     uncheckedValue="false"
                                                     value="true"/>
+                                            <autoHeight
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    checked="true"
+                                                    fieldDescription="If checked, carousel will adapt its height to the height of the currently active slide."
+                                                    name="./autoHeight"
+                                                    text="Enable Auto Height"
+                                                    uncheckedValue="false"
+                                                    value="true"/>
                                             <autoplay
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"

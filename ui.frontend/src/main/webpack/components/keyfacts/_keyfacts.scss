@@ -1,0 +1,73 @@
+.keyfacts {
+
+    .cmp-keyfacts{
+        &__container{
+            max-width: 77pc;
+            margin: 0 auto;
+        }
+        &__content{
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        &__headline{
+            margin-bottom: 30px;
+        }
+        &__units-teaser{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: center;
+        }
+        &__unit-teaser{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            text-align: center;
+            width: 185px;
+            padding: 5px 20px 10px;
+            border-right: solid 1px $color-border-key;
+            &:last-of-type{
+                border-right: 0;
+            }
+            @media only screen and (max-width:1024px){
+                border-left: solid 1px $color-border-key;
+                margin-bottom: 30px;
+                &:last-of-type{
+                    border-right: solid 1px $color-border-key;
+                }
+            }
+            @media only screen and (max-width:768px){
+                display: block;
+            }
+
+        }
+        &__unit-number{
+            font-size: 50px;
+            font-family: $font-universe-roman;
+            max-height: 64px;
+            margin: 0 0 15px 0;
+            padding: 0;
+            white-space: nowrap;
+            color: $color-foreground-header;
+            @media only screen and (max-width:768px){
+                font-size: 40px;
+            }
+            .unit-name{
+                font-size: 20px;
+                font-family: $font-universe-roman-bold;
+                margin-left: -8px;
+                @media only screen and (max-width:768px){
+                    font-size: 16px;
+                }
+            }
+        }
+        &__unit-description{
+            font-size: 14px;
+            font-family: $font-universe-roman-bold;
+            margin-top: 0;
+        }
+    }
+
+}

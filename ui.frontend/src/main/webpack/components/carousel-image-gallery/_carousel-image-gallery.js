@@ -12,10 +12,12 @@ Swiper.use([Navigation, Pagination, Autoplay, A11y]);
         const autoPlayDelay = el.dataset.cmpDelay;
         const loop = el.dataset.cmpLoop === 'true';
         const accessibilityLabel = el.dataset.cmpAccessibilityLabel;
+        const autoHeight = el.dataset.cmpAutoHeight === 'true';
         const swiperOptions = {
             direction: 'horizontal',
             loop: loop,
             allowTouchMove: true,
+            autoHeight: autoHeight,
 
             pagination: {
                 el: pagination,
