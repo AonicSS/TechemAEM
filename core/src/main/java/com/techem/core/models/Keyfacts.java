@@ -1,5 +1,6 @@
 package com.techem.core.models;
 
+import com.google.common.collect.ImmutableList;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.compress.utils.Lists;
 import org.apache.sling.api.resource.Resource;
@@ -52,6 +53,6 @@ public class Keyfacts {
     }
 
     public List<KeyfactItem> getKeyfactItemList() {
-        return keyfactItemList;
+        return ImmutableList.copyOf(keyfactItemList);
     }
 }

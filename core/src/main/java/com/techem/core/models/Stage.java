@@ -43,7 +43,7 @@ public class Stage{
         }
     }
 
-    public Date getDateObject() { return Objects.nonNull(dateObject) ? (Date) dateObject.clone() : null;  }
+    public Date getDateObject() { return Objects.nonNull(dateObject) ? (Date) dateObject.clone() : null; }
 
     public Date getLastModifiedObject() { return  Objects.nonNull(lastModifiedObject) ? (Date) lastModifiedObject.clone() : null;}
 

@@ -44,7 +44,9 @@ public class NewsArticles {
             final Map<Stage, NewsArticle> unsortedArticles = getUnsortedArticles();
 
             if(unsorted == true) {
-                newsArticles = unsortedArticles.entrySet().stream()
+                newsArticles = unsortedArticles
+                        .entrySet()
+                        .stream()
                         .limit(maxArticles)
                         .collect(Collectors.toMap(
                                 Map.Entry::getKey, Map.Entry::getValue, (k,v) -> k, LinkedHashMap::new));
@@ -56,23 +58,23 @@ public class NewsArticles {
         }
     }
 
-
     protected Map<Stage, NewsArticle> getUnsortedArticles() {
         return newsItems.stream()
                 .map(item -> item.adaptTo(NewsArticle.class))
                 .collect(Collectors.toMap(
                         item -> item.getArticleResource().
                                 getChild(JcrConstants.JCR_CONTENT).adaptTo(Stage.class),
-                        newsArticle -> newsArticle,
-                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+                        newsArticle -> newsArticle, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
 
-    protected Map<Stage, NewsArticle> getSortedArticles(final Map<Stage, NewsArticle> unsortedArticles) {
-        return newsArticles = unsortedArticles.entrySet().stream()
-                .sorted((d1,d2) -> compareByDate(d1, d2))
-                .limit(maxArticles)
-                .collect(Collectors.toMap(
-                        Map.Entry::getKey, Map.Entry::getValue, (k,v) -> k, LinkedHashMap::new));
+    protected Map<Stage, NewsArticle> getSortedArticles(Map<Stage, NewsArticle> unsortedArticles) {
+        return newsArticles = unsortedArticles.
+                                    entrySet()
+                                    .stream()
+                                    .sorted((d1,d2) -> compareByDate(d1, d2))
+                                    .limit(maxArticles)
+                                    .collect(Collectors.toMap(
+                                            Map.Entry::getKey, Map.Entry::getValue, (k,v) -> k, LinkedHashMap::new));
     }
 
     public int compareByDate(Map.Entry<Stage, NewsArticle> object1, Map.Entry<Stage, NewsArticle> object2) {
