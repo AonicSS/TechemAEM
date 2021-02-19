@@ -1,5 +1,6 @@
 package com.techem.core.models;
 
+import com.google.common.collect.ImmutableList;
 import org.apache.commons.compress.utils.Lists;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -38,6 +39,6 @@ public class SocialMedia {
     public String getCategoryTitle() { return categoryTitle; }
 
     public List<Media> getSocialMediaList() {
-        return socialMediaList;
+        return ImmutableList.copyOf(socialMediaList);
     }
 }
