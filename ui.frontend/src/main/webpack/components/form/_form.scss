@@ -1,1 +1,8 @@
-.cmp-form {}
+.cmp-form-container {
+  padding: 0;
+}
+.cmp-form {
+  // gives total of 780px after grid gutter padding
+  max-width: calc(780px + 16px + 16px);
+  margin: 0 auto;
+}
