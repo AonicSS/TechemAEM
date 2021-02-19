@@ -8,26 +8,23 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import static com.day.cq.wcm.api.NameConstants.NT_PAGE;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class Navigation {
 
     private Logger logger = LoggerFactory.getLogger(Navigation.class);
 
-    protected static final String PAGE = "cq:Page";
     protected static final String HIDDEN_PROPERTY = "hideInNav";
     protected static final String RIGHT = "right";
     protected static final String LEFT = "left";
@@ -53,7 +50,7 @@ public class Navigation {
     @SlingObject
     private ResourceResolver resourceResolver;
 
-    private Map<Header, Map<String, List<NavigationDetails>>> navigationItems;
+    private Map<Header, Map<String, List<NavigationDetails>>> navigationItems = Collections.emptyMap();
 
     @PostConstruct
     protected void init() {
@@ -114,7 +111,7 @@ public class Navigation {
     }
 
     private Predicate<Resource> isPage() {
-        return r -> r.getValueMap().get(JcrConstants.JCR_PRIMARYTYPE, String.class).equals(PAGE);
+        return r -> r.getValueMap().get(JcrConstants.JCR_PRIMARYTYPE, String.class).equals(NT_PAGE);
     }
 
     private Predicate<Resource> isNotNavHidden() {

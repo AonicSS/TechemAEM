@@ -8,6 +8,7 @@ import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -23,7 +24,7 @@ public class SocialMedia {
     @ChildResource(name = "socialItems")
     private Resource socialItems;
 
-    private List<Media> socialMediaList;
+    private List<Media> socialMediaList = Collections.emptyList();
 
     @PostConstruct
     protected void init() {

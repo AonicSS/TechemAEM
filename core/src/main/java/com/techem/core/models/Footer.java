@@ -34,9 +34,9 @@ public class Footer {
     @ValueMapValue(name = "logoLink")
     private String logoLink;
 
-    private Map<FooterCategory, List<FooterLink>> footerItems;
+    private Map<FooterCategory, List<FooterLink>> footerItems = Collections.emptyMap();
 
-    private LinkedList<FooterLink> bottomItems;
+    private List<FooterLink> bottomItems = Collections.emptyList();
 
     @PostConstruct
     protected void init() {

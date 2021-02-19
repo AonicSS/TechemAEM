@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
+import static com.day.cq.wcm.api.NameConstants.PN_PAGE_LAST_MOD;
+
 @Model(adaptables = Resource.class,  defaultInjectionStrategy =  DefaultInjectionStrategy.OPTIONAL)
 public class Stage{
 
@@ -23,10 +25,10 @@ public class Stage{
     private String category;
 
     @ValueMapValue(name = "date")
-    private Date dateObject;
+    private Date dateObject = new Date();
 
-    @ValueMapValue(name = "cq:lastModified")
-    private Date lastModifiedObject;
+    @ValueMapValue(name = PN_PAGE_LAST_MOD)
+    private Date lastModifiedObject = new Date();
 
     @ValueMapValue(name = "text")
     private String text;

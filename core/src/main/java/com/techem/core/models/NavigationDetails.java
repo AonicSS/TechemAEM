@@ -29,9 +29,7 @@ public class NavigationDetails extends Header {
         return pageDescription;
     }
 
-    public String getPageImagePath() {
-        return  hideImageInHeader == false ? pageImagePath : StringUtils.EMPTY;
-    }
+    public String getPageImagePath() { return pageImagePath; }
 
     public boolean isHideImageInHeader() { return hideImageInHeader;}
 }
