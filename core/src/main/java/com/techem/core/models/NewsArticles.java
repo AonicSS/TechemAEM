@@ -68,13 +68,13 @@ public class NewsArticles {
     }
 
     protected Map<Stage, NewsArticle> getSortedArticles(Map<Stage, NewsArticle> unsortedArticles) {
-        return newsArticles = unsortedArticles.
-                                    entrySet()
-                                    .stream()
-                                    .sorted((d1,d2) -> compareByDate(d1, d2))
-                                    .limit(maxArticles)
-                                    .collect(Collectors.toMap(
-                                            Map.Entry::getKey, Map.Entry::getValue, (k,v) -> k, LinkedHashMap::new));
+        return  unsortedArticles.
+                entrySet()
+                .stream()
+                .sorted((d1,d2) -> compareByDate(d1, d2))
+                .limit(maxArticles)
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey, Map.Entry::getValue, (k,v) -> k, LinkedHashMap::new));
     }
 
     public int compareByDate(Map.Entry<Stage, NewsArticle> object1, Map.Entry<Stage, NewsArticle> object2) {
