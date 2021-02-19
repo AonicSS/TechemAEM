@@ -9,7 +9,7 @@
     <div class="cmp-teaser__content">
 		<div class="cmp-contact-headline">${contactTile.headline}</div>
 		<div class="cmp-contact-body" data-sly-test.subline="${contactTile.subline}">${contactTile.subline}</div>
-		<div class="phone" data-sly-test.phone="${contactTile.phone}">${contactTile.phone}</div>
-		<div class="email" data-sly-test.email="${contactTile.email}">${contactTile.email}</div>
+		<div class="phone" data-sly-test.phone="${contactTile.phone}"><a href="tel:${contactTile.phone}">${contactTile.phone}</a></div>
+		<div class="email" data-sly-test.email="${contactTile.email}"><a href = "mailto: ${contactTile.email}">${contactTile.email}</a></div>
     </div>
 </div>

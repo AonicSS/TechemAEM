@@ -16,7 +16,7 @@
         }
     }
 
-    .text-stage {
+    .text-stage, .text-stage-content {
         position: relative;
         border-bottom: solid 6px $color-primary-button;
         .cmp-text-stage{
@@ -57,6 +57,7 @@
                     line-height: normal;
                     letter-spacing: 0.51px;
                     color: $color-separator-dark;
+                    text-transform: uppercase;
                 }
             }
 

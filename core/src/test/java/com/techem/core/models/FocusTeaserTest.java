@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(AemContextExtension.class)
 public class FocusTeaserTest {
 
-    private static final String HEADLINE = "Lorem ipsum dolor sit amet";
     private static final String TEXT = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>\n";
     private static final String IMAGE_REFERENCE = "/content/dam/core-components-examples/library/sample-assets/lava-rock-formation.jpg";
     private static final String BUTTON_LABEL = "Zum Service";
@@ -29,8 +28,6 @@ public class FocusTeaserTest {
     public void setUp() throws Exception {
 
        final Resource resource = context.create().resource("/content/components/focus-teaser", ImmutableMap.<String, Object>builder()
-                .put("headline", HEADLINE)
-                .put("aboveText", TEXT)
                 .put("text", TEXT)
                 .put("fileReference",IMAGE_REFERENCE)
                 .put("alignnment", ALIGNMENT)
@@ -42,8 +39,6 @@ public class FocusTeaserTest {
 
     @Test
     public void testGetters() {
-        assertEquals(HEADLINE, focusTeaser.getHeadline());
-        assertEquals(TEXT, focusTeaser.getAboveText());
         assertEquals(TEXT, focusTeaser.getText());
         assertEquals(IMAGE_REFERENCE, focusTeaser.getImage());
         assertEquals(ALIGNMENT, focusTeaser.getAlignnment());
