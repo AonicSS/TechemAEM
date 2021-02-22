@@ -73,7 +73,6 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldDescription="Title of the field"
                                                 fieldLabel="Text"
-                                                maxlength="{Long}70"
                                                 name="./text"
                                                 required="{Boolean}true"/>
                                             <iconFormat
