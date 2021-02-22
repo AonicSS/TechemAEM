@@ -6,6 +6,9 @@
   position: relative;
   cursor: pointer;
   margin: 30px 35px!important;
+  .nolink{
+    cursor: default;
+  }
   &:first-of-type{
     .cmp-teaser__image
       img{

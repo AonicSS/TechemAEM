@@ -84,6 +84,7 @@
             .cmp-newsArticles__image {
                 max-width: 100%;
                 margin-bottom: 10px;
+                padding: 0;
 
                 @media (min-width: 769px) and (max-width: 1200px) {
                     height: inherit;
@@ -100,6 +101,7 @@
                 line-height: 1.4;
                 letter-spacing: 0.2px;
                 color: $color-foreground-header;
+                padding: 0;
 
                 @media (max-width: 769px) {
                     height: auto;
@@ -112,7 +114,8 @@
 
             .cmp-newsArticles__text {
                 height: 104px;
-                margin: 15px 0 30px 1px;
+                margin: 15px 0 70px 1px;
+                padding: 0;
                 font-family: $font-universe-roman;
                 font-size: $font-size;
                 font-weight: normal;
@@ -141,7 +144,7 @@
 
             .cmp-newsArticles-icon-wrapper {
                 position: relative;
-                top: -10px;
+                top: -40px;
             }
 
             .cmp-newsArticles-icon {

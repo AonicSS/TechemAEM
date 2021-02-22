@@ -10,6 +10,9 @@
     padding-top: 30px;
     margin: 30px auto;
     max-width: 720px;
+    @media only screen and (max-width: 768px) {
+      font-size: 26px;
+    }
   }
   .cmp-container-subtitle {
     font-family: $font-universe-roman;

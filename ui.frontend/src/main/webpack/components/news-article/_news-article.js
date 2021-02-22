@@ -85,7 +85,7 @@ function resizeGridItem(item){
   window.onload = resizeAllGridItems();
   window.addEventListener("resize", resizeAllGridItems);
   
-  allItems = document.getElementsByClassName("cmp-newsArticles_text-stage");
+ /* allItems = document.getElementsByClassName("cmp-newsArticles_text-stage");
   Array.from(allItems).forEach((item) => {
     imagesLoaded( item, resizeInstance);
-  });
+  });*/

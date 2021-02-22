@@ -24,7 +24,7 @@
             display: block;
             position: absolute;
             opacity: 0;
-            right: calc((100vw - 77pc)/2);
+            right: 0;
             top: 0;
             color: $color-background;
             font-size: 100px;
@@ -32,7 +32,7 @@
             background: 0;
             outline: none;
             height: 100%;
-            width: 25%;
+            width: 30%;
             text-align: right;
             text-shadow: 0 3px 20px #0000001a;
             cursor: pointer;
@@ -45,7 +45,7 @@
             display: block;
             position: absolute;
             opacity: 0;
-            left: calc((100vw - 77pc)/2);
+            left: 0;
             top: 0;
             color: $color-background;
             font-size: 100px;
@@ -53,7 +53,7 @@
             background: 0;
             outline: none;
             height: 100%;
-            width: 25%;
+            width: 30%;
             text-align: left;
             text-shadow: 0 3px 20px #0000001a;
             cursor: pointer;
@@ -87,16 +87,11 @@
 @media only screen and (max-width: 1024px) {
     .carousel-reference-slider{
         padding: 50px 0 100px 0;
-        .cmp-carousel {
-            .cmp-carousel__action--next{
-                display: none;
-            }
-            .cmp-carousel__action--previous{
-                display: none;
-            }
-        }
         .cmp-carousel-reference-headline{
             padding: 0 16px;
+            font-size: 26px;
+            text-align: center;
+            margin: 0 0 40px;
         }
     }
 }
