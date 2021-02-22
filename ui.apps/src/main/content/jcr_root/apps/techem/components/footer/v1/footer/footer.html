@@ -46,7 +46,7 @@
                 </a>
                 <ul class="cmp-footer__links" role="presentation" data-sly-list.footerlink="${footer.value}">
                     <li>
-                        <a x-cq-linkchecker="skip" class="cmp-footer__link" href=" ${footerlink.linkUrl}.html"
+                        <a x-cq-linkchecker="skip" class="cmp-footer__link" href="${footerlink.linkUrl}${footerlink.noHtmlExtention?'':'.html'}"
                            target="${footerlink.openNewTab ? '_blank' : ''}">
                             ${footerlink.linkText}
                         </a>

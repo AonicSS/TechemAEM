@@ -75,6 +75,14 @@
                                                                     text="Open page in new window"
                                                                     uncheckedValue="{Boolean}false"
                                                                     value="{Boolean}true"/>
+                                                            <noHtmlExtention
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                                    fieldDescription="Remove .html extention"
+                                                                    name="./noHtmlExtention"
+                                                                    text="Remove .html extention"
+                                                                    uncheckedValue="{Boolean}false"
+                                                                    value="{Boolean}true"/>
                                                         </items>
                                                     </field>
                                                 </footerItems>
