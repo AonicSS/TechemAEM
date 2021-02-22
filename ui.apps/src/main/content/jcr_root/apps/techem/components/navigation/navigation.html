@@ -45,13 +45,13 @@
                     </i></a>
                 </li>
             </ul>
-            <button class="header__button" data-sly-attribute.button-link="${navigation.buttonLink}">
+            <!--<button class="header__button" data-sly-attribute.button-link="${navigation.buttonLink}">
                 <i class="header__button-icon">
                     <div class="header__button-icon-circle"></div>
                     <div class="header__button-icon-stroke"></div>
                 </i>
                 ${navigation.label}
-            </button>
+            </button>-->
             <div class="header__dropdown-wrapper">
                 <div data-sly-test="${navigationItems}" data-sly-list.map="${navigationItems}" data-sly-unwrap>
                     <div class="header__dropdown-content header__dropdown-hidden"  data-sly-attribute.name="${map.key.navTitle.toLowerCase}" data-sly-list.orientation="${map.value.entrySet.iterator}">
