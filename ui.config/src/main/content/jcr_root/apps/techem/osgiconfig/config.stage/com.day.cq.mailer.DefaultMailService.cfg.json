@@ -5,5 +5,5 @@
   "smtp.user":"ihreanfrage@techem.de",
   "smtp.ssl":true,
   "smtp.starttls":true,
-  "smtp.host":"smtp.office365.com "
+  "smtp.host":"smtp.office365.com"
 }
