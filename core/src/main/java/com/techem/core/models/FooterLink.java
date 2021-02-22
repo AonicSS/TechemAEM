@@ -19,6 +19,9 @@ public class FooterLink {
     @ValueMapValue(name = "openNewTab")
     private Boolean openNewTab;
 
+    @ValueMapValue(name = "noHtmlExtention")
+    private Boolean noHtmlExtention;
+
     @PostConstruct
     protected void init() {
     }
@@ -33,5 +36,9 @@ public class FooterLink {
 
     public Boolean getOpenNewTab() {
         return openNewTab;
+    }
+
+    public Boolean getNoHtmlExtention() {
+        return noHtmlExtention;
     }
 }
