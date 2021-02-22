@@ -11,6 +11,11 @@
   padding: 20px;
   width: 100%;
   box-sizing: border-box;
+
+  &:focus {
+    box-shadow: 0 3px 15px 1px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
+  }
 }
 .cmp-form-text__text {
   border: 2px solid $color-separator;
@@ -20,9 +25,7 @@
   box-sizing: border-box;
 
   &:focus {
-    border-radius: unset;
     box-shadow: 0 3px 15px 1px rgba(0, 0, 0, 0.1);
-    outline: none;
     border-color: transparent;
   }
 }
