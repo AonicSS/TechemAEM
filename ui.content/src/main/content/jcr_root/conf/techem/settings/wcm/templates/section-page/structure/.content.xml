@@ -19,6 +19,7 @@
                     sling:resourceType="techem/components/stage-container">
                 <breadcrumb
                         jcr:primaryType="nt:unstructured"
+                        startLevel="3"
                         sling:resourceType="techem/components/breadcrumb"/>
                 <stage_component
                         jcr:primaryType="nt:unstructured"
