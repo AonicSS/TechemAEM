@@ -9,6 +9,7 @@ Include conf.d/rewrites/default_rewrite.rules
 
 # rewrite for root redirect
 RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/de/de.html [PT,L]
+RewriteRule ^/(.*)$ /content/techem/$1 [PT,L]
 
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
