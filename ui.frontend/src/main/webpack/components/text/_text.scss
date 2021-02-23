@@ -1,3 +1,7 @@
+.text {
+  @include cmpMarginTop();
+}
+
 .cmp-text {
   max-width: 985px;
   margin: 0 auto;

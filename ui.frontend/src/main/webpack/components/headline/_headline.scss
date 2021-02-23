@@ -1,5 +1,5 @@
 .headline {
-  margin-bottom: 32px;
+  @include cmpMarginTop();
   .cmp-headline__headline {
     font-family: $font-universe-roman-bold;
     line-height: 1.4;

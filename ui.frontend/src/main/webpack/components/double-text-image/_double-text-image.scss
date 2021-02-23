@@ -3,6 +3,7 @@
 }
 
 .double-text-image {
+  @include cmpMarginTop();
   .text-image{
     margin-bottom: 0;
   }

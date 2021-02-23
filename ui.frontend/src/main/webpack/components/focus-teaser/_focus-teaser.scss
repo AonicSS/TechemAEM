@@ -1,3 +1,6 @@
+.focus-teaser {
+    @include cmpMarginTop();
+}
 .cmp-focus-teaser {
     max-width: 77pc;
     margin: 70px auto 70px;

@@ -1,5 +1,5 @@
 .text-image{
-  margin-bottom: 50px;
+  @include cmpMarginTop();
   .cmp-container-headline {
     font-family: $font-universe-roman-bold;
     font-size: 40px;

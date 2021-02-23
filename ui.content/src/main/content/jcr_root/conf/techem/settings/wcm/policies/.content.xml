@@ -95,6 +95,27 @@
                                         jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item1>
+                        <item2
+                                cq:styleGroupLabel="Margin top (custom)"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="mt--small"
+                                        cq:styleId="1614083648986"
+                                        cq:styleLabel="Small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                        cq:styleClasses="mt--large"
+                                        cq:styleId="1614083665068"
+                                        cq:styleLabel="Large"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                        cq:styleClasses="mt--none"
+                                        cq:styleId="1614083699866"
+                                        cq:styleLabel="No margin"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item2>
                     </cq:styleGroups>
                 </policy_651483963895698>
             </image>
@@ -402,6 +423,29 @@
                     sling:resourceType="wcm/core/components/policy/policy"
                     components="[/apps/techem/components/contact-tile,/apps/techem/components/image-tile,/apps/techem/components/icon-number-tile]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                                cq:styleGroupLabel="Margin top (custom)"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="mt--small"
+                                        cq:styleId="1614083648986"
+                                        cq:styleLabel="Small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                        cq:styleClasses="mt--large"
+                                        cq:styleId="1614083665068"
+                                        cq:styleLabel="Large"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                        cq:styleClasses="mt--none"
+                                        cq:styleId="1614083699866"
+                                        cq:styleLabel="No margin"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_general-container>
             </general-container>
             <general-tabs-container jcr:primaryType="nt:unstructured">
@@ -413,6 +457,29 @@
                     components="[/apps/techem/components/general-container,/apps/techem/components/tabs-icon-number]"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                                cq:styleGroupLabel="Margin top (custom)"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="mt--small"
+                                        cq:styleId="1614083648986"
+                                        cq:styleLabel="Small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                        cq:styleClasses="mt--large"
+                                        cq:styleId="1614083665068"
+                                        cq:styleLabel="Large"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                        cq:styleClasses="mt--none"
+                                        cq:styleId="1614083699866"
+                                        cq:styleLabel="No margin"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_general-tabs-container>
             </general-tabs-container>
             <tabs-icon-number jcr:primaryType="nt:unstructured">
@@ -423,6 +490,29 @@
                     sling:resourceType="wcm/core/components/policy/policy"
                     components="/apps/techem/components/general-container">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                                cq:styleGroupLabel="Margin top (custom)"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="mt--small"
+                                        cq:styleId="1614083648986"
+                                        cq:styleLabel="Small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                        cq:styleClasses="mt--large"
+                                        cq:styleId="1614083665068"
+                                        cq:styleLabel="Large"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                        cq:styleClasses="mt--none"
+                                        cq:styleId="1614083699866"
+                                        cq:styleLabel="No margin"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_tabs-icon-number>
             </tabs-icon-number>
             <home-stage jcr:primaryType="nt:unstructured">
@@ -443,6 +533,29 @@
                         sling:resourceType="wcm/core/components/policy/policy"
                         components="/apps/techem/components/service-item">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                                cq:styleGroupLabel="Margin top (custom)"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="mt--small"
+                                        cq:styleId="1614083648986"
+                                        cq:styleLabel="Small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                        cq:styleClasses="mt--large"
+                                        cq:styleId="1614083665068"
+                                        cq:styleLabel="Large"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                        cq:styleClasses="mt--none"
+                                        cq:styleId="1614083699866"
+                                        cq:styleLabel="No margin"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_list-container>
             </list-container>
             <download-list jcr:primaryType="nt:unstructured">
@@ -453,6 +566,29 @@
                         sling:resourceType="wcm/core/components/policy/policy"
                         components="/apps/techem/components/download">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                                cq:styleGroupLabel="Margin top (custom)"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="mt--small"
+                                        cq:styleId="1614083648986"
+                                        cq:styleLabel="Small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                        cq:styleClasses="mt--large"
+                                        cq:styleId="1614083665068"
+                                        cq:styleLabel="Large"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                        cq:styleClasses="mt--none"
+                                        cq:styleId="1614083699866"
+                                        cq:styleLabel="No margin"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_download-list>
             </download-list>
             <accordion jcr:primaryType="nt:unstructured">
@@ -464,8 +600,62 @@
                         sling:resourceType="wcm/core/components/policy/policy"
                         components="[/apps/techem/components/container,/apps/techem/components/image,/apps/techem/components/text]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                                cq:styleGroupLabel="Margin top (custom)"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="mt--small"
+                                        cq:styleId="1614083648986"
+                                        cq:styleLabel="Small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                        cq:styleClasses="mt--large"
+                                        cq:styleId="1614083665068"
+                                        cq:styleLabel="Large"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                        cq:styleClasses="mt--none"
+                                        cq:styleId="1614083699866"
+                                        cq:styleLabel="No margin"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_accordion>
             </accordion>
+            <margin-top jcr:primaryType="nt:unstructured">
+                <policy
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Generic component margin top"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                                cq:styleGroupLabel="Margin top (custom)"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="mt--small"
+                                        cq:styleId="1614083648986"
+                                        cq:styleLabel="Small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                        cq:styleClasses="mt--large"
+                                        cq:styleId="1614083665068"
+                                        cq:styleLabel="Large"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                        cq:styleClasses="mt--none"
+                                        cq:styleId="1614083699866"
+                                        cq:styleLabel="No margin"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy>
+            </margin-top>
         </components>
     </techem>
 </jcr:root>
