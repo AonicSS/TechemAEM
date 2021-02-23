@@ -14,7 +14,7 @@ module.exports = merge(common, {
                     cssProcessor: require('cssnano'),
                     preset: ['default', {
                         calc: true,
-                        convertValues: true,
+                        convertValues: false,
                         discardComments: {
                             removeAll: true
                         },
