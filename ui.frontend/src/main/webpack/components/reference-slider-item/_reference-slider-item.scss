@@ -1,49 +1,61 @@
-.reference-slider-item{
+.reference-slider-item {
     background-color: $color-grey;
     padding: 100px 0;
-    .cmp-teaser{
+
+    .cmp-teaser {
         max-width: 77pc;
         margin: 0 auto;
     }
 }
+
 .cmp-reference-slider-item {
-    display: flex!important;
+    display: flex !important;
     flex-wrap: wrap;
-    .cmp-reference-icon{
-        display: flex!important;
+
+    .cmp-reference-icon {
+        display: flex !important;
         flex-direction: column;
         justify-content: center;
+        padding: 0;
     }
-    .cmp-teaser__image{
-            padding-right: 8.333%;
-            position: relative;
-        img{
+
+    .cmp-teaser__image {
+        padding-right: 8.333%;
+        position: relative;
+
+        img {
             border-radius: $border-radius-top-l-bottom-r;
         }
-        &:after{
-            content: '\2019 \2019';
+
+        &:after {
+            content: '';
             display: inline-block;
             position: absolute;
-            font-size: 260px;
-            top: 18%;
-            right: -16px;
-            font-family: $font-universe-roman-bold;
-            color: $color-primary-button;
-            letter-spacing: -7px;
-            line-height: 0;
+            top: -18px;
+            right: -28px;
+            content: '';
+            width: 116px;
+            height: 76px;
+            background: url(#{$iconsPath}/quotation-mark.svg) center center no-repeat;
+            background-size: contain;
         }
     }
-    .cmp-teaser__content{
-        display: flex!important;
+
+    .cmp-teaser__content {
+        display: flex !important;
         flex-direction: column;
         justify-content: center;
         padding-right: 10%;
+        padding-left: 0;
     }
-    .cmp-reference-title-link{
+
+    .cmp-reference-title-link {
         margin-bottom: 30px;
-        a{
+        z-index: 2;
+
+        a {
             color: #222222;
-            font-family: $font-universe-roman;
+            font-family: $font-universe-roman-bold;
             font-weight: 300;
             font-size: 34px;
             letter-spacing: 0;
@@ -51,24 +63,81 @@
             text-decoration: none;
             width: 84%;
             display: inline-block;
-            .cmp-reference-title{
+
+            .cmp-reference-title {
                 display: inline;
             }
         }
-        .cmp-image-tile-arrow{
-            display: inline;
-            max-width: 28px;
-            vertical-align: middle;
+
+        .cmp-image-tile-arrow {
+            border-radius: 0;
+
+            .cmp-newsArticles-arrow {
+                display: inline-block;
+                position: relative;
+                width: 28px;
+                height: 10px;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                vertical-align: middle;
+
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 9px;
+                    height: 9px;
+                    border-style: solid;
+                    border-color: $color-primary-button;
+                    border-width: 2px 2px 0 0;
+                    right: 0;
+                    transform: rotate(45deg);
+                    transition: all .2s ease-in;
+                }
+
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    border-style: solid;
+                    border-color: $color-primary-button;
+                    top: 56%;
+                    transform: translateY(-50%);
+                    width: 28px;
+                    height: 0;
+                    border-width: 2px 0 0;
+                    transition: all .2s ease-in;
+                }
+            }
+        }
+
+        &:hover {
+            .cmp-image-tile-arrow {
+
+                .cmp-newsArticles-arrow {
+                    &:before {
+                        right: -4px;
+                    }
+
+                    &::after {
+                        width: 32px;
+                    }
+                }
+            }
         }
     }
-    .cmp-reference-sourceAuthor,.cmp-reference-sourceDetails{
+
+    .cmp-reference-sourceAuthor,
+    .cmp-reference-sourceDetails {
         font-family: $font-universe-roman-bold;
         font-size: 16px;
         letter-spacing: 0;
         line-height: 26px;
         color: $color-separator-dark;
     }
-    .cmp-reference-description{
+
+    .cmp-reference-description {
         margin-top: 30px;
         opacity: 0.8;
         color: $color-separator-dark;
@@ -78,44 +147,54 @@
         line-height: 26px;
     }
 }
+
 @media only screen and (max-width: 720px) {
-    .reference-slider-item{
+    .reference-slider-item {
         padding: 80px 0 50px 0;
     }
+
     .cmp-reference-slider-item {
-        .cmp-teaser__image{
-                padding: 0 20px;
-                img{
-                    max-width: 100%;
-                }
-            &:after{
-                font-size: 110px;
-                top: 10%;
+        .cmp-teaser__image {
+            padding: 0 16px;
+
+            img {
+                max-width: 100%;
+            }
+
+            &:after {
+                top: -15px;
                 right: 20px;
-                letter-spacing: 0;
+                width: 62px;
+                height: 40px;
             }
         }
-        .cmp-teaser__content{
-            display: flex!important;
+
+        .cmp-teaser__content {
+            display: flex !important;
             flex-direction: column;
             justify-content: center;
             padding: 0 20px;
         }
-        .cmp-reference-title-link{
-            margin-top: 30px;
-            margin-bottom: 25px;
-            a{
+
+        .cmp-reference-title-link {
+            margin-top: 24px;
+            margin-bottom: 24px;
+
+            a {
                 font-size: 22px;
                 letter-spacing: -0.1px;
                 line-height: 30px;
             }
         }
-        .cmp-reference-sourceAuthor,.cmp-reference-sourceDetails{
+
+        .cmp-reference-sourceAuthor,
+        .cmp-reference-sourceDetails {
             font-size: 14px;
         }
+
         .cmp-reference-description {
             margin-top: 25px;
             margin-bottom: 25px;
         }
     }
-  }
+}

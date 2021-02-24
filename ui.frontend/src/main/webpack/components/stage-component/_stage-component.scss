@@ -75,11 +75,11 @@
 }
 @media only screen and (max-width:768px){
   .stage-component.text-image.teaser {
-    margin-bottom: 50px;
+    margin-bottom: 0;
     &:after{
      display: none;
     }
-    .cmp-image__left{
+    .cmp-image__left.aem-GridColumn{
       position: relative;
       order: 1;
       .cmp-text-image-headline{
@@ -118,6 +118,7 @@
       .cmp-teaser__content{
         display: flex;
         order: 2;
+        padding: 0;
         .cmp-teaser__description{
           width: auto;
         }

@@ -1,5 +1,6 @@
 package com.techem.core.models;
 
+import com.google.common.collect.ImmutableList;
 import org.apache.commons.compress.utils.Lists;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -8,6 +9,7 @@ import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -23,7 +25,7 @@ public class SocialMedia {
     @ChildResource(name = "socialItems")
     private Resource socialItems;
 
-    private List<Media> socialMediaList;
+    private List<Media> socialMediaList = Collections.emptyList();
 
     @PostConstruct
     protected void init() {
@@ -37,6 +39,6 @@ public class SocialMedia {
     public String getCategoryTitle() { return categoryTitle; }
 
     public List<Media> getSocialMediaList() {
-        return socialMediaList;
+        return ImmutableList.copyOf(socialMediaList);
     }
 }

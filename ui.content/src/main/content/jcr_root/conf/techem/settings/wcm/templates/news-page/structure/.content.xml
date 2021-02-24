@@ -6,32 +6,21 @@
         cq:template="/conf/techem/settings/wcm/templates/news-page"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="techem/components/structure/news-page">
+        <experiencefragment
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="techem/components/experiencefragment"
+                editable="{Boolean}true"/>
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid">
-            <experiencefragment
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="techem/components/experiencefragment"
-                    editable="{Boolean}true"/>
+            sling:resourceType="techem/components/container">
             <stage-container
-                jcr:created="{Date}2021-01-24T14:59:29.009+02:00"
-                jcr:createdBy="admin"
-                jcr:lastModified="{Date}2021-01-24T14:59:29.009+02:00"
-                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="techem/components/stage-container">
                 <breadcrumb
-                    jcr:created="{Date}2021-01-24T14:59:29.009+02:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2021-01-24T14:59:29.009+02:00"
-                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
+                    startLevel="3"
                     sling:resourceType="techem/components/breadcrumb"/>
                 <text-stage
-                    jcr:created="{Date}2021-01-24T14:59:29.009+02:00"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2021-01-24T14:59:29.009+02:00"
-                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="techem/components/text-stage/text-stage"/>
             </stage-container>
@@ -40,11 +29,11 @@
                 sling:resourceType="techem/components/container"
                 editable="{Boolean}true"
                 layout="responsiveGrid"/>
-            <experiencefragment_2088209270
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="techem/components/experiencefragment"
-                    editable="{Boolean}true"/>
         </root>
+        <experiencefragment_2088209270
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="techem/components/experiencefragment"
+                editable="{Boolean}true"/>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
                 <phone

@@ -1,5 +1,6 @@
 package com.techem.core.models;
 
+import com.google.common.collect.ImmutableList;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.compress.utils.Lists;
 import org.apache.sling.api.resource.Resource;
@@ -9,8 +10,10 @@ import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 import static java.util.stream.Collectors.toCollection;
 
@@ -27,15 +30,17 @@ public class Keyfacts {
     @ValueMapValue(name = "text")
     private String text;
 
-    private List<KeyfactItem> keyfactItemList;
+    private List<KeyfactItem> keyfactItemList = Collections.emptyList();
 
     @PostConstruct
     protected void init() {
-         final List<Resource> keyfactsList = Lists.newArrayList(keyfactsItems.getChildren().iterator());
+         if(Objects.nonNull(keyfactsItems)) {
+             final List<Resource> keyfactsList = Lists.newArrayList(keyfactsItems.getChildren().iterator());
 
-         if(CollectionUtils.isNotEmpty(keyfactsList)) {
-             keyfactItemList = keyfactsList.stream().map(item -> item.adaptTo(KeyfactItem.class))
-            .collect(toCollection(LinkedList::new));
+             if (CollectionUtils.isNotEmpty(keyfactsList)) {
+                 keyfactItemList = keyfactsList.stream().map(item -> item.adaptTo(KeyfactItem.class))
+                         .collect(toCollection(LinkedList::new));
+             }
          }
     }
 
@@ -48,6 +53,6 @@ public class Keyfacts {
     }
 
     public List<KeyfactItem> getKeyfactItemList() {
-        return keyfactItemList;
+        return ImmutableList.copyOf(keyfactItemList);
     }
 }

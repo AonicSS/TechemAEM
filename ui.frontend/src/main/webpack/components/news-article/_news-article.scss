@@ -1,79 +1,89 @@
 .cmp-newsArticles {
     max-width: 77pc;
     margin: 0 auto;
-    padding: 1em 1em;
 
-     .cmp-newsArticles-button {
-          height: 34px;
-          padding: 0 15px 0 15px;
-          border-radius: 30px;
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          cursor: pointer;
-          background-color: $color-primary-button;
-          font-family: $font-universe-roman-bold;
-          font-size: $font-size;
-          font-weight: 300;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: 1.63;
-          letter-spacing: 0.3px;
-          color: $color-foreground-dark;
-     }
+    .cmp-newsArticles-button {
+        height: 34px;
+        padding: 0 15px 0 15px;
+        border-radius: 30px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+        background-color: $color-primary-button;
+        font-family: $font-universe-roman-bold;
+        font-size: $font-size;
+        font-weight: 300;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.63;
+        letter-spacing: 0.3px;
+        color: $color-foreground-dark;
+    }
 
     &__container {
         display: grid;
         max-width: 77pc;
         grid-gap: 30px 88px;
-        grid-template-columns: repeat(auto-fill, minmax(340px,3fr));
+        grid-template-columns: repeat(auto-fill, minmax(340px, 3fr));
         grid-auto-rows: 10px;
         align-items: start;
-        &:before{
+
+        &:before {
             display: none;
         }
+
         @media only screen and (max-width: 768px) {
             display: block;
         }
-        .cmp-newsArticles_text-stage {
+
+        .cmp-newsArticles_text-stage.aem-GridColumn.aem-GridColumn--default--4 {
             padding: 0;
             margin: 0;
             text-decoration: none;
-            width: auto!important;
+            width: auto;
             box-sizing: unset;
-            float: none!important;
+            float: none;
+
             @media only screen and (max-width: 768px) {
                 margin: 30px 0;
             }
-            .a{
+
+            .a {
                 display: block;
             }
-             &:hover {
-                .cmp-newsArticles-arrow{
-                    &::before{
+
+            &:hover {
+                .cmp-newsArticles-arrow {
+                    &::before {
                         right: -10px;
                     }
-                    &::after{
+
+                    &::after {
                         width: 29px;
                     }
                 }
-             }
+            }
 
             .cmp-newsArticles__date {
-                  height: 14px;
-                  font-family: $font-universe-roman;
-                  font-size: 12px;
-                  font-weight: normal;
-                  font-stretch: normal;
-                  font-style: normal;
-                  line-height: normal;
-                  letter-spacing: 0.51px;
-                  color: $color-separator-dark;
+                height: auto;
+                padding: 0;
+                margin: 0 0 12px 0;
+                font-family: $font-universe-roman;
+                font-size: 12px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: 0.51px;
+                color: $color-separator-dark;
+                text-transform: uppercase;
             }
 
             .cmp-newsArticles__image {
                 max-width: 100%;
-                margin-bottom: 15px;
+                margin-bottom: 10px;
+                padding: 0;
 
                 @media (min-width: 769px) and (max-width: 1200px) {
                     height: inherit;
@@ -81,57 +91,64 @@
             }
 
             .cmp-newsArticles__headline {
-                  margin: 0 0 15px 1px;
-                  font-family: $font-universe-roman-bold;
-                  font-size: 20px;
-                  font-weight: 300;
-                  font-stretch: normal;
-                  font-style: normal;
-                  line-height: 1.4;
-                  letter-spacing: 0.2px;
-                  color: $color-foreground-header;
+                margin: 0 0 0 1px;
+                font-family: $font-universe-roman-bold;
+                font-size: 20px;
+                font-weight: 300;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.4;
+                letter-spacing: 0.2px;
+                color: $color-foreground-header;
+                padding: 0;
 
-                   @media (max-width: 769px) {
-                        height: auto;
-                        margin: 20px 0 5px 2px;
-                        font-size: 18px;
-                        line-height: 1.48;
-                        letter-spacing: 0.18px;
-                   }
+                @media (max-width: 769px) {
+                    height: auto;
+                    margin: 10px 0 5px 2px;
+                    font-size: 18px;
+                    line-height: 1.48;
+                    letter-spacing: 0.18px;
+                }
             }
 
             .cmp-newsArticles__text {
-                  height: 104px;
-                  margin: 15px 0 30px 1px;
-                  font-family: $font-universe-roman;
-                  font-size: $font-size;
-                  font-weight: normal;
-                  font-stretch: normal;
-                  font-style: normal;
-                  line-height: 1.63;
-                  letter-spacing: -0.1px;
-                  color: $color-separator-dark;
-                  word-wrap:break-word;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                  display: -webkit-box;
-                  -webkit-line-clamp: 4;
-                  -webkit-box-orient: vertical;
+                height: auto;
+                margin: 15px 0 0 0;
+                padding: 0;
+                font-family: $font-universe-roman;
+                font-size: $font-size;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.63;
+                letter-spacing: -0.1px;
+                color: $color-separator-dark;
+                word-wrap: break-word;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
 
-                   @media (max-width: 769px) {
-                         height: 104px;
-                         margin: 16px 2px 30px;
-                   }
+                @media (max-width: 769px) {
+                    height: 104px;
+                    margin: 15px 0 0;
+                }
 
-                  p {
-                      padding: 0;
-                      margin: 0;
-                  }
+                p {
+                    padding: 0;
+                    margin: 0;
+                }
             }
 
             .cmp-newsArticles-icon-wrapper {
                 position: relative;
-                top: -10px;
+                margin: 30px 0 70px;
+                top: 0;
+                clear: both;
+                @media (max-width: 769px) {
+                    margin: 10px 0 60px;
+                }
             }
 
             .cmp-newsArticles-icon {

@@ -12,7 +12,7 @@
         letter-spacing: -0.2px;
         line-height: 58px;
         text-align: center;
-        margin: 58px 0;
+        margin: 0 0 78px 0;
         font-weight: 300;
     }
     .cmp-carousel {
@@ -24,7 +24,7 @@
             display: block;
             position: absolute;
             opacity: 0;
-            right: calc((100vw - 77pc)/2);
+            right: 0;
             top: 0;
             color: $color-background;
             font-size: 100px;
@@ -32,19 +32,20 @@
             background: 0;
             outline: none;
             height: 100%;
-            width: 25%;
+            width: 30%;
             text-align: right;
             text-shadow: 0 3px 20px #0000001a;
             cursor: pointer;
+            z-index: 1;
             &:hover{
-                opacity: 1;
+                cursor: url(#{$iconsPath}/navigation-chevron-right-white.svg), auto;
             }
         }
         .cmp-carousel__action--previous{
             display: block;
             position: absolute;
             opacity: 0;
-            left: calc((100vw - 77pc)/2);
+            left: 0;
             top: 0;
             color: $color-background;
             font-size: 100px;
@@ -52,12 +53,12 @@
             background: 0;
             outline: none;
             height: 100%;
-            width: 25%;
+            width: 30%;
             text-align: left;
             text-shadow: 0 3px 20px #0000001a;
             cursor: pointer;
             &:hover{
-                opacity: 1;
+                cursor: url(#{$iconsPath}/navigation-chevron-left-white.svg), auto;
             }
         }
         .cmp-carousel__indicators {
@@ -83,15 +84,23 @@
         }
     }
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 1024px) {
     .carousel-reference-slider{
-        padding: 50px 0 100px 0;
-        .cmp-carousel {
-            .cmp-carousel__action--next{
-                display: none;
+        padding: 50px 0 70px 0;
+        .cmp-carousel-reference-headline{
+            padding: 0 16px;
+            font-size: 26px;
+            line-height: 1.4;
+            text-align: center;
+            margin: 0 0 40px;
+        }
+        .cmp-carousel{
+            .cmp-carousel__indicators {
+                bottom: -20px;
             }
-            .cmp-carousel__action--previous{
-                display: none;
+            .cmp-carousel__indicator{
+                width: 28px;
+                height: 3px;
             }
         }
     }

@@ -19,7 +19,7 @@ public class NavigationDetailsTest {
     private static final String IMAGE_PATH = "/content/dam/core-components-examples/library/sample-assets/mountain-range.jpg";
     private static final String PAGE_DESCRIPTION = "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
     private static final String NAV_TITLE = "Monitoring";
-    private static final String PARENT_PATH = "/content/components";
+    private static final String PARENT_PATH = "/content/components.html";
 
     private AemContext context = new AemContext(ResourceResolverType.JCR_MOCK);
 

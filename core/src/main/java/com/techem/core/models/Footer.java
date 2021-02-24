@@ -1,5 +1,6 @@
 package com.techem.core.models;
 
+import com.google.common.collect.ImmutableList;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.compress.utils.Lists;
 import org.apache.sling.api.resource.Resource;
@@ -34,9 +35,9 @@ public class Footer {
     @ValueMapValue(name = "logoLink")
     private String logoLink;
 
-    private Map<FooterCategory, List<FooterLink>> footerItems;
+    private Map<FooterCategory, List<FooterLink>> footerItems = Collections.emptyMap();
 
-    private LinkedList<FooterLink> bottomItems;
+    private List<FooterLink> bottomItems = Collections.emptyList();
 
     @PostConstruct
     protected void init() {
@@ -81,7 +82,7 @@ public class Footer {
     }
 
     public List<FooterLink> getBottomItems() {
-        return bottomItems;
+        return ImmutableList.copyOf(bottomItems);
     }
 
     public String getCopyright() {

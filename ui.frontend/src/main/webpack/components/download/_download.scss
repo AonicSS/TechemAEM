@@ -1,13 +1,97 @@
-.cmp-download {}
-.cmp-download__title {}
-.cmp-download__title-link {}
-.cmp-download__description {}
-.cmp-download__properties {}
-.cmp-download__property {}
-.cmp-download__property-label {}
-.cmp-download__property-content {}
-.cmp-download__property--filename {}
-.cmp-download__property--size {}
-.cmp-download__property--format {}
-.cmp-download__action {}
-.cmp-download__action-text {}
+.download-list{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    .download-list-description{
+        font-size: 16px;
+        color: $color-dark-grey;
+        text-align: center;
+        max-width: 987px;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: 1024px) {
+        padding: 50px 1em;
+    }
+}
+.cmp-download-list{
+    max-width: 987px;
+    margin: 0 auto;
+    margin-top: 70px;
+    .download{
+        padding: 31px 0;
+        border-top: solid 1px $color-separator;
+        background-color: $color-background;
+        position: relative;
+        z-index: 1;
+        &:last-of-type{
+            border-bottom: solid 1px $color-separator;
+        }
+        &:hover{
+            box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.1);
+            border-color: transparent;
+            z-index: 2;
+            margin-bottom: -1px;
+            padding-bottom: 32px;
+        }
+    }
+    .cmp-download__link{
+        padding: 0 15px 0 63px;
+        display: block;
+        text-decoration: none;
+        color: $color-foreground-header;
+        position: relative;
+        font-family: $font-universe-roman;
+        @media only screen and (max-width: 768px) {
+            padding: 0 15px 0 35px;
+        }
+        .cmp-download__title{
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 20px;
+            font-family: $font-universe-roman-bold;
+            @media only screen and (max-width: 768px) {
+                max-width: 78%;
+            }
+        }
+        .cmp-download-pdf{
+            width: 23px;
+            height: 31px;
+            background: url(#{$iconsPath}/pdf.svg?v=2) center center no-repeat;
+            background-size: contain;
+            margin-right: 23px;
+            display: inline-block;
+            vertical-align: middle;
+            position: absolute;
+            left: 15px;
+            @media only screen and (max-width: 768px) {
+                left: 0;
+            }
+        }
+        .cmp-download__format{
+            font-size: 14px;
+            color: $color-inactive-tab;
+            text-transform: uppercase;
+        }
+        .cmp-download__description{
+            font-size: 16px;
+            color: $color-dark-grey;
+            @media only screen and (max-width: 768px) {
+                max-width: 78%;
+            }
+        }
+        .download-icon{
+            width: 16px;
+            height: 25px;
+            background: url(#{$iconsPath}/operation-download.svg?v=4) center center no-repeat;
+            background-size: contain;
+            margin-right: 23px;
+            display: inline-block;
+            vertical-align: middle;
+            position: absolute;
+            right: 15px;
+            top: 40%;
+            @media only screen and (max-width: 768px) {
+                right: -5px;
+            }
+        }
+    }
+}

@@ -142,7 +142,7 @@ header.experiencefragment{
             &-icon {
                 height: 16px;
                 width: 15px;
-                padding: 2px;
+                padding: 4px;
 
                 &-circle {
                     width: 8px;
@@ -522,7 +522,6 @@ header.experiencefragment{
     }
     .navigation {
         .header {
-            box-shadow: none;
             &_burger-menu {
                 display: block;
 
@@ -616,7 +615,7 @@ header.experiencefragment{
                 border-top: 1px solid $color-separator;
                 .header__button{
                     display: block;
-                    margin: 0 auto 80px;
+                    margin: 30px auto 150px;
                     height: 48px;
                     width: 77%;
                     border-radius: 22px;

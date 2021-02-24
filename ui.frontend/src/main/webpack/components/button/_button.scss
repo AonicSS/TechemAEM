@@ -39,7 +39,7 @@
     box-sizing: border-box;
     border: 2px solid $border-secondary-button;
     color: $border-secondary-button;
-    margin-right: 30px;
+    
     &:hover{
       background-color: $color-primary-button;
       color: #ffffff;
@@ -58,6 +58,11 @@
     width: 312px;
   }
 }
+.double-button{
+  .button-secondary {
+    margin-right: 30px;
+  }
+}
 
 @media only screen and (max-width: 720px) {
   .button{
@@ -65,6 +70,7 @@
     margin: 20px auto;
   }
   .cmp-button {
+    width: 100%;
     &.button-huge {
       width: 93%;
       margin: 20px auto;
@@ -74,6 +80,11 @@
     margin: 30px auto;
     .cmp-button__text {
       letter-spacing: -.2px;
+    }
+  }
+  .double-button{
+    .button-secondary {
+      margin: 30px auto;
     }
   }
 }

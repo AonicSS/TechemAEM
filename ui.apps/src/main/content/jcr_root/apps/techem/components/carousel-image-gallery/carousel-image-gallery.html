@@ -2,13 +2,14 @@
      data-sly-use.carouselImageGallery="com.techem.core.models.CarouselImageGallery"
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
      id="${carousel.id}"
-     class="cmp-carousel-img-gallery"
+     class="cmp-carousel-img-gallery ${wcmmode.edit ? 'author-mode': ''}"
      role="group"
      data-component-name="carousel-image-gallery"
      data-cmp-loop="${carouselImageGallery.loop  ? 'true' : 'false'}"
      data-cmp-pagination-type="${carouselImageGallery.paginationType}"
      data-cmp-autoplay="${carousel.autoplay  ? 'true' : 'false'}"
      data-cmp-delay="${carousel.delay}"
+     data-cmp-auto-height="${carouselImageGallery.autoHeight ? 'true' : 'false'}"
      data-cmp-accessibility-label="${carousel.accessibilityLabel}"
      data-cmp-data-layer="${carousel.data.json}">
 

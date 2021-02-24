@@ -16,17 +16,20 @@
             </span>
             </div>
             <div class="header__right">
-                <div class="header__search">
-                    <div data-sly-resource="${ @path='search', resourceType='techem/components/search'}" data-sly-unwrap=""></div>
-                    <i class="header__search-icon" aria-hidden="false"></i>
-                </div>
-                <button class="header__button" data-sly-attribute.button-link="${navigation.buttonLink}">
-                    <i class="header__button-icon">
-                        <div class="header__button-icon-circle"></div>
-                        <div class="header__button-icon-stroke"></div>
-                    </i>
-                    ${navigation.label}
-                </button>
+                <!--<div class="header__search">-->
+                    <!--<div data-sly-resource="${ @path='search', resourceType='techem/components/search'}" data-sly-unwrap=""></div>-->
+                    <!--<i class="header__search-icon" aria-hidden="false"></i>-->
+                <!--</div>-->
+                <sly data-sly-test="${navigation.buttonLink}">
+                    <a class="header__button" target="_blank"
+                       data-sly-attribute.button-link="${navigation.buttonLink}">
+                        <i class="header__button-icon">
+                            <div class="header__button-icon-circle"></div>
+                            <div class="header__button-icon-stroke"></div>
+                        </i>
+                        ${navigation.label}
+                    </a>
+                </sly>
                 <div class="header_burger-menu">
                     <div class="burger-click-region">
                         <span class="burger-menu-piece"></span>
@@ -45,22 +48,24 @@
                     </i></a>
                 </li>
             </ul>
-            <button class="header__button" data-sly-attribute.button-link="${navigation.buttonLink}">
-                <i class="header__button-icon">
-                    <div class="header__button-icon-circle"></div>
-                    <div class="header__button-icon-stroke"></div>
-                </i>
-                ${navigation.label}
-            </button>
+            <sly data-sly-test="${navigation.buttonLink}">
+                <button class="header__button" data-sly-attribute.button-link="${navigation.buttonLink}">
+                    <i class="header__button-icon">
+                        <div class="header__button-icon-circle"></div>
+                        <div class="header__button-icon-stroke"></div>
+                    </i>
+                    ${navigation.label}
+                </button>
+            </sly>
             <div class="header__dropdown-wrapper">
                 <div data-sly-test="${navigationItems}" data-sly-list.map="${navigationItems}" data-sly-unwrap>
                     <div class="header__dropdown-content header__dropdown-hidden"  data-sly-attribute.name="${map.key.navTitle.toLowerCase}" data-sly-list.orientation="${map.value.entrySet.iterator}">
                         <div data-sly-unwrap>
                             <div class="header-content__left" data-sly-test="${orientation.key == 'left'}">
                                 <div class="header-title-wrapper">
-                                    <a data-sly-test="${map.key.pageTitle}" href="${map.key.pagePath}.html" class="header-title" target="_self">
+                                    <a data-sly-test="${map.key.pageTitle}" href="${map.key.hidePagePathInFlyout == false ? map.key.pagePath : '#'}" class="header-title" target="_self">
                                         ${map.key.pageTitle}
-                                        <i class="header-icon">
+                                        <i data-sly-test="${map.key.hidePagePathInFlyout == false}" class="header-icon">
                                             <div class="header-arrow"></div>
                                         </i>
                                     </a>

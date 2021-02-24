@@ -6,6 +6,9 @@
   position: relative;
   cursor: pointer;
   margin: 30px 35px!important;
+  .nolink{
+    cursor: default;
+  }
   &:first-of-type{
     .cmp-teaser__image
       img{
@@ -27,8 +30,8 @@
     color: $color-foreground-header;
   }
   .cmp-image-tile-body{
-    margin: 15px 0 30px;
-    padding-bottom: 30px;
+    margin: 15px 0 0;
+    padding-bottom: 38px;
     font-family: $font-universe-roman;
     font-size: 16px;
     font-weight: normal;
@@ -38,7 +41,55 @@
   }
   .cmp-image-tile-arrow{
     border-radius: 0;
-    max-width: 30px;
+    .cmp-newsArticles-arrow {
+      display: inline-block;
+      position: absolute;
+      width: 28px;
+      height: 10px;
+      bottom: 0;
+      left: 0;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        border-style: solid;
+        border-color: $color-primary-button;
+        border-width: 2px 2px 0 0;
+        right: 0;
+        transform: rotate(45deg);
+        transition: all .2s ease-in;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        border-style: solid;
+        border-color: $color-primary-button;
+        top: 49%;
+        transform: translateY(-50%);
+        width: 28px;
+        height: 0;
+        border-width: 2px 0 0;
+        transition: all .2s ease-in;
+      }
+    }
+  }
+  &:hover{
+    .cmp-image-tile-arrow {
+
+      .cmp-newsArticles-arrow {
+        &:before{
+          right: -4px;
+        }
+        &::after {
+          width: 32px;
+        }
+      }
+    }
   }
   .cmp-teaser__image
     img{

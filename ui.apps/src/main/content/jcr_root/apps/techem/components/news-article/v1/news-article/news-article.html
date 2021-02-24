@@ -5,12 +5,18 @@
     Configure ${component.properties.jcr:title}
 </div>
 
-
 <div class="cmp-newsArticles" data-component-name="news-article">
-    <div class="cmp-newsArticles__container aem-Grid aem-Grid--12 aem-Grid--default--12" data-sly-list.articles="${newsArticles}">
+    <div class="cmp-newsArticles__container aem-Grid aem-Grid--12 aem-Grid--default--12"
+         data-sly-list.articles="${newsArticles}">
         <sly data-sly-use.template="news-templates.html"
              data-sly-call="${template.news_textStage @  stageText = articles.key, newsArticle = articles.value}">
         </sly>
     </div>
-   <!--/* <button data-sly-test="${newsModel.showMoreLabel}" class="cmp-newsArticles-button">${newsModel.showMoreLabel}</button>*/-->
+    <div class="section button">
+        <a data-sly-test="${newsModel.showMoreLabel}"
+           class="cmp-button button-primary"
+           href="${newsModel.showMorelinkUrl}" target="_blank">
+            ${newsModel.showMoreLabel}
+        </a>
+    </div>
 </div>
