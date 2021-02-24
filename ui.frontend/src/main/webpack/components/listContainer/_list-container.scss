@@ -1,5 +1,7 @@
-.list-container{
-  .cmp-container-headline{
+.list-container {
+  @include cmpMarginTop();
+
+  .cmp-container-headline {
     font-family: $font-universe-roman-bold;
     font-size: 40px;
     font-weight: 300;
@@ -7,11 +9,33 @@
     letter-spacing: -0.17px;
     text-align: center;
     color: $color-foreground-header;
-    padding-top: 100px;
+    padding-top: 0;
     margin: 0 auto 30px auto;
     max-width: 764px;
+
     @media only screen and (max-width: 768px) {
       font-size: 26px;
     }
+  }
+}
+
+.list-container {
+  .bg-gray {
+    .cmp-container-headline {
+      padding-top: 100px;
+
+      @media only screen and (max-width: 768px) {
+        padding-top: 50px;
+      }
+    }
+
+    .cmp-tile-list {
+      padding: 0 0 100px 0;
+
+      @media only screen and (max-width: 768px) {
+        padding-top: 50px;
+      }
+    }
+
   }
 }

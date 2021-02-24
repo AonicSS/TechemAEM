@@ -1,4 +1,5 @@
 .general-container{
+  @include cmpMarginTop();
   .cmp-general-container-parsys{
     width: 100%;
   }
@@ -10,8 +11,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    padding-bottom: 35px;
-    max-width: 77pc;
+    padding-bottom: 0;
+    max-width: calc(77pc + 102px);
     margin: 0 auto;
     .aem-Grid{
       display: flex;
@@ -30,9 +31,9 @@
     letter-spacing: -0.17px;
     text-align: center;
     color: $color-foreground;
-    padding-top: 30px;
+    padding-top: 0;
     max-width: 764px;
-    margin: 30px auto;
+    margin: 0 auto 30px;
   }
   .cmp-container-text{
     font-family: $font-universe-roman;
@@ -45,4 +46,32 @@
     max-width: 764px;
     margin: 30px auto 45px auto;
   }  
+}
+
+.bg-gray {
+  .general-container{
+    .cmp-container{
+      padding-bottom: 90px;
+      @media only screen and (max-width: 768px) {
+        padding-bottom: 35px;
+      }
+    }
+  }
+}
+.bg-gray{
+  .general-container{
+    .bg-gray{
+      .cmp-container-headline{
+        padding-top: 0;
+      }
+    }
+  }
+}
+.general-container{
+  .bg-gray{
+    padding: 100px 0;
+    @media only screen and (max-width: 768px) {
+      padding:50px 0;
+    }
+  }
 }

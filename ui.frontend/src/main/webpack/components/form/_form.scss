@@ -1,5 +1,6 @@
 .cmp-form-container {
   padding: 0;
+  @include cmpMarginTop();
 }
 .cmp-form {
   // gives total of 780px after grid gutter padding

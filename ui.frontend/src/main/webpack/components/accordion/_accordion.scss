@@ -1,5 +1,5 @@
 .accordion {
-  margin-bottom: 30px;
+  @include cmpMarginTop();
 }
 .cmp-accordion {
   max-width: 987px;

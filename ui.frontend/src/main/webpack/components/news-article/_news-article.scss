@@ -1,3 +1,6 @@
+.news-article {
+    @include cmpMarginTop();
+}
 .cmp-newsArticles {
     max-width: 77pc;
     margin: 0 auto;

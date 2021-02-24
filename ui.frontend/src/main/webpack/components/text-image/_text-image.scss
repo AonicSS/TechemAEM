@@ -1,5 +1,5 @@
 .text-image{
-  margin-bottom: 50px;
+  @include cmpMarginTop();
   .cmp-container-headline {
     font-family: $font-universe-roman-bold;
     font-size: 40px;
@@ -138,9 +138,10 @@
   .text-image{
     .cmp-teaser {
       display: block;
-      max-width: 90%;
+      max-width: 100%;
       .cmp-teaser__content{
         display: block;
+        padding: 0;
       }
       .cmp-content__left{
         padding:30px 0;

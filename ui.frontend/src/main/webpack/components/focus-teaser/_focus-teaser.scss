@@ -1,7 +1,9 @@
+.focus-teaser {
+    @include cmpMarginTop();
+}
 .cmp-focus-teaser {
     max-width: 77pc;
-    margin: 70px auto 70px;
-    padding: 1em 1em;
+    margin: 0 auto;
 
     &__container {
         position: relative;

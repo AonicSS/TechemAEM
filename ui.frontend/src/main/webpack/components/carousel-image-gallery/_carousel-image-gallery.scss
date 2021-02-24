@@ -1,5 +1,7 @@
 @import 'node_modules/swiper/swiper-bundle';
-
+.carousel-img-gallery {
+  @include cmpMarginTop();
+}
 .cmp-carousel-img-gallery {
   position: relative;
   max-width: 780px;

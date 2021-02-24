@@ -18,7 +18,7 @@
     justify-content: center;
     flex-wrap: wrap;
     margin: 0 auto;
-    padding: 0 0 100px 0;
+    padding: 0;
     
     .service-item:first-child {
       .cmp-tile {
@@ -40,7 +40,7 @@
       flex-direction: column;
       justify-content: space-between;
       flex-wrap: wrap;
-      margin: 20px;
+      margin: 30px 32px;
       position: relative;
 
       &:hover {
@@ -82,7 +82,7 @@
             color: $color-separator-dark;
             font-size: 16px;
             max-width: 194px;
-            height: 123px;
+            height: 106px;
           }
         }
       }
@@ -108,6 +108,7 @@
         line-height: 24px;
         text-align: left;
         padding: 22px 22px 0px 22px;
+        height: 40px;
       }
 
       .cmp-tile-subtitle {
@@ -181,9 +182,9 @@
     letter-spacing: -0.17px;
     text-align: center;
     color: $color-foreground;
-    padding-top: 70px;
+    padding-top: 0;
     max-width: 764px;
-    margin: 30px auto;
+    margin: 0 auto 30px;
   }
 
   .cmp-container-text {
@@ -210,6 +211,18 @@
 
   &:hover {
     box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+.bg-gray{
+  .cmp-container{
+    .cmp-tile-list {
+      padding: 0 0 100px 0;
+    }
+    .cmp-container-headline {
+      padding-top: 70px;
+      margin: 0 auto 30px;
+    }
   }
 }
 
