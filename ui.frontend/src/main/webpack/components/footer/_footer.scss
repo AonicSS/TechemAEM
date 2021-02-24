@@ -121,6 +121,7 @@ footer.experiencefragment{
     }
 
     &__category-wrapper {
+        margin: 0 -16px;
         .social-media__container {
              @media screen and (max-width: 767px) {
                    margin-top: 20px;
@@ -141,7 +142,7 @@ footer.experiencefragment{
 
                  @media screen and (max-width: 767px) {
                     float: none;
-                    padding: 13px 47px 12pt 8px;
+                    padding: 13px 0 12pt 0;
                  }
 
                .cmp-footer__links {
@@ -204,6 +205,7 @@ footer.experiencefragment{
                   @media screen and (max-width: 767px) {
                         text-align: left;
                         padding-top: 20px;
+                        padding-left: 8px;
                   }
               }
          }

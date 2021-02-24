@@ -55,6 +55,9 @@
             }
             &:first-of-type{
                 margin-left: 0;
+                @media screen and (max-width: 767px) {
+                    padding-left: 8px;
+                }
             }
         }
     }

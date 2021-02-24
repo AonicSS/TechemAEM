@@ -138,9 +138,10 @@
   .text-image{
     .cmp-teaser {
       display: block;
-      max-width: 90%;
+      max-width: 100%;
       .cmp-teaser__content{
         display: block;
+        padding: 0;
       }
       .cmp-content__left{
         padding:30px 0;

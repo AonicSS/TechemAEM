@@ -6,6 +6,7 @@
   @include cmpMarginTop();
   .text-image{
     margin-bottom: 0;
+    margin-top: 0;
   }
   .cmp-container-headline {
     font-family: $font-universe-roman-bold;
@@ -15,8 +16,8 @@
     letter-spacing: -.17px;
     text-align: center;
     color: #202020;
-    padding-top: 30px;
-    margin: 30px auto;
+    padding-top: 0;
+    margin: 0 auto 50px;
     max-width: 720px;
   }
   .first-text-image {
@@ -33,7 +34,7 @@
 
   .second-text-image {
     margin-top: -27px !important;
-    margin-bottom: 70px;
+    margin-bottom: 0;
 
     .cmp-image__left img {
       margin-left: -10px;
