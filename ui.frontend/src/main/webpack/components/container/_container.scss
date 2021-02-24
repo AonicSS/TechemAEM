@@ -44,44 +44,46 @@
       position: relative;
 
       &:hover {
-        cursor: pointer;
-        display: inline-block;
-        background-color: $color-background;
-        box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+        @media only screen and (min-width: 768px) {
+          cursor: pointer;
+          display: inline-block;
+          background-color: $color-background;
+          box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
 
-        .cmp-tile-left-icon {
-          display: none;
-        }
+          .cmp-tile-left-icon {
+            display: none;
+          }
 
-        a {
-          display: block;
-          margin-left: auto;
-          position: relative;
-        }
+          a {
+            display: block;
+            margin-left: auto;
+            position: relative;
+          }
 
-        .cmp-tile-icons {
-          .cmp-tile-right-icon {
+          .cmp-tile-icons {
+            .cmp-tile-right-icon {
 
-            .cmp-newsArticles-arrow {
-              bottom: 17px;
-              &:before{
-                right: -4px;
-              }
-              &::after {
-                width: 28px;
+              .cmp-newsArticles-arrow {
+                bottom: 17px;
+                &:before{
+                  right: -4px;
+                }
+                &::after {
+                  width: 28px;
+                }
               }
             }
           }
-        }
 
-        .cmp-tile-subtitle {
-          display: block;
-          font-family: $font-universe-roman;
-          padding: 10px 0 0 24px;
-          color: $color-separator-dark;
-          font-size: 16px;
-          max-width: 194px;
-          height: 123px;
+          .cmp-tile-subtitle {
+            display: block;
+            font-family: $font-universe-roman;
+            padding: 10px 0 0 24px;
+            color: $color-separator-dark;
+            font-size: 16px;
+            max-width: 194px;
+            height: 123px;
+          }
         }
       }
 
@@ -110,6 +112,7 @@
 
       .cmp-tile-subtitle {
         display: none;
+        word-break: break-word;
       }
 
       .cmp-tile-icons {
@@ -252,22 +255,6 @@
     }
     .cmp-container-headline {
       font-size: 26px;
-    }
-  }
-
-  .bg-gray .cmp-container .cmp-tile-color {
-    &:hover {
-      box-shadow: none;
-      background-color: $color-background;
-    }
-  }
-
-  .bg-white .cmp-container .cmp-tile-color {
-    background-color: $color-grey;
-
-    &:hover {
-      background-color: $color-background;
-      box-shadow: none;
     }
   }
 }
