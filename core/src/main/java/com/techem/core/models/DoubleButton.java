@@ -1,8 +1,10 @@
 package com.techem.core.models;
 
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
@@ -10,6 +12,9 @@ import javax.annotation.PostConstruct;
 @Model(adaptables = Resource.class,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class DoubleButton {
+
+    @SlingObject
+    private ResourceResolver resourceResolver;
 
     @ValueMapValue(name = "primaryButtonLabel")
     private String primaryButtonLabel;
@@ -45,6 +50,13 @@ public class DoubleButton {
     }
 
     public String getPrimaryLink() {
+        if (primaryLink != null) {
+            Resource pathResource = resourceResolver.getResource(primaryLink);
+            // check if resource exists and link is internal
+            if (pathResource != null) {
+                primaryLink = primaryLink + ".html";
+            }
+        }
         return primaryLink;
     }
 
@@ -53,6 +65,14 @@ public class DoubleButton {
     }
 
     public String getSecondaryLink() {
+
+        if (secondaryLink != null) {
+            Resource pathResource = resourceResolver.getResource(secondaryLink);
+            // check if resource exists and link is internal
+            if (pathResource != null) {
+                secondaryLink = secondaryLink + ".html";
+            }
+        }
         return secondaryLink;
     }
 
