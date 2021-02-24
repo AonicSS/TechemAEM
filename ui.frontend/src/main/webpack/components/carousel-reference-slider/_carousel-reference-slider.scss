@@ -86,12 +86,22 @@
 }
 @media only screen and (max-width: 1024px) {
     .carousel-reference-slider{
-        padding: 50px 0 100px 0;
+        padding: 50px 0 70px 0;
         .cmp-carousel-reference-headline{
             padding: 0 16px;
             font-size: 26px;
+            line-height: 1.4;
             text-align: center;
             margin: 0 0 40px;
+        }
+        .cmp-carousel{
+            .cmp-carousel__indicators {
+                bottom: -20px;
+            }
+            .cmp-carousel__indicator{
+                width: 28px;
+                height: 3px;
+            }
         }
     }
 }
