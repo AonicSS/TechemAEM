@@ -1,6 +1,8 @@
 .button{
+  @include cmpMarginTop();
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-  margin: 20px auto;
 }
 .cmp-button__text {
   font-size: 16px;
@@ -67,24 +69,16 @@
 @media only screen and (max-width: 720px) {
   .button{
     width: 93%;
-    margin: 20px auto;
   }
   .cmp-button {
     width: 100%;
     &.button-huge {
       width: 93%;
-      margin: 20px auto;
     }
   }
   .cmp-button.button-secondary {
-    margin: 30px auto;
     .cmp-button__text {
       letter-spacing: -.2px;
-    }
-  }
-  .double-button{
-    .button-secondary {
-      margin: 30px auto;
     }
   }
 }
