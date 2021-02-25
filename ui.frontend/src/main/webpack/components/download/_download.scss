@@ -1,6 +1,5 @@
 .download-list{
     @include cmpMarginTop();
-    padding-bottom: 100px;
     .download-list-description{
         font-size: 16px;
         color: $color-dark-grey;
@@ -9,7 +8,7 @@
         margin: 0 auto;
     }
     @media only screen and (max-width: 1024px) {
-        padding: 50px 1em;
+        padding: 0 1em;
     }
 }
 .cmp-download-list{
