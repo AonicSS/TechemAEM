@@ -77,10 +77,12 @@
                                 cq:policy="techem/components/margin-top/policy"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
-                        <news-article
-                                cq:policy="techem/components/margin-top/policy"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <news-article jcr:primaryType="sling:Folder">
+                            <news-article
+                                    cq:policy="techem/components/margin-top/policy"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                        </news-article>
                         <teaser-initial
                                 cq:policy="techem/components/margin-top/policy"
                                 jcr:primaryType="nt:unstructured"
@@ -90,6 +92,14 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                         <fullbleed
+                                cq:policy="techem/components/margin-top/policy"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <button
+                                cq:policy="techem/components/margin-top/policy"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <double-button
                                 cq:policy="techem/components/margin-top/policy"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
@@ -105,5 +115,9 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/core/components/policies/mapping"/>
         </root>
+        <experiencefragment_1433873681
+                cq:policy="techem/components/experiencefragment/policy_footer"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping"/>
     </jcr:content>
 </jcr:root>

@@ -1,4 +1,7 @@
 @mixin marginTop($size) {
+  @if $size == 'xs' {
+    margin-top: 20px;
+  }
   @if $size == 'sm' {
     margin-top: 70px;
 
@@ -34,6 +37,10 @@
 
   &.mt--small {
     @include marginTop(sm);
+  }
+
+  &.mt--xsmall {
+    @include marginTop(xs);
   }
 
   &.mt--large {
