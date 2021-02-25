@@ -113,7 +113,7 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/core/components/policies/mapping"/>
         </root>
-        <experiencefragment_2088209270
+        <experiencefragment_1433873681
                 cq:policy="techem/components/experiencefragment/policy_footer"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/core/components/policies/mapping"/>
