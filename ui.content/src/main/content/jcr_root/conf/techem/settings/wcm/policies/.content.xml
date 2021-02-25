@@ -246,6 +246,29 @@
                     jcr:title="Page Footer"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                                cq:styleGroupLabel="Margin top (custom)"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="mt--small"
+                                        cq:styleId="1614083648986"
+                                        cq:styleLabel="Small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                        cq:styleClasses="mt--large"
+                                        cq:styleId="1614083665068"
+                                        cq:styleLabel="Large"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                        cq:styleClasses="mt--none"
+                                        cq:styleId="1614083699866"
+                                        cq:styleLabel="No margin"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
                 </policy_footer>
             </experiencefragment>
             <container jcr:primaryType="nt:unstructured">
