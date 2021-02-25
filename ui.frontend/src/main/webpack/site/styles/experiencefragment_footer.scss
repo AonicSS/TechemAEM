@@ -1,4 +1,29 @@
 //== XF Footer style, used on page template
+.experiencefragment {
+  &.mt--none {
+    .cmp-experiencefragment--footer {
+      @include marginTop(none);
+    }
+  }
+
+  &.mt--small {
+    .cmp-experiencefragment--footer {
+      @include marginTop(sm);
+    }
+  }
+
+  &.mt--xsmall {
+    .cmp-experiencefragment--footer {
+      @include marginTop(xs);
+    }
+  }
+
+  &.mt--large {
+    .cmp-experiencefragment--footer {
+      @include marginTop(lg);
+    }
+  }
+}
 
 footer.experiencefragment {
   padding: 0.5em 1em;
