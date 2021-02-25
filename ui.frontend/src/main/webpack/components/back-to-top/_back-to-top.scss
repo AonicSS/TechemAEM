@@ -1,0 +1,27 @@
+.cmp-back-to-top {
+  position: fixed;
+  cursor: pointer;
+  z-index: 20;
+  bottom: 22px;
+  right: 22px;
+  width: 54px;
+  height: 54px;
+  transition: opacity .1s ease-in-out;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 1, 0.1);
+  border-radius: 50%;
+  border: none;
+  background: $color-background url(#{$iconsPath}/navigation-arrow-top-red.svg) no-repeat center center;
+  background-size: auto 28px;
+  opacity: 1;
+
+  &.cmp-back-to-top-hidden {
+    opacity: 0;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background: $color-primary-button url(#{$iconsPath}/navigation-arrow-top-white.svg) no-repeat center center;
+      background-size: auto 28px;
+    }
+  }
+}
