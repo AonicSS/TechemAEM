@@ -1,5 +1,14 @@
 .general-tabs-container{
     background-color: $color-grey;
+    .cmp-container-headline{
+        padding-top: 100px;
+        @media (max-width: $mobile-dimension) {
+            padding-top: 50px;
+        }
+    }
+    .general-container{
+        margin-top: 0;
+    }
 }
 .cmp-tabs__tablist {
     border-bottom: 6px solid #fff;
