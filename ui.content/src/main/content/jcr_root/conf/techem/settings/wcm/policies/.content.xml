@@ -249,6 +249,7 @@
                     jcr:description="Sets a &lt;footer> element on the page footer experience fragment."
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Footer"
+                    cq:styleDefaultClasses="mt--none"
                     sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
