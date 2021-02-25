@@ -206,7 +206,7 @@
   }
 }
 
-.bg-gray>.cmp-container .cmp-tile-color {
+.bg-gray .cmp-container .cmp-tile-color {
   background-color: $color-background;
 
   &:hover {
@@ -223,10 +223,20 @@
       padding-top: 70px;
       margin: 0 auto 30px;
     }
+    .service-item{
+      .cmp-tile-color {
+        background-color: $color-background;
+        @media only screen and (min-width: 768px) {
+          &:hover {
+            box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+    }
   }
 }
 
-.bg-white>.cmp-container .cmp-tile-color {
+.bg-white .cmp-container .cmp-tile-color {
   background-color: $color-grey;
 
   &:hover {
