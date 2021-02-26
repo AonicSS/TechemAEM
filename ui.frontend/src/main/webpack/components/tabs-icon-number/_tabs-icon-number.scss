@@ -1,4 +1,5 @@
 .general-tabs-container{
+    @include cmpMarginTop();
     background-color: $color-grey;
     .cmp-container-headline{
         padding-top: 100px;
