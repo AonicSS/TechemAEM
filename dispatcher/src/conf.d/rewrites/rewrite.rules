@@ -12,7 +12,7 @@ RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/de/de.html [PT,L]
 # RewriteRule ^/(.*)$ /content/techem/$1 [PT,L]
 RewriteRule ^/content/techem/(.*).html$ $1.html [R,L]
 
-RewriteCond %{HTTP_HOST} !^$
+RewriteCond %{HTTPS_HOST} !^$
 RewriteRule ^/?(.*) /content/$1 [L,R=301,NE,QSA]
 
 RewriteCond %{REQUEST_URI} !^/apps
