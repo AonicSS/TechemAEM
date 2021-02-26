@@ -1,14 +1,19 @@
 package com.techem.core.models;
 
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class FooterLink {
+
+    @SlingObject
+    private ResourceResolver resourceResolver;
 
     @ValueMapValue(name = "linkText")
     private String linkText;
@@ -19,9 +24,6 @@ public class FooterLink {
     @ValueMapValue(name = "openNewTab")
     private Boolean openNewTab;
 
-    @ValueMapValue(name = "noHtmlExtention")
-    private Boolean noHtmlExtention;
-
     @PostConstruct
     protected void init() {
     }
@@ -31,14 +33,17 @@ public class FooterLink {
     }
 
     public String getLinkUrl() {
+        if (linkUrl != null) {
+            Resource pathResource = resourceResolver.getResource(linkUrl);
+            // check if resource exists and link is internal
+            if (pathResource != null) {
+                linkUrl = linkUrl + ".html";
+            }
+        }
         return linkUrl;
     }
 
     public Boolean getOpenNewTab() {
         return openNewTab;
-    }
-
-    public Boolean getNoHtmlExtention() {
-        return noHtmlExtention;
     }
 }

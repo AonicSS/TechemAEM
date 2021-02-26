@@ -8,14 +8,14 @@
      id="${component.id}"
      class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''} cmp-tile cmp-tile-color"
      data-cmp-data-layer="${teaser.data.json}">
-	<a href="${serviceItem.linkURL @ extension='html'}">
+	<a href="${serviceItem.linkURL}">
     <div class="cmp-teaser__content">
 		<div class="cmp-tile-title">${serviceItem.productTitle}</div>
 		<div class="cmp-tile-subtitle">${serviceItem.description}</div>
     </div>
 	<div class="cmp-tile-icons">
         <div class="cmp-tile-left-icon" data-sly-call="${imageTemplate.image @ teaser=teaser}"></div>
-		<a href="${serviceItem.linkURL @ extension='html'}">
+		<a href="${serviceItem.linkURL}">
     <i class="cmp-tile-right-icon cmp-newsArticles-icon">
       <div class="cmp-newsArticles-arrow"></div>
     </i>
