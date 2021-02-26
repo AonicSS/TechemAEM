@@ -1,0 +1,7 @@
+<sly data-sly-use.model="com.techem.core.models.CookieDeclaration"/>
+
+<p data-sly-test="${!wcmmode.disabled}">Cookie Declaration</p>
+
+<sly data-sly-test="${wcmmode.disabled}">
+    <script id="CookieDeclaration" src="${model.scriptUrl}" type="text/javascript" async></script>
+</sly>
