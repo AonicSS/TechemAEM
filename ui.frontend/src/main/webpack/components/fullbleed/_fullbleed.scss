@@ -140,7 +140,7 @@
         .cmp-teaser {
             height: 380px;
             &__content{
-                width: 90%;
+                width: calc(100% - 32px);
             }
             &__headline{
                 font-size: 26px;
@@ -151,6 +151,7 @@
             .cmp-teaser__action-container {
                 .cmp-teaser__action-link{
                     padding: 14px 0;
+                    max-width: 90%;
                 }
 
             }

@@ -149,7 +149,7 @@
     burger menu
     --------------------------------------------- */
     function burgermenuinit() {
-        var clickDelay = 500,
+        var clickDelay = 100,
             clickDelayTimer = null;
         $('.burger-click-region').on('click', function () {
             if (clickDelayTimer === null) {
@@ -173,12 +173,12 @@
         });
     }
     $(document).ready(function () {
+        burgermenuinit();
         var $notification = $("header[data-component-name='navigation']");
         Array.prototype.forEach.call($notification, function (element) {
             if (element && element.dataset.initialized !== "true") {
                 new NotificationModule(element);
             }
         });
-        burgermenuinit();
     });
 }());

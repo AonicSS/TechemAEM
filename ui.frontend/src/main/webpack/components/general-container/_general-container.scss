@@ -34,6 +34,10 @@
     padding-top: 0;
     max-width: 764px;
     margin: 0 auto 30px;
+    @media only screen and (max-width: 768px) {
+      font-size: 26px;
+      padding: 0 16px;
+    }
   }
   .cmp-container-text{
     font-family: $font-universe-roman;
@@ -45,6 +49,9 @@
     text-align: center;
     max-width: 764px;
     margin: 30px auto 45px auto;
+    @media only screen and (max-width: 768px) {
+      padding: 0 16px;
+    }
   }  
 }
 
