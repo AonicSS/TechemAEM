@@ -138,12 +138,16 @@
                 -webkit-line-clamp: 4;
                 -webkit-box-orient: vertical;
                 display: -moz-box;
-                -moz-line-clamp: 3;
+                -moz-line-clamp: 4;
                 -moz-box-orient: vertical;
 
                 ul {
-                    max-height: 200px;
+                    max-height: 100px;
                     overflow: hidden;
+                    text-overflow: ellipsis;
+                    -webkit-line-clamp: 4;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
                 }
 
                 @media (max-width: 769px) {
