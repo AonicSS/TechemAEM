@@ -527,11 +527,12 @@ header.experiencefragment{
                 display: block;
 
                 .burger-click-region {
-                    width: 18px;
-                    height: 18px;
+                    width: 40px;
+                    height: 40px;
                     cursor: pointer;
                     position: relative;
-                    margin: 0;
+                    z-index: 99;
+                    margin: 22px 0 0 0;
                     -webkit-box-sizing: content-box;
                     box-sizing: content-box;
                     text-align: center;
@@ -645,6 +646,7 @@ header.experiencefragment{
                             font-family: $font-universe-roman;
                             font-size: 18px;
                             color: $color-foreground-header;
+                            display: block;
                         }
                         .header-icon-mobile{
                             display: inline-block;
@@ -693,6 +695,10 @@ header.experiencefragment{
                     line-height: 1.42;
                     letter-spacing: 0.18px;
                     box-decoration-break: clone;
+                    display: block;
+                    .header-icon{
+                        margin-right: 10px;
+                    }
                 }
                 .headline{
                     width: 100%;
@@ -717,6 +723,7 @@ header.experiencefragment{
                     line-height: 1.42;
                     letter-spacing: 0.18px;
                     box-decoration-break: clone;
+                    display: block;
                 }
                 .headline-wrapper{
                     padding-top: 20px;
