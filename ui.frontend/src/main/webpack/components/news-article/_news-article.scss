@@ -1,9 +1,14 @@
 .news-article {
     @include cmpMarginTop();
 }
+
 .cmp-newsArticles {
     max-width: 77pc;
     margin: 0 auto;
+
+    .cmp-newsArticles_link {
+        display: inline-block;
+    }
 
     .cmp-newsArticles-button {
         height: 34px;
@@ -132,6 +137,14 @@
                 display: -webkit-box;
                 -webkit-line-clamp: 4;
                 -webkit-box-orient: vertical;
+                display: -moz-box;
+                -moz-line-clamp: 3;
+                -moz-box-orient: vertical;
+
+                ul {
+                    max-height: 200px;
+                    overflow: hidden;
+                }
 
                 @media (max-width: 769px) {
                     height: auto;
@@ -147,8 +160,8 @@
             .cmp-newsArticles-icon-wrapper {
                 position: relative;
                 margin: 30px 0 70px;
-                top: 0;
                 clear: both;
+
                 @media (max-width: 769px) {
                     margin: 10px 0 60px;
                 }
@@ -195,7 +208,8 @@
             }
         }
     }
-    .section.button{
+
+    .section.button {
         margin-top: 20px;
     }
 }
