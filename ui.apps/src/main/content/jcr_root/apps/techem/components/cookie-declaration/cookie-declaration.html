@@ -1,6 +1,8 @@
-<div class="cmp-cookie-declaration" data-sly-use.model="com.techem.core.models.CookieDeclaration">
+<div class="cmp-cookie-declaration"
+     data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page"
+     data-sly-use.model="com.techem.core.models.CookieDeclaration">
     <p data-sly-test="${!wcmmode.disabled}">Cookie Declaration</p>
     <sly data-sly-test="${wcmmode.disabled}">
-        <script id="CookieDeclaration" src="${model.scriptUrl}" type="text/javascript" async></script>
+        <script id="CookieDeclaration" data-culture="${page.language.toString.toUpperCase}" src="${model.scriptUrl}" type="text/javascript" async></script>
     </sly>
 </div>
