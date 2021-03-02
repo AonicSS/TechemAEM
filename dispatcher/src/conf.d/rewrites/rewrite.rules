@@ -7,26 +7,18 @@
 
 Include conf.d/rewrites/default_rewrite.rules
 
-# RewriteCond %{HTTPS_HOST} !pre-live\.techem\.de [NC]
-# RewriteRule ^/?(.*) https://pre-live.techem.de/$1 [L,R=301,NE,QSA]
+RewriteCond %{HTTP_HOST} ^techem\.de [NC]
+RewriteRule ^/?(.*) https://www.techem.com/de/de.html [L,R=301,NE,QSA]
 
-RewriteCond %{HTTPS_HOST} sales-dev\.techem\.de [NC]
-RewriteRule ^/?(.*) https://pre-live.techem.de/$1 [L,R=301,NE,QSA]
+RewriteCond %{HTTP_HOST} www\.techem\.de [NC]
+RewriteRule ^/?(.*) https://www.techem.com/de/de.html [L,R=301,NE,QSA]
 
-RewriteCond %{HTTPS_HOST} techem\.de$ [NC]
-RewriteRule ^/?(.*) https://www.techem.de/de/de.html [L,R=301,NE,QSA]
-
-RewriteCond %{HTTPS_HOST} www\.techem\.de$ [NC]
-RewriteRule ^/?(.*) https://www.techem.de/de/de.html [L,R=301,NE,QSA]
-
-RewriteCond %{HTTPS_HOST} techem\.com$ [NC]
+RewriteCond %{HTTP_HOST} ^techem\.com [NC]
 RewriteRule ^/?(.*) https://www.techem.com/corp/en.html [L,R=301,NE,QSA]
 
-RewriteCond %{HTTPS_HOST} www\.techem\.com$ [NC]
+RewriteCond %{HTTP_HOST} www\.techem\.com [NC]
 RewriteRule ^/?(.*) https://www.techem.com/corp/en.html [L,R=301,NE,QSA]
 
-RewriteCond %{HTTPS_HOST} !www\.techem\.com [NC]
-RewriteRule ^/?(.*) https://www.techem.com/$1 [L,R=301,NE,QSA]
 
 # external redirects
 RewriteRule ^2/portal$ https://portal.techem.de/welcome [L,R=301,NE,QSA]
@@ -120,6 +112,7 @@ RewriteRule ^rauchwarnmelder-komplettservice    https://anmeldungen.techem.de/ra
 RewriteRule ^energieausweis-beantragen  https://anmeldungen.techem.de/energieausweis-beantragen [L,R=301,NE,QSA]
 RewriteRule ^rauchwarnmelder-pruefpflicht   https://anmeldungen.techem.de/rauchwarnmelder-pruefpflicht [L,R=301,NE,QSA]
 RewriteRule ^rauchwarnmelder-experte    https://anmeldungen.techem.de/rauchwarnmelder-experte [L,R=301,NE,QSA]
+RewriteRule ^de/de/infos-und-service/mieterinfos https://www.techem.com/de/de/infos-und-service/mieterinfos.html [L,R=301,NE,QSA]
 
 # 302
 RewriteRule ^leistungen/smartheating    https://www.techem.com/de/de.html [L,R=302,NE,QSA]
@@ -146,9 +139,8 @@ RewriteRule ^fuer-wen/private-vermieter https://www.techem.com/de/de.html [L,R=3
 RewriteRule ^warmwasserkosten   https://www.techem.com/de/de/geraete.html [L,R=302,NE,QSA]
 
 # rewrite for root redirect
-RewriteRule ^/?$ /content/techem/de/de.html [PT,L]
 # RewriteRule ^/(.*)$ /content/techem/$1 [PT,L]
-RewriteRule ^/content/techem/(.*).html$ $1.html [R,L]
+RewriteRule ^/content/techem/(.*).html$ $1.html [R=301,L]
 
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
