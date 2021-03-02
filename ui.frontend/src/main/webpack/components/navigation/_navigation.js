@@ -39,8 +39,9 @@
 
                 if ($target.is("li")) {
                     $link = $target;
-                } else {
-                    $link = $target.parent();
+                } 
+                else {
+                    $link = $target.closest('li');
                 }
 
                 var navItemAttr = $link && $link.attr(this.atributes.dropdownItem);
