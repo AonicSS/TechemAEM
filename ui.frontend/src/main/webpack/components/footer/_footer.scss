@@ -7,7 +7,6 @@ footer.experiencefragment{
     border-bottom: 4px solid $color-primary-button;
 }
 .cmp-footer {
-    min-height: 442px;
     padding: 70px 0;
     background: #1d1d1b;
     border-top: 8px solid #222;
@@ -26,8 +25,8 @@ footer.experiencefragment{
 
         .cmp-footer__logo-wrapper {
             border-bottom: 1px solid #4d4d4d;
-            padding: 20px 0 25px 0;
-            margin-bottom: 25px;
+            padding: 20px 0 30px 0;
+            margin-bottom: 31px;
         }
 
         @media screen and (max-width: 767px) {
@@ -136,9 +135,9 @@ footer.experiencefragment{
     .cmp-footer__bottom {
          border-top: 1px solid #4d4d4d;
          line-height: 24px;
-         margin: 54px 0 0 0;
+         margin: 30px 0 0 0;
          overflow: hidden;
-         padding: 30px 0 18px 0;
+         padding: 30px 0 30px 0;
          text-align: center;
 
          .cmp-footer__left {
