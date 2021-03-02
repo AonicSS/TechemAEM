@@ -13,6 +13,9 @@ footer.experiencefragment{
     border-top: 8px solid #222;
     font-size: 14px;
     color: $color-background;
+    @media screen and (max-width: 767px) {
+        padding: 20px 0;
+    }
     &__link{
         color: #ffffff;
         text-decoration: none;
@@ -23,12 +26,13 @@ footer.experiencefragment{
 
         .cmp-footer__logo-wrapper {
             border-bottom: 1px solid #4d4d4d;
-            padding: 20px 0 20px 0;
-            margin-bottom: 20px;
+            padding: 20px 0 25px 0;
+            margin-bottom: 25px;
         }
 
         @media screen and (max-width: 767px) {
             padding: 0 20px 0 20px;
+            margin-bottom: 20px;
         }
     }
 
@@ -134,7 +138,7 @@ footer.experiencefragment{
          line-height: 24px;
          margin: 54px 0 0 0;
          overflow: hidden;
-         padding: 23px 0 18px 0;
+         padding: 30px 0 18px 0;
          text-align: center;
 
          .cmp-footer__left {
@@ -153,7 +157,7 @@ footer.experiencefragment{
                     .footer-link {
                          height: 24px;
                          text-decoration-line: none;
-                         margin-right: 20px;
+                         margin-right: 25px;
                          opacity: 0.8;
                          font-family: $font-universe-roman;
                          font-size: 14px;
@@ -165,6 +169,7 @@ footer.experiencefragment{
                          color: #b2b2b1;
                          padding-bottom: 3px;
                          border-bottom: solid 1px transparent;
+                         padding: 0;
                          &:hover{
                             border-color: $color-primary-button;
                          }
@@ -172,6 +177,7 @@ footer.experiencefragment{
                           @media screen and (max-width: 767px) {
                                 margin: 10px 0;
                                 text-align: left;
+                                padding-left: 16px;
                                 &:hover{
                                     border-color: transparent;
                                 }
