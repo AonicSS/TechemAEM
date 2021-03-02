@@ -550,17 +550,17 @@ header.experiencefragment{
                         transition: transform 400ms ease-out;
 
                         &:nth-child(1) {
-                            top: 4px;
+                            top: 3px;
                         }
 
                         &:nth-child(2) {
-                            top: 10px;
+                            top: 9px;
                             opacity: 1;
-                            height: 2px;
+                            height: 1.5px;
                         }
 
                         &:nth-child(3) {
-                            top: 17px;
+                            top: 15px;
                             width: 9px;
                         }
                     }
@@ -572,6 +572,8 @@ header.experiencefragment{
 
                         &:nth-child(1) {
                             animation: burger-open-top 400ms ease-out forwards;
+                            width: 19px;
+                            top: 2px;
                         }
 
                         &:nth-child(2) {
@@ -579,7 +581,7 @@ header.experiencefragment{
                         }
 
                         &:nth-child(3) {
-                            width: 18px;
+                            width: 19px;
                             animation: burger-open-bot 400ms ease-out forwards;
                         }
                     }
