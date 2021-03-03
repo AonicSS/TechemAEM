@@ -47,6 +47,8 @@
             vertical-align: middle;
             font-size: 20px;
             font-family: $font-universe-roman-bold;
+            word-break: break-word;
+            overflow-wrap: break-word;
             @media only screen and (max-width: 768px) {
                 max-width: 78%;
             }
