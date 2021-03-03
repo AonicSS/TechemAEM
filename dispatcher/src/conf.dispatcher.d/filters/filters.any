@@ -8,3 +8,4 @@ $include "./default_filters.any"
 
 # Allow components JSON model
 /0101 { /type "allow" /extension "json" /selectors "model" /path "/content/*" }
+/0999 { /type "allow" /glob " * /libs/granite/csrf/token.json*" }

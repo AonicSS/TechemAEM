@@ -15,5 +15,7 @@
 */-->
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
     <sly data-sly-call="${clientlib.css @ categories='techem.base'}">
+        <!--/* activate CSRF Protection Framework */-->
+        <csrf data-sly-call="${clientLib.site @ categories='granite.csrf.standalone'}" data-sly-unwrap></csrf>
 </sly>
 <sly data-sly-include="favicon.html"></sly>
