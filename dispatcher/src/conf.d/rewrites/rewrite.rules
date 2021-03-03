@@ -136,7 +136,7 @@ RewriteRule ^/leistungen/digitale-abrechnungs-services  https://www.techem.com/d
 RewriteRule ^/fuer-wen/wohnungswirtschaft   https://www.techem.com/de/de.html [L,R=302,NE,QSA]
 RewriteRule ^/fuer-wen/private-vermieter    https://www.techem.com/de/de.html [L,R=302,NE,QSA]
 RewriteRule ^/warmwasserkosten  https://www.techem.com/de/de/geraete.html [L,R=302,NE,QSA]
-RewriteRule ^/de/de/infos-und-service/mieterinfos$ https://www.techem.com/de/de/infos-und-service/mieterinfos.html [L,R=302,NE,QSA]
+RewriteRule ^/de/de/info-und-service/mieterinfos$ https://www.techem.com/de/de/info-und-service/mieterinfos.html [L,R=302,NE,QSA]
 RewriteRule ^/legionellenpruefung https://www.techem.com/de/de/immobilienservices/legionellenpruefung.html [L,R=302,NE,QSA]
 RewriteRule ^/portal https://portal.techem.de/welcome [L,R=302,NE,QSA]
 RewriteRule ^/fileadmin/user_upload/Factbook_Techem_Waermewende.pdf  https://anmeldungen.techem.de/fileadmin/user_upload/Factbook_Techem_Waermewende.pdf [L,R=302,NE,QSA]
