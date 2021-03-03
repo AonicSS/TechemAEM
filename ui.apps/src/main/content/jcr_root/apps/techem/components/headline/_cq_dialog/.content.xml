@@ -61,8 +61,8 @@
                                                 fieldLabel="Headline"
                                                 maxlength="{Long}75"
                                                 name="./headline"
-                                                removeSingleParagraphContainer="{String}true"
                                                 required="{Boolean}true"
+                                                removeSingleParagraphContainer="{String}true"
                                                 useFixedInlineToolbar="{Boolean}true">
                                                 <rtePlugins jcr:primaryType="nt:unstructured">
                                                     <misctools
@@ -77,6 +77,11 @@
                                                         </specialCharsConfig>
                                                     </misctools>
                                                 </rtePlugins>
+                                                <htmlRules jcr:primaryType="nt:unstructured">
+                                                    <blockHandling
+                                                            jcr:primaryType="nt:unstructured"
+                                                            removeSingleParagraphContainer="{String}true"/>
+                                                </htmlRules>
                                                 <uiSettings jcr:primaryType="nt:unstructured">
                                                     <cui jcr:primaryType="nt:unstructured">
                                                         <inline
