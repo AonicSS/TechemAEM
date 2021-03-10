@@ -143,7 +143,7 @@ RewriteRule ^/portal https://portal.techem.de/welcome [L,R=302,NE,QSA]
 RewriteRule ^/fileadmin/user_upload/Factbook_Techem_Waermewende.pdf  https://anmeldungen.techem.de/fileadmin/user_upload/Factbook_Techem_Waermewende.pdf [L,R=302,NE,QSA]
 
 # new block 08.03.2021
-RewriteRule ^/dhl-retoure   https://www.dhl.de/retoure/gw/rpcustomerweb/OrderEntry.action?hash=%24apr1%24R2wWnTX6%24wUyA3gbladyu0M1ENjlVG1 [L,R=302,NE,QSA]
+RewriteRule ^/dhl-retoure https://www.dhl.de/retoure/gw/rpcustomerweb/OrderEntry.action?hash=\%24apr1\%24R2wWnTX6\%24wUyA3gbladyu0M1ENjlVG1 [NE,N,L,R=301]
 RewriteRule ^/fileadmin/user_upload/epaper-EKW-2019_Leseversion https://www.techem.com/de/de/ueber-uns/newsroom.html [L,R=302,NE,QSA]
 RewriteRule ^/gewerbeimmobilien/online_services/abrechnung_online.html  https://www.techem.com/de/de/abrechnung.html [L,R=301,NE,QSA]
 RewriteRule ^/de/ueber-techem/techem-vor-ort/deutschland/muenchen.html  https://www.techem.com/de/de/info-und-service/standorte.html [L,R=301,NE,QSA]
