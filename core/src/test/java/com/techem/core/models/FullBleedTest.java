@@ -23,9 +23,11 @@ class FullBleedTest
 
 	private static final String HEADLINE = "headline";
 	private static final String BODY = "body";
+	private static final String HTML_ID = "htmlId";
 
 	private static final String EXPECTED_HEADLINE = "Headline for Full Bleed";
 	private static final String EXPECTED_BODY = "Body for Full Bleed";
+	private static final String EXPECTED_HTML_ID = "ID for Full Bleed";
 
 	private Page page;
 	private Resource resource;
@@ -38,7 +40,8 @@ class FullBleedTest
 		resource = context.create().resource(page, "fullBleed",
 				RESOURCE_TYPE, COMPONENT_RESOURCE_TYPE,
 				HEADLINE, EXPECTED_HEADLINE,
-				BODY, EXPECTED_BODY);
+				BODY, EXPECTED_BODY,
+				HTML_ID, EXPECTED_HTML_ID);
 
 		fullBleed = resource.adaptTo(FullBleed.class);
 	}
@@ -55,5 +58,12 @@ class FullBleedTest
 	{
 		assertNotNull(fullBleed);
 		assertEquals(EXPECTED_BODY, fullBleed.getBody());
+	}
+
+	@Test
+	void testFullBleedId() throws Exception
+	{
+		assertNotNull(fullBleed);
+		assertEquals(EXPECTED_HTML_ID, fullBleed.getHtmlId());
 	}
 }
