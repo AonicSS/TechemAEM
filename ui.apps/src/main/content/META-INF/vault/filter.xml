@@ -3,5 +3,4 @@
     <filter root="/apps/techem/clientlibs"/>
     <filter root="/apps/techem/components"/>
     <filter root="/apps/techem/i18n"/>
-    <filter root="/apps/wcm/foundation"/>
 </workspaceFilter>
