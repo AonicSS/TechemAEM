@@ -7,7 +7,7 @@
      data-sly-use.bodyTemplate="body.html"
      data-sly-use.actionsTemplate="actions.html"
      data-sly-test.hasContent="${teaser.imageResource || fullBleed.headline || fullBleed.body || teaser.actions.size > 0}"
-     id="${component.id}"
+     id="${fullBleed.htmlId}"
      class="cmp-teaser${!wcmmode.disabled && teaser.imageResource ? ' cq-dd-image' : ''}"
      data-cmp-data-layer="${teaser.data.json}"
 	 style="background-image:url('${properties.fileReference @ context='styleString'}');">
