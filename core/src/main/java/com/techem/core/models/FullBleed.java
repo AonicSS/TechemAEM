@@ -27,6 +27,9 @@ public class FullBleed {
     @Default(values = "Body")
     private String body;
 
+    @ValueMapValue(name="htmlId")
+    private String htmlId;
+
     public String getHeadline() {
         return headline;
     }
@@ -34,4 +37,6 @@ public class FullBleed {
     public String getBody() {
         return body;
     }
+
+    public String getHtmlId() { return htmlId; }
 }

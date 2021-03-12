@@ -144,6 +144,12 @@
                                                 maxlength="{Long}87"
                                                 name="./body"
                                                 required="{Boolean}true"/>
+                                            <htmlId
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="The HTML ID for the fullbleed component"
+                                                    fieldLabel="HTML ID"
+                                                    name="./htmlId"/>
                                         </items>
                                     </column>
                                 </items>
