@@ -53,11 +53,16 @@
 
 @media (max-width: $mobile-dimension) {
     .cmp-tabs__tab {
-        margin: 10px 1px;
+        margin: 10px 1px 0;
         font-size: 16px;
         &:after{
             border-bottom: 4px solid transparent;
-            bottom: -1px;
+            bottom: -5px;
+        }
+    }
+    .cmp-tabs__tab--active {
+        &:after{
+            border-color: $color-primary-button;
         }
     }
 }

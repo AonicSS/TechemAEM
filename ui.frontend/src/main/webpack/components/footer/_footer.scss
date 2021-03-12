@@ -22,6 +22,9 @@ footer.experiencefragment{
     &__container {
         max-width: 77pc;
         margin: 0 auto;
+        @media screen and (max-width: 1025px){
+            padding: 0 32px;
+        }
 
         .cmp-footer__logo-wrapper {
             border-bottom: 1px solid #4d4d4d;
@@ -173,13 +176,16 @@ footer.experiencefragment{
                             border-color: $color-primary-button;
                          }
 
-                          @media screen and (max-width: 767px) {
+                          @media screen and (max-width: 1024px) {
                                 margin: 10px 0;
                                 text-align: left;
-                                padding-left: 16px;
+                                padding-right: 16px;
                                 &:hover{
                                     border-color: transparent;
                                 }
+                          }
+                          @media screen and (max-width: 768px) {
+                            padding-left: 16px;
                           }
                     }
                }
