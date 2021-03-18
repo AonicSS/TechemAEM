@@ -163,6 +163,12 @@ RewriteRule ^/fileadmin/de/Downloads/2017_Allgemeine-Geschaeftsbedingungen_Teche
 RewriteRule ^/fileadmin/de/Downloads/Muster-Widerrufsformular_TES.pdf   https://www.techem.com/content/dam/techem/downloads/rechtliches/widerruf/Muster-Widerrufsformular_TES.pdf.coredownload.pdf [L,R=301,NE,QSA]
 RewriteRule ^/fileadmin/de/Downloads/Widerrufsbelehrung_TES.pdf https://www.techem.com/content/dam/techem/downloads/rechtliches/widerruf/Widerrufsbelehrung_TES.pdf.coredownload.pdf [L,R=301,NE,QSA]
 
+# new block 17.03.2021
+RewriteRule ^/fileadmin/user_upload/PKD/hero-wide.jpg$ https://anmeldungen.techem.de/fileadmin/user_upload/PKD/hero-wide.jpg [L,R=302,NE,QSA]
+RewriteRule ^/fileadmin/user_upload/PKD/logo-black.png$ https://anmeldungen.techem.de/fileadmin/user_upload/PKD/logo-black.png [L,R=302,NE,QSA]
+RewriteRule ^/fileadmin/newsroom.techem.de/PKD/Techem_Direct_couple.jpg$ https://anmeldungen.techem.de/fileadmin/user_upload/PKD/Techem_Direct_couple.jpg [L,R=302,NE,QSA]
+RewriteRule ^/abmeldung$ https://anmeldungen.techem.de/t-abmeldung [L,R=302,NE,QSA]
+
 # rewrite for root redirect
 # RewriteRule ^/(.*)$ /content/techem/$1 [PT,L]
 RewriteRule ^/content/techem/(.*).html$ $1.html [R=301,L]
