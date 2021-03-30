@@ -172,6 +172,9 @@ RewriteRule ^/abmeldung$ https://anmeldungen.techem.de/t-abmeldung [L,R=302,NE,Q
 # new block 25.03.2021
 RewriteRule ^/error$ https://www.techem.com/de/de/error-kupo.html [L,R=302,NE,QSA]
 
+# new block 29.03.2021
+RewriteRule ^/dienstleisterliste https://www.techem.com/de/de/techem-dienstleistersuche.html [L,R=302,NE,QSA]
+
 # rewrite for root redirect
 # RewriteRule ^/(.*)$ /content/techem/$1 [PT,L]
 RewriteRule ^/content/techem/(.*).html$ $1.html [R=301,L]
