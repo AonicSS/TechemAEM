@@ -10,8 +10,9 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-@Model(adaptables = Resource.class,
-        defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Model(adaptables = Resource.class, adapters = DoubleButton.class,
+        defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL,
+        resourceType = "techem/components/double-button")
 public class DoubleButton {
 
     @Inject
