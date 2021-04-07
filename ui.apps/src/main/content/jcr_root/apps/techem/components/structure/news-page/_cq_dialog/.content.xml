@@ -108,7 +108,6 @@
                                             name="./date"
                                             renderReadOnly="true"
                                             type="date"
-                                            minDate="today"
                                             required="{Boolean}true"/>
                                     <text
                                             jcr:primaryType="nt:unstructured"
