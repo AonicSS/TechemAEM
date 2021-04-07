@@ -5,7 +5,7 @@
 </div>
 
 <div class="cmp-double-button">
-    <button x-cq-linkchecker="skip" data-sly-test="${doubleButton.showSecondaryButton && doubleButton.secondaryButtonLabel}"
+    <button data-sly-test="${doubleButton.showSecondaryButton && doubleButton.secondaryButtonLabel}"
             data-sly-element="${doubleButton.secondaryLink ? 'a' : 'button'}"
             class="cmp-button button-secondary"
             href="${doubleButton.secondaryLink}"
@@ -13,7 +13,7 @@
             target="${doubleButton.openNewTabSecondary ? '_blank' : '_self'}">
         <span data-sly-test="${doubleButton.secondaryButtonLabel}" class="cmp-button__text">${doubleButton.secondaryButtonLabel}</span>
     </button>
-    <button data-sly-test="${doubleButton.primaryButtonLabel}" x-cq-linkchecker="skip" data-sly-element="${doubleButton.primaryLink ? 'a' : 'button'}"
+    <button data-sly-test="${doubleButton.primaryButtonLabel}" data-sly-element="${doubleButton.primaryLink ? 'a' : 'button'}"
             class="cmp-button button-primary"
             href="${doubleButton.primaryLink}"
             aria-label="${doubleButton.accessibilityLabel}"

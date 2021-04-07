@@ -64,7 +64,6 @@
                                                     fieldLabel="Stage Headline"
                                                     name="./stageHeadline"
                                                     removeSingleParagraphContainer="{String}true"
-                                                    required="{Boolean}true"
                                                     useFixedInlineToolbar="{Boolean}true">
                                                 <rtePlugins jcr:primaryType="nt:unstructured">
                                                     <misctools

@@ -46,7 +46,7 @@
                 </a>
                 <ul class="cmp-footer__links" role="presentation" data-sly-list.footerlink="${footer.value}">
                     <li>
-                        <a x-cq-linkchecker="skip" class="cmp-footer__link" href="${footerlink.linkUrl}"
+                        <a class="cmp-footer__link" href="${footerlink.linkUrl}"
                            target="${footerlink.openNewTab ? '_blank' : ''}">
                             ${footerlink.linkText}
                         </a>
@@ -64,7 +64,7 @@
                     <ul class="cmp-footer__links aem-Grid aem-Grid--12 aem-Grid--default--12"
                         data-sly-test="${footerModel.bottomItems}"
                         data-sly-list.bottomItems="${footerModel.bottomItems}">
-                        <a x-cq-linkchecker="skip" class="footer-link aem-GridColumn aem-GridColumn--phone--12"
+                        <a class="footer-link aem-GridColumn aem-GridColumn--phone--12"
                            href=" ${bottomItems.linkUrl}"
                            target="${bottomItems.openNewTab ? '_blank' : ''}">
                             ${bottomItems.linkText}
