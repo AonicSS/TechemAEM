@@ -8,10 +8,14 @@ import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 @Model(adaptables = Resource.class,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class DoubleButton {
+
+    @Inject
+    private Resource resource;
 
     @SlingObject
     private ResourceResolver resourceResolver;
