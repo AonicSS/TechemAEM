@@ -3,7 +3,7 @@
      data-sly-use.techemDownload="com.techem.core.models.Download"
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
      id="${component.id}">
-    <a data-sly-unwrap="${!download.url}" class="cmp-download__link" href="${download.url}">
+    <a data-sly-unwrap="${!download.url}" class="cmp-download__link" target="_blank" href="${download.url}">
         <sly data-sly-test.isPDF="${techemDownload.iconFormat=='PDF'}" >
             <span class="cmp-download-pdf"></span>
         </sly>

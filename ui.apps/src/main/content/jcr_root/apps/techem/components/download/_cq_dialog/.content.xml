@@ -116,7 +116,7 @@
                                                 checked="{Boolean}false"
                                                 fieldDescription="When checked, the download asset will be displayed inline in the browser."
                                                 name="./inline"
-                                                text="Display inline insted of download"
+                                                text="Display inline instead of download"
                                                 uncheckedValue="{Boolean}false"
                                                 value="{Boolean}true"/>
                                         </items>
