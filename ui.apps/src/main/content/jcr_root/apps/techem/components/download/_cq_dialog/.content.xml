@@ -110,6 +110,15 @@
                                                 fieldDescription="Description of the component"
                                                 fieldLabel="Description"
                                                 name="./description"/>
+                                            <inline
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                checked="{Boolean}false"
+                                                fieldDescription="When checked, the download asset will be displayed inline in the browser."
+                                                name="./inline"
+                                                text="Display inline insted of download"
+                                                uncheckedValue="{Boolean}false"
+                                                value="{Boolean}true"/>
                                         </items>
                                     </column>
                                 </items>
