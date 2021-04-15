@@ -7,5 +7,4 @@ Allow: /de/de
 Disallow: /
 
 #Crawl all sitemaps mentioned below
-Sitemap: https://author-p24105-e71734.adobeaemcloud.com/content/techem/de/de.html.sitemap.xml
 Sitemap: https://www.techem.com/de/de.html.sitemap.xml
