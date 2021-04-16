@@ -17,7 +17,8 @@
   "resource.resolver.allowDirect":true,
   "resource.resolver.mapping":[
     "/:/",
-    "/content/techem/(.*)</$1"
+    "/content/techem/(.*)</$1",
+    "/content/dam/techem/robots.txt>/robots.txt$"
   ],
   "resource.resolver.vanitypath.whitelist":[
     "/apps/",

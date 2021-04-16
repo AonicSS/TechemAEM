@@ -1,0 +1,14 @@
+{
+  "@primaryType": "sling:OsgiConfig",
+  "@sling.servlet.resourceTypes": "[techem/components/page]",
+  "@character.encoding": "UTF-8",
+  "@exclude.properties": "[seoIndex,seoFollow]",
+  "@externalizer.domain": "publish",
+  "@include.lastmod": "{Boolean}true",
+  "@changefreq.properties": [],
+  "@priority.properties": [],
+  "@damassets.property": "/content/dam/techem",
+  "@damassets.types": [],
+  "@extensionless.urls": "{Boolean}false",
+  "@remove.slash": "{Boolean}false"
+}

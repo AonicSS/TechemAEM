@@ -1,0 +1,10 @@
+#Any search crawler can crawl the site
+User-agent: *
+
+#Allow only below mentioned paths
+Allow: /de/de
+#Disallow everything else
+Disallow: /
+
+#Crawl all sitemaps mentioned below
+Sitemap: https://www.techem.com/de/de.html.sitemap.xml
