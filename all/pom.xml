@@ -56,6 +56,7 @@
                     </properties>
                     <!-- skip sub package validation for now as some vendor packages like CIF apps will not pass -->
                     <skipSubPackageValidation>true</skipSubPackageValidation>
+                    <allowIndexDefinitions>true</allowIndexDefinitions>
                     <embeddeds>
                         <embedded>
                             <groupId>com.techem</groupId>
@@ -91,6 +92,18 @@
                             <artifactId>core.wcm.components.examples.ui.content</artifactId>
                             <type>zip</type>
                             <target>/apps/techem-vendor-packages/content/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.acs</groupId>
+                            <artifactId>acs-aem-commons-ui.apps</artifactId>
+                            <type>zip</type>
+                            <target>/apps/techem-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.acs</groupId>
+                            <artifactId>acs-aem-commons-ui.content</artifactId>
+                            <type>zip</type>
+                            <target>/apps/techem-packages/application/install</target>
                         </embedded>
                     </embeddeds>
                 </configuration>
@@ -218,6 +231,20 @@
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.examples.ui.content</artifactId>
             <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.acs</groupId>
+            <artifactId>acs-aem-commons-ui.content</artifactId>
+            <version>5.0.4</version>
+            <type>zip</type>
+            <classifier>min</classifier> <!-- optional, see below -->
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.acs</groupId>
+            <artifactId>acs-aem-commons-ui.apps</artifactId>
+            <version>5.0.4</version>
+            <type>zip</type>
+            <classifier>min</classifier> <!-- optional, see below -->
         </dependency>
     </dependencies>
 </project>
