@@ -8,17 +8,6 @@
             position: relative;
             border-bottom: solid 6px $color-primary-button;
         }
-        &::after{
-            content: '\A';
-            position: absolute;
-            width: 100%; 
-            height: calc(100% - 5px);
-            top:0; 
-            left:0;
-            opacity: 0.8;
-            background: radial-gradient(circle at 50% 0, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2) 59%);;
-            z-index: 1;
-        }
     }
     .home-stage-teaser-item {
         height: 580px;
