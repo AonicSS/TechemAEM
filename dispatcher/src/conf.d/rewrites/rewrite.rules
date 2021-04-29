@@ -175,6 +175,9 @@ RewriteRule ^/error$ https://www.techem.com/de/de/system/error.html [L,R=302,NE,
 # new block 29.03.2021
 RewriteRule ^/dienstleisterliste https://www.techem.com/de/de/techem-dienstleistersuche.html [L,R=302,NE,QSA]
 
+# new block 29.04.2021
+RewriteRule ^/fragen$ https://www.techem.com/de/de/info-und-service/faq.html [L,R=302,NE,QSA]
+
 # rewrite for root redirect
 # RewriteRule ^/(.*)$ /content/techem/$1 [PT,L]
 RewriteRule ^/content/techem/(.*).html$ $1.html [R=301,L]
