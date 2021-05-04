@@ -178,6 +178,13 @@ RewriteRule ^/dienstleisterliste https://www.techem.com/de/de/techem-dienstleist
 # new block 29.04.2021
 RewriteRule ^/fragen$ https://www.techem.com/de/de/info-und-service/faq.html [L,R=302,NE,QSA]
 
+# new block 29.04.2021
+RewriteRule ^/fileadmin/de/pdf/rechtliche_dokumente/Muster-Widerrufsformular_TES.pdf https://www.techem.com/content/dam/techem/downloads/rechtliches/widerruf/Muster-Widerrufsformular_TES.pdf [L,R=302,NE,QSA]
+RewriteRule ^/fileadmin/de/pdf/rechtliche_dokumente/Widerrufsbelehrung_TES.pdf https://www.techem.com/content/dam/techem/downloads/rechtliches/widerruf/Widerrufsbelehrung_TES.pdf [L,R=302,NE,QSA]
+
+# new block 04.05.2021
+RewriteRule ^/rwm-anleitung$ https://www.techem.com/de/de/geraete/rauchwarnmelder/rwm-anleitung.html [L,R=302,NE,QSA]
+
 # rewrite for root redirect
 # RewriteRule ^/(.*)$ /content/techem/$1 [PT,L]
 RewriteRule ^/content/techem/(.*).html$ $1.html [R=301,L]
