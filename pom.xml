@@ -160,14 +160,11 @@
                             <configuration>
                                 <bnd><![CDATA[
 Bundle-Category: ${componentGroupName}
-
 # export all versioned packages except for conditional ones (https://github.com/bndtools/bnd/issues/3721#issuecomment-579026778)
 -exportcontents: ${removeall;${packages;VERSIONED};${packages;CONDITIONAL}}
-
 # reproducible builds (https://github.com/bndtools/bnd/issues/3521)
 -noextraheaders: true
 -snapshot: SNAPSHOT
-
 Bundle-DocURL:
 -plugin org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin
 -plugin org.apache.sling.bnd.models.ModelsScannerPlugin
@@ -434,7 +431,6 @@ Bundle-DocURL:
             <!--
                 To enable this feature for a bundle, the sling-maven-plugin
                 (without configuration) needs to be included:
-
                 <plugin>
                     <groupId>org.apache.sling</groupId>
                     <artifactId>sling-maven-plugin</artifactId>
@@ -578,6 +574,12 @@ Bundle-DocURL:
                 <artifactId>core.wcm.components.examples.ui.content</artifactId>
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.acs</groupId>
+                <artifactId>acs-aem-commons-bundle</artifactId>
+                <version>5.0.4</version>
+                <scope>provided</scope>
             </dependency>
 
 
