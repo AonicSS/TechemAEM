@@ -185,6 +185,9 @@ RewriteRule ^/fileadmin/de/pdf/rechtliche_dokumente/Widerrufsbelehrung_TES.pdf h
 # new block 04.05.2021
 RewriteRule ^/rwm-anleitung$ https://www.techem.com/de/de/geraete/rauchwarnmelder/rwm-anleitung.html [L,R=302,NE,QSA]
 
+# new block 07.05.2021
+RewriteRule ^/funkgeraete$  https://www.techem.com/de/de/info-und-service/downloads.html [L,R=302,NE,QSA]
+
 # rewrite for root redirect
 # RewriteRule ^/(.*)$ /content/techem/$1 [PT,L]
 RewriteRule ^/content/techem/(.*).html$ $1.html [R=301,L]
