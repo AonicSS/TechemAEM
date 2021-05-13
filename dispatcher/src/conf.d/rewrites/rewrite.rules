@@ -190,7 +190,15 @@ RewriteRule ^/funkgeraete$  https://www.techem.com/de/de/info-und-service/downlo
 
 # rewrite for root redirect
 # RewriteRule ^/(.*)$ /content/techem/$1 [PT,L]
-RewriteRule ^/content/techem/(.*).html$ $1.html [R=301,L]
+RewriteRule ^/content/techem/(.*)(\.html)?$ /$1 [R=301,L]
+
+# Replace the .html with /
+RewriteCond %{REQUEST_URI} \.html$
+RewriteRule ^/(.*).html$ /content/techem/$1/ [R=301,L,QSA]
+
+# Append the .html for those URL’s ending with / before sending to publisher
+RewriteCond %{REQUEST_URI} !^/$
+RewriteRule ^/(.*)/$ /content/techem/$1.html [PT,L,QSA]
 
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
@@ -203,4 +211,3 @@ RewriteCond %{REQUEST_URI} !^/system
 RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
 RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
-RewriteRule ^/(.*)$ /content/techem/$1 [PT,L]
