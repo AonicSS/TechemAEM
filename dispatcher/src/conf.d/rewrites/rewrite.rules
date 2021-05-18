@@ -189,16 +189,20 @@ RewriteRule ^/rwm-anleitung$ https://www.techem.com/de/de/geraete/rauchwarnmelde
 RewriteRule ^/funkgeraete$  https://www.techem.com/de/de/info-und-service/downloads.html [L,R=302,NE,QSA]
 
 # rewrite for root redirect
-# RewriteRule ^/(.*)$ /content/techem/$1 [PT,L]
 RewriteRule ^/content/techem/(.*)(\.html)?$ /$1 [R=301,L]
 
-# Replace the .html with /
+# Redirect the .html URL to extensionless URL
 RewriteCond %{REQUEST_URI} \.html$
-RewriteRule ^/(.*).html$ /content/techem/$1/ [R=301,L,QSA]
+RewriteRule ^/(.*).html$ /$1 [R=301,L,QSA]
 
-# Append the .html for those URL’s ending with / before sending to publisher
-RewriteCond %{REQUEST_URI} !^/$
-RewriteRule ^/(.*)/$ /content/techem/$1.html [PT,L,QSA]
+# Redirect the URL with trailing slash to the preferred one without /
+RewriteRule ^/?(.+)/$ /$1 [R=301,L]
+
+# Append the .html for extensionless URLs before sending to publisher
+# Do not rewrite requests under /etc.clientlibs (js,css,fonts,images,etc,.)
+RewriteCond %{REQUEST_URI} !^/etc
+RewriteCond %{REQUEST_URI} !^/content
+RewriteRule ^/(.*)$ /content/techem/$1.html [PT,L,QSA]
 
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
