@@ -1,19 +1,16 @@
-<div class="cmp-show-hide-hours ${wcmmode.edit ? 'author-mode': 'hidden'}"
-     data-sly-use.container="com.adobe.cq.wcm.core.components.models.LayoutContainer"
+<div data-sly-use.container="com.adobe.cq.wcm.core.components.models.LayoutContainer"
      data-component-name="show-hide-hours"
-     data-start-time="${properties.startTime}" data-end-time="${properties.endTime}">
+     data-start-time="${properties.startTime}" data-end-time="${properties.endTime}"
+     class="cmp-show-hide-hours ${wcmmode.edit ? 'author-mode': 'hidden'}">
 
-    <p data-sly-test="${!wcmmode.disabled}">Show Hide Between Hours:
-        <strong>${properties.startTime} - ${properties.endTime}</strong></p>
+    <p data-sly-test="${!wcmmode.disabled}">
+        Show Hide Between Hours: <strong>${properties.startTime} - ${properties.endTime}</strong>
+    </p>
 
-    <sly data-sly-test="${wcmmode.edit}" data-sly-use.allowed="com.day.cq.wcm.foundation.model.AllowedComponents"></sly>
-
-    <sly data-sly-test.isAllowedApplicable="${allowed.isApplicable}"
-         data-sly-test="${isAllowedApplicable}"
-         data-sly-use.allowedTemplate="allowedcomponents.html"
-         data-sly-call="${allowedTemplate.allowedcomponents @ title=allowed.title, components=allowed.components}"></sly>
-    <sly data-sly-test="${!isAllowedApplicable}"
-         data-sly-repeat="${container.items}" data-sly-resource="${item.path @ decoration=true}"></sly>
-    <sly data-sly-test="${!isAllowedApplicable && !wcmmode.disabled}"
-         data-sly-resource="${resource.path @ resourceType='core/wcm/components/container/v1/container/new', appendPath='/*', decorationTagName='div', cssClassName='show-hide-parsys'}"></sly>
+    <sly data-sly-test.responsive="${container.layout == 'RESPONSIVE_GRID'}"
+         data-sly-use.responsiveGridTemplate="responsiveGrid.html"
+         data-sly-call="${responsiveGridTemplate.responsiveGrid @ container=container}"></sly>
+    <sly data-sly-test.simple="${!responsive}"
+         data-sly-use.simpleTemplate="simple.html"
+         data-sly-call="${simpleTemplate.simple @ container=container}"></sly>
 </div>
