@@ -6,7 +6,7 @@
     <p data-sly-test="${!wcmmode.disabled}">Show Hide Between Hours:
         <strong>${properties.startTime} - ${properties.endTime}</strong></p>
 
-    <sly data-sly-test="${wcmmode.edit}" data-sly-use.allowed="com.day.cq.wcm.foundation.AllowedComponentList"></sly>
+    <sly data-sly-test="${wcmmode.edit}" data-sly-use.allowed="com.day.cq.wcm.foundation.model.AllowedComponents"></sly>
 
     <sly data-sly-test.isAllowedApplicable="${allowed.isApplicable}"
          data-sly-test="${isAllowedApplicable}"
