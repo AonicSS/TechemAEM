@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-          jcr:primaryType="nt:unstructured"
-          jcr:title="Show Hide Hours"
-          sling:resourceType="cq/gui/components/authoring/dialog">
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Show Hide Hours"
+    sling:resourceType="cq/gui/components/authoring/dialog">
     <content
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="granite/ui/components/coral/foundation/container">
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
         <items jcr:primaryType="nt:unstructured">
             <tabs
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
-                    maximized="{Boolean}true">
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
                 <items jcr:primaryType="nt:unstructured"
-                       sling:hideChildren="[properties]">
+                    sling:hideChildren="[properties]">
                     <container
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Properties"
-                            sling:resourceType="granite/ui/components/coral/foundation/container"
-                            margin="{Boolean}true">
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
                             <columns
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                                    margin="{Boolean}true">
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
                                 <items jcr:primaryType="nt:unstructured">
                                     <column
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items
-                                                jcr:primaryType="nt:unstructured">
+                                            jcr:primaryType="nt:unstructured">
                                             <startTimeString
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="/libs/granite/ui/components/coral/foundation/form/hidden"
-                                                    name="./startTime@TypeHint"
-                                                    value="String"/>
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/hidden"
+                                                name="./startTime@TypeHint"
+                                                value="String"/>
                                             <startTime
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
-                                                    emptyText="Choose a start time"
-                                                    displayedFormat="HH:mm"
-                                                    valueFormat="HH:mm"
-                                                    displayTimezoneMessage="true"
-                                                    fieldLabel="Start time"
-                                                    name="./startTime"
-                                                    renderReadOnly="true"
-                                                    type="time"
-                                                    required="{Boolean}true"/>
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                emptyText="Choose a start time"
+                                                displayedFormat="HH:mm"
+                                                valueFormat="HH:mm"
+                                                displayTimezoneMessage="true"
+                                                fieldLabel="Start time"
+                                                name="./startTime"
+                                                renderReadOnly="true"
+                                                type="time"
+                                                required="{Boolean}true"/>
                                             <endTimeString
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="/libs/granite/ui/components/coral/foundation/form/hidden"
-                                                    name="./endTime@TypeHint"
-                                                    value="String"/>
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/hidden"
+                                                name="./endTime@TypeHint"
+                                                value="String"/>
                                             <endTime
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
-                                                    emptyText="Choose a start time"
-                                                    displayedFormat="HH:mm"
-                                                    valueFormat="HH:mm"
-                                                    displayTimezoneMessage="true"
-                                                    fieldLabel="End time"
-                                                    name="./endTime"
-                                                    renderReadOnly="true"
-                                                    type="time"
-                                                    required="{Boolean}true"/>
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                emptyText="Choose a start time"
+                                                displayedFormat="HH:mm"
+                                                valueFormat="HH:mm"
+                                                displayTimezoneMessage="true"
+                                                fieldLabel="End time"
+                                                name="./endTime"
+                                                renderReadOnly="true"
+                                                type="time"
+                                                required="{Boolean}true"/>
                                         </items>
                                     </column>
                                 </items>
