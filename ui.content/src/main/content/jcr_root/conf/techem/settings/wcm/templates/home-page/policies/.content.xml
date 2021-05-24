@@ -108,6 +108,10 @@
                                 cq:policy="techem/components/margin-top/policy"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <show-hide-hours
+                                cq:policy="techem/components/show-hide-hours/policy"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
                     </components>
                 </techem>
             </container>

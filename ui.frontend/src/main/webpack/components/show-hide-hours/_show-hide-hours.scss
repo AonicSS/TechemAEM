@@ -1,0 +1,8 @@
+.cmp-show-hide-hours {
+  &.hidden {
+    display: none;
+  }
+  &.author-mode {
+    border: 3px dashed $color-grey;
+  }
+}

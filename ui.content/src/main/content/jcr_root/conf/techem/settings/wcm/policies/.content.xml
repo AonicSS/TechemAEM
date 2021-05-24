@@ -760,6 +760,15 @@
                     </cq:styleGroups>
                 </policy>
             </margin-top>
+            <show-hide-hours jcr:primaryType="nt:unstructured">
+                <policy
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Show Hide Hours Component"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="group:Techem - Content">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy>
+            </show-hide-hours>
         </components>
     </techem>
 </jcr:root>
