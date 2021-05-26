@@ -8,16 +8,16 @@
 Include conf.d/rewrites/default_rewrite.rules
 
 RewriteCond %{HTTP_HOST} ^techem\.de [NC]
-RewriteRule ^/$ https://www.techem.com/de/de.html [L,R=301,NE,QSA]
+RewriteRule ^/$ https://www.techem.com/de/de [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} www\.techem\.de [NC]
-RewriteRule ^/$ https://www.techem.com/de/de.html [L,R=301,NE,QSA]
+RewriteRule ^/$ https://www.techem.com/de/de [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem\.com [NC]
-RewriteRule ^/$ https://www.techem.com/corp/en.html [L,R=301,NE,QSA]
+RewriteRule ^/$ https://www.techem.com/corp/en [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} www\.techem\.com [NC]
-RewriteRule ^/$ https://www.techem.com/corp/en.html [L,R=301,NE,QSA]
+RewriteRule ^/$ https://www.techem.com/corp/en [L,R=301,NE,QSA]
 
 
 # external redirects
