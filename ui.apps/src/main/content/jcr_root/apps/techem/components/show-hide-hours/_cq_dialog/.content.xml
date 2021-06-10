@@ -29,6 +29,44 @@
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items
                                             jcr:primaryType="nt:unstructured">
+                                            <days
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldDescription="Days start at 0 - Sunday"
+                                                multiple="{Boolean}true"
+                                                fieldLabel="Days of the week"
+                                                name="./days">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <sunday
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Sunday"
+                                                            value="0"/>
+                                                    <monday
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Monday"
+                                                        value="1"/>
+                                                    <tuesday
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Tuesday"
+                                                        value="2"/>
+                                                    <wednesday
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Wednesday"
+                                                        value="3"/>
+                                                    <thursday
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Thursday"
+                                                            value="4"/>
+                                                    <friday
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Friday"
+                                                            value="5"/>
+                                                    <saturday
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Saturday"
+                                                            value="6"/>
+                                                </items>
+                                            </days>
                                             <startTimeString
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="/libs/granite/ui/components/coral/foundation/form/hidden"
@@ -40,7 +78,7 @@
                                                 emptyText="Choose a start time"
                                                 displayedFormat="HH:mm"
                                                 valueFormat="HH:mm"
-                                                displayTimezoneMessage="true"
+                                                displayTimezoneMessage="false"
                                                 fieldLabel="Start time"
                                                 name="./startTime"
                                                 renderReadOnly="true"
@@ -57,7 +95,7 @@
                                                 emptyText="Choose a start time"
                                                 displayedFormat="HH:mm"
                                                 valueFormat="HH:mm"
-                                                displayTimezoneMessage="true"
+                                                displayTimezoneMessage="false"
                                                 fieldLabel="End time"
                                                 name="./endTime"
                                                 renderReadOnly="true"
