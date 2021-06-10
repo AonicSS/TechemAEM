@@ -12,6 +12,7 @@
 
     const startTime = $el.data('start-time');
     const endTime = $el.data('end-time');
+    const days = $el.data('days').toString().split(',');
     const startTimeHours = startTime.split(':')[0];
     const startTimeMinutes = startTime.split(':')[1];
     const endTimeHours = endTime.split(':')[0];
@@ -20,9 +21,12 @@
     // convert to full minutes in order to compare
     const start = parseInt(startTimeHours) * 60 + parseInt(startTimeMinutes);
     const end = parseInt(endTimeHours) * 60 + parseInt(endTimeMinutes);
-    const now = date.getHours() * 60 + date.getMinutes();
+    const nowTime = date.getHours() * 60 + date.getMinutes();
+    const today = date.getDay().toString();
+    const timeValid = start <= nowTime && nowTime <= end;
+    const dayValid = days.includes(today);
 
-    if (start <= now && now <= end) {
+    if (dayValid && timeValid) {
       $el.removeClass('hidden');
     } else {
       $el.parent().remove();
