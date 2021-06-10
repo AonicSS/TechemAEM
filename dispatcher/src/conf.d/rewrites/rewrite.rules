@@ -192,6 +192,9 @@ RewriteRule ^/funkgeraete$  https://www.techem.com/de/de/info-und-service/downlo
 # RewriteRule ^/(.*)$ /content/techem/$1 [PT,L]
 RewriteRule ^/content/techem/(.*).html$ $1.html [R=301,L]
 
+# rewrite for sitemap
+RewriteRule ^/(.*).sitemap.xml$ /content/techem/$1.sitemap.xml [PT,L]
+
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
 RewriteCond %{REQUEST_URI} !^/content

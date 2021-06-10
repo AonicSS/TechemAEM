@@ -8,3 +8,6 @@ $include "./default_filters.any"
 
 # Allow components JSON model
 /0101 { /type "allow" /extension "json" /selectors "model" /path "/content/*" }
+
+# allow sitemap URLs
+/0102 { /type "allow" /url "/*/*.sitemap.xml" }
