@@ -22,6 +22,6 @@
   "priority.properties":[
     ""
   ],
-  "exclude.property":"[seoIndex,seoFollow]",
+  "exclude.property":"",
   "externalizer.domain":"publish"
 }
