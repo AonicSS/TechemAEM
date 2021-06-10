@@ -12,7 +12,7 @@
 
     const startTime = $el.data('start-time');
     const endTime = $el.data('end-time');
-    const days = $el.data('days').toString().split(',');
+    const days = $el.data('days') ? $el.data('days').toString().split(',') : [];
     const startTimeHours = startTime.split(':')[0];
     const startTimeMinutes = startTime.split(':')[1];
     const endTimeHours = endTime.split(':')[0];
