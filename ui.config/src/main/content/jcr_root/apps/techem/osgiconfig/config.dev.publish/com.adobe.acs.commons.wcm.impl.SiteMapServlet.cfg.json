@@ -23,5 +23,5 @@
     ""
   ],
   "exclude.property":"",
-  "externalizer.domain":"publish"
+  "externalizer.domain":"dev"
 }

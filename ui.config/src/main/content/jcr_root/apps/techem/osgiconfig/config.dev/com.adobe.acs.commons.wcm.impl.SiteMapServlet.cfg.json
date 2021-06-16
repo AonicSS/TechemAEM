@@ -23,5 +23,5 @@
     ""
   ],
   "exclude.property":"",
-  "externalizer.domain":"author"
+  "externalizer.domain":"dev"
 }
