@@ -1,11 +1,11 @@
 //== Font
 
-$font-family: "UniversLTW02-55Roman", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family: "UniversLTW02-55Roman", "UniversLTCYRW10-55Roman", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-size: 16px;
 $font-height: 1.75;
-$font-universe-roman: "UniversLTW02-55Roman";
-$font-universe-roman-bold: "UniversLTW02-65Bold";
-$font-universe-std: "UniversLTW02-45Light";
+$font-universe-roman: "UniversLTW02-55Roman", "UniversLTCYRW10-55Roman";
+$font-universe-roman-bold: "UniversLTW02-65Bold", "UniversLTCYRW10-65Bold";
+$font-universe-std: "UniversLTW02-45Light", "UniversLTCYRW10-45Light";
 
 //== Color
 
