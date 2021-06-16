@@ -23,5 +23,5 @@
     ""
   ],
   "exclude.property":"hideInNav",
-  "externalizer.domain":"dev"
+  "externalizer.domain":"sales-dev"
 }
