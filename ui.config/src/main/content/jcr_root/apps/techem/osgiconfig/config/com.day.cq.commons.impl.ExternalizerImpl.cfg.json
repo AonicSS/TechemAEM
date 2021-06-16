@@ -3,7 +3,7 @@
     "local $[env:externalizerDomainLocal;default=http://localhost:4502]",
     "author $[env:externalizerDomainAuthor;default=http://localhost:4502]",
     "publish $[env:externalizerDomainPublish;default=http://localhost:4503]",
-    "dev sales-dev.techem.de"
+    "sales-dev sales-dev.techem.de"
   ],
   "externalizer.contextpath":"",
   "externalizer.host":"",
