@@ -22,6 +22,6 @@
   "priority.properties":[
     ""
   ],
-  "exclude.property":"",
+  "exclude.property":"hideInNav",
   "externalizer.domain":"dev"
 }
