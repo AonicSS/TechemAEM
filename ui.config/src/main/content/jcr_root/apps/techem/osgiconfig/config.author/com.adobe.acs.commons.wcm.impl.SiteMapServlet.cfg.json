@@ -5,12 +5,12 @@
   "use.vanity":true,
   "include.lastmod":true,
   "character.encoding":"UTF-8",
-  "extensionless.urls":false,
+  "extensionless.urls":true,
   "exclude.templates":"",
   "changefreq.properties":[
     ""
   ],
-  "remove.slash":false,
+  "remove.slash":true,
   "url.rewrites":[
     ""
   ],
@@ -23,5 +23,5 @@
     ""
   ],
   "exclude.property":"hideInNav",
-  "externalizer.domain":"sales-dev"
+  "externalizer.domain":"publish"
 }
