@@ -12,7 +12,7 @@
   ],
   "remove.slash":true,
   "url.rewrites":[
-    ""
+    "/content/techem/de/de:/de/de"
   ],
   "include.inherit":false,
   "damassets.property":"content/dam/techem",
