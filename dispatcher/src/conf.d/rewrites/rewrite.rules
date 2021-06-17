@@ -198,14 +198,14 @@ RewriteRule ^/(.*).html$ /$1 [R=301,L,QSA]
 # Redirect the URL with trailing slash to the preferred one without /
 RewriteRule ^/?(.+)/$ /$1 [R=301,L]
 
+# rewrite for sitemap
+RewriteRule ^/(.*).sitemap.xml$ /content/techem/$1.sitemap.xml [PT,L]
+
 # Append the .html for extensionless URLs before sending to publisher
 # Do not rewrite requests under /etc.clientlibs (js,css,fonts,images,etc,.)
 RewriteCond %{REQUEST_URI} !^/etc
 RewriteCond %{REQUEST_URI} !^/content
 RewriteRule ^/(.*)$ /content/techem/$1.html [PT,L,QSA]
-
-# rewrite for sitemap
-RewriteRule ^/(.*).sitemap.xml$ /content/techem/$1.sitemap.xml [PT,L]
 
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
