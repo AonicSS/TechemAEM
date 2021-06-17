@@ -23,5 +23,5 @@
     ""
   ],
   "exclude.property":"hideInNav",
-  "externalizer.domain":"author"
+  "externalizer.domain":"publish"
 }
