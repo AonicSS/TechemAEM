@@ -2,7 +2,7 @@
   "externalizer.domains":[
     "local $[env:externalizerDomainLocal;default=http://localhost:4502]",
     "author $[env:externalizerDomainAuthor;default=http://localhost:4502]",
-    "publish $[env:externalizerDomainPublish;default=http://localhost:4503]",
+    "publish https://www.techem.com",
     "sales-dev sales-dev.techem.de"
   ],
   "externalizer.contextpath":"",
