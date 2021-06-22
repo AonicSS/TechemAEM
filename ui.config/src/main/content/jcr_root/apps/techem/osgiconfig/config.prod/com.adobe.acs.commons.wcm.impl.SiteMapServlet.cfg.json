@@ -5,14 +5,14 @@
   "use.vanity":true,
   "include.lastmod":true,
   "character.encoding":"UTF-8",
-  "extensionless.urls":false,
+  "extensionless.urls":true,
   "exclude.templates":"",
   "changefreq.properties":[
     ""
   ],
-  "remove.slash":false,
+  "remove.slash":true,
   "url.rewrites":[
-    ""
+    "/content/techem/de/de:/de/de"
   ],
   "include.inherit":false,
   "damassets.property":"content/dam/techem",
@@ -23,5 +23,5 @@
     ""
   ],
   "exclude.property":"hideInNav",
-  "externalizer.domain":"author"
+  "externalizer.domain":"publish"
 }
