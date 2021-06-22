@@ -1,3 +1,3 @@
 <sly data-sly-template.headline="${@ textimage}">
-    <div class="cmp-text-image-headline" data-sly-test.headline="${textimage.headline}">${headline}</div>
+    <div class="cmp-text-image-headline" data-sly-test.headline="${textimage.headline}">${headline @ context='html'}</div>
 </sly>

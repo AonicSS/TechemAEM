@@ -1,7 +1,7 @@
 <div data-sly-use.container="com.adobe.cq.wcm.core.components.models.LayoutContainer"
     data-sly-use.generalContainer="com.techem.core.models.GeneralContainer"
     class="bg-${generalContainer.background}">
-	<div class="cmp-container-headline">${generalContainer.headline}</div>
+	<div class="cmp-container-headline">${generalContainer.headline @ context='html'}</div>
     <div data-sly-test.subtitle="${generalContainer.subtitle}" class="cmp-container-text">${generalContainer.subtitle}</div>
     <sly data-sly-test.responsive="${container.layout == 'RESPONSIVE_GRID'}"
          data-sly-use.responsiveGridTemplate="responsiveGrid.html"
