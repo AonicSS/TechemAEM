@@ -13,7 +13,9 @@
                         jcr:title="Content Form"
                         sling:resourceType="wcm/core/components/policy/policy"
                         components="[/apps/techem/components/form/button,/apps/techem/components/form/hidden,/apps/techem/components/form/options,/apps/techem/components/form/text]">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <jcr:content
+                                jcr:mixinTypes="[]"
+                                jcr:primaryType="nt:unstructured"/>
                     </form-container>
                 </container>
                 <button jcr:primaryType="nt:unstructured">
@@ -769,6 +771,21 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
             </show-hide-hours>
+            <embed jcr:primaryType="nt:unstructured">
+                <policy_marketo
+                        jcr:lastModified="{Date}2021-06-23T15:27:32.542+03:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Marketo Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedEmbeddables="acs-commons/components/content/embeddable/marketo"
+                        embeddablesDisabled="false"
+                        htmlDisabled="false"
+                        urlDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_marketo>
+            </embed>
+
         </components>
     </techem>
 </jcr:root>
