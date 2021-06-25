@@ -61,6 +61,78 @@
                                                     fieldLabel="Logo Link"
                                                     name="./logoLink"
                                                     rootPath="/content"/>
+                                            <iconorimage
+                                                    granite:class="cq-dialog-dropdown-showhide"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldDescription="Icon or Image for Kundenportal button"
+                                                    fieldLabel="Icon or Image for button"
+                                                    name="./iconOrImage">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <nothing
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="No icon"
+                                                            value="nothing"/>
+                                                    <icon
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Embedded Icons"
+                                                            value="icon"/>
+                                                    <image
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Select from dam/assets"
+                                                            value="image"/>
+                                                </items>
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        cq-dialog-dropdown-showhide-target=".icon-showhide-target"/>
+                                            </iconorimage>
+                                            <icon
+                                                    granite:class="icon-showhide-target"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <buttonIcon
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                            fieldDescription="Icons"
+                                                            fieldLabel="Icons"
+                                                            name="./buttonIcon">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <man
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Profile icon"
+                                                                    value="man"/>
+                                                        </items>
+                                                    </buttonIcon>
+                                                </items>
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        showhidetargetvalue="icon"/>
+                                            </icon>
+                                            <image
+                                                    granite:class="icon-showhide-target"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <articlePath
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                            fieldDescription="Choose an icon path for the button"
+                                                            fieldLabel="Select button image for desktop"
+                                                            name="./buttonImagePath"
+                                                            rootPath="/content/dam/techem/icons"/>
+                                                    <articlePathMobile
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                            fieldDescription="Choose an icon path for the button mobile version"
+                                                            fieldLabel="Select button image for mobile"
+                                                            name="./buttonIconPathMobile"
+                                                            rootPath="/content/dam/techem/icons"/>
+                                                </items>
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        showhidetargetvalue="image"/>
+                                            </image>
                                             <label
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
