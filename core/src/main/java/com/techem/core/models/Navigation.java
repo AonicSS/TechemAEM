@@ -41,6 +41,18 @@ public class Navigation {
     @ValueMapValue(name = "logoLink")
     private String logoLink;
 
+    @ValueMapValue(name = "buttonIcon")
+    private String buttonIcon;
+
+    @ValueMapValue(name = "iconOrImage")
+    private String iconOrImage;
+
+    @ValueMapValue(name = "buttonImagePath")
+    private String buttonImagePath;
+
+    @ValueMapValue(name = "buttonIconPathMobile")
+    private String buttonIconPathMobile;
+
     @ValueMapValue(name = "backButtonText")
     private String backButtonText;
 
@@ -84,6 +96,14 @@ public class Navigation {
     public String getButtonLink() { return buttonLink; }
 
     public String getLogoLink() { return logoLink; }
+
+    public String getButtonIcon() { return buttonIcon; }
+
+    public String getIconOrImage() { return iconOrImage; }
+
+    public String getButtonImagePath() { return buttonImagePath; }
+
+    public String getButtonIconPathMobile() { return buttonIconPathMobile; }
 
     public String getLogoImage() { return logoImage; }
 

@@ -23,10 +23,16 @@
                 <sly data-sly-test="${navigation.buttonLink}">
                     <a class="header__button" target="_blank"
                        data-sly-attribute.button-link="${navigation.buttonLink}">
-                        <i class="header__button-icon">
-                            <div class="header__button-icon-circle"></div>
-                            <div class="header__button-icon-stroke"></div>
-                        </i>
+                        <span data-sly-test="${navigation.buttonIcon == 'man' && navigation.iconOrImage == 'icon'}">
+                            <i class="header__button-icon">
+                                <div class="header__button-icon-circle"></div>
+                                <div class="header__button-icon-stroke"></div>
+
+                            </i>
+                        </span>
+                        <span data-sly-test="${navigation.iconOrImage == 'image'}">
+                            <img class="header__button-icon portal-image" src="${navigation.buttonImagePath}">
+                        </span>
                         ${navigation.label}
                     </a>
                 </sly>
@@ -50,10 +56,15 @@
             </ul>
             <sly data-sly-test="${navigation.buttonLink}">
                 <button class="header__button" data-sly-attribute.button-link="${navigation.buttonLink}">
-                    <i class="header__button-icon">
-                        <div class="header__button-icon-circle"></div>
-                        <div class="header__button-icon-stroke"></div>
-                    </i>
+                    <span data-sly-test="${navigation.buttonIcon == 'man' && navigation.iconOrImage == 'icon'}">
+                        <i class="header__button-icon">
+                            <div class="header__button-icon-circle"></div>
+                            <div class="header__button-icon-stroke"></div>
+                        </i>
+                    </span>
+                    <span data-sly-test="${navigation.iconOrImage == 'image'}">
+                        <img class="header__button-icon" src="${navigation.buttonIconPathMobile}">
+                    </span>
                     ${navigation.label}
                 </button>
             </sly>
