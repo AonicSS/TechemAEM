@@ -2,10 +2,85 @@
      data-sly-use.envHelper="com.techem.core.models.EnvironmentHelper"
      data-sly-test="${wcmmode.disabled}">
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8ea447e6-161e-4982-8135-92af18ebf674" data-culture="${page.language.toString.toUpperCase}" data-blockingmode="auto" type="text/javascript"></script>
-    <script data-sly-test="${envHelper.env == 'prod'}"
-            src="//assets.adobedtm.com/664a843ec480/e7a83bbd5b32/launch-b1b05043d0c3.min.js" async></script>
-    <script data-sly-test="${envHelper.env == 'stage'}"
-            src="//assets.adobedtm.com/664a843ec480/e7a83bbd5b32/launch-7758ff4babef-staging.min.js" async></script>
-    <script data-sly-test="${envHelper.env == 'dev'}"
-            src="//assets.adobedtm.com/664a843ec480/e7a83bbd5b32/launch-16c6ca7c9918-development.min.js" async></script>
+
+    <sly data-sly-test="${envHelper.env == 'prod'}">
+        <script src="//assets.adobedtm.com/664a843ec480/e7a83bbd5b32/launch-b1b05043d0c3.min.js" async></script>
+
+        <script type="text/javascript">
+            (function() {
+                var didInit = false;
+                function initMunchkin() {
+                    if(didInit === false) {
+                        didInit = true;
+                        Munchkin.init('549-BHO-641');
+                    }
+                }
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = '//munchkin.marketo.net/munchkin.js';
+                s.onreadystatechange = function() {
+                    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+                        initMunchkin();
+                    }
+                };
+                s.onload = initMunchkin;
+                document.getElementsByTagName('head')[0].appendChild(s);
+            })();
+        </script>
+    </sly>
+
+    <sly data-sly-test="${envHelper.env == 'stage'}">
+        <script src="//assets.adobedtm.com/664a843ec480/e7a83bbd5b32/launch-7758ff4babef-staging.min.js" async></script>
+
+        <script type="text/javascript">
+            (function() {
+                var didInit = false;
+                function initMunchkin() {
+                    if(didInit === false) {
+                        didInit = true;
+                        Munchkin.init('784-BQV-997');
+                    }
+                }
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = '//munchkin.marketo.net/munchkin.js';
+                s.onreadystatechange = function() {
+                    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+                        initMunchkin();
+                    }
+                };
+                s.onload = initMunchkin;
+                document.getElementsByTagName('head')[0].appendChild(s);
+            })();
+        </script>
+    </sly>
+
+    <sly data-sly-test="${envHelper.env == 'dev'}">
+        <script src="//assets.adobedtm.com/664a843ec480/e7a83bbd5b32/launch-16c6ca7c9918-development.min.js" async></script>
+
+        <script type="text/javascript">
+            (function() {
+                var didInit = false;
+                function initMunchkin() {
+                    if(didInit === false) {
+                        didInit = true;
+                        Munchkin.init('784-BQV-997');
+                    }
+                }
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = '//munchkin.marketo.net/munchkin.js';
+                s.onreadystatechange = function() {
+                    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+                        initMunchkin();
+                    }
+                };
+                s.onload = initMunchkin;
+                document.getElementsByTagName('head')[0].appendChild(s);
+            })();
+        </script>
+    </sly>
 </sly>
