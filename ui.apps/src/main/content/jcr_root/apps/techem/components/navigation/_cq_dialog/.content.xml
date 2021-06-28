@@ -98,10 +98,10 @@
                                                             fieldLabel="Icons"
                                                             name="./buttonIcon">
                                                         <items jcr:primaryType="nt:unstructured">
-                                                            <man
+                                                            <profile-icon
                                                                     jcr:primaryType="nt:unstructured"
                                                                     text="Profile icon"
-                                                                    value="man"/>
+                                                                    value="profile-icon"/>
                                                         </items>
                                                     </buttonIcon>
                                                 </items>
