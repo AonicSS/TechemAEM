@@ -173,7 +173,7 @@ header.experiencefragment{
             }
 
             .align-icon {
-                padding: 4px;
+                padding: 4px 4px 7px 4px;
             }
         }
 
@@ -640,6 +640,17 @@ header.experiencefragment{
                         .header__button-icon-circle,.header__button-icon-stroke{
                             border-color: $color-background;
                         }
+                    }
+                    .mobile-alignment-image{
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                    &-icon-mobile{
+                        height: 16px;
+                        width: 15px;
+                    }
+                    .mobile-alignment-icon{
+                        margin-bottom: 5px;
                     }
                 }
                 .navigation__links {

@@ -57,13 +57,13 @@
             <sly data-sly-test="${navigation.buttonLink}">
                 <button class="header__button" data-sly-attribute.button-link="${navigation.buttonLink}">
                     <span data-sly-test="${navigation.buttonIcon == 'profile-icon' && navigation.iconOrImage == 'icon'}">
-                        <i class="header__button-icon">
+                        <i class="header__button-icon mobile-alignment-icon">
                             <div class="header__button-icon-circle"></div>
                             <div class="header__button-icon-stroke"></div>
                         </i>
                     </span>
-                    <span data-sly-test="${navigation.iconOrImage == 'image'}">
-                        <img class="header__button-icon" src="${navigation.buttonIconPathMobile}">
+                    <span class="mobile-alignment-image" data-sly-test="${navigation.iconOrImage == 'image'}">
+                        <img class="header__button-icon-mobile" src="${navigation.buttonIconPathMobile}">
                     </span>
                     ${navigation.label}
                 </button>
