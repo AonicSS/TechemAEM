@@ -188,6 +188,9 @@ RewriteRule ^/rwm-anleitung$ https://www.techem.com/de/de/geraete/rauchwarnmelde
 # new block 07.05.2021
 RewriteRule ^/funkgeraete$  https://www.techem.com/de/de/info-und-service/downloads [L,R=302,NE,QSA]
 
+# Exceptions - avoid these automated tests URLs being rewritten (stops further rewrites)
+RewriteRule ^/content/test-site/(.*)\.html$ - [NC,L]
+
 # rewrite for root redirect
 RewriteRule ^/content/techem/(.*)(\.html)?$ /$1 [R=301,L]
 
