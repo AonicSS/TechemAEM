@@ -1,0 +1,10 @@
+<div data-component-name="youtube-video" class="cmp-youtube-video">
+    <div class="cmp-youtube-video__container">
+        <iframe data-sly-test="${properties.youtubeVideoId}"
+                width="100%"
+                src="${'https://www.youtube.com/embed/{0}?origin={1}://{2}' @ format=[properties.youtubeVideoId, request.scheme, request.serverName]}"
+                frameborder="0"
+                allowfullscreen
+                aria-label="${'YouTube Video' @ i18n}"></iframe>
+    </div>
+</div>
