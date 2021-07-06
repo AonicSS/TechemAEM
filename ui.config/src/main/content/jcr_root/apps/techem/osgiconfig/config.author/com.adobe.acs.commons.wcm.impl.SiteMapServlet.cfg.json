@@ -12,7 +12,8 @@
   ],
   "remove.slash":true,
   "url.rewrites":[
-    "/content/techem/de/de:/de/de"
+    "/content/techem/de/de:/de/de",
+    "/content/techem/corp/en:/corp/en"
   ],
   "include.inherit":false,
   "damassets.property":"content/dam/techem",
