@@ -137,7 +137,6 @@ RewriteRule ^/fuer-wen/wohnungswirtschaft   https://www.techem.com/de/de [L,R=30
 RewriteRule ^/fuer-wen/private-vermieter    https://www.techem.com/de/de [L,R=302,NE,QSA]
 RewriteRule ^/warmwasserkosten  https://www.techem.com/de/de/geraete [L,R=302,NE,QSA]
 RewriteRule ^/de/de/infos-und-service/mieterinfos$ https://www.techem.com/de/de/info-und-service/mieterinfos [L,R=302,NE,QSA]
-RewriteRule ^/de/de/info-und-service/mieterinfos$ https://www.techem.com/de/de/info-und-service/mieterinfos [L,R=302,NE,QSA]
 RewriteRule ^/legionellenpruefung https://www.techem.com/de/de/immobilienservices/legionellenpruefung [L,R=302,NE,QSA]
 RewriteRule ^/portal https://portal.techem.de/welcome [L,R=302,NE,QSA]
 RewriteRule ^/fileadmin/user_upload/Factbook_Techem_Waermewende.pdf  https://anmeldungen.techem.de/fileadmin/user_upload/Factbook_Techem_Waermewende.pdf [L,R=302,NE,QSA]
@@ -188,8 +187,11 @@ RewriteRule ^/rwm-anleitung$ https://www.techem.com/de/de/geraete/rauchwarnmelde
 # new block 07.05.2021
 RewriteRule ^/funkgeraete$  https://www.techem.com/de/de/info-und-service/downloads [L,R=302,NE,QSA]
 
+# Exceptions - avoid these automated tests URLs being rewritten (stops further rewrites)
+RewriteRule ^/content/test-site/(.*)\.html$ - [NC,L]
+
 # rewrite for root redirect
-RewriteRule ^/content/techem/(.*)(\.html)?$ /$1 [R=301,L]
+RewriteRule ^/content/techem/(.*).html?$ /$1 [R=301,L]
 
 # Redirect the .html URL to extensionless URL
 RewriteCond %{REQUEST_URI} \.html$
@@ -203,8 +205,16 @@ RewriteRule ^/(.*).sitemap.xml$ /content/techem/$1.sitemap.xml [PT,L]
 
 # Append the .html for extensionless URLs before sending to publisher
 # Do not rewrite requests under /etc.clientlibs (js,css,fonts,images,etc,.)
-RewriteCond %{REQUEST_URI} !^/etc
+RewriteCond %{REQUEST_URI} !^/apps
+RewriteCond %{REQUEST_URI} !^/bin
 RewriteCond %{REQUEST_URI} !^/content
+RewriteCond %{REQUEST_URI} !^/etc
+RewriteCond %{REQUEST_URI} !^/home
+RewriteCond %{REQUEST_URI} !^/libs
+RewriteCond %{REQUEST_URI} !^/saml_login
+RewriteCond %{REQUEST_URI} !^/system
+RewriteCond %{REQUEST_URI} !^/tmp
+RewriteCond %{REQUEST_URI} !^/var
 RewriteRule ^/(.*)$ /content/techem/$1.html [PT,L,QSA]
 
 RewriteCond %{REQUEST_URI} !^/apps
