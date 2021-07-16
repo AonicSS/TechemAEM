@@ -5,6 +5,7 @@
 }
 
 .social-media {
+    width: 100%;
 
     .social-media__headline {
         position: relative;
@@ -25,12 +26,20 @@
     }
 
     &__category {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
         padding: 0;
         margin:0;
         list-style:none;
+        width: 100%;
+
+        @media screen and (max-width: 1024px) {
+            justify-content: space-between;
+        }
+
+        @media screen and (max-width: 768px) {
+            justify-content: initial;
+        }
+
         a {
             display: inline-block;
             font-size: 0;
@@ -38,6 +47,15 @@
             margin: 8px 25px;
             text-decoration: none;
             color: $color-background;
+
+            @media screen and (max-width: 1024px) {
+                margin: 8px 0;
+            }
+
+            @media screen and (max-width: 768px) {
+                margin: 8px 25px;
+            }
+
             svg{
                 overflow: visible;
                 cursor: pointer;
