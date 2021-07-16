@@ -13,7 +13,7 @@
             this.attributes = {
                 category: 'cmp-footer__category',
                 active: 'active'
-            }
+            };
 
             this.init = function() {
                 this.toggleActive();
