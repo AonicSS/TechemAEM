@@ -67,7 +67,7 @@
                 if($(window).width() > 1024){
                     $('body').removeClass('scroll-hidden');
                 }
-                $('.header__dropdown-wrapper').removeClass('dropdown-wrapper-open-fx')
+                $('.header__dropdown-wrapper').removeClass('dropdown-wrapper-open-fx');
             });
         }.bind(this);
 

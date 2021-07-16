@@ -22,9 +22,7 @@ footer.experiencefragment{
     &__container {
         max-width: 77pc;
         margin: 0 auto;
-        @media screen and (max-width: 1025px){
-            padding: 0 32px;
-        }
+        padding: 0 32px;
 
         .cmp-footer__logo-wrapper {
             border-bottom: 1px solid #4d4d4d;
@@ -65,7 +63,7 @@ footer.experiencefragment{
                color: $color-background;
                margin: 0 0 10px 0;
 
-               @media screen and (max-width: 767px) {
+               @media screen and (max-width: 768px) {
                    margin: 0;
                    cursor: pointer;
                    padding: 13px 47px 12pt 8px;
@@ -91,12 +89,13 @@ footer.experiencefragment{
         .cmp-footer__links {
             list-style:none;
             padding: 0;
-            margin:0;
-            li{
+            margin: 0;
+
+            li {
                 padding-bottom: 10px;
             }
 
-             @media screen and (max-width: 767px) {
+             @media screen and (max-width: 768px) {
                 padding-left: 8px;
                 display: none;
              }
@@ -128,10 +127,16 @@ footer.experiencefragment{
 
     &__category-wrapper {
         margin: 0 -16px;
+
         .social-media__container {
-             @media screen and (max-width: 767px) {
-                   margin-top: 20px;
-             }
+          padding-right: 0;
+          display: flex;
+          justify-content: flex-end;
+
+          @media screen and (max-width: 768px) {
+            margin-top: 20px;
+            justify-content: left;
+          }
         }
     }
 
@@ -148,18 +153,28 @@ footer.experiencefragment{
 
                  @media screen and (max-width: 767px) {
                     float: none;
-                    padding: 13px 0 12pt 0;
+                    padding: 13px 0 0 0;
                  }
 
                .cmp-footer__links {
                     list-style:none;
                     padding: 0;
                     margin: 0;
+                    text-align: left;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    li {
+                      margin: 0 25px 10px 0;
+
+                      @media screen and (max-width: 1024px) {
+                        margin: 0 0 10px 0;
+                      }
+                    }
 
                     .footer-link {
                          height: 24px;
                          text-decoration-line: none;
-                         margin-right: 25px;
                          opacity: 0.8;
                          font-family: $font-universe-roman;
                          font-size: 14px;
@@ -169,7 +184,6 @@ footer.experiencefragment{
                          line-height: 1.71;
                          letter-spacing: -0.2px;
                          color: #b2b2b1;
-                         padding-bottom: 3px;
                          border-bottom: solid 1px transparent;
                          padding: 0;
                          &:hover{
@@ -177,14 +191,12 @@ footer.experiencefragment{
                          }
 
                           @media screen and (max-width: 1024px) {
-                                margin: 10px 0;
-                                text-align: left;
                                 padding-right: 16px;
                                 &:hover{
                                     border-color: transparent;
                                 }
                           }
-                          @media screen and (max-width: 768px) {
+                          @media screen and (max-width: 767px) {
                             padding-left: 16px;
                           }
                     }
@@ -196,7 +208,7 @@ footer.experiencefragment{
 
                @media screen and (max-width: 767px) {
                   float: none;
-                  padding: 13px 47px 12pt 8px;
+                  padding: 0 47px 12pt 8px;
                }
 
               .cmp-footer__copyright {
