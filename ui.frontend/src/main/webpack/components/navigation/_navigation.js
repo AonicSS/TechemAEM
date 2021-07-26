@@ -174,12 +174,13 @@
         });
     }
     $(document).ready(function () {
-        burgermenuinit();
-        var $notification = $("header[data-component-name='navigation']");
-        Array.prototype.forEach.call($notification, function (element) {
-            if (element && element.dataset.initialized !== "true") {
-                new NotificationModule(element);
+        const $headerNav = $("header[data-component-name='navigation']").not('.header-hide-nav');
+        if ($headerNav.length) {
+            burgermenuinit();
+
+            if ($headerNav[0].dataset.initialized !== "true") {
+                new NotificationModule($headerNav[0]);
             }
-        });
+        }
     });
 }());

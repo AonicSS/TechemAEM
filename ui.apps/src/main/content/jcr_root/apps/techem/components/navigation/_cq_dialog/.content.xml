@@ -150,6 +150,14 @@
                                                     fieldDescription="Enter the back button text"
                                                     fieldLabel="Back Button Text"
                                                     name="./backButtonText"/>
+                                            <hideNavigation
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    fieldDescription="Check this to hide all menu items."
+                                                    name="./hideNavigation"
+                                                    text="Hide main navigation"
+                                                    uncheckedValue="false"
+                                                    value="true"/>
                                         </items>
                                     </column>
                                 </items>

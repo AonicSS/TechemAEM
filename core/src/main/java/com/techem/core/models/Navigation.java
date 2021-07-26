@@ -59,6 +59,9 @@ public class Navigation {
     @ValueMapValue(name = "fileReference")
     private String logoImage;
 
+    @ValueMapValue(name = "hideNavigation")
+    private Boolean hideNavigation;
+
     @SlingObject
     private ResourceResolver resourceResolver;
 
@@ -108,6 +111,10 @@ public class Navigation {
     public String getLogoImage() { return logoImage; }
 
     public String getBackButtonText() { return backButtonText; }
+
+    public Boolean getHideNavigation() {
+        return hideNavigation;
+    }
 
     private void setNavigationItems(Map<Header,List<NavigationDetails>> items) {
         navigationItems = new LinkedHashMap<>();
