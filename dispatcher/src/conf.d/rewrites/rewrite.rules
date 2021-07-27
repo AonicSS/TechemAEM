@@ -265,6 +265,9 @@ RewriteRule ^/was-wir-bieten   https://www.techem.com/de/de/ueber-uns/unternehme
 RewriteRule ^/wir-als-arbeitgeber   https://karriere.techem.de/das-sind-wir [L,R=301,NE,QSA]
 RewriteRule ^/wissenswertes   https://www.techem.com/de/de/info-und-service/faq [L,R=301,NE,QSA]
 
+# new rules SALESP-191
+RewriteRule ^/UmfrageAbrechnung   https://techem-experts.rogsurvey.de/data/umfrage/AbrechnungNPS/ [L,R=301,NE,QSA]
+
 # Exceptions - avoid these automated tests URLs being rewritten (stops further rewrites)
 RewriteRule ^/content/test-site/(.*)\.html$ - [NC,L]
 
