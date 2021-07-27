@@ -58,6 +58,10 @@ header.experiencefragment{
 }
 
 .navigation {
+    &.aem-GridColumn {
+        padding: 0;
+    }
+
     .header {
         position: fixed;
         width: 100%;
@@ -68,6 +72,14 @@ header.experiencefragment{
         box-shadow: 0 1px 5px 0 rgba(83, 83, 83, 0.4);
         z-index: 1000;
         transition: transform .35s ease-out,-webkit-transform .35s ease-out;
+
+        &.header-hide-nav {
+            position: static;
+
+            .header__divider, nav, .header__right {
+                display: none;
+            }
+        }
 
         &__components {
             position: relative;
@@ -511,13 +523,13 @@ header.experiencefragment{
     }
 }
 
-.scroll-down{
-    .header{
+.scroll-down {
+    .header:not(.header-hide-nav) {
         transform: translate3d(0, -100%, 0);
     }
 }
-.scroll-up{
-    .header{
+.scroll-up {
+    .header:not(.header-hide-nav) {
         transform: none;
         transition: transform .35s ease-out;
     }
