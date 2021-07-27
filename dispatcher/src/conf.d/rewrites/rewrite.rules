@@ -117,7 +117,7 @@ RewriteRule ^/index.php?id=11   https://www.techem.com/de/de [L,R=301,QSD,NE,B]
 RewriteRule ^/suchergebnisse?tx_kesearch_pi1%5Bpage%5D=1&tx_kesearch_pi1%5BresetFilters%5D=0&tx_kesearch_pi1%5BsortByDir%5D=&tx_kesearch_pi1%5BsortByField%5D=&tx_kesearch_pi1%5Bsword%5D=rauchmelder&cHash=9e2cd418ab4b470768bb211fec915db9   https://www.techem.com/de/de [L,R=301,QSD,DPI]
 
 # 302
-RewriteRule ^/index.php$ https://www.techem.com/de/de [L,R=302,NE, QSD]
+RewriteRule ^/index.php$ https://www.techem.com/de/de [L,R=302,NE,QSD]
 RewriteRule ^/weg-spezial   https://www.techem.com/de/de [L,R=302,NE,QSA]
 RewriteRule ^/fileadmin/user_upload/epaper-EKW-2018/    https://www.techem.com/de/de [L,R=302,NE,QSA]
 RewriteRule ^/parlamentarischer-abend   https://www.techem.com/de/de [L,R=302,NE,QSA]
