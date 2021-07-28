@@ -113,9 +113,6 @@ RewriteRule ^/energieausweis-beantragen https://anmeldungen.techem.de/t-energiea
 RewriteRule ^/rauchwarnmelder-pruefpflicht  https://anmeldungen.techem.de/t-rauchwarnmelder-pruefpflicht [L,R=301,NE,QSA]
 RewriteRule ^/rauchwarnmelder-experte   https://anmeldungen.techem.de/t-rauchwarnmelder-experte [L,R=301,NE,QSA]
 
-RewriteRule ^/index.php?id=11   https://www.techem.com/de/de [L,R=301,QSD,NE,B]
-RewriteRule ^/suchergebnisse?tx_kesearch_pi1%5Bpage%5D=1&tx_kesearch_pi1%5BresetFilters%5D=0&tx_kesearch_pi1%5BsortByDir%5D=&tx_kesearch_pi1%5BsortByField%5D=&tx_kesearch_pi1%5Bsword%5D=rauchmelder&cHash=9e2cd418ab4b470768bb211fec915db9   https://www.techem.com/de/de [L,R=301,QSD,DPI]
-
 # 302
 RewriteRule ^/index.php$ https://www.techem.com/de/de [L,R=302,NE,QSD]
 RewriteRule ^/weg-spezial   https://www.techem.com/de/de [L,R=302,NE,QSA]
@@ -253,7 +250,7 @@ RewriteRule ^/qualitaet-rettet-leben   https://www.techem.com/de/de [L,R=301,NE,
 RewriteRule ^/rauchwarnmelder   https://www.techem.com/de/de/geraete/rauchwarnmelder [L,R=301,NE,QSA]
 RewriteRule ^/schueler   https://karriere.techem.de/schueler [L,R=301,NE,QSA]
 RewriteRule ^/studenten-absolventen   https://karriere.techem.de/studenten-absolventen [L,R=301,NE,QSA]
-RewriteRule ^/suchergebnisse$   https://www.techem.com/de/de [L,R=301,NE,QSA]
+RewriteRule ^/suchergebnisse$   https://www.techem.com/de/de [L,R=301,NE,QSD]
 RewriteRule ^/ueber_techem/energiekennwerte.html   https://www.techem.com/de/de/immobilienservices/energieausweis [L,R=301,NE,QSA]
 RewriteRule ^/ueber_techem/klimaschutz_und_digitalisierung/klimaschutz/energiekennwerte.html   https://www.techem.com/de/de/ueber-uns/nachhaltigkeit [L,R=301,NE,QSA]
 RewriteRule ^/ueber_techem/unternehmensprofil/facts_figures.html   https://www.techem.com/de/de/ueber-uns/unternehmen [L,R=301,NE,QSA]
@@ -265,6 +262,8 @@ RewriteRule ^/videos   https://www.techem.com/de/de/ueber-uns/newsroom [L,R=301,
 RewriteRule ^/was-wir-bieten   https://www.techem.com/de/de/ueber-uns/unternehmen [L,R=301,NE,QSA]
 RewriteRule ^/wir-als-arbeitgeber   https://karriere.techem.de/das-sind-wir [L,R=301,NE,QSA]
 RewriteRule ^/wissenswertes   https://www.techem.com/de/de/info-und-service/faq [L,R=301,NE,QSA]
+RewriteRule ^/index.php?id=11   https://www.techem.com/de/de [L,R=301,NE,B]
+RewriteRule ^/suchergebnisse?tx_kesearch_pi1%5Bpage%5D=1&tx_kesearch_pi1%5BresetFilters%5D=0&tx_kesearch_pi1%5BsortByDir%5D=&tx_kesearch_pi1%5BsortByField%5D=&tx_kesearch_pi1%5Bsword%5D=rauchmelder&cHash=9e2cd418ab4b470768bb211fec915db9   https://www.techem.com/de/de [L,R=301,NE,B]
 
 # new rules SALESP-191
 RewriteRule ^/UmfrageAbrechnung   https://techem-experts.rogsurvey.de/data/umfrage/AbrechnungNPS/ [L,R=301,NE,QSA]
