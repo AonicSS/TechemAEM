@@ -1,9 +1,16 @@
-.breadcrumb {
+.cmp-breadcrumb {
     max-width: 77pc;
     margin: 172px auto 0;
+    display: block;
+    padding: 16px 0;
+
+    @media only screen and (max-width: 1024px) {
+        display: none;
+    }
 }
 .cmp-breadcrumb__list {
     padding: 0;
+    margin: 0;
 }
 .cmp-breadcrumb__item {
     vertical-align: middle;
@@ -47,9 +54,3 @@
     }
 }
 .cmp-breadcrumb__item-link {}
-
-@media only screen and (max-width:1024px){
-    .breadcrumb {
-        display: none;
-    }
-}
