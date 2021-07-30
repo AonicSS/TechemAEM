@@ -72,6 +72,14 @@
                                                 text="Hide Page Path"
                                                 uncheckedValue="false"
                                                 value="true"/>
+                                            <hideBreadcrumbs
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldDescription="Check this to hide the breadcrumbs component in this page"
+                                                name="./hideBreadcrumbs"
+                                                text="Hide Breadcrumbs"
+                                                uncheckedValue="false"
+                                                value="true"/>
                                             <pageDescription
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
