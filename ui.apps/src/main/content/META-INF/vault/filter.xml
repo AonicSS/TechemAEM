@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
+    <filter root="/apps/acs-commons/content/cloudservice" mode="update"/>
     <filter root="/apps/techem/clientlibs"/>
     <filter root="/apps/techem/components"/>
     <filter root="/apps/techem/i18n"/>
