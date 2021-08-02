@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+            cq:lastModified="{Date}2021-07-30T11:59:21.428Z"
+            cq:lastModifiedBy="Andreea.Gina.Stoiu@ibm.com"
+            cq:template="/apps/acs-commons/templates/utilities/marketocloudconfig"
+            jcr:primaryType="cq:PageContent"
+            jcr:title="techem config test"
+            sling:resourceType="acs-commons/components/utilities/cloudconfig/marketo"
+            clientId="70e46d5b-0df8-4952-a6c9-a202cefd7877"
+            clientSecret="8fViOJS4RXZhInSlqpu1n2DevO7Dccyo"
+            endpointHost="784-BQV-997.mktorest.com"
+            munchkinId="784-BQV-997"
+            serverInstance="//app-nld102.marketo.com"/>
+</jcr:root>
