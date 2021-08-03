@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="header__divider"></div>
-        <nav class="navigation">
+        <nav class="navigation" data-sly-test="${!navigation.hideNavigation}">
             <ul class="navigation__links" data-sly-test="${navigationItems}" data-sly-list.map="${navigationItems}">
                 <li data-sly-test="${map.key.navTitle}" class="navigation__link"  data-sly-attribute.dropdown-item="${map.key.navTitle.toLowerCase}">
                     <a class="navigation__sub-link"  href="#"> ${map.key.navTitle} <i class="header-icon-mobile">
