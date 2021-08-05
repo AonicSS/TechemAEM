@@ -6,7 +6,7 @@
         cq:template="/conf/techem/settings/wcm/templates/home-page"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="techem/components/structure/home-page">
-        <experiencefragment
+        <experiencefragment-header
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="techem/components/experiencefragment"
                 editable="{Boolean}true"/>
@@ -23,7 +23,7 @@
                 editable="{Boolean}true"
                 layout="responsiveGrid"/>
         </root>
-        <experiencefragment_2088209270
+        <experiencefragment-footer
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="techem/components/experiencefragment"
                 editable="{Boolean}true"/>
