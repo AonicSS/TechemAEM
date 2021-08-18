@@ -1,0 +1,16 @@
+{
+  "allowedGroups":[
+    "admin"
+  ],
+  "emailRecipients":[
+    ""
+  ],
+  "auditDisabled":false,
+  "auditDisplayAll":false,
+  "emailEnabled":false,
+  "threadTimeout":0,
+  "vanityPathEnabled":false,
+  "allowedScheduledJobsGroups":[
+    ""
+  ]
+}
