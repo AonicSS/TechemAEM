@@ -1,6 +1,7 @@
 {
   "allowedGroups":[
-    "admin"
+    "administrators",
+    "Developers"
   ],
   "emailRecipients":[
     ""
