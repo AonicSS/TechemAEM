@@ -582,6 +582,12 @@ Bundle-DocURL:
                 <scope>provided</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.cid15.aem.groovy.console</groupId>
+                <artifactId>aem-groovy-console-all</artifactId>
+                <version>17.0.0</version>
+                <type>zip</type>
+            </dependency>
 
             <!-- Testing -->
             <dependency>

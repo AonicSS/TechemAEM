@@ -105,6 +105,13 @@
                             <type>zip</type>
                             <target>/apps/techem-packages/application/install</target>
                         </embedded>
+
+                        <embedded>
+                            <groupId>org.cid15.aem.groovy.console</groupId>
+                            <artifactId>aem-groovy-console-all</artifactId>
+                            <type>zip</type>
+                            <target>/apps/techem-packages/application/install</target>
+                        </embedded>
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -245,6 +252,13 @@
             <version>5.0.4</version>
             <type>zip</type>
             <classifier>min</classifier> <!-- optional, see below -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.cid15.aem.groovy.console</groupId>
+            <artifactId>aem-groovy-console-all</artifactId>
+            <version>17.0.0</version>
+            <type>zip</type>
         </dependency>
     </dependencies>
 </project>
