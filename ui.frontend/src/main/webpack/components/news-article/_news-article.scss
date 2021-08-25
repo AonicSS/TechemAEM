@@ -141,7 +141,7 @@
                 -moz-line-clamp: 4;
                 -moz-box-orient: vertical;
 
-                ul {
+                ul, ol {
                     max-height: 100px;
                     overflow: hidden;
                     text-overflow: ellipsis;
