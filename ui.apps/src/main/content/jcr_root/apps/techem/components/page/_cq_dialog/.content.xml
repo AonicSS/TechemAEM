@@ -299,7 +299,7 @@
                                             <hideInSitemap
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                                    fieldDescription="By checking this the page won't appear in thee sitemap"
+                                                    fieldDescription="Hide page in sitemap when you don't want or need it to get crawled by search engines, e.g. pages with thin or duplicate content, or login pages"
                                                     name="./hideInSitemap"
                                                     text="Hide in sitemap"
                                                     uncheckedValue="false"
