@@ -24,6 +24,9 @@ public class Page {
     @ValueMapValue(name="noFollow")
     private String noFollow;
 
+    @ValueMapValue(name="hideInSitemap")
+    private String hideInSitemap;
+
     public String getNoIndex() {
         return noIndex;
     }
@@ -31,5 +34,7 @@ public class Page {
     public String getNoFollow() {
         return noFollow;
     }
+
+    public String getHideInSitemap() { return hideInSitemap; }
 
 }
