@@ -23,6 +23,6 @@
   "priority.properties":[
     ""
   ],
-  "exclude.property":"hideInNav",
+  "exclude.property":"hideInSitemap",
   "externalizer.domain":"publish"
 }

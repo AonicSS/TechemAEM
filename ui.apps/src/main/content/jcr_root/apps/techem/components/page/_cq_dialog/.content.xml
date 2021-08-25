@@ -291,6 +291,21 @@
                                                 value="true"/>
                                         </items>
                                     </metatags>
+                                    <sitemapHandling
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Sitemap handling"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <hideInSitemap
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    fieldDescription="By checking this the page won't appear in thee sitemap"
+                                                    name="./hideInSitemap"
+                                                    text="Hide in sitemap"
+                                                    uncheckedValue="false"
+                                                    value="true"/>
+                                        </items>
+                                    </sitemapHandling>
                                 </items>
                             </column>
                         </items>
