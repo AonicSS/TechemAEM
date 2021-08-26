@@ -141,13 +141,14 @@
                 -moz-line-clamp: 4;
                 -moz-box-orient: vertical;
 
-                ul {
+                ul, ol {
                     max-height: 100px;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     -webkit-line-clamp: 4;
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
+                    padding: 0 0 0 20px;
                 }
 
                 @media (max-width: 769px) {
