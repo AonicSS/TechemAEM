@@ -270,6 +270,7 @@ RewriteRule ^/UmfrageAbrechnung   https://techem-experts.rogsurvey.de/data/umfra
 
 # Exceptions - avoid these automated tests URLs being rewritten (stops further rewrites)
 RewriteRule ^/content/test-site/(.*)\.html$ - [NC,L]
+RewriteRule ^/libs/granite/core/content/login.html$ - [NC,L]
 
 # rewrite for root redirect
 RewriteRule ^/content/techem/(.*).html?$ /$1 [R=301,L]
