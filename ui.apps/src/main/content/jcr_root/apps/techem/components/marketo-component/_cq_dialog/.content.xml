@@ -27,6 +27,7 @@
                                         sling:resourceType="granite/ui/components/foundation/form/textfield"
                                         fieldDescription="ID of Marketo Form"
                                         fieldLabel="Marketo Form ID"
+                                        required="true"
                                         name="./formid"/>
                                     <environment
                                         jcr:primaryType="nt:unstructured"
