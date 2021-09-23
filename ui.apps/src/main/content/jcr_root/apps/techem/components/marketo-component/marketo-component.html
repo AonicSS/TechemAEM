@@ -1,5 +1,5 @@
-<div class="cmp-marketo-component" data-cmp-is="marketocomponent">
-    <sly data-sly-test="${!properties.formid}"><p style="text-align: center;">Marketo: formID was not set!</p></sly>
+<div id="cmp-marketo" class="cmp-marketo-form" data-cmp-is="marketoform">
+    <sly data-sly-test="${!properties.formid}"><p style="text-align: center;">Marketo Form: formID was not set!</p></sly>
     <sly data-sly-test="${properties.formid}">
         <sly data-sly-test.envUrl="${properties.environment == 'techem' ? 'https://www2.techem.com' : 'https://app-nld102.marketo.com'}"></sly>
         <sly data-sly-test.munchkinID="${properties.environment == 'techem' ? '549-BHO-641' : '784-BQV-997'}"></sly>
@@ -9,6 +9,10 @@
 
 <sly data-sly-test ="${properties.formid}">
     <script src="${envUrl}/js/forms2/js/forms2.min.js"></script> 
-    <script>MktoForms2.loadForm("${envUrl @ context='scriptString'}", "${munchkinID @ context='scriptString'}", "${properties.formid @ context='scriptToken'}");</script>
+    <script>MktoForms2.loadForm("${envUrl @ context='scriptString'}", "${munchkinID @ context='scriptString'}", "${properties.formid @ context='scriptToken'}", function(form){
+        if(form == null) {
+            document.getElementById("cmp-marketo").innerText = "Could not load formID '${properties.formid @ context='scriptString'}' on environment '${properties.environment @ context='scriptString'}'! Check dev console for more info."; 
+        }
+    });</script>
     <link rel="stylesheet" href="https://www2.techem.com/rs/549-BHO-641/images/mkto_landingpage-forms.css">
 </sly> 
