@@ -1,6 +1,6 @@
 <sly data-sly-use.headlineModel="com.techem.core.models.Headline"
      data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
      data-sly-use.template="core/wcm/components/commons/v1/templates.html">
-    <h2 class="cmp-headline__headline" data-sly-element="${headlineModel.types}">${headlineModel.headline @ context='html'}</h2>
+    <h2 id="${headlineModel.id}" class="cmp-headline__headline" data-sly-element="${headlineModel.types}">${headlineModel.headline @ context='html'}</h2>
     <div class="cmp-headline__text" data-sly-test.isText="${headlineModel.text}">${headlineModel.text}</div>
 </sly>
