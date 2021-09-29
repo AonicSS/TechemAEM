@@ -12,7 +12,7 @@ Include conf.d/variables/custom.vars
 		Header add X-Vhost "publish"
 		Header add Referrer-Policy "same-origin"
 		Header add Content-Security-Policy "default-src ${ALLOWED_DEFAULT_SRC}; script-src ${ALLOWED_SCRIPT_SRC}; style-src ${ALLOWED_STYLE_SRC}; font-src ${ALLOWED_FONTS_SRC}; img-src ${ALLOWED_IMG_SRC}; frame-src ${ALLOWED_FRAME_SRC}; manifest-src ${ALLOWED_MANIFEST_SRC}; connect-src ${ALLOWED_CONNECT_SRC}"
-		Header add Content-Security-Policy-Report-Only "default-src ${ALLOWED_DEFAULT_SRC}; script-src ${ALLOWED_SCRIPT_SRC}; style-src ${ALLOWED_STYLE_SRC}; font-src ${ALLOWED_FONTS_SRC}; img-src ${ALLOWED_IMG_SRC}; frame-src ${ALLOWED_FRAME_SRC}; manifest-src ${ALLOWED_MANIFEST_SRC}; connect-src ${ALLOWED_CONNECT_SRC}; report-uri https://a656b4d9f9be09879bf6119c65eca1db.report-uri.com/r/d/csp/reportOnly"
+		Header add Content-Security-Policy-Report-Only "default-src ${ALLOWED_DEFAULT_SRC}; script-src ${ALLOWED_SCRIPT_SRC}; style-src ${ALLOWED_STYLE_SRC}; font-src ${ALLOWED_FONTS_SRC}; img-src ${ALLOWED_IMG_SRC}; frame-src ${ALLOWED_FRAME_SRC}; manifest-src ${ALLOWED_MANIFEST_SRC}; connect-src ${ALLOWED_CONNECT_SRC}; report-uri https://4e57f0243286eb0ed979a1aef3232f6d.report-uri.com/r/d/csp/reportOnly"
 	</IfModule>
 	<Directory />
 		<IfModule disp_apache2.c>
