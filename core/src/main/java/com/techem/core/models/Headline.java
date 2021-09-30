@@ -30,8 +30,15 @@ public class Headline {
     @ValueMapValue(name = "text")
     private String text;
 
+    @ValueMapValue(name = "id")
+    private String id;
+
     public String getTypes() {
         return types;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getHeadline() {
