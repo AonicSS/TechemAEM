@@ -9,10 +9,16 @@
 
 <sly data-sly-test ="${properties.formid}">
     <script src="${envUrl}/js/forms2/js/forms2.min.js"></script> 
-    <script>MktoForms2.loadForm("${envUrl @ context='scriptString'}", "${munchkinID @ context='scriptString'}", "${properties.formid @ context='scriptToken'}", function(form){
-        if(form == null) {
-            document.getElementById("cmp-marketo").innerText = "Could not load formID '${properties.formid @ context='scriptString'}' on environment '${properties.environment @ context='scriptString'}'! Check dev console for more info."; 
-        }
-    });</script>
+    <sly data-sly-test="${wcmmode.edit}">
+        <script>MktoForms2.loadForm("${envUrl @ context='scriptString'}", "${munchkinID @ context='scriptString'}", "${properties.formid @ context='scriptString'}", function(form){
+            if(form == null) {
+                document.getElementById("cmp-marketo").innerText = "Could not load formID '${properties.formid @ context='scriptString'}' on environment '${properties.environment @ context='scriptString'}'! Check dev console for more info."; 
+            }
+        });</script>
+    </sly>
+    <sly data-sly-test="${!wcmmode.edit}">
+        <script>MktoForms2.loadForm("${envUrl @ context='scriptString'}", "${munchkinID @ context='scriptString'}", "${properties.formid @ context='scriptString'}");</script>
+    </sly>
     <link rel="stylesheet" href="https://www2.techem.com/rs/549-BHO-641/images/mkto_landingpage-forms.css">
-</sly> 
+    <script src="https://www2.techem.com/rs/549-BHO-641/images/form-handler.js"></script>
+</sly>  
