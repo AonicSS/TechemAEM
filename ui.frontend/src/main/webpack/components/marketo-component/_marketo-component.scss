@@ -1,0 +1,19 @@
+.cmp-marketo-form{
+   
+    margin-top: 50px;
+
+    .mktoForm{
+        &.mktoLayoutLeft{
+            & .mktoRequiredField {
+                label.mktoLabel {
+                    display: flex !important;
+                }
+
+                .mktoAsterix {
+                    order: 1;
+                }
+            }
+        }  
+    }
+
+}
