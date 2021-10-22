@@ -1,6 +1,7 @@
-package com.techem.core.models;
+package com.techem.core.servlets;
 
 import com.day.cq.wcm.api.Page;
+import com.techem.core.models.LoginContainer;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 import org.apache.sling.api.resource.Resource;
