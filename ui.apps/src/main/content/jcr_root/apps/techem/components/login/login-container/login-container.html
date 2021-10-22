@@ -1,0 +1,41 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.js @ categories='granite.jquery'}"/>
+<form data-sly-use.text="com.adobe.cq.wcm.core.components.models.form.Text"
+      data-sly-use.loginContainer="com.techem.core.models.LoginContainer"
+      method="POST" action="/eu/techem/techemLogin" id="login-form"
+      enctype="enctype"
+      class="cmp-form">
+    <input type="hidden" name=":formstart" value="${resource.path}"/>
+    <input type="hidden" name="_charset_" value="utf-8"/>
+    <sly data-sly-repeat.paragraph="${grid.paragraphs}"
+         data-sly-resource="${paragraph.path @ resourceType=paragraph.resourceType, decorationTagName='div', cssClassName=paragraph.cssClass}"></sly>
+    <div text-input aem-GridColumn aem-GridColumn--default--12 cq-Editable-dom>
+        <div id="username-field" class="cmp-form-text">
+            <label id="labelUsername">Username</label>
+            <input id="login-username"
+                   class="cmp-form-text__text"
+                   type="text"
+                   name="Username"
+                   required="true"/>
+        </div>
+    </div>
+    <div text-input aem-GridColumn aem-GridColumn--default--12 cq-Editable-dom>
+        <div id="password-field" class="cmp-form-text">
+            <label id="labelPassword">Password</label>
+            <input id="login-password"
+                    class="cmp-form-text__text cmp-form-text__password"
+                    type="password"
+                    name="Password"
+                    required="true"/>
+        </div>
+    </div>
+    <div id="linkForRedirect" data-link-url="${loginContainer.linkURL}" hidden></div>
+    <div id="login-error-message" class="cmp-alert cmp-alert__invalid alert-warning" hidden>An error occurred during login. Most likely you didn’t enter the username or password correctly or your account has not been validated yet.</div>
+    <div class="button aem-GridColumn aem-GridColumn--default--12 cq-Editable-dom">
+        <button data-sly-use.submitButton="com.adobe.cq.wcm.core.components.models.form.Button"
+            type="submit"
+                formmethod="post"
+            id="submit-button"
+            class="cmp-form-button">Log in</button>
+    </div>
+
+</form>

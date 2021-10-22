@@ -11,3 +11,8 @@ $include "./default_filters.any"
 
 # allow sitemap URLs
 /0102 { /type "allow" /url "/*/*.sitemap.xml" }
+
+#allow custom servlet requests
+/0201 { /type "allow" /url "/eu/techem/sendmail"}
+/0202 { /type "allow" /url "/eu/techem/changepw" }
+/0203 { /type "allow" /url "/eu/techem/techemLogin" }

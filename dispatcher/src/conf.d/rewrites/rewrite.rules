@@ -277,6 +277,8 @@ RewriteRule ^/e-mobility  https://www.techem.com/de/de/energieeffizienz/e-chargi
 RewriteRule ^/content/test-site/(.*)\.html$ - [NC,L]
 RewriteRule ^/libs/granite/core/content/login.html$ - [NC,L]
 
+RewriteRule ^/eu/techem/(.*) - [NC,L]
+
 # rewrite for root redirect
 RewriteRule ^/content/techem/(.*).html?$ /$1 [R=301,L]
 

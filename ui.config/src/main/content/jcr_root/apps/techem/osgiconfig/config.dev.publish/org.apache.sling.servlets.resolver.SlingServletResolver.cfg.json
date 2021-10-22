@@ -1,0 +1,20 @@
+// Configuration created by Apache Sling JCR Installer
+{
+  "servletresolver.cacheSize:Integer":1000,
+  "servletresolver.mountProviders":false,
+  "servletresolver.defaultExtensions":[
+    "html"
+  ],
+  "servletresolver.paths":[
+    "/bin/",
+    "/libs/",
+    "/apps/",
+    "/system/",
+    "/index.servlet",
+    "/login.servlet",
+    "/services/",
+    "/etc/commerce/searchpromote/feed/deleted.servlet",
+    "/eu/"
+  ],
+  "servletresolver.servletRoot":"-1"
+}

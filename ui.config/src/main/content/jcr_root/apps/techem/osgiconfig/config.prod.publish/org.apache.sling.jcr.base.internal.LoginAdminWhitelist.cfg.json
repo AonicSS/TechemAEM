@@ -1,0 +1,5 @@
+// Configuration created by Apache Sling JCR Installer
+{
+  "whitelist.bypass":true,
+  "whitelist.bundles.regexp":"com.techem.core.servlets.TechemLoginServlet"
+}

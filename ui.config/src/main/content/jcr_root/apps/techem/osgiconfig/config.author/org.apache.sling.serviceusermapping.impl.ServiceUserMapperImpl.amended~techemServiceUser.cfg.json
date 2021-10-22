@@ -1,0 +1,6 @@
+{
+  "service.ranking": "0",
+  "user.mapping" : [
+    "techem.core:userutilityservice=groovy-console-system-user"
+  ]
+}
