@@ -1140,6 +1140,62 @@
 
                             <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
 
+                                <div>
+                                    <div
+                                            data-component-name="reset-password"
+                                            data-sly-use.ResetPasswordModel="com.techem.core.models.ResetPassword"
+                                            class="cmp-reset-password"
+                                    >
+                                        <div class="cmp-reset-password__header">
+                                            <h2 class="cmp-reset-password__headline">
+                                                Password reset
+                                            </h2>
+                                            <p class="cmp-reset-password__sub-headline">
+                                                If you forgot your password or do not have it at hand,
+                                                you can generate a new password here.
+                                            </p>
+                                        </div>
+                                        <div class="cmp-reset-password__line"></div>
+
+                                        <p class="cmp-reset-password__description">
+                                            Please enter your registered email address below and click
+                                            “Reset Password”. We will then send you an email with a
+                                            confirmation link. After clicking on this link you can
+                                            assign a new password. If you do not receive an email from
+                                            us within the next 30 minutes, please check your spam
+                                            folder.
+                                        </p>
+
+                                        <form class="cmp-reset-password__form">
+                                            <fieldset class="cmp-form-options">
+                                                <label class="cmp-form-options__field-label">
+                                                    <div class="cmp-form-options__field-description">
+                                                        <div>Email address</div>
+                                                    </div>
+                                                    <input
+                                                            class="cmp-form-options__field"
+                                                            type="email"
+                                                            value=""
+                                                            name="email"
+                                                    />
+                                                </label>
+                                            </fieldset>
+                                            <div class="button">
+                                                <button
+                                                        class="cmp-form-button cmp-reset-password__button"
+                                                        type="submit"
+                                                >
+                                                    Reset Password
+                                                </button>
+                                            </div>
+                                        </form>
+
+                                        <a class="cmp-reset-password__link" href="#">
+                                            Return to login form
+                                        </a>
+                                    </div>
+                                </div>
+                                
                                 <div class="fullbleed teaser aem-GridColumn aem-GridColumn--default--12">
                                     <div id="fullbleed-fe6e1b4c44" class="cmp-teaser"
                                          data-cmp-data-layer="{&#34;fullbleed-fe6e1b4c44&#34;:{&#34;@type&#34;:&#34;techem/components/fullbleed&#34;,&#34;repo:modifyDate&#34;:&#34;2021-01-15T10:02:06Z&#34;}}">

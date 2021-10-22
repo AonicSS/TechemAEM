@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Upload IR Data CSV"
+            sling:resourceType="granite/ui/components/shell/page">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                    categories="[granite.ui.coral.foundation,techem.bulkimport]"/>
+        </head>
+        <title
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Bulk import of IR data"
+                sling:resourceType="granite/ui/components/shell/title"/>
+        <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container"
+                margin="{Boolean}true">
+            <items jcr:primaryType="nt:unstructured">
+                <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                    <items jcr:primaryType="nt:unstructured">
+                        <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                margin="{Boolean}true">
+                            <items jcr:primaryType="nt:unstructured">
+                                <container
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                        margin="{Boolean}true">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <well
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/well"
+                                                margin="{Boolean}true">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <container
+                                                        granite:id="fileUploadForm"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form"
+                                                        enctype="multipart/form-data"
+                                                        foundationForm="{Boolean}true"
+                                                        loadingMask="{Boolean}true"
+                                                        margin="{Boolean}true"
+                                                        maximized="{Boolean}true"
+                                                        style="vertical"
+                                                        method="post"
+                                                        action="/bin/techem/bulkimport">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <fileUpload
+                                                                granite:id="csv_data"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/fileupload"
+                                                                autoStart="{Boolean}false"
+                                                                emptyText="Choose File"
+                                                                fieldLabel="Select CSV file to import"
+                                                                icon="upload"
+                                                                mimeTypes="[.csv]"
+                                                                multiple="{Boolean}false"
+                                                                name="csv_data"
+                                                                required="{Boolean}true"
+                                                                method="post"
+                                                                text="Choose File"/>
+                                                        <selection
+                                                                granite:class="coral-Heading coral-Heading--4 color--primary font--normal"
+                                                                granite:id="fileSelection"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/heading"
+                                                                level="{Long}4"
+                                                                margin="{Boolean}true"
+                                                                text="No file chosen"/>
+                                                        <submitButton
+                                                                granite:id="btnSubmit"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/button"
+                                                                text="Import Users"
+                                                                type="button"/>
+                                                    </items>
+                                                </container>
+                                            </items>
+                                        </well>
+                                    </items>
+                                </container>
+                            </items>
+                        </column>
+                    </items>
+                </columns>
+            </items>
+        </content>
+    </jcr:content>
+</jcr:root>

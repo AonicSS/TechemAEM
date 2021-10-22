@@ -325,7 +325,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Techem - Content,/apps/techem/components/form/container,group:Techem - Structure]">
+                    components="[group:Techem - Content,group:Techem - Login,/apps/techem/components/form/container,group:Techem - Structure]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -355,7 +355,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Techem - Content,/apps/techem/components/form/container]">
+                    components="[group:Techem - Content,group:Techem - Login,/apps/techem/components/form/container]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -393,7 +393,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Techem - Content,/apps/techem/components/form/container]">
+                    components="[group:Techem - Content,group:Techem - Login,/apps/techem/components/form/container]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -423,7 +423,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Category Page"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Techem - Content,/apps/techem/components/form/container]"
+                    components="[group:Techem - Content,group:Techem - Login,/apps/techem/components/form/container]"
                     layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">

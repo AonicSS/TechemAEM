@@ -90,7 +90,7 @@ body {
   overflow: hidden;
 }
 a {
-  color: $color-link;
+  color: $color-primary-button;
 
   @media (prefers-color-scheme: dark) {
     color: $color-link;
@@ -107,6 +107,10 @@ textarea {
 
 .bg-gray{
   background-color: #F3F3F3;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /*
