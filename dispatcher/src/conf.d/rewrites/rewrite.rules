@@ -272,6 +272,21 @@ RewriteRule ^/UmfrageAbrechnung   https://techem-experts.rogsurvey.de/data/umfra
 RewriteRule ^/mieterinfo   https://www.techem.com/de/de/info-und-service/mieterinfos [L,R=301,NE,QSA]
 RewriteRule ^/e-mobility  https://www.techem.com/de/de/energieeffizienz/e-charging [L,R=301,NE,QSA]
 
+#new rules SALESP-478
+
+RewriteCond %{HTTP_HOST} www\.ir\.techem\.de [NC]
+RewriteRule ^/$ https://www.techem.com/investor-relations/en [L,R=301,NE,QSA]
+
+RewriteRule ^/financial-calendar www.techem.com/investor-relations/en/financial-calendar [L,R=301,NE,QSA]
+RewriteRule ^/ir-news www.techem.com/investor-relations/en/ir-news [L,R=301,NE,QSA]
+RewriteRule ^/bonds www.techem.com/investor-relations/en/bonds [L,R=301,NE,QSA]
+RewriteRule ^/ratings  www.techem.com/investor-relations/en/ratings  [L,R=301,NE,QSA]
+RewriteRule ^/contact www.techem.com/investor-relations/en/contact [L,R=301,NE,QSA]
+RewriteRule ^/profile www.techem.com/investor-relations/en/profile [L,R=301,NE,QSA]
+RewriteRule ^/legal www.techem.com/investor-relations/en/legal [L,R=301,NE,QSA]
+RewriteRule ^/privacy www.techem.com/investor-relations/en/privacy [L,R=301,NE,QSA]
+RewriteRule ^/register www.techem.com/investor-relations/en/register [L,R=301,NE,QSA]
+
 
 # Exceptions - avoid these automated tests URLs being rewritten (stops further rewrites)
 RewriteRule ^/content/test-site/(.*)\.html$ - [NC,L]
