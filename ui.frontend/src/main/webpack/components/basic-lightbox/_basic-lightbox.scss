@@ -1,0 +1,27 @@
+@import '~basiclightbox/src/styles/main';
+
+.basicLightbox {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: $color-lightbox-bg;
+  height: 100%;
+
+  &--visible &__placeholder {
+    transform: scale(1);
+    margin: auto;
+  }
+
+  &__placeholder {
+    width: 100%;
+    background-color: $color-background;
+    max-width: 847px;
+    padding: 30px;
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 767px) {
+      padding: 20px 20px 30px 20px;
+    }
+  }
+}

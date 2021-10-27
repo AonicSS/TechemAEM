@@ -1,0 +1,51 @@
+<div data-component-name="lightbox-legal" class="cmp-lightbox-legal ${wcmmode.edit ? 'author-mode': ''}">
+    <p data-sly-test="${!wcmmode.disabled}">
+        Lightbox - Legal Information
+    </p>
+
+    <!--/* AUTHOR MODE - presentational only */-->
+    <div data-sly-test="${!wcmmode.disabled}" class="basicLightbox basicLightbox--visible">
+        <div class="basicLightbox__placeholder" role="dialog">
+            <div class="cmp-lightbox-legal__content">
+                <form class="cmp-lightbox-legal__form" name="cmp-lightbox-legal__form">
+                    <fieldset class="cmp-form-options cmp-form-options--checkbox">
+                        <legend class="cmp-form-options__legend">${properties.title}</legend>
+                        <label class="cmp-form-options__field-label">
+                            <input class="cmp-form-options__field cmp-form-options__field--checkbox" name="Legal Notes" value="yes" type="checkbox">
+                            <div class="cmp-form-options__field-description">
+                                <div>
+                                    ${properties.text @ context='html'}
+                                </div>
+                            </div>
+                        </label>
+                    </fieldset>
+                    <div class="button mt--none">
+                        <button type="submit" class="cmp-form-button cmp-lightbox-legal__button" disabled>${properties.btnLabel}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--/* PUBLISH MODE */-->
+    <div class="cmp-lightbox-legal__container" hidden>
+        <div class="cmp-lightbox-legal__content">
+            <form class="cmp-lightbox-legal__form" name="cmp-lightbox-legal__form">
+                <fieldset class="cmp-form-options cmp-form-options--checkbox">
+                    <legend class="cmp-form-options__legend">${properties.title}</legend>
+                    <label class="cmp-form-options__field-label">
+                        <input class="cmp-form-options__field cmp-form-options__field--checkbox" name="Legal Notes" value="yes" type="checkbox">
+                        <div class="cmp-form-options__field-description">
+                            <div>
+                                ${properties.text @ context='html'}
+                            </div>
+                        </div>
+                    </label>
+                </fieldset>
+                <div class="button mt--none">
+                    <button type="submit" class="cmp-form-button cmp-lightbox-legal__button" disabled>${properties.btnLabel}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
