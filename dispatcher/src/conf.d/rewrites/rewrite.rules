@@ -277,15 +277,15 @@ RewriteRule ^/e-mobility  https://www.techem.com/de/de/energieeffizienz/e-chargi
 RewriteCond %{HTTP_HOST} www\.ir\.techem\.de [NC]
 RewriteRule ^/$ https://www.techem.com/investor-relations/en [L,R=301,NE,QSA]
 
-RewriteRule ^/financial-calendar www.techem.com/investor-relations/en/financial-calendar [L,R=301,NE,QSA]
-RewriteRule ^/ir-news www.techem.com/investor-relations/en/ir-news [L,R=301,NE,QSA]
-RewriteRule ^/bonds www.techem.com/investor-relations/en/bonds [L,R=301,NE,QSA]
-RewriteRule ^/ratings  www.techem.com/investor-relations/en/ratings  [L,R=301,NE,QSA]
-RewriteRule ^/contact www.techem.com/investor-relations/en/contact [L,R=301,NE,QSA]
-RewriteRule ^/profile www.techem.com/investor-relations/en/profile [L,R=301,NE,QSA]
-RewriteRule ^/legal www.techem.com/investor-relations/en/legal [L,R=301,NE,QSA]
-RewriteRule ^/privacy www.techem.com/investor-relations/en/privacy [L,R=301,NE,QSA]
-RewriteRule ^/register www.techem.com/investor-relations/en/register [L,R=301,NE,QSA]
+RewriteRule ^/financial-calendar www.techem.com/investor-relations/en/home/financial-calendar [L,R=301,NE,QSA]
+RewriteRule ^/ir-news www.techem.com/investor-relations/en/home/investor-relations-news [L,R=301,NE,QSA]
+RewriteRule ^/bonds www.techem.com/investor-relations/en/home/bonds [L,R=301,NE,QSA]
+RewriteRule ^/ratings  www.techem.com/investor-relations/en/home/ratings  [L,R=301,NE,QSA]
+RewriteRule ^/contact www.techem.com/investor-relations/en/home/contact [L,R=301,NE,QSA]
+RewriteRule ^/profile www.techem.com/investor-relations/en/home/profile [L,R=301,NE,QSA]
+RewriteRule ^/legal www.techem.com/investor-relations/legal [L,R=301,NE,QSA]
+RewriteRule ^/privacy www.techem.com/investor-relations/data-protection [L,R=301,NE,QSA]
+RewriteRule ^/register www.techem.com/investor-relations/investor-relations-account-registration [L,R=301,NE,QSA]
 
 
 # Exceptions - avoid these automated tests URLs being rewritten (stops further rewrites)
