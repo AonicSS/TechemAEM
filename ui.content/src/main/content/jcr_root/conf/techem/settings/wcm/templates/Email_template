@@ -1,42 +1,62 @@
-<!DOCTYPE HTML>
-
+<!DOCTYPE html>
 <html>
-<head>
-      <title>Email Template</title>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+  <head>
+    <title>Change Password Request</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <p>
+      Dear Sir or Madam, <br /><br />
 
-<p>
-	Dear Sir or Madam, <br><br>
+      You would like to reset your password for the following username:
+      ${username} <br /><br />
 
-	You would like to reset your password for the following username: ${username} <br><br>
+      Please click on the link below to enter a new password. <br />
+      <a href="${link}"> ${link}</a><br /><br />
 
-	Please click on the link below to enter a new password. <br>
-	<a href="${link}"> ${link}</a><br><br>
+      In case you did not request to reset your password, please ignore this
+      email.<br /><br />
 
-	In case you did not request to reset your password, please ignore this email.<br><br>
+      Kind regards,<br />
+      Techem Investor Relations <br /><br />
+    </p>
+  </body>
+  <footer>
+    <p>
+      Techem Energy Services GmbH<br />
+      Hauptstr. 89 · 65760 Eschborn / Germany<br />
+      Registered office: Eschborn<br />
+      Local Court Frankfurt/Main, HRB 74732<br />
+      Executive board: Matthias Hartmann, Nicolai Kuss, Dr.-Ing. Carsten Sürig,
+      Patrick Molck-Ude<br />
+      Supervisory board: Andreas Umbach (chairman)<br />
+    </p>
 
-	Kind regards,<br>
-	Techem Investor Relations <br><br>
+    <p>
+      Der Inhalt dieser E-Mail und ihrer Anhänge ist vertraulich und kann
+      rechtlich geschützte Informationen enthalten. Falls Sie nicht der richtige
+      Adressat sind oder diese E-Mail irrtümlich erhalten haben, informieren Sie
+      bitte umgehend den Absender und vernichten Sie diese E-Mail und ihre
+      Anhänge. Jegliche Offenlegung, Vervielfältigung, Weitergabe oder Nutzung
+      des Inhalts dieser E-Mail oder ihrer Anhänge ist untersagt. Techem haftet
+      nicht für Unvollständigkeiten und Fehler in dieser E-Mail und /oder ihren
+      Anhängen, die als Folge der Übersendung auftreten, oder für Schäden, die
+      infolge unerlaubter Änderungen des Inhalts dieser E-Mail und/oder ihrer
+      Anhänge entstehen.
+    </p>
 
-
-	Techem GmbH, Hauptstr. 89, D-65760 Eschborn / Germany, Registered office: Eschborn, Local Court Frankfurt/Main HRB 85143 Commerzbank AG, IBAN DE50 5008 0000 0091 6717 00, SWIFT/BIC DRESDEFFXXX, VAT-ID: DE220564468 Executive board: Matthias Hartmann (chairman), Nicolai Kuss, Dr.-Ing. Carsten Sürig, Patrick Molck-Ude, Karl Moll, Thomas Werner · Supervisory board: Andreas Umbach (chairman)
-</p>
-<p>
-	Disclaimer<br>
-	This email and any attachment thereto contains confidential and/or privileged information. If you are not the intended recipient or have received this email in error, please notify the sender immediately and delete this email and any attachment thereto from your system. Any unauthorized retention, copying, transmission, distribution, disclosure or use of the content of this email and/or any attachment thereto is prohibited. Techem is not liable for any omission or error in this email and/or any attachment thereto which may arise as a result of the email-transmission or for damages resulting from any unauthorized change of the content of this email and/or any attachment thereto.<br><br>
-
-	Der Inhalt dieser E-Mail und ihrer Anhänge ist vertraulich und kann rechtlich geschützte Informationen enthalten. Falls Sie nicht der richtige Adressat sind oder diese E-Mail irrtümlich erhalten haben, informieren Sie bitte umgehend den Absender und vernichten Sie diese E-Mail und ihre Anhänge. Jegliche Offenlegung, Vervielfältigung, Weitergabe oder Nutzung des Inhalts dieser E-Mail oder ihrer Anhänge ist untersagt. Techem haftet nicht für Unvollständigkeiten und Fehler in dieser E-Mail und/oder ihren Anhängen, die als Folge der Übersendung auftreten, oder für Schäden, die infolge unerlaubter Änderungen des Inhalts dieser E-Mail und/oder ihrer Anhänge entstehen.<br>
-</p>
-__________________________________________
-<p>
-    Techem Energy Services GmbH<br>
-    Hauptstr. 89 · 65760 Eschborn / Germany<br>
-    Registered office: Eschborn<br>
-    Local Court Frankfurt/Main, HRB 74732<br>
-    Executive board: Matthias Hartmann, Nicolai Kuss, Dr.-Ing. Carsten Sürig, Patrick Molck-Ude<br>
-    Supervisory board: Andreas Umbach (chairman)
-</p>
+    <p>
+      This email and any attachment there to contains confidential and/or
+      privileged information. If you are not the intended recipient or have
+      received this email in error, please notify the sender immediately and
+      delete this email and any attachment thereto from your system. Any
+      unauthorized retention, copying, transmission, distribution, disclosure or
+      use of the content of this email and/or any attachment thereto is
+      prohibited. Techem is not liable for any omission or error in this email
+      and/or any attachment thereto which may arise as a result of the
+      email-transmission or for damages resulting from any unauthorized change
+      of the content of this email and/or any attachment thereto.
+    </p>
+  </footer>
 </html>

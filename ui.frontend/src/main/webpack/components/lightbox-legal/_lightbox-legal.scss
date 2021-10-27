@@ -1,0 +1,40 @@
+.cmp-lightbox-legal__content {
+  .button {
+    text-align: right;
+  }
+
+  .cmp-form-options__legend {
+    font-family: $font-universe-std;
+    color: $color-primary-button;
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.2px;
+    margin-bottom: 32px;
+  }
+
+  .cmp-form-options__field-description {
+    p {
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .cmp-form-options__field-label {
+    margin: 0;
+  }
+}
+
+.cmp-lightbox-legal {
+  &.author-mode {
+    .basicLightbox {
+      display: block;
+      position: static;
+      height: auto;
+    }
+  }
+}

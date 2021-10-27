@@ -42,16 +42,14 @@
                                                     fieldDescription="Headline of the page"
                                                     fieldLabel="Headline"
                                                     name="./headline"
-                                                    value="Password reset"
-                                                    required="{Boolean}true"/>
+                                                    value="Password reset"/>
                                             <subHeading
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                     fieldDescription="Subheading of the page."
                                                     fieldLabel="Subheading"
                                                     name="./subHeading"
-                                                    value="You can now generate a new password here."
-                                                    required="{Boolean}true"/>
+                                                    value="You can now generate a new password here."/>
                                             <description
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="cq/gui/components/authoring/dialog/richtext"
