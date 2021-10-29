@@ -10,6 +10,12 @@
             headerDropdown: '.header__dropdown-content',
             navigationLink: '.navigation__link',
             closeButton: '.close',
+            langNavBtn: '.cmp-languagenavigation__trigger',
+            langNavActive: '.cmp-languagenavigation__item--active',
+            portalNavBtn: '.header__portal-trigger',
+            langNavCmp: '.cmp-languagenavigation',
+            portalNavCmp: '.header__portal',
+            langNavContent: '.cmp-languagenavigation__group',
             headerButton: ".header__button",
             active: "navigation-active",
             hidden: 'header__dropdown-hidden'
@@ -26,6 +32,50 @@
             this.showAndHideDropdown();
             this.closeDropDown();
             this.redirectButton();
+            this.showLangNav();
+            this.showPortalNav();
+        }.bind(this);
+
+        this.showLangNav = function () {
+            const $langNavBtn = this.$el.find(this.selectors.langNavBtn);
+            const $langNavCmp = this.$el.find(this.selectors.langNavCmp);
+            const $activeLang = $langNavCmp.find(this.selectors.langNavActive);
+
+            // set current lang. trigger text
+            // LANG placeholder in author-mode, as active lang is not displayed in author by AEM
+            if ($langNavBtn.hasClass('author-mode')) {
+                $langNavBtn.text('LANG');
+            } else {
+                $langNavBtn.text($activeLang.text());
+            }
+
+
+            $langNavBtn.removeClass('visibility-hidden');
+
+            $langNavBtn.on('click', () => {
+                this.closePortalNav();
+                $langNavCmp.toggleClass('is-open');
+            });
+        }.bind(this);
+
+        this.closeLangNav = function () {
+            const $langNavCmp = this.$el.find(this.selectors.langNavCmp);
+            $langNavCmp.removeClass('is-open');
+        }.bind(this);
+
+        this.showPortalNav = function () {
+            const $portalNavBtn = this.$el.find(this.selectors.portalNavBtn);
+            const $portalNavCmp = this.$el.find(this.selectors.portalNavCmp);
+
+            $portalNavBtn.on('click', () => {
+                this.closeLangNav();
+                $portalNavCmp.toggleClass('is-open');
+            });
+        }.bind(this);
+
+        this.closePortalNav = function () {
+            const $portalNavCmp = this.$el.find(this.selectors.portalNavCmp);
+            $portalNavCmp.removeClass('is-open');
         }.bind(this);
 
         this.showAndHideDropdown = function () {
@@ -39,7 +89,7 @@
 
                 if ($target.is("li")) {
                     $link = $target;
-                } 
+                }
                 else {
                     $link = $target.closest('li');
                 }
@@ -52,6 +102,8 @@
                     if ($dropdownItem && $dropdownItem.length > 0) {
                         this.hideAllDropDowns();
                         this.removeActive();
+                        this.closePortalNav();
+                        this.closeLangNav();
                         $dropdownItem.removeClass(this.selectors.hidden);
                         $link.addClass(this.selectors.active);
                     }
@@ -149,7 +201,13 @@
     /* ---------------------------------------------
     burger menu
     --------------------------------------------- */
-    function burgermenuinit() {
+    function injectLangNav($headerNav) {
+        const $langNav = $headerNav.find('.cmp-languagenavigation');
+        const $langNavMobilePlaceholder = $headerNav.find('.header__lang-nav-mobile');
+        $langNavMobilePlaceholder.append($langNav);
+    }
+
+    function burgermenuinit($headerNav) {
         var clickDelay = 100,
             clickDelayTimer = null;
         $('.burger-click-region').on('click', function () {
@@ -167,6 +225,7 @@
                 }
                 clickDelayTimer = setTimeout(function () {
                     $burger.removeClass('closing');
+                    injectLangNav($headerNav);
                     clearTimeout(clickDelayTimer);
                     clickDelayTimer = null;
                 }, clickDelay);
@@ -176,7 +235,7 @@
     $(document).ready(function () {
         const $headerNav = $("header[data-component-name='navigation']").not('.header-hide-nav');
         if ($headerNav.length) {
-            burgermenuinit();
+            burgermenuinit($headerNav);
 
             if ($headerNav[0].dataset.initialized !== "true") {
                 new NotificationModule($headerNav[0]);

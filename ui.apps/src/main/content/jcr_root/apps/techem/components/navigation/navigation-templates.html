@@ -1,5 +1,5 @@
 <template data-sly-template.dropdown_content_left = "${ @ pageDetails}">
-      <div class="headline">
+    <div class="headline">
         <div class="headline-title__wrapper">
             <a data-sly-test="${pageDetails.pageTitle }" class="headline__title" href="${pageDetails.pagePath}" target="_self">
                 ${pageDetails.pageTitle}
@@ -19,4 +19,26 @@
             <img class="image ${itemList.first ? 'image-first' : (itemList.last ? 'image-last' : '')}" src="${pageDetails.pageImagePath}" />
         </a>
     </div>
+</template>
+
+<template data-sly-template.portalSelector = "${ @ portalItems}">
+    <ul class="header__portal-group" data-sly-list.item="${portalItems}">
+        <li><a href="${item.portalItemLink @ context='uri'}" target="_blank">${item.portalItemLabel}</a></li>
+    </ul>
+</template>
+
+<template data-sly-template.dropdown_content_portal = "${ @ portalItems}">
+    <sly data-sly-list.item="${portalItems}">
+        <div class="headline">
+            <div class="headline-title__wrapper">
+                <a href="${item.portalItemLink @ context='uri'}" class="headline__title" target="_blank">
+                    ${item.portalItemLabel}
+                    <i class="header-icon">
+                        <div class="header-arrow"></div>
+                    </i>
+                </a>
+            </div>
+            <p data-sly-test="${pageDetails.pageDescription}" class="headline__description">${pageDetails.pageDescription} </p>
+        </div>
+    </sly>
 </template>

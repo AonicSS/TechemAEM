@@ -19,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @ExtendWith(AemContextExtension.class)
 public class NavigationTest {
 
-    private static final String BUTTON_LINK = "/content/techem/us/en/Test";
     private static final String NAVIGATION_ROOT = "/content/techem/us/en";
     private static final String BUTTON_LABEL = "Button";
     private static final String LOGO_LINK = "/content/techem/us/en/Newsroom";
@@ -35,30 +34,24 @@ public class NavigationTest {
 
     @BeforeEach
     public void setUp() throws Exception {
-       final Resource resource =  context.load().json("/navigation.json",
-               "/content/techem/us/en");
+        final Resource resource =  context.load().json("/navigation.json",
+                "/content/techem/us/en");
 
-       context.currentResource(resource);
-       final Resource resourceNavigation = context.create().resource("/content/components/navigation", ImmutableMap.<String, Object>builder()
-                .put("buttonLink", BUTTON_LINK)
+        context.currentResource(resource);
+        final Resource resourceNavigation = context.create().resource("/content/components/navigation", ImmutableMap.<String, Object>builder()
                 .put("navigationRoot", NAVIGATION_ROOT)
-                .put("label", BUTTON_LABEL)
+                .put("portalBtnLabel", BUTTON_LABEL)
                 .put("logoLink", LOGO_LINK)
                 .put("backButtonText", BACK_BUTTON)
                 .put("fileReference", IMAGE_PATH)
                 .build());
 
-       navigation = resourceNavigation.adaptTo(Navigation.class);
+        navigation = resourceNavigation.adaptTo(Navigation.class);
     }
 
     @Test
-    public void testGetLabel() {
-        assertEquals(BUTTON_LABEL, navigation.getLabel());
-    }
-
-    @Test
-    public void testGetButtonLink() {
-        assertEquals(BUTTON_LINK, navigation.getButtonLink());
+    public void testGetPortalBtnLabel() {
+        assertEquals(BUTTON_LABEL, navigation.getPortalBtnLabel());
     }
 
     @Test

@@ -1,0 +1,6 @@
+<template data-sly-template.group="${@ items='The language navigation items for the current level'}" data-sly-use.itemTemplate="item.html">
+    <button class="cmp-languagenavigation__trigger visibility-hidden ${wcmmode.edit ? 'author-mode': ''}"></button>
+    <ul class="cmp-languagenavigation__group" data-sly-list.item="${items}">
+        <sly data-sly-call="${itemTemplate.item @ item = item}"></sly>
+    </ul>
+</template>
