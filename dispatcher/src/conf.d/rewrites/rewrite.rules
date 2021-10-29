@@ -274,7 +274,7 @@ RewriteRule ^/e-mobility  https://www.techem.com/de/de/energieeffizienz/e-chargi
 
 #new rules SALESP-478
 
-RewriteCond %{HTTP_HOST} www\.ir\.techem\.de [NC]
+RewriteCond %{HTTP_HOST} ^ir\.techem\.de [NC]
 RewriteRule ^/$ https://www.techem.com/investor-relations/en [L,R=301,NE,QSA]
 
 RewriteRule ^/financial-calendar www.techem.com/investor-relations/en/home/financial-calendar [L,R=301,NE,QSA]
