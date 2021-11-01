@@ -9,33 +9,33 @@
     <div class="header__wrapper">
         <div class="header__components">
             <div class="header__left">
-            <span class="header__logo">
-                <a data-sly-test="${navigation.logoImage}" href="${navigation.logoLink}" target="_self">
-                    <img class="header__logo-image" src="${navigation.logoImage}">
-                </a>
-            </span>
+                <span class="header__logo">
+                    <a data-sly-test="${navigation.logoImage}" href="${navigation.logoLink}" target="_self">
+                        <img class="header__logo-image" src="${navigation.logoImage}">
+                    </a>
+                </span>
             </div>
             <div class="header__right">
                 <!--<div class="header__search">-->
-                    <!--<div data-sly-resource="${ @path='search', resourceType='techem/components/search'}" data-sly-unwrap=""></div>-->
-                    <!--<i class="header__search-icon" aria-hidden="false"></i>-->
+                <!--<div data-sly-resource="${ @path='search', resourceType='techem/components/search'}" data-sly-unwrap=""></div>-->
+                <!--<i class="header__search-icon" aria-hidden="false"></i>-->
                 <!--</div>-->
-                <sly data-sly-test="${navigation.buttonLink}">
-                    <a class="header__button" target="_blank"
-                       data-sly-attribute.button-link="${navigation.buttonLink}">
-                        <span class="align-icon" data-sly-test="${navigation.buttonIcon == 'profile-icon' && navigation.iconOrImage == 'icon'}">
-                            <i class="header__button-icon">
-                                <div class="header__button-icon-circle"></div>
-                                <div class="header__button-icon-stroke"></div>
 
-                            </i>
-                        </span>
-                        <span data-sly-test="${navigation.iconOrImage == 'image'}">
-                            <img class="header__button-icon portal-image" src="${navigation.buttonImagePath}">
-                        </span>
-                        ${navigation.label}
-                    </a>
-                </sly>
+                <div class="header__portal">
+                    <sly data-sly-test="${navigation.PortalItemList.size == 1}" data-sly-list.item="${navigation.PortalItemList}">
+                        <a href="${item.portalItemLink @ context='uri'}" target="_blank">${item.portalItemLabel}</a>
+                    </sly>
+
+                    <sly data-sly-test="${navigation.PortalItemList.size > 1}">
+                        <button class="header__portal-trigger">${navigation.portalBtnLabel}</button>
+                        <sly data-sly-use.templates="navigation-templates.html"
+                             data-sly-call="${templates.portalSelector @  portalItems = navigation.PortalItemList}">
+                        </sly>
+                    </sly>
+                </div>
+
+                <sly data-sly-resource="${'lang-nav' @ resourceType='techem/components/languagenavigation'}"></sly>
+
                 <div class="header_burger-menu">
                     <div class="burger-click-region">
                         <span class="burger-menu-piece"></span>
@@ -53,21 +53,29 @@
                         <div class="header-arrow"></div>
                     </i></a>
                 </li>
+
+                <sly data-sly-test="${navigation.PortalItemList.size == 1 && mapList.last}" data-sly-list.item="${navigation.PortalItemList}">
+                    <li class="navigation__link-portal-nav">
+                        <a class="navigation__sub-link" href="${item.portalItemLink @ context='uri'}" target="_blank">
+                            ${item.portalItemLabel}
+                            <i class="header-icon-mobile">
+                                <div class="header-arrow"></div>
+                            </i></a>
+                    </li>
+                </sly>
+
+                <sly data-sly-test="${navigation.PortalItemList.size > 1 && mapList.last}">
+                    <li class="navigation__link navigation__link-portal-nav"  data-sly-attribute.dropdown-item="portal-nav">
+                        <a class="navigation__sub-link"  href="#"> ${navigation.portalBtnLabel} <i class="header-icon-mobile">
+                            <div class="header-arrow"></div>
+                        </i></a>
+                    </li>
+                </sly>
             </ul>
-            <sly data-sly-test="${navigation.buttonLink}">
-                <button class="header__button" data-sly-attribute.button-link="${navigation.buttonLink}">
-                    <span data-sly-test="${navigation.buttonIcon == 'profile-icon' && navigation.iconOrImage == 'icon'}">
-                        <i class="header__button-icon mobile-alignment-icon">
-                            <div class="header__button-icon-circle"></div>
-                            <div class="header__button-icon-stroke"></div>
-                        </i>
-                    </span>
-                    <span class="mobile-alignment-image" data-sly-test="${navigation.iconOrImage == 'image'}">
-                        <img class="header__button-icon-mobile" src="${navigation.buttonIconPathMobile}">
-                    </span>
-                    ${navigation.label}
-                </button>
-            </sly>
+
+            <!--/* MOBILE LANG NAV */-->
+            <div class="header__lang-nav-mobile"></div>
+
             <div class="header__dropdown-wrapper">
                 <div data-sly-test="${navigationItems}" data-sly-list.map="${navigationItems}" data-sly-unwrap>
                     <div class="header__dropdown-content header__dropdown-hidden"  data-sly-attribute.name="${map.key.navTitle.toLowerCase}" data-sly-list.orientation="${map.value.entrySet.iterator}">
@@ -95,6 +103,25 @@
                             <div data-sly-test="${orientation.key == 'right'}" class="close"><i class="header-icon">
                                 <div class="header-arrow"></div>
                             </i><span>${navigation.backButtonText}</span></div>
+                        </div>
+                    </div>
+
+                    <div class="header__dropdown-content header__dropdown-hidden" data-sly-test="${mapList.last}" data-sly-attribute.name="portal-nav">
+                        <div class="header-content__left">
+                            <div class="header-title-wrapper">
+                                <span class="header-title">${navigation.portalBtnLabel}</span>
+                            </div>
+                            <div class="headline-wrapper">
+                                <sly data-sly-use.lib="navigation-templates.html"
+                                     data-sly-call="${lib.dropdown_content_portal @  portalItems = navigation.PortalItemList}">
+                                </sly>
+                            </div>
+                        </div>
+                        <div class="close">
+                            <i class="header-icon">
+                                <div class="header-arrow"></div>
+                            </i>
+                            <span>${navigation.backButtonText}</span>
                         </div>
                     </div>
                 </div>

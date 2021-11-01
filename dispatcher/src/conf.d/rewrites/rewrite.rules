@@ -19,6 +19,9 @@ RewriteRule ^/$ https://www.techem.com/corp/en [L,R=301,NE,QSA]
 RewriteCond %{HTTP_HOST} www\.techem\.com [NC]
 RewriteRule ^/$ https://www.techem.com/corp/en [L,R=301,NE,QSA]
 
+RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
+RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
+RewriteRule ^/$ https://www.techem.com/ae/en [L,R=301,NE,QSA]
 
 # external redirects
 RewriteRule ^/2/portal$ https://portal.techem.de/welcome [L,R=301,NE,QSA]
@@ -287,6 +290,7 @@ RewriteRule ^/legal https://www.techem.com/investor-relations/legal [L,R=301,NE,
 RewriteRule ^/privacy https://www.techem.com/investor-relations/data-protection [L,R=301,NE,QSA]
 RewriteRule ^/register https://www.techem.com/investor-relations/investor-relations-account-registration [L,R=301,NE,QSA]
 
+Include conf.d/rewrites/markets/*.rules
 
 # Exceptions - avoid these automated tests URLs being rewritten (stops further rewrites)
 RewriteRule ^/content/test-site/(.*)\.html$ - [NC,L]

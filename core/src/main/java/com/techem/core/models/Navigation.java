@@ -1,6 +1,7 @@
 package com.techem.core.models;
 
 import com.day.crx.JcrConstants;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -8,6 +9,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
@@ -19,6 +21,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static com.day.cq.wcm.api.NameConstants.NT_PAGE;
+import static java.util.stream.Collectors.toCollection;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class Navigation {
@@ -35,8 +38,14 @@ public class Navigation {
     @ValueMapValue(name = "buttonLink")
     private String buttonLink;
 
-    @ValueMapValue(name = "label")
-    private String label;
+    @ValueMapValue(name = "portalBtnLabel")
+    private String portalBtnLabel;
+
+    @ValueMapValue(name = "portalItemLabel")
+    private String portalItemLabel;
+
+    @ValueMapValue(name = "portalItemLink")
+    private String portalItemLink;
 
     @ValueMapValue(name = "logoLink")
     private String logoLink;
@@ -61,6 +70,11 @@ public class Navigation {
 
     @ValueMapValue(name = "hideNavigation")
     private Boolean hideNavigation;
+
+    @ChildResource(name = "portalItems")
+    private Resource portalItems;
+
+    private List<PortalItem> portalItemList = Collections.emptyList();
 
     @SlingObject
     private ResourceResolver resourceResolver;
@@ -88,13 +102,32 @@ public class Navigation {
         } else {
             logger.info("The navigationRoot is null or empty {}");
         }
+
+        if(Objects.nonNull(portalItems)) {
+            final List<Resource> portalList = org.apache.commons.compress.utils.Lists.newArrayList(portalItems.getChildren().iterator());
+
+            if (CollectionUtils.isNotEmpty(portalList)) {
+                portalItemList = portalList.stream().map(item -> item.adaptTo(PortalItem.class))
+                        .collect(toCollection(LinkedList::new));
+            }
+        }
     }
 
     public Map<Header, Map<String, List<NavigationDetails>>> getNavigationItems() {
         return navigationItems;
     }
 
-    public String getLabel() { return label; }
+    public String getPortalItemLabel() {
+        return portalItemLabel;
+    }
+
+    public String getPortalItemLink() {
+        return portalItemLink;
+    }
+
+    public String getPortalBtnLabel() {
+        return portalBtnLabel;
+    }
 
     public String getButtonLink() { return buttonLink; }
 
@@ -111,6 +144,10 @@ public class Navigation {
     public String getLogoImage() { return logoImage; }
 
     public String getBackButtonText() { return backButtonText; }
+
+    public List<PortalItem> getPortalItemList() {
+        return ImmutableList.copyOf(portalItemList);
+    }
 
     public Boolean getHideNavigation() {
         return hideNavigation;
@@ -133,7 +170,7 @@ public class Navigation {
                 resourcePage -> Lists.newArrayList(resourcePage.getChildren().iterator()).
                         stream().filter(isPage()).
                         filter(isNotNavHidden()).map(page ->
-                                            page.getChild(JcrConstants.JCR_CONTENT).adaptTo(NavigationDetails.class))
+                        page.getChild(JcrConstants.JCR_CONTENT).adaptTo(NavigationDetails.class))
                         .collect(Collectors.toList()), (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
 
