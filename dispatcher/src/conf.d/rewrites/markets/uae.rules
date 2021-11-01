@@ -1,299 +1,299 @@
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/downloadteaser.html$ https://www.techem.com/ae/en/information-and-service/downloads [L,R=301,NE,QSA]
+RewriteRule ^/downloadteaser.html https://www.techem.com/ae/en/information-and-service/downloads [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/search.html$ https://www.techem.com/ae/en [L,R=301,NE,QSA]
+RewriteRule ^/search.html https://www.techem.com/ae/en [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/imprint.html$ https://www.techem.com/ae/en/imprint [L,R=301,NE,QSA]
+RewriteRule ^/imprint.html https://www.techem.com/ae/en/imprint [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services.html$ https://www.techem.com/ae/en/devices [L,R=301,NE,QSA]
+RewriteRule ^/products-services.html https://www.techem.com/ae/en/devices [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/overview.html$ https://www.techem.com/ae/en/devices [L,R=301,NE,QSA]
+RewriteRule ^/products-services/overview.html https://www.techem.com/ae/en/devices [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/radio-system.html$ https://www.techem.com/ae/en/devices/radio-system [L,R=301,NE,QSA]
+RewriteRule ^/products-services/radio-system.html https://www.techem.com/ae/en/devices/radio-system [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/m-bus/your-benefits.html$ https://www.techem.com/ae/en/real-estate-services/m-bus [L,R=301,NE,QSA]
+RewriteRule ^/products-services/m-bus/your-benefits.html https://www.techem.com/ae/en/real-estate-services/m-bus [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/radio-system/how-it-works.html$ https://www.techem.com/ae/en/devices/radio-system [L,R=301,NE,QSA]
+RewriteRule ^/products-services/radio-system/how-it-works.html https://www.techem.com/ae/en/devices/radio-system [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/m-bus.html$ https://www.techem.com/ae/en/real-estate-services/m-bus [L,R=301,NE,QSA]
+RewriteRule ^/products-services/m-bus.html https://www.techem.com/ae/en/real-estate-services/m-bus [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/techem-smart-system.html$ https://www.techem.com/ae/en/techem-smart-system [L,R=301,NE,QSA]
+RewriteRule ^/products-services/techem-smart-system.html https://www.techem.com/ae/en/techem-smart-system [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/techem-smart-system/prompt-billing.html$ https://www.techem.com/ae/en/techem-smart-system [L,R=301,NE,QSA]
+RewriteRule ^/products-services/techem-smart-system/prompt-billing.html https://www.techem.com/ae/en/techem-smart-system [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/techem-smart-system/how-it-works.html$ https://www.techem.com/ae/en/techem-smart-system [L,R=301,NE,QSA]
+RewriteRule ^/products-services/techem-smart-system/how-it-works.html https://www.techem.com/ae/en/techem-smart-system [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/techem-smart-system/device-monitoring.html$ https://www.techem.com/ae/en/techem-smart-system [L,R=301,NE,QSA]
+RewriteRule ^/products-services/techem-smart-system/device-monitoring.html https://www.techem.com/ae/en/techem-smart-system [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/techem-smart-system/value-added-services.html$ https://www.techem.com/ae/en/techem-smart-system [L,R=301,NE,QSA]
+RewriteRule ^/products-services/techem-smart-system/value-added-services.html https://www.techem.com/ae/en/techem-smart-system [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/techem-monitoring.html$ https://www.techem.com/ae/en/real-estate-services/monitoring [L,R=301,NE,QSA]
+RewriteRule ^/products-services/techem-monitoring.html https://www.techem.com/ae/en/real-estate-services/monitoring [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/devices.html$ https://www.techem.com/ae/en/devices/ [L,R=301,NE,QSA]
+RewriteRule ^/products-services/devices.html https://www.techem.com/ae/en/devices/ [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/devices/btu-meters.html$ https://www.techem.com/ae/en/devices/btu-meters [L,R=301,NE,QSA]
+RewriteRule ^/products-services/devices/btu-meters.html https://www.techem.com/ae/en/devices/btu-meters [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/devices/water-meters.html$ https://www.techem.com/ae/en/devices/water-meters [L,R=301,NE,QSA]
+RewriteRule ^/products-services/devices/water-meters.html https://www.techem.com/ae/en/devices/water-meters [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/devices/heat-meters.html$ https://www.techem.com/ae/en/devices/ [L,R=301,NE,QSA]
+RewriteRule ^/products-services/devices/heat-meters.html https://www.techem.com/ae/en/devices/ [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/devices/heat-cost-allocators.html$ https://www.techem.com/ae/en/devices/ [L,R=301,NE,QSA]
+RewriteRule ^/products-services/devices/heat-cost-allocators.html https://www.techem.com/ae/en/devices/ [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/devices/asset-management.html$ https://www.techem.com/ae/en/real-estate-services/comprehensive-maintenance-services [L,R=301,NE,QSA]
+RewriteRule ^/products-services/devices/asset-management.html https://www.techem.com/ae/en/real-estate-services/comprehensive-maintenance-services [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/reading-billing-collection.html$ https://www.techem.com/ae/en/billing [L,R=301,NE,QSA]
+RewriteRule ^/products-services/reading-billing-collection.html https://www.techem.com/ae/en/billing [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/reading-billing-collection/radio-reading.html$ https://www.techem.com/ae/en/billing [L,R=301,NE,QSA]
+RewriteRule ^/products-services/reading-billing-collection/radio-reading.html https://www.techem.com/ae/en/billing [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/reading-billing-collection/billing-services.html$ https://www.techem.com/ae/en/billing [L,R=301,NE,QSA]
+RewriteRule ^/products-services/reading-billing-collection/billing-services.html https://www.techem.com/ae/en/billing [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/billing-services.html$ https://www.techem.com/ae/en/billing [L,R=301,NE,QSA]
+RewriteRule ^/products-services/billing-services.html https://www.techem.com/ae/en/billing [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/adapterm-energy-saving-system.html$ https://www.techem.com/ae/en [L,R=301,NE,QSA]
+RewriteRule ^/products-services/adapterm-energy-saving-system.html https://www.techem.com/ae/en [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/adapterm-energy-saving-system/how-it-works.html$ https://www.techem.com/ae/en [L,R=301,NE,QSA]
+RewriteRule ^/products-services/adapterm-energy-saving-system/how-it-works.html https://www.techem.com/ae/en [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/consumption-management.html$ https://www.techem.com/ae/en [L,R=301,NE,QSA]
+RewriteRule ^/products-services/consumption-management.html https://www.techem.com/ae/en [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/techem-online-services.html$ https://www.techem.com/ae/en [L,R=301,NE,QSA]
+RewriteRule ^/products-services/techem-online-services.html https://www.techem.com/ae/en [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/techem-lease-model.html$ https://www.techem.com/ae/en/devices/the-techem-lease-model [L,R=301,NE,QSA]
+RewriteRule ^/products-services/techem-lease-model.html https://www.techem.com/ae/en/devices/the-techem-lease-model [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/about-techem.html$ https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
+RewriteRule ^/about-techem.html https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/about-techem/overview.html$ https://www.techem.com/ae/en/about-us [L,R=301,NE,QSA]
+RewriteRule ^/about-techem/overview.html https://www.techem.com/ae/en/about-us [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/about-techem/promise.html$ https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
+RewriteRule ^/about-techem/promise.html https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/about-techem/techem-mena.html$ https://www.techem.com/ae/en/about-us/techem-mena [L,R=301,NE,QSA]
+RewriteRule ^/about-techem/techem-mena.html https://www.techem.com/ae/en/about-us/techem-mena [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^about-techem/techem-mena/management.html$ https://www.techem.com/ae/en/about-us/techem-mena [L,R=301,NE,QSA]
+RewriteRule ^about-techem/techem-mena/management.html https://www.techem.com/ae/en/about-us/techem-mena [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^about-techem/techem-mena/customer-references-uae.html$ https://www.techem.com/ae/en/about-us/techem-mena [L,R=301,NE,QSA]
+RewriteRule ^about-techem/techem-mena/customer-references-uae.html https://www.techem.com/ae/en/about-us/techem-mena [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/about-techem/laws-regulations.html$ https://www.techem.com/ae/en/information-and-service/legal-topics [L,R=301,NE,QSA]
+RewriteRule ^/about-techem/laws-regulations.html https://www.techem.com/ae/en/information-and-service/legal-topics [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/about-techem/become-a-techem-customer.html$ https://www.techem.com/ae/en/information-and-service/become-a-techem-customer [L,R=301,NE,QSA]
+RewriteRule ^/about-techem/become-a-techem-customer.html https://www.techem.com/ae/en/information-and-service/become-a-techem-customer [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/about-techem/techem-head-quarters.html$ https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
+RewriteRule ^/about-techem/techem-head-quarters.html https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/about-techem/techem-head-quarters/management.html$ https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
+RewriteRule ^/about-techem/techem-head-quarters/management.html https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/about-techem/media-center.html$ https://www.techem.com/ae/en/about-us/media-center-and-press [L,R=301,NE,QSA]
+RewriteRule ^/about-techem/media-center.html https://www.techem.com/ae/en/about-us/media-center-and-press [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/about-techem/associations-partners.html$ https://www.techem.com/ae/en/about-us/our-partners [L,R=301,NE,QSA]
+RewriteRule ^/about-techem/associations-partners.html https://www.techem.com/ae/en/about-us/our-partners [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/about-techem/careers.html$ https://www.techem.com/ae/en/about-us/career [L,R=301,NE,QSA]
+RewriteRule ^/about-techem/careers.html https://www.techem.com/ae/en/about-us/career [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/energy-management.html$ https://www.techem.com/ae/en/energy-efficiency [L,R=301,NE,QSA]
+RewriteRule ^/energy-management.html https://www.techem.com/ae/en/energy-efficiency [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/energy-management/overview.html$ https://www.techem.com/ae/en/energy-efficiency [L,R=301,NE,QSA]
+RewriteRule ^/energy-management/overview.html https://www.techem.com/ae/en/energy-efficiency [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/energy-management/intelligent-use-of-energy.html$ https://www.techem.com/ae/en/energy-efficiency/save-energy-and-water-with-techem [L,R=301,NE,QSA]
+RewriteRule ^/energy-management/intelligent-use-of-energy.html https://www.techem.com/ae/en/energy-efficiency/save-energy-and-water-with-techem [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/energy-management/intelligent-use-of-energy/save-energy-and-water.html$ https://www.techem.com/ae/en/energy-efficiency/save-energy-and-water-with-techem [L,R=301,NE,QSA]
+RewriteRule ^/energy-management/intelligent-use-of-energy/save-energy-and-water.html https://www.techem.com/ae/en/energy-efficiency/save-energy-and-water-with-techem [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/energy-management/save-water-consumption.html$ https://www.techem.com/ae/en/energy-efficiency/save-energy-and-water-with-techem [L,R=301,NE,QSA]
+RewriteRule ^/energy-management/save-water-consumption.html https://www.techem.com/ae/en/energy-efficiency/save-energy-and-water-with-techem [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/energy-management/techem-tips.html$ https://www.techem.com/ae/en/energy-efficiency/techem-tips [L,R=301,NE,QSA]
+RewriteRule ^/energy-management/techem-tips.html https://www.techem.com/ae/en/energy-efficiency/techem-tips [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/contact-us.html?limit=all$ https://www.techem.com/ae/en/information-and-service/contact [L,R=301,NE,QSA]
+RewriteRule ^/contact-us.html?limit=all https://www.techem.com/ae/en/information-and-service/contact [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/contact-us.html?no_cache=1$ https://www.techem.com/ae/en/information-and-service/contact [L,R=301,NE,QSA]
+RewriteRule ^/contact-us.html?no_cache=1 https://www.techem.com/ae/en/information-and-service/contact [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/contact-us.html$ https://www.techem.com/ae/en/information-and-service/contact [L,R=301,NE,QSA]
+RewriteRule ^/contact-us.html https://www.techem.com/ae/en/information-and-service/contact [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/legal.html$ https://www.techem.com/ae/en/legal [L,R=301,NE,QSA]
+RewriteRule ^/legal.html https://www.techem.com/ae/en/legal [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/disclaimer.html$ https://www.techem.com/ae/en/disclaimer [L,R=301,NE,QSA]
+RewriteRule ^/disclaimer.html https://www.techem.com/ae/en/disclaimer [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/contact-us/thank-you.html$ https://www.techem.com/ae/en/thank-you [L,R=301,NE,QSA]
+RewriteRule ^/contact-us/thank-you.html https://www.techem.com/ae/en/thank-you [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/about-techem/media-center/press-news.html$ https://www.techem.com/ae/en/about-us/media-center-and-press [L,R=301,NE,QSA]
+RewriteRule ^/about-techem/media-center/press-news.html https://www.techem.com/ae/en/about-us/media-center-and-press [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/about-techem/media-center/archive.html$ https://www.techem.com/ae/en/about-us/media-center-and-press [L,R=301,NE,QSA]
+RewriteRule ^/about-techem/media-center/archive.html https://www.techem.com/ae/en/about-us/media-center-and-press [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/404.html$ https://www.techem.com/ae/en/system/404 [L,R=301,NE,QSA]
+RewriteRule ^/404.html https://www.techem.com/ae/en/system/404 [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/test-page.html$ https://www.techem.com/ae/en [L,R=301,NE,QSA]
+RewriteRule ^/products-services/test-page.html https://www.techem.com/ae/en [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/test-page/default-title.html$ https://www.techem.com/ae/en [L,R=301,NE,QSA]
+RewriteRule ^/products-services/test-page/default-title.html https://www.techem.com/ae/en [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/test-page/test-2.html$ https://www.techem.com/ae/en [L,R=301,NE,QSA]
+RewriteRule ^/products-services/test-page/test-2.html https://www.techem.com/ae/en [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/faqs.html$ https://www.techem.com/ae/en/information-and-service/faq [L,R=301,NE,QSA]
+RewriteRule ^/faqs.html https://www.techem.com/ae/en/information-and-service/faq [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/mission.html$ https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
+RewriteRule ^/mission.html https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/vision.html$ https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
+RewriteRule ^/vision.html https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/company-profile.html$ https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
+RewriteRule ^/company-profile.html https://www.techem.com/ae/en/about-us/company [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/tips-to-save-energy.html$ https://www.techem.com/ae/en/energy-efficiency/techem-tips [L,R=301,NE,QSA]
+RewriteRule ^/tips-to-save-energy.html https://www.techem.com/ae/en/energy-efficiency/techem-tips [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/faqs/faqs.html$ https://www.techem.com/ae/en/information-and-service/faq [L,R=301,NE,QSA]
+RewriteRule ^/faqs/faqs.html https://www.techem.com/ae/en/information-and-service/faq [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/general-terms-conditions.html$ https://www.techem.com/ae/en [L,R=301,NE,QSA]
+RewriteRule ^/general-terms-conditions.html https://www.techem.com/ae/en [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/linkedin.html$ https://www.linkedin.com/company/techem-energy-services-middle-east-fzco/about/ [L,R=301,NE,QSA]
+RewriteRule ^/linkedin.html https://www.linkedin.com/company/techem-energy-services-middle-east-fzco/about/ [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/test-pg.html$ https://www.techem.com/ae/en [L,R=301,NE,QSA]
+RewriteRule ^/test-pg.html https://www.techem.com/ae/en [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/retrofit.html$ https://www.techem.com/ae/en [L,R=301,NE,QSA]
+RewriteRule ^/retrofit.html https://www.techem.com/ae/en [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/customer-portal.html$ https://www.techem.com/ae/en/real-estate-services/the-customer-portal [L,R=301,NE,QSA]
+RewriteRule ^/customer-portal.html https://www.techem.com/ae/en/real-estate-services/the-customer-portal [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/online-portal.html$ https://www.techem.com/ae/en/real-estate-services/the-customer-portal [L,R=301,NE,QSA]
+RewriteRule ^/online-portal.html https://www.techem.com/ae/en/real-estate-services/the-customer-portal [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/register-online.html$ https://forms.eu2.netsuite.com/app/site/crm/externalleadpage.nl?compid=5016566&formid=2&h=AACffht_cNXJDpbsACz18Wkcf_2PbO3UD58 [L,R=301,NE,QSA]
+RewriteRule ^/register-online.html https://forms.eu2.netsuite.com/app/site/crm/externalleadpage.nl?compid=5016566&formid=2&h=AACffht_cNXJDpbsACz18Wkcf_2PbO3UD58 [L,R=301,NE,QSA]
 
 RewriteCond %{HTTP_HOST} ^techem-me\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem-me\.com [NC]
-RewriteRule ^/products-services/reading-billing-collection/collection-services.html$ https://www.techem.com/ae/en/billing [L,R=301,NE,QSA]
+RewriteRule ^/products-services/reading-billing-collection/collection-services.html https://www.techem.com/ae/en/billing [L,R=301,NE,QSA]

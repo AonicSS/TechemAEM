@@ -290,7 +290,7 @@ RewriteRule ^/legal https://www.techem.com/investor-relations/legal [L,R=301,NE,
 RewriteRule ^/privacy https://www.techem.com/investor-relations/data-protection [L,R=301,NE,QSA]
 RewriteRule ^/register https://www.techem.com/investor-relations/investor-relations-account-registration [L,R=301,NE,QSA]
 
-Include conf.d/rewrites/markets/*.rules
+Include conf.d/rewrites/markets/uae.rules
 
 # Exceptions - avoid these automated tests URLs being rewritten (stops further rewrites)
 RewriteRule ^/content/test-site/(.*)\.html$ - [NC,L]
