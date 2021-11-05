@@ -145,12 +145,6 @@
                                                     allowBulkEdit="{Boolean}true"
                                                     cq-msm-lockable="jcr:description"/>
                                             </description>
-                                            <translationID
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                    fieldDescription="Translated pages must have the same Translation ID"
-                                                    fieldLabel="Translation ID"
-                                                    name="./translationID"/>
                                         </items>
                                     </moretitles>
                                     <onofftime
@@ -258,6 +252,19 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/include"
                                         path="/mnt/overlay/wcm/foundation/components/basicpage/v1/basicpage/tabs/advanced/items/column/items/section1"/>
+                                    <translation
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Meta tags"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <translationID
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Translated pages must have the same Translation ID"
+                                                    fieldLabel="Translation ID"
+                                                    name="./translationID"/>
+                                        </items>
+                                    </translation>
                                     <configuration
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/include"
