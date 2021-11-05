@@ -1,0 +1,244 @@
+.cmp-newshubArticles {
+  margin: 30px auto;
+  max-width: 77pc;
+
+  &__headline {
+    font-size: 12px;
+    margin-bottom: 30px;
+    color: $color-separator-dark;
+    font-family: $font-universe-roman;
+    letter-spacing: 0.51px;
+    font-weight: 400;
+
+    @include small {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__link {
+    display: block;
+  }
+
+  &__container {
+    display: grid;
+    max-width: 77pc;
+    grid-gap: 0 88px;
+    grid: 1fr / repeat(auto-fill, minmax(312px, 3fr));
+    align-items: start;
+    justify-content: space-between;
+
+    &:before {
+      display: none;
+      content: unset;
+    }
+
+    @media (min-width: 769px) and (max-width: 1200px) {
+      grid-gap: 30px 40px;
+      grid: 1fr / repeat(auto-fill, minmax(283px, 3fr));
+    }
+
+    @include small {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__text-stage {
+    max-width: 312px;
+    display: grid;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: unset;
+    float: none;
+
+    &:hover {
+      .cmp-newshubArticles-arrow {
+        &::before {
+          right: -10px;
+        }
+
+        &::after {
+          width: 29px;
+        }
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1200px) {
+      max-width: 283px;
+    }
+
+    @include small {
+      max-width: 278px;
+      justify-self: center;
+      margin: 0 auto;
+    }
+  }
+
+  &__image {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    height: auto;
+    width: 100%;
+
+    &-wrapper {
+      border-radius: 20px 0 20px 0;
+      height: 208px;
+      max-width: 312px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+
+      @media (min-width: 769px) and (max-width: 1200px) {
+        height: 189px;
+      }
+
+      @include small {
+        height: 185px;
+      }
+    }
+  }
+
+  &__date {
+    font-size: 12px;
+    margin: 0;
+    height: auto;
+    padding: 0;
+    font-family: $font-universe-roman;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.51px;
+    color: $color-separator-dark;
+    text-transform: uppercase;
+
+    &-wrapper {
+      margin: 30px 0 10px 0;
+    }
+  }
+
+  &__subTitle {
+    margin: 0 0 0 1px;
+    font-family: $font-universe-roman-bold;
+    font-size: 20px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+    color: $color-foreground-header;
+    padding: 0;
+
+    @include small {
+      font-size: 22px;
+      line-height: 27px;
+      letter-spacing: -0.4px;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    cursor: pointer;
+
+    &-wrapper {
+      margin: 20px 0 0 0;
+      position: relative;
+      clear: both;
+      min-height: 30px;
+    }
+  }
+
+  &-arrow {
+    display: inline-block;
+    position: relative;
+    width: 19px;
+    height: 8px;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-style: solid;
+      border-color: $color-primary-button;
+      border-width: 2px 2px 0 0;
+      right: 0;
+      transform: rotate(45deg);
+      transition: all 0.2s ease-in;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      border-style: solid;
+      border-color: $color-primary-button;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 19px;
+      height: 0;
+      border-width: 2px 0 0;
+      transition: all 0.2s ease-in;
+    }
+  }
+
+  &__button-wrapper {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    @media (min-width: 769px) and (max-width: 1200px) {
+      margin-top: 70px;
+    }
+
+    @include small {
+      margin: 20px 0 0 0;
+      width: 100%;
+      gap: 15px;
+    }
+
+    .cmp-button {
+      cursor: pointer;
+      font-family: $font-universe-roman-bold;
+      font-size: $font-size;
+      font-weight: 300;
+      letter-spacing: 0.3px;
+      width: 160px;
+      white-space: nowrap;
+      min-width: 160px;
+
+      @include small {
+        padding: 10px 25px;
+      }
+    }
+  }
+
+  .text-capitalize {
+    text-transform: uppercase;
+  }
+
+  .text-overflow {
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -moz-box;
+    -moz-line-clamp: 5;
+    -moz-box-orient: vertical;
+  }
+}

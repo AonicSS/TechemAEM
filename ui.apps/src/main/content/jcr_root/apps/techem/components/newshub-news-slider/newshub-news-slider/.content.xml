@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="Newshub News Slider Component"
+    jcr:primaryType="cq:Component"
+    jcr:title="Newshub News Slider"
+    sling:resourceSuperType="techem/components/newshub-news-slider/v1/newshub-news-slider"
+    componentGroup="Techem - Content"/>
