@@ -53,3 +53,9 @@
     @content;
   }
 }
+
+@mixin large {
+  @media (max-width: #{$lg-screen}) {
+    @content;
+  }
+}

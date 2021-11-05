@@ -1,0 +1,16 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+    Configure ${component.properties.jcr:title}
+</div>
+<div data-component-name="news-banner" data-sly-use.newsBanner="com.techem.core.models.NewsBanner" class="cmp-news-banner">
+    <p class="cmp-news-banner__subtitle d-sm-block">${newsBanner.articleSubTitle}</p>
+    <div class="cmp-news-banner__img-wrap">
+        <img class="cmp-news-banner__img" src="${newsBanner.articleImage}" alt="">
+    </div>
+    <div class="cmp-news-banner__content">
+        <p class="cmp-news-banner__subtitle d-sm-none">${newsBanner.articleSubTitle}</p>
+        <a class="cmp-news-banner__title" href="${newsBanner.articlePath}.html">
+            <h2>${newsBanner.articleTitle}</h2>
+            <div class="cmp-news-banner__arrow"></div>
+        </a>
+    </div>
+</div>
