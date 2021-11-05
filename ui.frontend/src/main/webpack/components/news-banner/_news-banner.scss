@@ -1,0 +1,117 @@
+.cmp-news-banner {
+  max-width: 77pc;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+
+  @include small {
+    display: block;
+  }
+
+  &__title {
+    text-decoration: none;
+
+    h2 {
+      font-size: 50px;
+      line-height: 1.28;
+
+      @include large {
+        font-size: 30px;
+      }
+    }
+
+    &:hover {
+      .cmp-news-banner__arrow {
+        &:before {
+          right: -4px;
+        }
+
+        &::after {
+          width: 32px;
+        }
+      }
+    }
+  }
+
+  &__content {
+    width: 50%;
+
+    @include small {
+      width: 100%
+    }
+  }
+
+  &__img-wrap {
+    padding-left: 35px;
+    width: 50%;
+    box-sizing: border-box;
+
+    @include small {
+      width: 100%;
+      padding-left: 0;
+      margin-bottom: 12px;
+    }
+  }
+
+  &__img {
+    max-width: 100%;
+    display: block;
+    border-radius: $border-radius-top-l-bottom-r;
+    margin-left: auto;
+  }
+
+  &__subtitle {
+    font-family: $font-universe-roman;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: normal;
+    letter-spacing: 0.51px;
+    color: $color-separator-dark;
+    text-transform: uppercase;
+    margin: 50px 0 20px 0;
+
+    @include large {
+      margin: 20px 0 20px 0;
+    }
+
+    @include small {
+      margin: 0 0 30px 0;
+    }
+  }
+
+  &__arrow {
+    display: inline-block;
+    width: 28px;
+    height: 10px;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      border-style: solid;
+      border-color: $color-primary-button;
+      border-width: 2px 2px 0 0;
+      right: 0;
+      transform: rotate(45deg);
+      transition: all .2s ease-in;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      border-style: solid;
+      border-color: $color-primary-button;
+      top: 49%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 0;
+      border-width: 2px 0 0;
+      transition: all .2s ease-in;
+    }
+  }
+}

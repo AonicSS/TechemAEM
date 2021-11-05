@@ -1,0 +1,18 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+    Configure ${component.properties.jcr:title}
+</div>
+
+<sly data-sly-use.trengoChat="com.techem.core.models.TrengoChatHelper">
+    <script type="text/javascript">
+    window.Trengo = window.Trengo || {};
+    window.Trengo.key = "${trengoChat.apiKey @ context='unsafe'}";
+
+    (function (d, script, t) {
+      script = d.createElement("script");
+      script.type = "text/javascript";
+      script.async = true;
+      script.src = "https://static.widget.trengo.eu/embed.js";
+      d.getElementsByTagName("head")[0].appendChild(script);
+    })(document);
+  </script>
+</sly>

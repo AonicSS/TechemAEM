@@ -47,3 +47,15 @@
     @include marginTop(lg);
   }
 }
+
+@mixin small {
+  @media (max-width: #{$s-screen}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (max-width: #{$lg-screen}) {
+    @content;
+  }
+}

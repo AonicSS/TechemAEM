@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        xmlns:cq="http://www.day.com/jcr/cq/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Newshub News"
+        sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <container
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Newshub News"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <loadingType
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldLabel="Load Articles"
+                                                    granite:class="cq-dialog-dropdown-showhide"
+                                                    name="./loadingType">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <automatically
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Automatically"
+                                                            value="auto" />
+                                                    <manually
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Manual"
+                                                            value="manual" />
+                                                </items>
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        cq-dialog-dropdown-showhide-target=".loadingType-showhide-target" />
+                                            </loadingType>
+                                            <auto
+                                                    granite:class="loadingType-showhide-target"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <filePath
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                            fieldDescription="Please select the parent of the articles you want to include"
+                                                            fieldLabel="Path of the articles"
+                                                            name="./filePath" />
+                                                </items>
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        showhidetargetvalue="auto" />
+                                            </auto>
+                                            <manual
+                                                    granite:class="loadingType-showhide-target"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <multi
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                            composite="{Boolean}true"
+                                                            fieldLabel="Select articles manually">
+                                                        <granite:data
+                                                                jcr:primaryType="nt:unstructured"
+                                                                max-items="3" />
+                                                        <field
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                name="./newsItems">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <column
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <articlePath
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                                fieldDescription="Choose an article path"
+                                                                                fieldLabel="Article path"
+                                                                                name="./articlePath"
+                                                                                rootPath="/content" />
+                                                                        <articleImage
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                                                allowUpload="{Boolean}false"
+                                                                                autoStart="{Boolean}false"
+                                                                                class="cq-droptarget"
+                                                                                disabled="{Boolean}false"
+                                                                                fieldDescription="Drag and Drop an Image for the article"
+                                                                                fieldLabel="Article image"
+                                                                                fileNameParameter="./fileName"
+                                                                                fileReferenceParameter="./fileReference"
+                                                                                mimeTypes="[image/*]"
+                                                                                multiple="{Boolean}false"
+                                                                                name="./articleImage"
+                                                                                useHTML5="{Boolean}false" />
+                                                                    </items>
+                                                                </column>
+                                                            </items>
+                                                        </field>
+                                                    </multi>
+                                                </items>
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        showhidetargetvalue="manual" />
+                                            </manual>
+                                            <headline
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Headline of the component"
+                                                    fieldLabel="Headline label"
+                                                    name="./headline" />
+                                            <primaryButtonLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Primary button label"
+                                                    name="./primaryButtonLabel" />
+                                            <primaryButtonLink
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Primary button link"
+                                                    name="./primaryButtonLink" />
+                                            <secondaryButtonLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Secondary button label"
+                                                    name="./secondaryButtonLabel" />
+                                            <secondaryButtonLink
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Secondary button link"
+                                                    name="./secondaryButtonLink" />
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </container>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

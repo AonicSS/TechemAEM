@@ -1,0 +1,7 @@
+<sly data-sly-use.stageModel="com.techem.core.models.NewshubStage"/>
+<sly data-sly-test.stage="${stageModel.newshubStageContentPage}"/>
+
+<div class="cmp-newshub-stage">
+    <h1 data-sly-test="${stage.pageTitle}" class="cmp-newshub-stage__title">${stage.pageTitle}</h1>
+    <p data-sly-test="${stage.subtitle}" class="cmp-newshub-stage__subtitle">${stage.subtitle}</p>
+</div>

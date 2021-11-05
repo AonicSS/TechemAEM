@@ -124,3 +124,16 @@ textarea {
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
 }
+
+.d-sm-block {
+  display: none;
+  @include small {
+    display: block;
+  }
+}
+
+.d-sm-none {
+  @include small {
+    display: none;
+  }
+}

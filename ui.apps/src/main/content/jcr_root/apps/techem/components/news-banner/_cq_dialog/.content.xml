@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="News Banner"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured"
+                       sling:hideChildren="[properties]">
+                    <container
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Properties"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items
+                                                jcr:primaryType="nt:unstructured">
+                                            <articlePath
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="Path to article."
+                                                    fieldLabel="Path to article."
+                                                    name="./articlePath"
+                                                    rootPath="/content"
+                                                    required="{Boolean}true"/>
+                                            <articleImage
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                    allowUpload="{Boolean}false"
+                                                    autoStart="{Boolean}false"
+                                                    class="cq-droptarget"
+                                                    disabled="{Boolean}false"
+                                                    fieldDescription="Drag and Drop an Image for the article"
+                                                    fieldLabel="Article image"
+                                                    fileReferenceParameter="./articleImg"
+                                                    mimeTypes="[image/*]"
+                                                    multiple="{Boolean}false"
+                                                    name="./articleImage"
+                                                    useHTML5="{Boolean}false"/>
+                                            <title
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Title of the article. Leave this blank to get it automatically from article."
+                                                    fieldLabel="Article title"
+                                                    name="./articleTitle"/>
+                                            <subTitle
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Subtitle of the article. Leave this blank to get it automatically from article."
+                                                    fieldLabel="Article subtitle"
+                                                    name="./articleSubTitle"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </container>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

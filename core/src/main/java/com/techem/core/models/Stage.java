@@ -33,6 +33,9 @@ public class Stage{
     @ValueMapValue(name = "text")
     private String text;
 
+    @ValueMapValue(name = "image")
+    private String image;
+
     private String date;
 
     @PostConstruct
@@ -61,4 +64,5 @@ public class Stage{
 
     public String getDate() { return date; }
 
+    public String getImage() { return image; }
 }

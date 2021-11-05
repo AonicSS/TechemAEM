@@ -145,6 +145,12 @@
                                                     allowBulkEdit="{Boolean}true"
                                                     cq-msm-lockable="jcr:description"/>
                                             </description>
+                                            <translationID
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Translated pages must have the same Translation ID"
+                                                    fieldLabel="Translation ID"
+                                                    name="./translationID"/>
                                         </items>
                                     </moretitles>
                                     <onofftime
