@@ -47,3 +47,9 @@
     @include marginTop(lg);
   }
 }
+
+@mixin small {
+  @media (max-width: #{$s-screen}) {
+    @content;
+  }
+}

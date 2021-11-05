@@ -1,0 +1,64 @@
+.cmp-newshub-stage {
+  background-color: $color-primary-button;
+  padding: 141px 15px 70px 15px;
+  text-align: center;
+  position: relative;
+  margin-bottom: 125px;
+
+  @include large {
+    padding: 60px 15px 70px 15px;
+    margin-bottom: 95px;
+  }
+
+  @include small {
+    padding: 60px 15px 35px 15px;
+    margin-bottom: 55px;
+  }
+
+  &:after {
+    content: '';
+    background: url(#{$iconsPath}/newshub-swirl.svg) no-repeat center center;
+    background-size: contain;
+    display: block;
+    height: 25px;
+    width: 102px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -25px;
+  }
+
+  &__title {
+    color: $color-background;
+    margin: 64px auto 8px auto;
+    line-height: 1.25;
+
+    @include small {
+      font-size: 38px;
+      margin: 30px auto 8px auto;
+    }
+  }
+
+  &__subtitle {
+    font-family: $font-universe-std;
+    color: $color-background;
+    margin: 0;
+    font-size: 30px;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+
+    @include small {
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+  }
+}
+
+.aem-AuthorLayer-Edit {
+  .cmp-newshub-stage {
+    padding: 70px 15px 70px 15px;
+    &__title {
+      margin-top: 0;
+    }
+  }
+}
