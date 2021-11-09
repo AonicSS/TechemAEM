@@ -7,8 +7,9 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
-import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
+import org.osgi.framework.Constants;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -20,12 +21,7 @@ import javax.servlet.ServletException;
 import java.io.IOException;
 import java.util.*;
 
-@Component(service = Servlet.class)
-@SlingServletResourceTypes(
-        resourceTypes="techem/components/page",
-        methods= "GET",
-        extensions="html",
-        selectors="hreflang")
+@Component(service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "=Hreflang servlet.", "sling.servlet.methods="+ HttpConstants.METHOD_GET, "sling.servlet.paths=/eu/techem/hreflang" })
 public class HrefLangServlet extends SlingAllMethodsServlet {
     private static final Logger log = LoggerFactory.getLogger(HrefLangServlet.class);
 
@@ -40,14 +36,12 @@ public class HrefLangServlet extends SlingAllMethodsServlet {
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
         final Resource resource = request.getResource();
         response.setContentType("text/plain");
-//        response.getWriter().write("In DoGet");
         resultHTML = "";
 
-
+        String currentPagePath = request.getParameter("pathReq");
         ResourceResolver res = resource.getResourceResolver();
         PageManager pageManager = resource.getResourceResolver().adaptTo(PageManager.class);
-        Page currentPage = pageManager.getContainingPage(resource);
-        String currentPagePath = currentPage.getPath();
+        Page currentPage = pageManager.getPage(currentPagePath);
 
 
         List<String> translatedPathPieces = getTranslatedPathPieces(currentPage, currentPagePath, pageManager);

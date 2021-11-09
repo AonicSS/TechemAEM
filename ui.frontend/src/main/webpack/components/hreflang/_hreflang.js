@@ -3,24 +3,22 @@
 
     $(document).ready(function() {
 
-        const field = document.getElementById("hreflang");
-        var pathName = window.location.pathname;
-        var arrayPath = pathName.split(".");
-        var result;
+        let pathValue = window.location.pathname;
+        const path2 = window.location.pathname;
+        let value;
 
-        if (arrayPath[arrayPath.length - 1] == "html") {
-            arrayPath[arrayPath.length - 1] = "hreflang.html";
+        pathValue = pathValue.split('.').slice(0, -1).join('.');
+        if (pathValue.split("/")[1] == 'content'){
+            value = pathValue;
         }
         else {
-            arrayPath[arrayPath.length - 1] = arrayPath[arrayPath.length - 1] + "hreflang.html";
+            value = "/content/techem" + path2;
         }
+        const finalPath = value;
 
-        pathName = arrayPath.join(".");
-
-        $.get(pathName)
+        $.get("/eu/techem/hreflang", { pathReq: finalPath})
          .done(function (hreflangData){
-            result = hreflangData.split('<!--')[0];
-            $('head').append(result);
+            $('head').append(hreflangData);
         });
 
 
