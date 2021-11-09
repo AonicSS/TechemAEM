@@ -76,10 +76,17 @@ public class HrefLangServlet extends SlingAllMethodsServlet {
                         if (hasTranslationID && getTranslationID(currentSearch).equals(translatedPathPieces.get(i)) ){
                             currentRootPage = currentSearch;
                             if (i == translatedPathPieces.size()-1){
-                                resultHTML = resultHTML.concat("<link rel='alternate' hreflang='" + setKeyHreflang(currentSearch) +"' href='" + setURL(currentSearch) + "'/>");
+                                resultHTML = concatResult(currentSearch, resultHTML);
                             }
                             break;
                         }
+                    }
+
+                }
+                if (translatedPathPieces.size() == 0) {
+                    Boolean hasTranslationID = getTranslationID(currentRootPage) != null;
+                    if (hasTranslationID && getTranslationID(currentPage).equals(getTranslationID(currentRootPage))) {
+                        resultHTML = concatResult(currentRootPage,resultHTML);
                     }
 
                 }
@@ -137,6 +144,11 @@ public class HrefLangServlet extends SlingAllMethodsServlet {
             return translationID.toString();
         else
             return null;
+    }
+
+    private String concatResult (Page page, String oldElements) {
+        String addedElement = oldElements.concat("<link rel='alternate' hreflang='" + setKeyHreflang(page) +"' href='" + setURL(page) + "'/>");
+        return addedElement;
     }
 
 }
