@@ -1,0 +1,20 @@
+<sly data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+     data-sly-use.searchModel="com.techem.core.models.YextSearchBar"
+     data-sly-use.yextConfig="com.techem.core.models.YextCredentialsHelper" data-sly-test="${wcmmode.disabled}">
+  <div id="${component.id}" class="search-bar"
+       data-results-page="${searchModel.resultsPage}"
+       data-search-icon="${searchModel.searchIcon}"
+       data-component-name="search-bar"></div>
+</sly>
+
+<sly data-sly-test="${!wcmmode.disabled}">
+  <div class="yxt-SearchBar search-bar">
+    <div class="yxt-SearchBar-container">
+      <form class="yxt-SearchBar-form">
+        Yext search placeholder
+      </form>
+      <div id="yxt-SearchBar-autocomplete--yext-search-bar-cb4af2dd1b" class="yxt-SearchBar-autocomplete component yxt-Answers-component"><div class="yxt-AutoComplete-wrapper js-yxt-AutoComplete-wrapper" aria-expanded="false"></div>
+      </div>
+    </div>
+  </div>
+</sly>

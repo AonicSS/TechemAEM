@@ -1,0 +1,152 @@
+.search-bar {
+  width: 100%;
+
+  .yxt-SearchBar {
+    height: unset;
+
+    &-container {
+      border: none;
+      font-family: Univers55;
+      font-size: 12px;
+      color: $color-foreground-header;
+      letter-spacing: 0;
+      line-height: 26px;
+      font-weight: 400;
+      background-color: unset;
+      overflow: visible;
+
+      &:focus-within,
+      &:hover {
+        box-shadow: unset;
+      }
+
+      @media screen and (max-width: 1024px) {
+        font-size: 18px;
+      }
+    }
+
+    &-input {
+      background-color: $color-background;
+      border-radius: 5px 0 0 5px;
+      font-size: 12px;
+
+      @media screen and (max-width: 1024px) {
+        border-radius: 0;
+        font-size: 18px;
+      }
+    }
+
+    &-button {
+      border-radius: 0 5px 5px 0;
+      background-color: $color-background;
+      line-height: 0;
+      padding: 0 12px;
+
+      .Icon-image {
+        width: 15px;
+        height: 15px;
+      }
+
+      @media screen and (max-width: 1024px) {
+        padding: 0 16px;
+
+        .Icon-image {
+          width: 22px;
+          height: 22px;
+        }
+      }
+
+      &:focus,
+      &:hover {
+        background-color: $color-primary-button;
+
+        .Icon-image {
+          filter: invert(1);
+        }
+      }
+
+      @media screen and (max-width: 1024px) {
+        border-radius: 0;
+      }
+    }
+
+    &-clear {
+      line-height: 0;
+      padding: 0;
+
+      .Icon svg {
+        color: $color-inactive-tab;
+        width: 30px;
+        height: 30px;
+      }
+
+      &:focus {
+        background-color: unset;
+      }
+    }
+
+    &-form {
+      background-color: $color-background;
+      border: 1px solid $border-color;
+      border-radius: 6px;
+      height: 36px;
+
+      &:focus-within {
+        border: 1px solid $focus-border-color;
+      }
+
+      @media screen and (max-width: 1024px) {
+        border-radius: 0;
+        height: 58px;
+      }
+    }
+
+    &-autocomplete {
+      background: unset;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  .yxt-AutoComplete {
+    padding: 20px 0;
+
+    &::before {
+      display: none;
+      content: unset;
+    }
+
+    &-wrapper {
+      margin-top: 5px;
+      box-shadow: 0 3px 15px 1px rgba(0, 0, 0, 0.1);
+      border-radius: 15px 0 15px 0;
+      z-index: 999;
+
+      @media screen and (max-width: 1024px) {
+        border-radius: 0;
+        margin: 0;
+        box-shadow: unset;
+      }
+    }
+
+    &-option {
+      &--item {
+        font-size: 12px;
+        padding: 8px 16px;
+
+        &:hover {
+          background-color: unset;
+          color: $color-primary-button;
+        }
+
+        @media screen and (max-width: 1024px) {
+          font-size: 18px;
+        }
+      }
+    }
+
+    &-option.yxt-selected {
+      color: $color-primary-button;
+    }
+  }
+}

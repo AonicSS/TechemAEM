@@ -99,6 +99,34 @@ header.experiencefragment{
             align-items: center;
             flex-wrap: wrap;
             transition: transform 400ms ease-out;
+
+            .headerSearchBar {
+                width: 460px;
+                min-width: 460px;
+                min-height: 36px;
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+
+                @media screen and (max-width: 1024px) {
+                  display: none;
+                  height: 100%;
+                  min-width: unset;
+                }
+
+                .yext-search-bar {
+                  @media screen and (max-width: 1024px) {
+                    height: 100%;
+                  }
+                }
+              }
+
+              .mobile {
+                position: absolute;
+                left: 0;
+                top: 60px;
+                width: 100vw;
+              }
         }
 
         &__left {
@@ -128,6 +156,52 @@ header.experiencefragment{
 
             .cmp-search {
                 display: none;
+            }
+
+            .search-trigger {
+                border: unset;
+                background-color: unset;
+                cursor: pointer;
+                display: flex;
+
+                .Icon-image {
+                  width: 19px;
+                  height: 19px;
+                }
+
+                &__container {
+                    height: fit-content;
+                    width: fit-content;
+
+                    @media screen and (min-width: 1025px) {
+                        display: none;
+                    }
+                }
+
+                &__wrapper {
+                  display: inline-flex;
+                  padding: 10px;
+                  height: 100%;
+                  align-items: center;
+                  box-sizing: border-box;
+                }
+
+                &__overlay {
+                  position: absolute;
+                  display: none;
+                  opacity: 0.5;
+                  background-color: $color-background-dark;
+                  width: 100vw;
+                  height: 100vh;
+                  overflow: hidden;
+                  z-index: 0;
+                  left: 0;
+                  top: 120px
+                }
+
+                #trigger-icon-opened {
+                  display: none;
+                }
             }
 
             .cmp-languagenavigation {
