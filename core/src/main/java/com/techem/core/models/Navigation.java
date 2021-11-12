@@ -71,6 +71,9 @@ public class Navigation {
     @ValueMapValue(name = "hideNavigation")
     private Boolean hideNavigation;
 
+    @ValueMapValue(name = "enableSearchbar")
+    private Boolean enableSearchbar;
+
     @ChildResource(name = "portalItems")
     private Resource portalItems;
 
@@ -151,6 +154,10 @@ public class Navigation {
 
     public Boolean getHideNavigation() {
         return hideNavigation;
+    }
+
+    public Boolean getEnableSearchbar() {
+        return enableSearchbar;
     }
 
     private void setNavigationItems(Map<Header,List<NavigationDetails>> items) {

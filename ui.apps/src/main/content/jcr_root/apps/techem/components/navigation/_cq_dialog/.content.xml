@@ -80,6 +80,14 @@
                                                     text="Hide main navigation"
                                                     uncheckedValue="false"
                                                     value="true"/>
+                                            <enableSearchbar
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    fieldDescription="Check this to enable the search bar."
+                                                    name="./enableSearchbar"
+                                                    text="Enable search bar"
+                                                    uncheckedValue="false"
+                                                    value="true"/>
                                         </items>
                                     </column>
                                 </items>

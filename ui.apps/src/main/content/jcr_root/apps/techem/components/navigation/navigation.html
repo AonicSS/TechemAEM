@@ -15,11 +15,17 @@
                     </a>
                 </span>
             </div>
+            <div data-sly-test="${navigation.enableSearchbar}" class="headerSearchBar" data-sly-resource="${'yext-search-bar' @ decorationTagName='div', resourceType='techem/components/yext-search-bar' }"></div>
             <div class="header__right">
-                <!--<div class="header__search">-->
-                <!--<div data-sly-resource="${ @path='search', resourceType='techem/components/search'}" data-sly-unwrap=""></div>-->
-                <!--<i class="header__search-icon" aria-hidden="false"></i>-->
-                <!--</div>-->
+                <div data-sly-test="${navigation.enableSearchbar}" class="search-trigger__container">
+                    <div class="search-trigger__wrapper">
+                        <div class="search-trigger__overlay"></div>
+                        <button id="search-trigger" class="search-trigger">
+                            <img id="trigger-icon-closed" src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/ico_search.svg" alt="Open Searchbar" class="Icon-image">
+                            <img id="trigger-icon-opened" src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/Close.svg" alt="Close Searchbar" class="Icon-image">
+                        </button>
+                    </div>
+                </div>
 
                 <div class="header__portal">
                     <sly data-sly-test="${navigation.PortalItemList.size == 1}" data-sly-list.item="${navigation.PortalItemList}">

@@ -60,7 +60,8 @@
     "imagesloaded": "^4.1.4",
     "jquery": "^3.5.1",
     "js-cookie": "^3.0.1",
-    "swiper": "^6.4.10"
+    "swiper": "^6.4.10",
+    "typed.js": "^2.0.12"
   },
   "browserslist": [
     "last 2 version",

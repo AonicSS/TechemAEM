@@ -157,20 +157,58 @@
 
         return this;
     }
+
     /* ---------------------------------------------
     search
     --------------------------------------------- */
+    let isVisible = false;
+    function initSearchbar() {
+        const $searchBarWrapper = $(".headerSearchBar");
 
-    $('.header__search-icon').mouseover(function () {
-        $(".header__search-icon").css("display", "none");
-        $(".cmp-search").show("slow");
-    });
-    $('.cmp-search').mouseout(function () {
-        if (!$('.cmp-search__input').val() || $('.cmp-search__input').val() === "Search") {
-            $(".cmp-search").hide();
-            $(".header__search-icon").css("display", "block");
+        $("#search-trigger").on("click", function () {
+            const $iconClosed = $("#trigger-icon-closed");
+            const $iconOpened = $("#trigger-icon-opened");
+            const $overlay = $(".search-trigger__overlay");
+
+            isVisible = !isVisible;
+
+            if (isVisible) {
+                $searchBarWrapper.toggle(true);
+                $iconOpened.toggle(true);
+                $iconClosed.toggle(false);
+                $overlay.toggle(true);
+            } else {
+                $searchBarWrapper.toggle(false);
+                $iconOpened.toggle(false);
+                $iconClosed.toggle(true);
+                $overlay.toggle(false);
+            }
+        });
+
+        if (window.innerWidth < 1025) {
+            $searchBarWrapper.addClass("mobile");
+        } else {
+            $searchBarWrapper.removeClass("mobile");
         }
-    });
+
+        window.addEventListener("resize", () => {
+            setTimeout(() => {
+                if (window.innerWidth > 1024) {
+                    $searchBarWrapper.removeClass("mobile");
+                    $searchBarWrapper.toggle(true);
+                } else {
+                    $searchBarWrapper.addClass("mobile");
+
+                    if (isVisible) {
+                        $searchBarWrapper.toggle(true);
+                    } else {
+                        $searchBarWrapper.toggle(false);
+                    }
+                }
+            }, 500);
+        });
+    }
+
     /* ---------------------------------------------
     scroll shrink
     --------------------------------------------- */
@@ -236,6 +274,7 @@
         const $headerNav = $("header[data-component-name='navigation']").not('.header-hide-nav');
         if ($headerNav.length) {
             burgermenuinit($headerNav);
+            initSearchbar();
 
             if ($headerNav[0].dataset.initialized !== "true") {
                 new NotificationModule($headerNav[0]);

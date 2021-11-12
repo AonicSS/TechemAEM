@@ -1141,59 +1141,40 @@
                             <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
 
                                 <div>
-                                    <div
-                                            data-component-name="reset-password"
-                                            data-sly-use.ResetPasswordModel="com.techem.core.models.ResetPassword"
-                                            class="cmp-reset-password"
-                                    >
-                                        <div class="cmp-reset-password__header">
-                                            <h2 class="cmp-reset-password__headline">
-                                                Password reset
-                                            </h2>
-                                            <p class="cmp-reset-password__sub-headline">
-                                                If you forgot your password or do not have it at hand,
-                                                you can generate a new password here.
-                                            </p>
-                                        </div>
-                                        <div class="cmp-reset-password__line"></div>
-
-                                        <p class="cmp-reset-password__description">
-                                            Please enter your registered email address below and click
-                                            “Reset Password”. We will then send you an email with a
-                                            confirmation link. After clicking on this link you can
-                                            assign a new password. If you do not receive an email from
-                                            us within the next 30 minutes, please check your spam
-                                            folder.
-                                        </p>
-
-                                        <form class="cmp-reset-password__form">
-                                            <fieldset class="cmp-form-options">
-                                                <label class="cmp-form-options__field-label">
-                                                    <div class="cmp-form-options__field-description">
-                                                        <div>Email address</div>
-                                                    </div>
-                                                    <input
-                                                            class="cmp-form-options__field"
-                                                            type="email"
-                                                            value=""
-                                                            name="email"
-                                                    />
-                                                </label>
-                                            </fieldset>
-                                            <div class="button">
-                                                <button
-                                                        class="cmp-form-button cmp-reset-password__button"
-                                                        type="submit"
-                                                >
-                                                    Reset Password
-                                                </button>
-                                            </div>
-                                        </form>
-
-                                        <a class="cmp-reset-password__link" href="#">
-                                            Return to login form
-                                        </a>
-                                    </div>
+                                    <link
+                                            rel="stylesheet"
+                                            type="text/css"
+                                            href="https://assets.sitescdn.net/answers-search-bar/v1.0/answers.css"
+                                    />
+                                    <div class="search-bar"></div>
+                                    <script src="https://assets.sitescdn.net/answers-search-bar/v1.0/answerstemplates.compiled.min.js"></script>
+                                    <script>
+                                      function initAnswers() {
+                                        ANSWERS.init({
+                                          apiKey: "410eeae990739426ebf1055ca652a8c5",
+                                          experienceKey: "answers-starter",
+                                          businessId: "3569475",
+                                          experienceVersion: "PRODUCTION",
+                                          locale: "de",
+                                          templateBundle: TemplateBundle.default,
+                                          onReady: function () {
+                                            this.addComponent("SearchBar", {
+                                              container: ".search-bar",
+                                              name: "searchbar",
+                                              redirectUrl:
+                                                "https://answers-embed.techem.de.pagescdn.com/",
+                                            });
+                                          },
+                                        });
+                                      }
+                                    </script>
+                                    <script
+                                            id="answers-script"
+                                            src="https://assets.sitescdn.net/answers-search-bar/v1.0/answers.min.js"
+                                            onload="ANSWERS.domReady(initAnswers)"
+                                            async
+                                            defer
+                                    ></script>
                                 </div>
 
                                 <div class="fullbleed teaser aem-GridColumn aem-GridColumn--default--12">

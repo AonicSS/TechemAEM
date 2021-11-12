@@ -1,0 +1,17 @@
+<sly data-sly-use.yextConfig="com.techem.core.models.YextCredentialsHelper" data-sly-test="${wcmmode.disabled}">
+    <script src="https://assets.sitescdn.net/answers-search-bar/v1.0/answerstemplates.compiled.min.js"></script>
+    <!-- this script needs to be loaded so ANSWERS is initialized -->
+    <!-- then the search bars can be added -->
+    <script
+            id="answers-script"
+            src="https://assets.sitescdn.net/answers-search-bar/v1.0/answers-modern.min.js"
+            async
+            defer
+            data-apiKey="${yextConfig.credentials.apiKey @ context='unsafe'}"
+            data-experienceKey="${yextConfig.credentials.experienceKey @ context='unsafe'}"
+            data-businessId="${yextConfig.credentials.businessId @ context='unsafe'}"
+            data-experienceVersion="${yextConfig.credentials.experienceVersion @ context='unsafe'}"
+            data-locale="${yextConfig.credentials.locale @ context='unsafe'}"
+            data-redirect="${yextConfig.redirectURL @ context='unsafe'}"
+    ></script>
+</sly>
