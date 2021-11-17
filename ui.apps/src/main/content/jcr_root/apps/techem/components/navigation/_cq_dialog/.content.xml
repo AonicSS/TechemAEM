@@ -142,7 +142,6 @@
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                     fieldLabel="Portal button label"
                                                     name="./portalBtnLabel"
-                                                    required="true"
                                                     value="Portal"/>
                                             <multi
                                                     jcr:primaryType="nt:unstructured"
