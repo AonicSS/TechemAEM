@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="90px" height="55px" viewBox="0 0 90 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ico_quote</title>
+    <g id="News-&amp;-Wissen" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="NewsWissen_Article_Desktop" transform="translate(-155.000000, -1112.000000)" fill="#E20613">
+            <g id="Content" transform="translate(154.000000, 706.000000)">
+                <g id="Zitat" transform="translate(0.000000, 406.000000)">
+                    <g id="ico_quote" transform="translate(1.000000, 0.000000)">
+                        <path d="M70.9631427,0 L90,0 L90,0 L80.5804205,41.027827 C78.7031516,49.2044405 71.4262045,55 63.0368573,55 L44,55 L44,55 L53.4195795,13.972173 C55.2968484,5.79555948 62.5737955,1.54109809e-15 70.9631427,0 Z" id="Rectangle"></path>
+                        <path d="M26.9631427,0 L46,0 L46,0 L36.5804205,41.027827 C34.7031516,49.2044405 27.4262045,55 19.0368573,55 L0,55 L0,55 L9.41957953,13.972173 C11.2968484,5.79555948 18.5737955,1.54109809e-15 26.9631427,0 Z" id="Rectangle"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,62 @@
+<div
+        data-sly-test="${(wcmmode.edit || wcmmode.preview)}"
+        class="cq-placeholder"
+>
+  Configure ${component.properties.jcr:title}
+</div>
+
+<sly data-sly-use.newsModel="com.techem.core.models.NewsArticles"/>
+<sly data-sly-use.newshubArticleFeed="com.techem.core.models.NewshubArticleFeed"/>
+<sly data-sly-test.newsArticles="${newsModel.newsArticles.entrySet}" />
+
+<div class="cmp-newshub-feed">
+  <div class="cmp-newshub-feed__left">
+    <h2 class="cmp-newshub-feed__headline">${newshubArticleFeed.feedHeadline}</h2>
+    <div class="cmp-newshub-feed__content swiper-container">
+      <div class="swiper-wrapper" data-sly-list.articles="${newsArticles}">
+        <div class="cmp-newshub-feed__article swiper-slide">
+          <h3 class="cmp-newshub-feed__article-subtitle">
+            ${articles.key.category} - ${articles.key.date}
+          </h3>
+          <a
+                  href="${articles.value.articlePath}.html"
+                  class="cmp-newshub-feed__article-link"
+          >
+            <h2 class="cmp-newshub-feed__article-title">
+              ${articles.key.headline}
+            </h2>
+            <div class="cmp-newshubArticles__icon-wrapper">
+              <i class="cmp-newshubArticles__icon">
+                <div class="cmp-newshubArticles-arrow"></div>
+              </i>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="cmp-newshub-feed__pagination"></div>
+    </div>
+  </div>
+  <div class="cmp-newshub-feed__right"
+       style="background-image:url('${newshubArticleFeed.backgroundImage ? newshubArticleFeed.backgroundImage : '/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/red-background@3x.png' @ context='unsafe'}');">
+    <h2 class="cmp-newshub-feed__headline headline-right">
+      ${newshubArticleFeed.monthHeadline}
+    </h2>
+    <div class="cmp-newshub-feed__number">
+      <div class="cmp-newshub-feed__number-wrapper">
+      <span class="cmp-newshub-feed__number-value">${newshubArticleFeed.number}
+      </span>
+        <span class="cmp-newshub-feed__number-unit">${newshubArticleFeed.numberUnit}</span>
+      </div>
+    </div>
+    <a href="${newshubArticleFeed.articleURLPath}" class="cmp-newshub-feed__link">
+      <h2 class="cmp-newshub-feed__title">
+        ${newshubArticleFeed.numberDescription}
+      </h2>
+      <div class="cmp-newshubArticles__icon-wrapper">
+        <i class="cmp-newshubArticles__icon">
+          <div class="cmp-newshubArticles-arrow"></div>
+        </i>
+      </div>
+    </a>
+  </div>
+</div>
