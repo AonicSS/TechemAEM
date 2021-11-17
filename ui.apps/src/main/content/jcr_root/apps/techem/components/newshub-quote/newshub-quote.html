@@ -1,0 +1,12 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+    Configure ${component.properties.jcr:title}
+</div>
+<div data-component-name="newshub-quote" data-sly-use.newshubQuote="com.techem.core.models.NewshubQuote" class="cmp-newshub-quote">
+    <div class="cmp-newshub-quote-container">
+        <div class="cmp-newshub-quote__icon-wrapper">
+            <img class="cmp-newshub-quote__icon" src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/ico_quote.svg"/>
+        </div>
+        <div class="cmp-newshub-quote__text">${newshubQuote.quoteText}</div>
+        <div class="cmp-newshub-quote__author">${newshubQuote.quoteAuthor}</div>
+    </div>
+</div>
