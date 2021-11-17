@@ -3,6 +3,7 @@
 main.container {
   padding: 0.5em 1em;
   margin-top: 140px;
+  overflow: hidden;
 
   .cmp-container {
     @media (min-width: $mobile-dimension) {
