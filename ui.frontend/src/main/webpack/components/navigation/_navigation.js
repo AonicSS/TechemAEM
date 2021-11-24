@@ -162,8 +162,7 @@
     search
     --------------------------------------------- */
     let isVisible = false;
-    function initSearchbar() {
-        const $searchBarWrapper = $(".headerSearchBar");
+    function initSearchbar($searchBarWrapper) {
 
         $("#search-trigger").on("click", function () {
             const $iconClosed = $("#trigger-icon-closed");
@@ -271,10 +270,14 @@
         });
     }
     $(document).ready(function () {
+        const $searchBarWrapper = $(".headerSearchBar");
+        if($searchBarWrapper.length) {
+            initSearchbar($searchBarWrapper);
+        }
+
         const $headerNav = $("header[data-component-name='navigation']").not('.header-hide-nav');
         if ($headerNav.length) {
             burgermenuinit($headerNav);
-            initSearchbar();
 
             if ($headerNav[0].dataset.initialized !== "true") {
                 new NotificationModule($headerNav[0]);

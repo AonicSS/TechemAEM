@@ -1,5 +1,11 @@
 .search-bar {
+  max-width: 780px;
+  margin: auto;
   width: 100%;
+
+  @include large {
+    max-width: 500px;
+  }
 
   .yxt-SearchBar {
     height: unset;
@@ -20,7 +26,7 @@
         box-shadow: unset;
       }
 
-      @media screen and (max-width: 1024px) {
+      @include large {
         font-size: 18px;
       }
     }
@@ -30,8 +36,7 @@
       border-radius: 5px 0 0 5px;
       font-size: 12px;
 
-      @media screen and (max-width: 1024px) {
-        border-radius: 0;
+      @include large{
         font-size: 18px;
       }
     }
@@ -47,7 +52,7 @@
         height: 15px;
       }
 
-      @media screen and (max-width: 1024px) {
+      @include large {
         padding: 0 16px;
 
         .Icon-image {
@@ -63,10 +68,6 @@
         .Icon-image {
           filter: invert(1);
         }
-      }
-
-      @media screen and (max-width: 1024px) {
-        border-radius: 0;
       }
     }
 
@@ -89,15 +90,9 @@
       background-color: $color-background;
       border: 1px solid $border-color;
       border-radius: 6px;
-      height: 36px;
 
       &:focus-within {
         border: 1px solid $focus-border-color;
-      }
-
-      @media screen and (max-width: 1024px) {
-        border-radius: 0;
-        height: 58px;
       }
     }
 
@@ -121,12 +116,6 @@
       box-shadow: 0 3px 15px 1px rgba(0, 0, 0, 0.1);
       border-radius: 15px 0 15px 0;
       z-index: 999;
-
-      @media screen and (max-width: 1024px) {
-        border-radius: 0;
-        margin: 0;
-        box-shadow: unset;
-      }
     }
 
     &-option {
@@ -139,7 +128,7 @@
           color: $color-primary-button;
         }
 
-        @media screen and (max-width: 1024px) {
+        @include large {
           font-size: 18px;
         }
       }
@@ -147,6 +136,68 @@
 
     &-option.yxt-selected {
       color: $color-primary-button;
+    }
+  }
+}
+
+.headerSearchBar {
+  .search-bar {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+
+    .yxt-SearchBar {
+      &-container {
+        @include large {
+          font-size: 18px;
+        }
+      }
+
+      &-input {
+        @include large {
+          border-radius: 0;
+          font-size: 18px;
+        }
+      }
+
+      &-button {
+        @include large {
+          padding: 0 16px;
+          border-radius: 0;
+
+          .Icon-image {
+            width: 22px;
+            height: 22px;
+          }
+        }
+      }
+
+      &-form {
+        height: 36px;
+
+        @include large {
+          border-radius: 0;
+          height: 58px;
+        }
+      }
+    }
+
+    .yxt-AutoComplete {
+      &-wrapper {
+        @include large {
+          border-radius: 0;
+          margin: 0;
+          box-shadow: unset;
+        }
+      }
+
+      &-option {
+        &--item {
+          @include large {
+            font-size: 18px;
+          }
+        }
+      }
     }
   }
 }
