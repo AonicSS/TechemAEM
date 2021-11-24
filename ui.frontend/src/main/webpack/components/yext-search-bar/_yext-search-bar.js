@@ -89,3 +89,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
         });
     }
 });
+
+window.addEventListener("CookiebotOnConsentReady", (e) => {
+    const searchCmp = document.querySelectorAll("[data-component-name='search-bar']");
+    if(ANSWERS && !ANSWERS.components._activeComponents.length && searchCmp.length) {
+        ANSWERS.domReady(initAnswers);
+    }
+});

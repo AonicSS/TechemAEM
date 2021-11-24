@@ -5,6 +5,7 @@
     ${component.properties.jcr:title}
 </div>
 
+<div class="search-trigger__overlay"></div>
 <header class="header ${navigation.hideNavigation ? 'header-hide-nav' : ''}" data-component-name="navigation">
     <div class="header__wrapper">
         <div class="header__components">
@@ -19,7 +20,6 @@
             <div class="header__right">
                 <div data-sly-test="${navigation.enableSearchbar}" class="search-trigger__container">
                     <div class="search-trigger__wrapper">
-                        <div class="search-trigger__overlay"></div>
                         <button id="search-trigger" class="search-trigger">
                             <img id="trigger-icon-closed" src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/ico_search.svg" alt="Open Searchbar" class="Icon-image">
                             <img id="trigger-icon-opened" src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/Close.svg" alt="Close Searchbar" class="Icon-image">
@@ -40,7 +40,9 @@
                     </sly>
                 </div>
 
-                <sly data-sly-resource="${'lang-nav' @ resourceType='techem/components/languagenavigation'}"></sly>
+                <div>
+                    <sly data-sly-resource="${'lang-nav' @ resourceType='techem/components/languagenavigation'}"></sly>
+                </div>
 
                 <div class="header_burger-menu">
                     <div class="burger-click-region">
