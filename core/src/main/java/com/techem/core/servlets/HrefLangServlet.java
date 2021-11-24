@@ -40,9 +40,17 @@ public class HrefLangServlet extends SlingAllMethodsServlet {
 
         String currentPagePath = request.getParameter("pathReq");
         ResourceResolver res = resource.getResourceResolver();
-        PageManager pageManager = resource.getResourceResolver().adaptTo(PageManager.class);
+        PageManager pageManager = res.adaptTo(PageManager.class);
         Page currentPage = pageManager.getPage(currentPagePath);
 
+        /*
+            Avoid getting a 500 response while editing the header experience fragment.
+            Returning nothing while editing the fragment itself should be fine -> editors will see a preview until they add the fragment to a page.
+            (getAbsoluteParent -> line 124 returns null no matter what, probably because the header's parents are folders and not pages)
+        */
+        if(currentPage.getPath().startsWith("/content/experience-fragments")) {
+            return;
+        }
 
         List<String> translatedPathPieces = getTranslatedPathPieces(currentPage, currentPagePath, pageManager);
 
@@ -105,7 +113,7 @@ public class HrefLangServlet extends SlingAllMethodsServlet {
     }
 
     private String setURL (Page page) {
-        String url = "https://techem.com/" + page.getPath().replaceAll("/content/techem/", "");;
+        String url = "https://www.techem.com/" + page.getPath().replaceAll("/content/techem/", "");;
         return url;
     }
 
@@ -135,7 +143,7 @@ public class HrefLangServlet extends SlingAllMethodsServlet {
     private String getTranslationID (Page page) {
         Object translationID = page.getProperties().get("translationID");
         if (translationID != null)
-            return translationID.toString();
+            return translationID.toString().replaceAll("\\s","");
         else
             return null;
     }
