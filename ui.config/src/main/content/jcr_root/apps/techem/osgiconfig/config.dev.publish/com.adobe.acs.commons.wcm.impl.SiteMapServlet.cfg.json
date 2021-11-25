@@ -32,7 +32,9 @@
     "/content/techem/bg/bg:/bg/bg",
     "/content/techem/dk/dk:/dk/dk",
     "/content/techem/br/pt:/br/pt",
-    "/content/techem/nl/nl:/nl/nl"
+    "/content/techem/nl/nl:/nl/nl",
+    "/content/techem/ch/fr:/ch/fr",
+    "/content/techem/lu/fr:/lu/fr"
   ],
   "include.inherit":false,
   "damassets.property":"content/dam/techem",
