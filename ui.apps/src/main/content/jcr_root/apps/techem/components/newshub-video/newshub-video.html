@@ -1,0 +1,40 @@
+<sly data-sly-use.newsModel="com.techem.core.models.NewshubVideoArticles"/>
+<sly data-sly-test.newshubVideoArticles="${newsModel.videoArticles.entrySet}"/>
+
+<div class="cmp-newshub-video" data-component-name="newshub-video">
+    <div class="cmp-newshub-video__article-wrapper" 
+        data-sly-list.videoArticle="${newshubVideoArticles}">
+
+        <div class="cmp-newshub-video__article-video-wrapper">
+            <div class="cmp-newshub-video__article-video">
+                <sly data-sly-use.template="/apps/techem/components/video-consent/video-consent-template.html"
+                 data-sly-call="${template.videoCookieConsent @  youtubeVideoId = videoArticle.value.videoID}">
+            </sly>
+            </div>
+        </div>
+        
+        <a href="${videoArticle.value.articlePath}.html" class="cmp-newshub-video__article-link">
+            <div class="cmp-newshub-video__article-title">
+                <h2 class="cmp-newshub-video__article-title-text">${videoArticle.key.headline}</h2>
+            </div>
+            <div class="cmp-newshub-video__article-icon-wrapper">
+                <i class="cmp-newshubArticles__article-icon">
+                    <div class="cmp-newshubArticles-arrow"></div>
+                </i>
+            </div>
+        </a>
+    </div>
+
+    <div class="cmp-newshub-video__buttons">
+        <a data-sly-test="${newsModel.primaryButtonLabel}"
+           class="cmp-newshub-video__button cmp-button button-primary"
+           href="${newsModel.primaryButtonLink}" target="_blank">
+            ${newsModel.primaryButtonLabel}
+        </a>
+        <a data-sly-test="${newsModel.secondaryButtonLabel}"
+           class="cmp-newshub-video__button cmp-button button-secondary"
+           href="${newsModel.secondaryButtonLink}" target="_blank">
+            ${newsModel.secondaryButtonLabel}
+        </a>
+    </div>
+</div>

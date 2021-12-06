@@ -80,19 +80,22 @@ function initAnswers() {
     });
 }
 
+function initYext() {
+    const searchCmp = document.querySelectorAll("[data-component-name='search-bar']");
+    try {
+        if(ANSWERS && !ANSWERS.components._activeComponents.length && searchCmp.length) {
+            ANSWERS.domReady(initAnswers);
+        }
+    } catch(e) {}
+}
+
 window.addEventListener('DOMContentLoaded', (event) => {
     const yextScript = document.querySelector('#answers-script');
     const searchCmp = document.querySelectorAll("[data-component-name='search-bar']");
     if (yextScript && searchCmp.length) {
         yextScript.addEventListener('load', function() {
-            ANSWERS.domReady(initAnswers);
+            initYext(); 
         });
-    }
-});
-
-window.addEventListener("CookiebotOnConsentReady", (e) => {
-    const searchCmp = document.querySelectorAll("[data-component-name='search-bar']");
-    if(ANSWERS && !ANSWERS.components._activeComponents.length && searchCmp.length) {
-        ANSWERS.domReady(initAnswers);
+        initYext(); 
     }
 });
