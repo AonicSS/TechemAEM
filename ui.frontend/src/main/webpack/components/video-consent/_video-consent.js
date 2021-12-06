@@ -20,9 +20,7 @@
         $cmpList.each(function (index, vidCmp) {
             const $vidCmp = $(vidCmp);
             const $consent = $vidCmp.find('.cmp-video-consent__container');
-            const $iframeContainer = $vidCmp.find('.cmp-video-consent__iframe');
             $consent.attr('hidden', 'true');
-            $iframeContainer.removeAttr('hidden');
             renderVideo($vidCmp);
         });
     }
