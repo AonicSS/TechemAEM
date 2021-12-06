@@ -4897,6 +4897,11 @@ RewriteCond %{HTTP_HOST} ^karriere\.techem\.de [NC]
 RewriteRule ^/initiativbewerbung https://www.techem.com/career/de/deine-bewerbung/deine-initiativbewerbung [L,R=301,NE,QSA]
 RewriteCond %{HTTP_HOST} ^karriere\.techem\.de [NC]
 RewriteRule ^/fileadmin/karriere.techem.de/was_wir_bieten/TE20023_Verhaltenskodex_A4_Ansicht_ES.pdf https://www.techem.com/career/de [L,R=301,NE,QSA]
+RewriteCond %{HTTP_HOST} ^karriere\.techem\.de [NC]
+RewriteRule ^/it https://www.techem.com/career/de/it [L,R=301,NE,QSA]
+RewriteCond %{HTTP_HOST} ^techem\.de [NC,OR]
+RewriteCond %{HTTP_HOST} www\.techem\.de [NC]
+RewriteRule ^/karriere-in-it https://www.techem.com/career/de/it [L,R=301,NE,QSA]
 
 # SALESP-614: Fix for incorrect redirects to ir
 RewriteCond %{HTTP_HOST} ^techem\.com [NC,OR]
