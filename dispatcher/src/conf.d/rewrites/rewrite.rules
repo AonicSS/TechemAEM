@@ -4916,10 +4916,6 @@ RewriteCond %{HTTP_HOST} !^techem\.com$ [NC]
 RewriteCond %{HTTP_HOST} !^www\.techem\.com$ [NC]
 RewriteRule ^ https://www.techem.com%{REQUEST_URI} [L,R=301,NE,QSA]
 
-# Enable assets to be shown in browser instead of downloading them, except for svg files.
-RewriteCond %{REQUEST_URI} (.svg)$
-Header set Content-Disposition attachment
-
 # Exceptions - avoid these automated tests URLs being rewritten (stops further rewrites)
 RewriteRule ^/content/test-site/(.*)\.html$ - [NC,L]
 RewriteRule ^/libs/granite/core/content/login.html$ - [NC,L]
