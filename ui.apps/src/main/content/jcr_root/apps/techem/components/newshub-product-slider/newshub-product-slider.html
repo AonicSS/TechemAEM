@@ -1,0 +1,42 @@
+<div data-sly-use.teaser="com.adobe.cq.wcm.core.components.models.Teaser"
+	 data-sly-use.productSlider="com.techem.core.models.NewshubProductSlider"
+	data-sly-use.productItem="com.techem.core.models.NewshubProductItem">
+
+	<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+		Configure ${component.properties.jcr:title}
+	</div>
+
+	<div class="cmp-newshub-product">
+	
+		<div data-sly-test="${productSlider.headline}" class="cmp-newshub-product__headline-wrapper ${productSlider.alignment}">
+			<h2 class="cmp-newshub-product__headline">
+				${productSlider.headline @ context='html'}
+			</h2>
+		</div>
+		
+		<div class="cmp-newshub-product__product-wrapper ${productSlider.alignment}">
+			<sly data-sly-list.product= "${productSlider.productItems}">
+				<a href="${product.productLink}" class="cmp-newshub-product__product">
+					<div class="cmp-newshub-product__product-image-wrapper">
+						<img data-sly-test="${product.productFileReference}" class="cmp-newshub-product__product-image" src="${product.productFileReference}" />
+					</div>  
+					<div class="cmp-newshub-product__product-title-wrapper">
+						<h3 data-sly-test="${product.productTitle}" class="cmp-newshub-product__product-title text-overflow">
+							${product.productTitle}
+						</h3>
+					</div>
+					<div class="cmp-newshub-product__product-body-wrapper text-overflow">
+						<p data-sly-test="${product.productBody}" class="cmp-newshub-product__product-body text-overflow">
+							${product.productBody}
+						</p>
+					</div>
+					<div class="cmp-newshubArticles__icon-wrapper">
+						<i class="cmp-newshubArticles__icon">
+							<div class="cmp-newshubArticles-arrow"></div>
+						</i>
+					</div>
+				</a>
+			</sly>
+		</div>
+	</div>
+</div>

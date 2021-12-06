@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Newshub Product Slider"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[core.wcm.components.teaser.v1.editor]"
+    helpPath="https://www.adobe.com/go/aem_cmp_teaser_v1"
+    trackingFeature="core-components:teaser:v1">
+    <content
+        granite:class="cmp-teaser__editor"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items
+                    jcr:primaryType="nt:unstructured"
+                    sling:hideChildren="[image,text,actions]">
+                    <products
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Products"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <headline
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Headline for the slider"
+                                                    fieldLabel="Headline"
+                                                    maxlength="{Long}40"
+                                                    name="./headline"/>
+                                            <alignment
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup"
+                                                    name="./alignment">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <center
+                                                            jcr:primaryType="nt:unstructured"
+                                                            checked="{Boolean}true"
+                                                            text="Center"
+                                                            value="center"/>
+                                                    <left
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Left"
+                                                            value="left"/>
+                                                </items>
+                                            </alignment>
+                                            <multi
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                    composite="{Boolean}true"
+                                                    fieldLabel="Add products"
+                                                    maxLimit="2">
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        max-items="3" />
+                                                <field
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                        name="./productItems">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <column
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <productImage
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                                        allowUpload="{Boolean}false"
+                                                                        autoStart="{Boolean}false"
+                                                                        class="cq-droptarget"
+                                                                        fieldLabel="Image Asset"
+                                                                        fileNameParameter="./fileName"
+                                                                        fileReferenceParameter="./productFileReference"
+                                                                        mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                                        multiple="{Boolean}false"
+                                                                        name="./productImage"
+                                                                        required="true"
+                                                                        title="Upload Image Asset"
+                                                                        uploadUrl="${suffix.path}"
+                                                                        useHTML5="{Boolean}true"/>
+                                                                <productTitle
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldDescription="A title for the product"
+                                                                        fieldLabel="Product title"
+                                                                        name="./productTitle"
+                                                                        required="true"/>
+                                                                <productBody
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                                        fieldDescription="The body to display the text for the product"
+                                                                        fieldLabel="Product descripton"
+                                                                        maxlength="{Long}173"
+                                                                        name="./productBody"/>
+                                                                <productLink
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="cq/gui/components/coral/common/form/pagefield"
+                                                                        fieldDescription="Link applied to the arrow image. URL or path to a content page."
+                                                                        fieldLabel="Link"
+                                                                        required="true"
+                                                                        name="./productLink"
+                                                                        rootPath="/content"
+                                                                        wrapperClass="foundation-toggleable cmp-teaser__editor-link-url"/>
+                                                            </items>
+                                                        </column>
+                                                    </items>
+                                                </field>
+                                            </multi>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </products>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
