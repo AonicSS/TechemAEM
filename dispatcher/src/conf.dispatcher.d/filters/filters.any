@@ -16,4 +16,3 @@ $include "./default_filters.any"
 /0201 { /type "allow" /url "/eu/techem/sendmail"}
 /0202 { /type "allow" /url "/eu/techem/changepw" }
 /0203 { /type "allow" /url "/eu/techem/techemLogin" }
-/0204 { /type "allow" /url "/eu/techem/hreflang" }

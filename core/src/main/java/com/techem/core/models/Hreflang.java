@@ -1,46 +1,33 @@
-package com.techem.core.servlets;
+package com.techem.core.models;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.servlets.HttpConstants;
-import org.apache.sling.api.servlets.SlingAllMethodsServlet;
-import org.osgi.framework.Constants;
-import org.osgi.service.component.ComponentContext;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import java.io.IOException;
 import java.util.*;
 
-@Component(service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "=Hreflang servlet.", "sling.servlet.methods="+ HttpConstants.METHOD_GET, "sling.servlet.paths=/eu/techem/hreflang" })
-public class HrefLangServlet extends SlingAllMethodsServlet {
-    private static final Logger log = LoggerFactory.getLogger(HrefLangServlet.class);
+@Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+public class Hreflang {
 
-    private String resultHTML = "";
+    @SlingObject
+    private Resource resource;
 
-    @Activate
-    public void activate(ComponentContext context){
-        log.info("%%%%%%%%%%%%%%$$$$$$$$$$$%%%%%%%**************: activated");
-    }
+    @SlingObject
+    private ResourceResolver resourceResolver;
 
-    @Override
-    protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
-        final Resource resource = request.getResource();
-        response.setContentType("text/plain");
-        resultHTML = "";
+    private Map<String, String> hreflangDetails;
 
-        String currentPagePath = request.getParameter("pathReq");
-        ResourceResolver res = resource.getResourceResolver();
-        PageManager pageManager = res.adaptTo(PageManager.class);
+    public void setHreflangLink(){
+
+        hreflangDetails = new HashMap<>();
+
+        String currentPagePath = resource.getPath().replaceAll("/jcr:content","");
+        PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
         Page currentPage = pageManager.getPage(currentPagePath);
 
         /*
@@ -78,7 +65,7 @@ public class HrefLangServlet extends SlingAllMethodsServlet {
                         if (hasTranslationID && getTranslationID(currentSearch).equals(translatedPathPieces.get(i)) ){
                             currentRootPage = currentSearch;
                             if (i == translatedPathPieces.size()-1){
-                                resultHTML = concatResult(currentSearch, resultHTML);
+                                hreflangDetails.put(setKeyHreflang(currentSearch),setURL(currentSearch));
                             }
                             break;
                         }
@@ -88,36 +75,47 @@ public class HrefLangServlet extends SlingAllMethodsServlet {
                 if (translatedPathPieces.size() == 0) {
                     Boolean hasTranslationID = getTranslationID(currentRootPage) != null;
                     if (hasTranslationID && getTranslationID(currentPage).equals(getTranslationID(currentRootPage))) {
-                        resultHTML = concatResult(currentRootPage,resultHTML);
+                        hreflangDetails.put(setKeyHreflang(currentRootPage),setURL(currentRootPage));
                     }
 
                 }
             }
         }
-        response.getWriter().write(resultHTML);
     }
 
-    private String getRegion (Page page) {
+    public Map<String, String> getHreflangDetails() {
+        setHreflangLink();
+        return hreflangDetails;
+    }
+
+    private String getRegion (com.day.cq.wcm.api.Page page) {
         return page.getPath().split("/")[3];
     }
 
-    private String getLang (Page page) {
-        return page.getPath().split("/")[4];
+    private String getLang (com.day.cq.wcm.api.Page page) {
+        String langCode = page.getPath().split("/")[4];
+        if(langCode.equals("dk")){
+            langCode = "da";
+        }
+        if(langCode.equals("cz")) {
+            langCode = "cs";
+        }
+        return langCode;
     }
 
-    private String setKeyHreflang (Page page){
+    private String setKeyHreflang (com.day.cq.wcm.api.Page page){
         if(getRegion(page).equals("corp"))
             return "x-default";
         else
             return getLang(page) + "-" + getRegion(page);
     }
 
-    private String setURL (Page page) {
+    private String setURL (com.day.cq.wcm.api.Page page) {
         String url = "https://www.techem.com/" + page.getPath().replaceAll("/content/techem/", "");;
         return url;
     }
 
-    private List<String> getTranslatedPathPieces(Page currentPage, String currentPagePath, PageManager pageManager) {
+    private List<String> getTranslatedPathPieces(com.day.cq.wcm.api.Page currentPage, String currentPagePath, PageManager pageManager) {
 
         List<String> translatedPathPieces = new ArrayList<>();
         List<String> pathPiecesToGetTranslationIDs = Arrays.asList(Arrays.copyOfRange(currentPagePath.split("/"), 5, currentPagePath.split("/").length));
@@ -127,7 +125,7 @@ public class HrefLangServlet extends SlingAllMethodsServlet {
 
         for (String piece : pathPiecesToGetTranslationIDs) {
             provisoryPath = provisoryPath + "/" + piece;
-            Page provisoryPage = pageManager.getPage(provisoryPath);
+            com.day.cq.wcm.api.Page provisoryPage = pageManager.getPage(provisoryPath);
 
             if (getTranslationID(provisoryPage)!= null) {
                 translatedPathPieces.add(getTranslationID(provisoryPage));
@@ -140,17 +138,11 @@ public class HrefLangServlet extends SlingAllMethodsServlet {
         return translatedPathPieces;
     }
 
-    private String getTranslationID (Page page) {
+    private String getTranslationID (com.day.cq.wcm.api.Page page) {
         Object translationID = page.getProperties().get("translationID");
         if (translationID != null)
             return translationID.toString().replaceAll("\\s","");
         else
             return null;
     }
-
-    private String concatResult (Page page, String oldElements) {
-        String addedElement = oldElements.concat("<link rel='alternate' hreflang='" + setKeyHreflang(page) +"' href='" + setURL(page) + "'/>");
-        return addedElement;
-    }
-
 }
