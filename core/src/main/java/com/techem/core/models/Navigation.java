@@ -70,7 +70,7 @@ public class Navigation {
 
     @ValueMapValue(name = "hideNavigation")
     private Boolean hideNavigation;
-
+    
     @ValueMapValue(name = "enableSearchbar")
     private Boolean enableSearchbar;
 
@@ -134,7 +134,15 @@ public class Navigation {
 
     public String getButtonLink() { return buttonLink; }
 
-    public String getLogoLink() { return logoLink; }
+    public String getLogoLink() {
+        if (logoLink != null) {
+            Resource pathResource = resourceResolver.getResource(logoLink);
+            // check if resource exists and link is internal
+            if (pathResource != null) {
+                logoLink = logoLink + ".html";
+            }
+        }
+        return logoLink; }
 
     public String getButtonIcon() { return buttonIcon; }
 
@@ -177,7 +185,7 @@ public class Navigation {
                 resourcePage -> Lists.newArrayList(resourcePage.getChildren().iterator()).
                         stream().filter(isPage()).
                         filter(isNotNavHidden()).map(page ->
-                        page.getChild(JcrConstants.JCR_CONTENT).adaptTo(NavigationDetails.class))
+                                            page.getChild(JcrConstants.JCR_CONTENT).adaptTo(NavigationDetails.class))
                         .collect(Collectors.toList()), (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
 
@@ -186,6 +194,15 @@ public class Navigation {
     }
 
     private Predicate<Resource> isNotNavHidden() {
-        return r ->  Objects.isNull((r.getChild(JcrConstants.JCR_CONTENT).getValueMap().get(HIDDEN_PROPERTY, Boolean.class)));
+        return r ->  {
+            Resource child = r.getChild(JcrConstants.JCR_CONTENT);
+            
+            /* Check if resource exists before getting the value to avoid a NPE. */
+            if(child != null) {
+                return child.getValueMap().get(HIDDEN_PROPERTY, Boolean.class) == null;
+            }
+
+            return false;
+        };
     }
 }

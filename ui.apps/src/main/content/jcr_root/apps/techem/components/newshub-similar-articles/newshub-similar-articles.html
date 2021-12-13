@@ -1,0 +1,31 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+    Configure ${component.properties.jcr:title}
+</div>
+
+<section 
+    class="cmp-similar-articles"
+    data-sly-use.similarArticlesModel="com.techem.core.models.NewshubSimilarArticles">
+
+    <div class="cmp-similar-articles__headline-wrapper">
+        <h2 class="cmp-similar-articles__headline">${similarArticlesModel.headline}</h2>
+    </div>
+    <div class="cmp-similar-articles__article-wrapper">
+        <sly data-sly-list.article= "${similarArticlesModel.articles}">
+            <a href="${article.articleLink}" class="cmp-similar-articles__article">
+                <div class="cmp-similar-articles__article-image-wrapper">
+                    <img class="cmp-similar-articles__article-image" src="${article.articleFileReference}" />
+                </div>  
+                <div class="cmp-similar-articles__article-title-wrapper">
+                    <h3 class="cmp-similar-articles__article-title">
+                        ${article.articleTitle}
+                    </h3>
+                </div>
+                <div class="cmp-newshubArticles__icon-wrapper">
+                    <i class="cmp-newshubArticles__icon">
+                        <div class="cmp-newshubArticles-arrow"></div>
+                    </i>
+                </div>
+            </a>
+        </sly>
+    </div>
+</section>

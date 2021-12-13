@@ -38,6 +38,12 @@ public class NewshubVideoArticles {
     @ValueMapValue(name = "secondaryButtonLink")
     private String secondaryButtonLink;
 
+    @ValueMapValue(name = "cookieConsentMessage")
+    private String cookieConsentMessage;
+
+    @ValueMapValue(name = "cookieConsentButtonLabel")
+    private String cookieConsentButtonLabel;
+
     private Map<Stage, NewshubVideoArticle> videoArticles;
 
     @PostConstruct
@@ -72,6 +78,14 @@ public class NewshubVideoArticles {
 
     public String getSecondaryButtonLink() {
         return secondaryButtonLink;
+    }
+
+    public String getCookieConsentButtonLabel() {
+        return cookieConsentButtonLabel;
+    }
+
+    public String getCookieConsentMessage() {
+        return cookieConsentMessage;
     }
 
     public Map<Stage, NewshubVideoArticle> getVideoArticles() {

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
     jcr:title="Youtube Video"
     sling:resourceType="cq/gui/components/authoring/dialog">
@@ -11,7 +16,8 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="granite/ui/components/coral/foundation/tabs"
                 maximized="{Boolean}true">
-                <items jcr:primaryType="nt:unstructured"
+                <items
+                    jcr:primaryType="nt:unstructured"
                     sling:hideChildren="[properties]">
                     <container
                         jcr:primaryType="nt:unstructured"
@@ -27,15 +33,26 @@
                                     <column
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
-                                        <items
-                                            jcr:primaryType="nt:unstructured">
+                                        <items jcr:primaryType="nt:unstructured">
                                             <youtubeVideoId
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldDescription="Add the Youtube Video ID"
                                                 fieldLabel="Video ID"
                                                 name="./youtubeVideoId"
-                                                required="{Boolean}true"/>
+                                                required="{Boolean}true" />
+                                            <cookieConsentMessage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Add the message which should be displayed for Cookie Consent"
+                                                fieldLabel="Cookie Consent Message"
+                                                name="./cookieConsentMessage" />
+                                            <cookieConsentButtonLabel
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Add the Label for the Cookie Consent Accept-Button"
+                                                fieldLabel="Cookie Consent Button Label"
+                                                name="./cookieConsentButtonLabel" />
                                         </items>
                                     </column>
                                 </items>
