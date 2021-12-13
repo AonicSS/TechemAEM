@@ -7891,6 +7891,14 @@ RewriteCond %{HTTP_HOST} ^techem\.com [NC,OR]
 RewriteCond %{HTTP_HOST} www\.techem\.com [NC]
 RewriteRule ^/privacy$ https://www.techem.com/de/de/datenschutzhinweis [L,R=301,NE,QSA]
 
+# Redirect /dk/dk to /dk/da as part of SALESP-630
+RewriteCond %{REQUEST_URI} ^/dk/dk
+RewriteRule ^/dk/dk(.*) https://www.techem.com/dk/da$1 [L,R=301,NE,QSA]
+
+# Redirect /cz/cz to /cz/cs as part of SALESP-630
+RewriteCond %{REQUEST_URI} ^/cz/cz
+RewriteRule ^/cz/cz(.*) https://www.techem.com/cz/cs$1 [L,R=301,NE,QSA]
+
 # SALESP-203: Redirect from all domains to .com (only applies if the domain isnt .com AND no rule was met so that previous redirects are not impacted)
 RewriteCond %{HTTP_HOST} !^techem\.com$ [NC]
 RewriteCond %{HTTP_HOST} !^www\.techem\.com$ [NC]
