@@ -79,4 +79,14 @@
     }
   }
 }
-.cmp-text__paragraph {}
+
+body.news-page {
+  .cmp-text {
+    max-width: 780px;
+    color: $color-dark-grey;
+
+    @include large {
+      max-width: 585px;
+    }
+  }
+}

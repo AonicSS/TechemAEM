@@ -1,7 +1,8 @@
 <div data-component-name="youtube-video" class="cmp-youtube-video">
     <div class="cmp-youtube-video__container">
-        <sly data-sly-use.template="/apps/techem/components/video-consent/video-consent-template.html"
-             data-sly-call="${template.videoCookieConsent @  youtubeVideoId = properties.youtubeVideoId}">
+        <sly 
+             data-sly-use.template="/apps/techem/components/video-consent/video-consent-template.html"
+             data-sly-call="${template.videoCookieConsent @  youtubeVideoId = properties.youtubeVideoId, consentMessage = properties.cookieConsentMessage, consentButtonLabel = properties.cookieConsentButtonLabel}">
         </sly>
     </div>
 </div>

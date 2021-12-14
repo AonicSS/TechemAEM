@@ -90,7 +90,7 @@ header.experiencefragment{
             position: relative;
             margin-bottom: 40px;
 
-            .header__divider, nav, .header__portal, .header_burger-menu {
+            .header__divider, .navigation {
                 display: none;
             }
 
@@ -120,20 +120,20 @@ header.experiencefragment{
                 -webkit-box-flex: 1;
                 -ms-flex: 1;
                 flex: 1;
-
+        
                 @media screen and (max-width: 1024px) {
                   display: none;
                   height: 100%;
                   min-width: unset;
                 }
-
+        
                 .yext-search-bar {
                   @media screen and (max-width: 1024px) {
                     height: 100%;
                   }
                 }
               }
-
+        
               .mobile {
                 position: absolute;
                 left: 0;
@@ -176,7 +176,7 @@ header.experiencefragment{
                 background-color: unset;
                 cursor: pointer;
                 display: flex;
-
+        
                 .Icon-image {
                   width: 19px;
                   height: 19px;
@@ -190,7 +190,7 @@ header.experiencefragment{
                         display: none;
                     }
                 }
-
+        
                 &__wrapper {
                   display: inline-flex;
                   padding: 10px;
@@ -198,8 +198,8 @@ header.experiencefragment{
                   align-items: center;
                   box-sizing: border-box;
                 }
-
-
+        
+        
                 #trigger-icon-opened {
                   display: none;
                 }
@@ -614,9 +614,20 @@ header.experiencefragment{
     }
 
     .header__lang-nav-mobile {
+        display: none;
+
         @media only screen and (max-width: 1024px) {
+            display: block;
             height: 200px;
             padding: 0 0 0 30px;
+        }
+    }
+
+    .header__lang-nav {
+        display: block;
+        
+        &.hidden {
+            display: none;
         }
     }
 
@@ -825,7 +836,6 @@ header.experiencefragment{
                 .navigation__links {
                     flex-direction: column;
                     padding: 40px 30px 0 30px;
-                    min-height: 60vh;
 
                     li {
                         margin-right: 0;

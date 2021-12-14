@@ -3,12 +3,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 50px 0;
+  margin: 70px 0 0 0;
 
   &-container {
     position: relative;
     width: 100%;
     max-width: 1100px;
+
+    @include large {
+      max-width: 585px;
+    }
   }
 
   &__icon {

@@ -1,6 +1,8 @@
 <template data-sly-template.group="${@ items='The language navigation items for the current level'}" data-sly-use.itemTemplate="item.html">
-    <button class="cmp-languagenavigation__trigger ${'experience-fragments' in currentPage.path ? '' : 'visibility-hidden'} ${wcmmode.edit ? 'author-mode': ''}">LANG</button>
-    <ul class="cmp-languagenavigation__group" data-sly-list.item="${items}">
-        <sly data-sly-call="${itemTemplate.item @ item = item}"></sly>
-    </ul>
+    <sly data-sly-test="${items && items.size > 1 || wcmmode.edit}">
+        <button class="cmp-languagenavigation__trigger ${wcmmode.edit || 'experience-fragments' in currentPage.path ? 'author-mode': 'visibility-hidden'}">LANG</button>
+        <ul class="cmp-languagenavigation__group" data-sly-list.item="${items}">
+            <sly data-sly-call="${itemTemplate.item @ item = item}"></sly>
+        </ul>
+    </sly>
 </template>
