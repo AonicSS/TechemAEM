@@ -70,7 +70,7 @@ public class NewshubNews {
                 newsItems = Lists.newArrayList(getArticleResources()).stream().filter((item) -> {
                     return item.getValueMap().get("jcr:primaryType").equals("cq:Page")
                             && item.getChild("jcr:content").adaptTo(ValueMap.class).get("sling:resourceType")
-                            .equals("techem/components/structure/news-page");
+                                    .equals("techem/components/structure/news-page");
                 }).collect(Collectors.toList());
             }
 
@@ -89,7 +89,7 @@ public class NewshubNews {
                             item -> item.getArticleResource().getChild(JcrConstants.JCR_CONTENT).adaptTo(Stage.class),
                             newsArticle -> newsArticle, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
-            newsArticles = tmpNewsArticles.entrySet().stream().sorted((d1, d2) -> compareByDate(d1, d2)).limit(3)
+            newsArticles = tmpNewsArticles.entrySet().stream().sorted((d1, d2) -> compareByDate(d1, d2)).limit(6)
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (k, v) -> k, LinkedHashMap::new));
 
         } else {

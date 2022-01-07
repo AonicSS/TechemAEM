@@ -6,7 +6,7 @@
 		Configure ${component.properties.jcr:title}
 	</div>
 
-	<div class="cmp-newshub-product">
+	<div class="cmp-newshub-product" data-component-name='newshub-product'>
 	
 		<div data-sly-test="${productSlider.headline}" class="cmp-newshub-product__headline-wrapper ${productSlider.alignment}">
 			<h2 class="cmp-newshub-product__headline">
@@ -14,9 +14,9 @@
 			</h2>
 		</div>
 		
-		<div class="cmp-newshub-product__product-wrapper ${productSlider.alignment}">
-			<sly data-sly-list.product= "${productSlider.productItems}">
-				<a href="${product.productLink}" class="cmp-newshub-product__product">
+		<div class="cmp-newshub-product__product-container swiper-container ${productSlider.alignment}">
+			<div class="cmp-newshub-product__product-wrapper swiper-wrapper" data-sly-list.product= "${productSlider.productItems}">
+				<a href="${product.productLink}" class="cmp-newshub-product__product swiper-slide">
 					<div class="cmp-newshub-product__product-image-wrapper">
 						<img data-sly-test="${product.productFileReference}" class="cmp-newshub-product__product-image" src="${product.productFileReference}" />
 					</div>  
@@ -30,13 +30,13 @@
 							${product.productBody}
 						</p>
 					</div>
-					<div class="cmp-newshubArticles__icon-wrapper">
-						<i class="cmp-newshubArticles__icon">
-							<div class="cmp-newshubArticles-arrow"></div>
+					<div class="newshub-icon-arrow">
+						<i class="newshub-icon-arrow__icon">
+							<div class="newshub-icon-arrow__arrow cmp-newshub-product__product-arrow"></div>
 						</i>
 					</div>
 				</a>
-			</sly>
+			</div>
 		</div>
 	</div>
 </div>

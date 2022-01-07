@@ -3,8 +3,10 @@ package com.techem.core.models;
 import com.day.crx.JcrConstants;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +24,9 @@ public class NewshubVideoArticles {
 
     private Logger logger = LoggerFactory.getLogger(NewshubVideoArticles.class);
 
+    @SlingObject
+    private ResourceResolver resourceResolver;
+    
     @Inject
     @Named("newsItems")
     private List<Resource> newsItems;
@@ -69,6 +74,13 @@ public class NewshubVideoArticles {
     }
 
     public String getPrimaryButtonLink() {
+        if (primaryButtonLink != null) {
+            Resource pathResource = resourceResolver.getResource(primaryButtonLink);
+
+            if (pathResource != null) {
+                primaryButtonLink = primaryButtonLink + ".html";
+            }
+        }
         return primaryButtonLink;
     }
 
@@ -77,6 +89,13 @@ public class NewshubVideoArticles {
     }
 
     public String getSecondaryButtonLink() {
+        if (secondaryButtonLink != null) {
+            Resource pathResource = resourceResolver.getResource(secondaryButtonLink);
+
+            if (pathResource != null) {
+                secondaryButtonLink = secondaryButtonLink + ".html";
+            }
+        }
         return secondaryButtonLink;
     }
 

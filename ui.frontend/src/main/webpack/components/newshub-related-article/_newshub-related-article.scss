@@ -1,140 +1,142 @@
 .cmp-newshub-related-article {
-    box-sizing: border-box;
-    width: 100%;
-    margin: 70px 0 ;
-    display: flex;
-    justify-content: center;
-  
-  
-    &-wrapper {
-      max-width: 780px;
-  
-      @include large {
-        max-width: 585px;
-      }
+  box-sizing: border-box;
+  width: 100%;
+  margin: 70px 0;
+  display: flex;
+  justify-content: center;
+
+  &-wrapper {
+    max-width: 780px;
+
+    @include large {
+      max-width: 585px;
     }
-  
-    &__headline {
-      margin: 0;
-      line-height: normal;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      display: -moz-box;
-      -moz-line-clamp: 2;
-      -moz-box-orient: vertical;
-      font-family: $font-universe-roman-bold;
-      font-size: 20px;
-      font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.4;
-      letter-spacing: 0.2px;
-      margin-bottom: 20px;
-      max-width: 780px;
-  
-      @include small {
-        margin-bottom: 30px;
-      }
+  }
+
+  &__headline {
+    margin: 0;
+    line-height: normal;
+    font-family: $font-universe-roman-bold;
+    font-size: 20px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+    margin-bottom: 20px;
+    max-width: 780px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -moz-box;
+    -moz-line-clamp: 2;
+    -moz-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include small {
+      margin-bottom: 30px;
+      line-height: 1.42;
     }
-  
-    &__body {
-      width: 885px;
-  
-      @include large {
-        width: 100%;
-      }
-  
-      p {
-        font-size: 16px;
-        margin: 0;
-        float: none;
-        max-width: 780px;
-        color: $color-dark-grey;
-  
-        a {
-          font-size: inherit;
-          color: $color-headline-red;
-        }
-      }
-    }
-  
-    &__aside {
-      float: right;
-      width: 360px;
-      margin: 0 0 40px 50px;
-  
-      @include large {
-        width: 280px;
-        margin: 0 0 40px 20px;
-      }
-  
-      @include small {
-        float: none;
-        margin: 0 0 30px 0;
-        width: 100%;
-      }
-    }
-  
-    &__link {
-      text-decoration: none;
-      color: $color-foreground;
-  
-      &:hover {
-        .cmp-newshubArticles-arrow {
-          &::before {
-            right: -10px;
-          }
-  
-          &::after {
-            width: 29px;
-          }
-        }
-      }
-    }
-  
-    &__image {
+  }
+
+  &__body {
+    width: 885px;
+
+    @include large {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-  
-      &-detail {
-        font-size: 20px;
-        color: inherit;
-        font-family: $font-universe-roman-bold;
-      }
-  
-      &-wrapper {
-        width: 100%;
-        height: 270px;
-        border-radius: $border-radius-top-l-bottom-r;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        overflow: hidden;
-        position: relative;
-        margin-bottom: 10px;
-  
-        @include large {
-          height: 210px;
-        }
-  
-        @include small {
-          height: 250px;
-        }
-      }
     }
-  
-    &__arrow {
-      margin-top: 5px;
-  
-      @include large {
-        display: inline;
-        margin: 0 0 0 10px;
-      }
-  
-      @include small {
-        display: block;
-        margin: 5px 0 0 0;
+
+    p {
+      font-size: 16px;
+      margin: 0;
+      float: none;
+      max-width: 780px;
+      color: $color-dark-grey;
+
+      a {
+        font-size: inherit;
+        color: $color-headline-red;
       }
     }
   }
+
+  &__aside {
+    float: right;
+    width: 360px;
+    margin: 0 0 40px 50px;
+
+    @include large {
+      width: 280px;
+      margin: 0 0 40px 20px;
+    }
+
+    @include small {
+      float: none;
+      margin: 0 0 30px 0;
+      width: 100%;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-foreground;
+
+    &:hover {
+      .cmp-newshub-related-article__arrow {
+        &::before {
+          right: -10px;
+        }
+
+        &::after {
+          width: 29px;
+        }
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    &-detail {
+      font-size: 20px;
+      color: inherit;
+      font-family: $font-universe-roman-bold;
+    }
+
+    &-wrapper {
+      width: 100%;
+      height: 270px;
+      border-radius: $border-radius-top-l-bottom-r;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 10px;
+
+      @include large {
+        height: 210px;
+      }
+
+      @include small {
+        height: 250px;
+      }
+    }
+  }
+
+  &__arrow {
+    margin-top: 5px;
+
+    @include large {
+      display: inline;
+      margin: 0 0 0 10px;
+    }
+
+    @include small {
+      display: block;
+      margin: 5px 0 0 0;
+    }
+  }
+}

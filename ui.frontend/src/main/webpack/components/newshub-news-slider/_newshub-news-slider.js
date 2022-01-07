@@ -11,30 +11,35 @@ import Swiper from "swiper";
       observeParents: true,
       grabCursor: true,
       spaceBetween: 40,
-      slidesOffsetAfter: 100,
+      slidesOffsetAfter: 80,
+      slidesPerGroup: 1,
 
       breakpoints: {
         1025: {
-          spaceBetween: 100,
-          slidesOffsetAfter: 280,
+          slidesPerView: "auto",
+          spaceBetween: 105,
+          slidesOffsetAfter: 293,
+          slidesPerGroup: 3
         },
 
         768: {
-          spaceBetween: 60,
-          slidesOffsetAfter: 160,
-        },
-      },
+          slidesPerView: "auto",
+          spaceBetween: 75,
+          slidesOffsetAfter: 75,
+          slidesPerGroup: 1
+        }
+      }
     };
 
     const swiperContainer = el.querySelector(
-      ".cmp-newshub-video__article-container"
+      ".cmp-newshub-news-slider__container"
     );
     const swiper = new Swiper(swiperContainer, swiperOptions);
   }
 
   $(document).ready(function () {
-    const $newshubVideo = $("div[data-component-name='newshub-video']");
-    Array.prototype.forEach.call($newshubVideo, function (element) {
+    const $newsArticles = $("div[data-component-name='newshub-news-slider']");
+    Array.prototype.forEach.call($newsArticles, function (element) {
       if (element && element.dataset.initialized !== "true") {
         initSwiper(element);
       }

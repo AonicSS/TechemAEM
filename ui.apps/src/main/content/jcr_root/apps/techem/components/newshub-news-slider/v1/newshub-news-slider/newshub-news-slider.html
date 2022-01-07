@@ -1,28 +1,45 @@
-<sly data-sly-use.newsModel="com.techem.core.models.NewshubNews"/>
-<sly data-sly-test.newsArticles="${newsModel.newsArticles.entrySet}"/>
+<sly data-sly-use.newsModel="com.techem.core.models.NewshubNews" />
+<sly data-sly-test.newsArticles="${newsModel.newsArticles.entrySet}" />
 
-<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
-    Configure ${component.properties.jcr:title}
+<div
+  data-sly-test="${(wcmmode.edit || wcmmode.preview)}"
+  class="cq-placeholder"
+>
+  Configure ${component.properties.jcr:title}
 </div>
 
-<div class="cmp-newshubArticles" data-component-name="newshub-news-slider">
-    <div class="cmp-newshubArticles__headline text-capitalize text-overflow ">${newsModel.headline}</div>
-    <div class="cmp-newshubArticles__container aem-Grid aem-Grid--12 aem-Grid--default--12"
-         data-sly-list.articles="${newsArticles}">
-        <sly data-sly-use.template="newshub-templates.html"
-             data-sly-call="${template.news_textStage @  stageText = articles.key, newsArticle = articles.value}">
-        </sly>
+<div class="cmp-newshub-news-slider" data-component-name="newshub-news-slider">
+  <div class="cmp-newshub-news-slider__headline text-capitalize text-overflow">
+    ${newsModel.headline}
+  </div>
+  <div class="cmp-newshub-news-slider__container swiper-container">
+    <div
+      class="cmp-newshub-news-slider-wrapper swiper-wrapper"
+      data-sly-list.articles="${newsArticles}"
+    >
+      <sly
+        data-sly-use.template="newshub-templates.html"
+        data-sly-call="${template.news_textStage @ stageText = articles.key, newsArticle = articles.value}"
+      >
+      </sly>
     </div>
-    <div class="cmp-newshubArticles__button-wrapper section button">
-        <a data-sly-test="${newsModel.primaryButtonLabel}"
-           class="cmp-button button-primary"
-           href="${newsModel.primaryButtonLink}" target="_blank">
-            ${newsModel.primaryButtonLabel}
-        </a>
-        <a data-sly-test="${newsModel.secondaryButtonLabel}"
-           class="cmp-button button-secondary"
-           href="${newsModel.secondaryButtonLink}" target="_blank">
-            ${newsModel.secondaryButtonLabel}
-        </a>
-    </div>
+  </div>
+  <div class="cmp-newshub-news-slider__button-wrapper section button">
+    <a
+      data-sly-test="${newsModel.primaryButtonLabel}"
+      class="cmp-newshub-news-slider__button cmp-button button-primary"
+      href="${newsModel.primaryButtonLink}"
+      target="_blank"
+    >
+      ${newsModel.primaryButtonLabel}
+    </a>
+    <a
+      data-sly-test="${newsModel.secondaryButtonLabel}"
+      class="cmp-newshub-news-slider__button cmp-button button-secondary"
+      href="${newsModel.secondaryButtonLink}"
+      target="_blank"
+    >
+      ${newsModel.secondaryButtonLabel}
+    </a>
+  </div>
 </div>
