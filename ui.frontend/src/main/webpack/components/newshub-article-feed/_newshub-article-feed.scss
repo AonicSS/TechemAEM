@@ -96,9 +96,10 @@
 
     &-link {
       text-decoration: none;
+      display: block;
 
       &:hover {
-        .cmp-newshubArticles__icon-wrapper .cmp-newshubArticles-arrow {
+        .cmp-newshub-feed__article-arrow {
           &::before {
             right: -10px;
           }
@@ -115,14 +116,14 @@
       color: $color-foreground-dark;
       font-size: 32px;
       line-height: 1.28;
-      overflow: hidden;
-      text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       display: -moz-box;
       -moz-line-clamp: 2;
       -moz-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
       margin-bottom: 20px;
 
       @include large {
@@ -217,18 +218,13 @@
       padding: 50px 20px;
     }
 
-    .cmp-newshubArticles__icon-wrapper {
-      flex: 0 1 auto;
-      margin: 0;
+    .cmp-newshub-feed__article-arrow {
+      &::before {
+        border-color: $color-background;
+      }
 
-      .cmp-newshubArticles-arrow {
-        &::before {
-          border-color: $color-background;
-        }
-
-        &::after {
-          border-color: $color-background;
-        }
+      &::after {
+        border-color: $color-background;
       }
     }
   }
@@ -240,7 +236,7 @@
     max-height: fit-content;
 
     &:hover {
-      .cmp-newshubArticles__icon-wrapper .cmp-newshubArticles-arrow {
+      .cmp-newshub-feed__article-arrow {
         &::before {
           right: -10px;
         }
@@ -267,21 +263,20 @@
   &__title {
     display: block;
     font-size: 32px;
-    font-weight: bold;
     line-height: normal;
     letter-spacing: -0.53px;
     color: $color-background;
     height: fit-content;
     margin-bottom: 20px;
     max-width: 515px;
-    overflow: hidden;
-    text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     display: -moz-box;
     -moz-line-clamp: 4;
     -moz-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     @include large {
       display: inline-block;
@@ -351,16 +346,8 @@
     }
   }
 
-  .cmp-newshubArticles__icon-wrapper {
+  .newshub-icon-arrow {
     min-height: 10px;
-
-    .cmp-newshubArticles__icon {
-      display: flex;
-    }
-
-    @include large {
-      margin-top: 20px;
-    }
 
     @include small {
       display: none;

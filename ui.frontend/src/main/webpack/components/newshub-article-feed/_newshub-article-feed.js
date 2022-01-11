@@ -6,8 +6,7 @@ Swiper.use([Pagination, Autoplay, A11y]);
   "use strict";
 
   function initSwiper(el) {
-    const swiperContainer = el.querySelector(".cmp-newshub-feed__content");
-    const pagination = el.querySelector(".cmp-newshub-feed__pagination");
+  
     const swiperOptions = {
       slidesPerColumnFill: "column",
       slidesPerColumn: 1,
@@ -20,10 +19,6 @@ Swiper.use([Pagination, Autoplay, A11y]);
 
       grid: {
         rows: 1,
-      },
-      pagination: {
-        el: pagination,
-        clickable: true,
       },
 
       breakpoints: {
@@ -50,13 +45,21 @@ Swiper.use([Pagination, Autoplay, A11y]);
       },
     };
 
-    const swiper = new Swiper(swiperContainer, swiperOptions);
+    el.each( (_, $item) => {
+      const swiperContainer = $item.querySelector(".cmp-newshub-feed__content");
+      const pagination = $item.querySelector(".cmp-newshub-feed__pagination");
+      swiperOptions.pagination = {
+        el: pagination,
+        clickable: true,
+      };
+      const swiper = new Swiper(swiperContainer, swiperOptions);
+    })
   }
 
   $(document).ready(function () {
     const $articleFeed = $(".cmp-newshub-feed");
     if($articleFeed.length) {
-      initSwiper($articleFeed[0]);
+      initSwiper($articleFeed);
     }
   });
 })(jQuery);

@@ -1,20 +1,18 @@
 <template data-sly-template.news_textStage = "${ @ stageText, newsArticle}">
-    <div class="cmp-newshubArticles__text-stage">
-        <a class="cmp-newshubArticles__link" href="${newsArticle.articlePath}.html" target="_self">
-            <div class="cmp-newshubArticles__image-wrapper aem-Grid aem-Grid--12 aem-Grid--default--12">
-                <img data-sly-test="${stageText.image || newsArticle.articleImage}" class="cmp-newshubArticles__image" src="${newsArticle.articleImage ? newsArticle.articleImage : stageText.image}" />
+    <div class="cmp-newshub-news-slider__article-wrapper swiper-slide">
+        <a class="cmp-newshub-news-slider__article-link" href="${newsArticle.articlePath}.html" target="_self">
+            <div class="cmp-newshub-news-slider__article-image-wrapper">
+                <img data-sly-test="${stageText.image || newsArticle.articleImage}" class="cmp-newshub-news-slider__article-image" src="${newsArticle.articleImage ? newsArticle.articleImage : stageText.image}" />
             </div>
-            <div data-sly-test="${stageText.date && stageText.category}" class="cmp-newshubArticles__date-wrapper aem-Grid aem-Grid--12 aem-Grid--default--12">
-                <p class="cmp-newshubArticles__date aem-GridColumn aem-GridColumn--phone--12 aem-GridColumn--tablet--12 aem-GridColumn--default--12"><span class="text-capitalize">${stageText.category}</span> - ${stageText.date}</p>
+            <div data-sly-test="${stageText.date && stageText.category}" class="cmp-newshub-news-slider__article-date-wrapper">
+                <p class="cmp-newshub-news-slider__article-date"><span class="text-capitalize">${stageText.category}</span> - ${stageText.date}</p>
             </div>
-            <div class="aem-Grid aem-Grid--12 aem-Grid--default--12">
-                <h3 data-sly-test="${stageText.headline}" class="cmp-newshubArticles__subTitle text-overflow aem-GridColumn aem-GridColumn--phone--12 aem-GridColumn--default--12">
-                    ${stageText.headline}
-                </h3>
-            </div>
-            <div class="cmp-newshubArticles__icon-wrapper">
-                <i class="cmp-newshubArticles__icon">
-                    <div class="cmp-newshubArticles-arrow"></div>
+            <h3 data-sly-test="${stageText.headline}" class="cmp-newshub-news-slider__article-subtitle text-overflow">
+                ${stageText.headline}
+            </h3>
+            <div class="newshub-icon-arrow">
+                <i class="newshub-icon-arrow__icon">
+                    <div class="newshub-icon-arrow__arrow"></div>
                 </i>
             </div>
         </a>

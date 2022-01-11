@@ -9,13 +9,13 @@
     Configure ${component.properties.jcr:title}
   </div>
 
-  <section class="cmp-newshub-contact ${contactModel.backgroundColor}">
+  <div class="cmp-newshub-contact ${contactModel.backgroundColor} ${contactModel.isVariation ? 'isVariation' : ''}" data-component-name="newshub-contacts">
     <div class="cmp-newshub-contact__headline-wrapper">
       <h2 class="cmp-newshub-contact__headline">${contactModel.headline}</h2>
     </div>
-    <div class="cmp-newshub-contact__contact-wrapper">
-      <sly data-sly-list.contact="${contactModel.contacts}">
-        <div class="cmp-newshub-contact__contact">
+    <div class="cmp-newshub-contact__contact-container swiper-container">
+      <div class="cmp-newshub-contact__contact-wrapper swiper-wrapper" data-sly-list.contact="${contactModel.contacts}">
+        <div class="cmp-newshub-contact__contact swiper-slide">
           <div class="cmp-newshub-contact__contact-image-wrapper">
             <img
               class="cmp-newshub-contact__contact-image"
@@ -51,7 +51,8 @@
             </sly>
           </div>
         </div>
-      </sly>
+      </div>
     </div>
-  </section>
+    <div class="cmp-newshub-contact__pagination"></div>
+  </div>
 </div>
