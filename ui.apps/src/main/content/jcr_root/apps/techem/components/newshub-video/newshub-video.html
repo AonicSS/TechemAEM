@@ -2,52 +2,52 @@
 <sly data-sly-test.newshubVideoArticles="${newsModel.videoArticles.entrySet}" />
 
 <div class="cmp-newshub-video" data-component-name="newshub-video">
-  <div class="cmp-newshub-video__article-container swiper-container">
-    <div
-      class="cmp-newshub-video__article-wrapper swiper-wrapper"
-      data-sly-list.videoArticle="${newshubVideoArticles}"
-    >
-      <div class="cmp-newshub-video__article-video-container swiper-slide">
-        <div class="cmp-newshub-video__article-video-wrapper">
-          <div class="cmp-newshub-video__article-video">
-            <sly
-              data-sly-use.template="/apps/techem/components/video-consent/video-consent-template.html"
-              data-sly-call="${template.videoCookieConsent @  youtubeVideoId = videoArticle.value.videoID, consentMessage = newsModel.cookieConsentMessage, consentButtonLabel = newsModel.cookieConsentButtonLabel}"
-            >
-            </sly>
-          </div>
-        </div>
-        
-        <a href="${videoArticle.value.articlePath}.html" class="cmp-newshub-video__article-link">
-            <div class="cmp-newshub-video__article-title">
-                <h2 class="cmp-newshub-video__article-title-text">${videoArticle.key.headline}</h2>
-            </div>
-            <div class="newshub-icon-arrow">
-                <i class="newshub-icon-arrow__icon">
-                    <div class="newshub-icon-arrow__arrow cmp-newshub-video__article-arrow"></div>
-                </i>
-            </div>
-        </a>
-      </div>
-    </div>
-  </div>
+    <div class="cmp-newshub-video__article-container swiper-container">
+        <div
+                class="cmp-newshub-video__article-wrapper swiper-wrapper"
+                data-sly-list.videoArticle="${newshubVideoArticles}"
+        >
+            <div class="cmp-newshub-video__article-video-container swiper-slide">
+                <div class="cmp-newshub-video__article-video-wrapper">
+                    <div class="cmp-newshub-video__article-video">
+                        <sly
+                                data-sly-use.template="/apps/techem/components/video-consent/video-consent-template.html"
+                                data-sly-call="${template.videoCookieConsent @  youtubeVideoId = videoArticle.value.videoID, consentMessage = newsModel.cookieConsentMessage, consentButtonLabel = newsModel.cookieConsentButtonLabel}"
+                        >
+                        </sly>
+                    </div>
+                </div>
 
-  <div class="cmp-newshub-video__buttons">
-    <a
-      data-sly-test="${newsModel.primaryButtonLabel}"
-      class="cmp-newshub-video__button cmp-button button-primary"
-      href="${newsModel.primaryButtonLink}"
-      target="_blank"
-    >
-      ${newsModel.primaryButtonLabel}
-    </a>
-    <a
-      data-sly-test="${newsModel.secondaryButtonLabel}"
-      class="cmp-newshub-video__button cmp-button button-secondary"
-      href="${newsModel.secondaryButtonLink}"
-      target="_blank"
-    >
-      ${newsModel.secondaryButtonLabel}
-    </a>
-  </div>
+                <a href="${videoArticle.value.articlePath}.html" class="cmp-newshub-video__article-link">
+                    <div class="cmp-newshub-video__article-title">
+                        <h2 class="cmp-newshub-video__article-title-text">${videoArticle.key.headline}</h2>
+                    </div>
+                    <div class="newshub-icon-arrow">
+                        <i class="newshub-icon-arrow__icon">
+                            <div class="newshub-icon-arrow__arrow cmp-newshub-video__article-arrow"></div>
+                        </i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="cmp-newshub-video__buttons">
+        <a
+                data-sly-test="${newsModel.primaryButtonLabel}"
+                class="cmp-newshub-video__button cmp-button button-primary"
+                href="${newsModel.primaryButtonLink}"
+                target="_blank"
+        >
+            ${newsModel.primaryButtonLabel}
+        </a>
+        <a
+                data-sly-test="${newsModel.secondaryButtonLabel}"
+                class="cmp-newshub-video__button cmp-button button-secondary"
+                href="${newsModel.secondaryButtonLink}"
+                target="_blank"
+        >
+            ${newsModel.secondaryButtonLabel}
+        </a>
+    </div>
 </div>

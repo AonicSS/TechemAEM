@@ -1,26 +1,14 @@
-<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
-    Configure ${component.properties.jcr:title}
-</div>
+<div data-sly-use.relatedArticles="com.techem.core.models.NewshubRelatedArticle">
 
-<section class="cmp-newshub-related-article" data-sly-use.relatedArticle="com.techem.core.models.NewshubRelatedArticle">
-    <div class="cmp-newshub-related-article-wrapper">
-        <h2 class="cmp-newshub-related-article__headline">${relatedArticle.headline}</h2>
-        <div class="cmp-newshub-related-article__body">
-            <aside class="cmp-newshub-related-article__aside">
-                <div class="cmp-newshub-related-article__image-wrapper">
-                    <img class="cmp-newshub-related-article__image" src="${relatedArticle.imageFileReference}" />
-                </div>
-                <a data-sly-test="${relatedArticle.articleLink}" class="cmp-newshub-related-article__link" href="${relatedArticle.articleLink}">
-                    <span class="cmp-newshub-related-article__image-detail">${relatedArticle.imageDetails}</span>
-                    <div class="newshub-icon-arrow">
-                        <i class="newshub-icon-arrow__icon">
-                            <div class="newshub-icon-arrow__arrow cmp-newshub-related-article__arrow"></div>
-                        </i>
-                    </div>
-                </a>
-                <span data-sly-test="${!relatedArticle.articleLink}" class="cmp-newshub-related-article__image-detail">${relatedArticle.imageDetails}</span>
-            </aside>
-            ${relatedArticle.articleTeaser @ context='html'}
+    <div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+        Configure ${component.properties.jcr:title}
+    </div>
+
+    <div data-sly-test="${relatedArticles.insertionType}">
+        <sly data-sly-test.newsArticles="${relatedArticles.newsArticles || relatedArticles.insertionType == 'automatically' ? relatedArticles.newsArticles : relatedArticles.articleListManually}"/>
+        <div class="newshub-related-article aem-GridColumn aem-GridColumn--default--12" data-sly-list.articles="${newsArticles}">
+            <sly data-sly-use.template="newshub-related-article-list-template.html" data-sly-call="${template.related_artis @ relatedArticle=articles}">
+            </sly>
         </div>
     </div>
-</section>
+</div>

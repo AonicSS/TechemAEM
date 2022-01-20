@@ -21,6 +21,12 @@ Swiper.use([Pagination, Autoplay, A11y]);
         rows: 1,
       },
 
+      autoplay: {
+        pauseOnMouseEnter: true,
+        disableOnInteraction: false,
+        delay: 3000,
+      },
+
       breakpoints: {
         1025: {
           slidesPerView: 1,
