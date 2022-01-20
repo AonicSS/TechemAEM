@@ -1,0 +1,24 @@
+<template data-sly-template.related_artis = "${ @ relatedArticle}">
+    <section class="cmp-newshub-related-article">
+        <div class="cmp-newshub-related-article-wrapper">
+            <h2 class="cmp-newshub-related-article__headline">${relatedArticle.headline}</h2>
+            <div class="cmp-newshub-related-article__body">
+                <aside class="cmp-newshub-related-article__aside">
+                    <div class="cmp-newshub-related-article__image-wrapper">
+                        <img class="cmp-newshub-related-article__image" src="${relatedArticle.image}" />
+                    </div>
+                    <a data-sly-test="${relatedArticle.path}" class="cmp-newshub-related-article__link" href="${relatedArticle.path}">
+                        <span class="cmp-newshub-related-article__image-detail" data-sly-test="${relatedArticle.category}">${relatedArticle.category}</span>
+                        <div class="newshub-icon-arrow">
+                            <i class="newshub-icon-arrow__icon">
+                                <div class="newshub-icon-arrow__arrow cmp-newshub-related-article__arrow"></div>
+                            </i>
+                        </div>
+                    </a>
+                    <span data-sly-test="${!relatedArticle.path && relatedArticle.category}" class="cmp-newshub-related-article__image-detail">${relatedArticle.category}</span>
+                </aside>
+                ${relatedArticle.text @ context='html'}
+            </div>
+        </div>
+    </section>
+</template>
