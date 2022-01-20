@@ -1,6 +1,6 @@
 <div
-  data-sly-test="${(wcmmode.edit || wcmmode.preview)}"
-  class="cq-placeholder"
+        data-sly-test="${(wcmmode.edit || wcmmode.preview)}"
+        class="cq-placeholder"
 >
   Configure ${component.properties.jcr:title}
 </div>
@@ -13,21 +13,22 @@
   <div class="cmp-newshub-feed__left">
     <h2 class="cmp-newshub-feed__headline">${newshubArticleFeed.feedHeadline}</h2>
     <div class="cmp-newshub-feed__content swiper-container">
-      <div class="swiper-wrapper" data-sly-list.articles="${newsArticles}">
+      <div class="swiper-wrapper" data-sly-list.articles="${newshubArticleFeed.rssArticles}">
         <div class="cmp-newshub-feed__article swiper-slide">
           <h3 class="cmp-newshub-feed__article-subtitle">
-            ${articles.key.category} - ${articles.key.date}
+            ${articles.feedCategory ? articles.feedCategory : (articles.feedCreator ? articles.feedCreator : articles.feedAuthor)} - ${articles.feedPubDate}
           </h3>
           <a
-            href="${articles.value.articlePath}.html"
-            class="cmp-newshub-feed__article-link"
+                  href="${articles.feedLink}"
+                  class="cmp-newshub-feed__article-link"
+                  target="_blank"
           >
             <h2 class="cmp-newshub-feed__article-title">
-              ${articles.key.headline}
+              ${articles.feedTitle}
             </h2>
             <div class="newshub-icon-arrow">
               <i class="newshub-icon-arrow__icon">
-                  <div class="newshub-icon-arrow__arrow cmp-newshub-feed__article-arrow"></div>
+                <div class="newshub-icon-arrow__arrow cmp-newshub-feed__article-arrow"></div>
               </i>
             </div>
           </a>
@@ -36,25 +37,25 @@
       <div class="cmp-newshub-feed__pagination"></div>
     </div>
   </div>
-  <div class="cmp-newshub-feed__right" 
-  style="background-image:url('${newshubArticleFeed.backgroundImage ? newshubArticleFeed.backgroundImage : '/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/red-background@3x.png' @ context='unsafe'}');">
+  <div class="cmp-newshub-feed__right"
+       style="background-image:url('${newshubArticleFeed.backgroundImage ? newshubArticleFeed.backgroundImage : '/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/red-background@3x.png' @ context='unsafe'}');">
     <h2 class="cmp-newshub-feed__headline headline-right">
       ${newshubArticleFeed.monthHeadline}
     </h2>
     <div class="cmp-newshub-feed__number">
-    <div class="cmp-newshub-feed__number-wrapper">
+      <div class="cmp-newshub-feed__number-wrapper">
       <span class="cmp-newshub-feed__number-value">${newshubArticleFeed.number}
       </span>
-      <span class="cmp-newshub-feed__number-unit">${newshubArticleFeed.numberUnit}</span>
+        <span class="cmp-newshub-feed__number-unit">${newshubArticleFeed.numberUnit}</span>
+      </div>
     </div>
-    </div>
-    <a href="${newshubArticleFeed.articleURLPath}" class="cmp-newshub-feed__link">
+    <a data-sly-test="${newshubArticleFeed.articleURLPath}" href="${newshubArticleFeed.articleURLPath}.html" class="cmp-newshub-feed__link">
       <h2 class="cmp-newshub-feed__title">
         ${newshubArticleFeed.numberDescription}
       </h2>
       <div class="newshub-icon-arrow">
         <i class="newshub-icon-arrow__icon">
-            <div class="newshub-icon-arrow__arrow cmp-newshub-feed__article-arrow"></div>
+          <div class="newshub-icon-arrow__arrow cmp-newshub-feed__article-arrow"></div>
         </i>
       </div>
     </a>
