@@ -1,18 +1,29 @@
 .cmp-video-consent {
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  &__empty {
+    padding-bottom: 56.25%;
+  }
+
   &__container {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
     min-height: 150px;
     background-image: url(#{$iconsPath}/video-consent-bg.png);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: right;
     text-align: right;
     box-sizing: border-box;
-    padding-bottom: 56.25%;
+    padding: 30px;
+    height: 100%;
 
     @include small {
-      text-align: center;
-      padding-left: 50px;
-      padding-right: 50px;
+      padding: 10px;
     }
   }
 
@@ -21,32 +32,30 @@
     font-size: 28px;
     line-height: 1.5;
     margin-bottom: 30px;
-    color: $color-headline-red;
 
     @include small {
+      margin-bottom: 15px;
       font-size: 16px;
     }
   }
 
   &__button {
-    font-family: $font-universe-roman;
+    font-family: $font-universe-roman-bold;
+
     @include small {
       width: auto;
-      padding: 14px;
+      padding: 10px 25px;
     }
   }
 
   &__iframe {
-    &:after {
-      padding-top: 56.25%;
-      display: block;
-      content: '';
-    }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
     iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
     }

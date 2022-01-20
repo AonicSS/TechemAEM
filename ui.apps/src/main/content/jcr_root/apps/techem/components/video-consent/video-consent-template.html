@@ -1,6 +1,7 @@
 <template data-sly-template.videoCookieConsent = "${@ youtubeVideoId, consentMessage, consentButtonLabel}">
     <div data-component-name="video-consent" class="cmp-video-consent ${wcmmode.edit ? 'author-mode': ''}"
          data-src="${'https://www.youtube.com/embed/{0}?origin={1}://{2}' @ format=[youtubeVideoId, request.scheme, request.serverName]}">
+        <div class="cmp-video-consent__empty"></div>
         <div class="cmp-video-consent__container" hidden>
             <h3 class="cmp-video-consent__title">
                 ${consentMessage ? consentMessage : 'To be able to see this video, please accept the marketing cookies.'}
