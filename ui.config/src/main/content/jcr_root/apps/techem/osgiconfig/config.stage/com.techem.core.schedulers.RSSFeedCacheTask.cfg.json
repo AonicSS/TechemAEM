@@ -1,5 +1,5 @@
 {
-  "schedulerExpression":"0 0 0 * * ?",
+  "schedulerExpression":"0 0 */12 ? * *",
   "rssPath":"/etc/rss",
   "enabled":true
 }
