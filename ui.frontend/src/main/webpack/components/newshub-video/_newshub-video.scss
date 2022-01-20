@@ -1,18 +1,13 @@
 .cmp-newshub-video {
   box-sizing: border-box;
   position: relative;
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
-  padding-bottom: 60px;
+  padding: 70px 0;
 
   @include large {
-    margin-top: 70px;
-    padding-bottom: 40px;
-  }
-
-  @include small {
-    margin-top: 75px;
+    padding: 50px 0;
   }
 
   &::before {
@@ -27,206 +22,132 @@
     z-index: 0;
   }
 
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100px;
-    height: 100%;
-    background: rgb(243, 243, 243);
-    background: linear-gradient(
-      0deg,
-      $color-grey,
-      $color-grey 80%,
-      $color-background 0,
-      $color-background
-    );
-    z-index: 100;
-
-    @include large {
-      width: 30px;
-    }
-
-    @include small {
-      width: 20px;
-    }
-  }
-
-  &__container {
-    box-sizing: border-box;
-    width: 100%;
-    margin-bottom: 35px;
-    position: relative;
-    z-index: unset;
-  }
-
-  &__wrapper {
-    box-sizing: border-box;
-    margin-left: 100px;
-
-    @include large {
-      margin-left: 30px;
-    }
-
-    @include small {
-      margin-left: 20px;
-    }
-  }
-
-  &__video {
-    box-sizing: border-box;
-    width: 83%; // for older safari versions
-    max-width: 1145px;
-    width: clamp(660px, 83%, 1145px);
-
-    @include large {
-      width: 86vw; // for older safari versions
-      max-width: 660px;
-      width: clamp(275px, 88%, 660px);
-    }
-
-    @include small {
-      width: 71vw; // for older safari versions
-      min-width: 275px;
-      width: clamp(275px, 73%, 660px);
-    }
-
+  &__article {
     &-container {
-      position: relative;
+      box-sizing: border-box;
       width: 100%;
+      position: relative;
+      margin-bottom: 35px;
+      margin-left: 105px;
+
+      @include large {
+        margin-left: 30px;
+      }
+
+      @include small {
+        margin-left: 20px;
+      }
+    }
+
+    &-wrapper {
+      box-sizing: border-box;
+    }
+
+    &-video-container {
+      box-sizing: border-box;
+      width: 80%; // for older safari versions
+      max-width: 1145px;
+      width: clamp(660px, 80%, 1145px);
+
+      @include large {
+        width: 86vw; // for older safari versions
+        max-width: 660px;
+        width: clamp(275px, 86vw, 660px);
+      }
+      @include small {
+        width: 71vw; // for older safari versions
+        min-width: 275px;
+        width: clamp(275px, 71vw, 660px);
+      }
+    }
+
+    &-link {
+      text-decoration: none;
+      display: block;
+      padding: 0 80px;
+      width: 100%;
+
+      @include large {
+        padding: 0;
+      }
+
+      &:hover {
+        .cmp-newshub-video__article-arrow {
+          &::before {
+            right: -10px;
+          }
+
+          &::after {
+            width: 29px;
+          }
+        }
+      }
+    }
+
+    &-title {
+      margin-bottom: 20px;
+
+      &-text {
+        word-wrap: break-word;
+        line-height: normal;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -moz-box;
+        -moz-line-clamp: 2;
+        -moz-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        @include large {
+          font-size: 30px;
+        }
+
+        @include small {
+          font-size: 22px;
+          line-height: 27px;
+        }
+      }
+    }
+
+    &-video {
+      position: relative;
+      margin: 0 auto;
+      max-height: 590px;
       height: auto;
-      overflow: hidden;
       border-radius: $border-radius-top-l-bottom-r;
-      margin: 0 auto 50px auto;
+      overflow: hidden;
       z-index: 0;
 
       @include large {
-        margin-bottom: 30px;
+        max-height: 340px;
+      }
+
+      @include small {
+        min-height: 170px;
+      }
+
+      &-wrapper {
+        height: max-content;
+        margin-bottom: 50px;
+        width: 100%;
+
+        @include large {
+          margin-bottom: 30px;
+        }
       }
     }
   }
 
-  &__video-container,
+  &-video-wrapper,
   &__buttons,
-  &__title {
+  &__article-title {
     width: 100%;
     min-width: 110px;
 
     @include large {
       width: 100%;
-    }
-  }
-
-  /* Slider Navigation Buttons */
-  &__next,
-  &__prev {
-    display: block;
-    position: absolute;
-    box-sizing: border-box;
-    top: 40%;
-    border: none;
-    border-radius: 50%;
-    height: 55px;
-    width: 55px;
-    padding: 0;
-    margin: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 11px 1px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-
-    @media (pointer: coarse) and (max-width: 1024px) {
-      display: none;
-    }
-
-    &-icon {
-      filter: invert(1);
-      position: absolute;
-      width: 15px;
-      height: 30px;
-    }
-  }
-
-  &__next {
-    right: 75px;
-
-    @media (pointer: fine) and (max-width: 1024px) {
-      right: 10px;
-    }
-
-    &-icon {
-      right: 32%;
-    }
-  }
-
-  &__prev {
-    left: 75px;
-
-    @media (pointer: fine) and (max-width: 1024px) {
-      left: 10px;
-    }
-
-    &-icon {
-      left: 32%;
-    }
-  }
-
-  &__navigation {
-    &--disabled {
-      display: none;
-    }
-  }
-
-  &__link {
-    text-decoration: none;
-    display: block;
-    padding: 0 80px;
-    width: 100%;
-
-    @include large {
-      padding: 0;
-    }
-
-    &:hover {
-      .cmp-newshub-video__article-arrow {
-        &::before {
-          right: -10px;
-        }
-
-        &::after {
-          width: 29px;
-        }
-      }
-    }
-  }
-
-  &__title {
-    margin-bottom: 20px;
-
-    &-text {
-      word-wrap: break-word;
-      line-height: normal;
-      margin: 0;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      display: -moz-box;
-      -moz-line-clamp: 2;
-      -moz-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-
-      @include large {
-        font-size: 30px;
-      }
-
-      @include small {
-        font-size: 22px;
-        line-height: 27px;
-      }
     }
   }
 

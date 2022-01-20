@@ -1,56 +1,42 @@
-<sly data-sly-use.productSlider="com.techem.core.models.NewshubProductSlider" />
+<div data-sly-use.teaser="com.adobe.cq.wcm.core.components.models.Teaser"
+	 data-sly-use.productSlider="com.techem.core.models.NewshubProductSlider"
+	 data-sly-use.productItem="com.techem.core.models.NewshubProductItem">
 
-<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
-	Configure ${component.properties.jcr:title}
-</div>
-
-<div class="cmp-newshub-product" data-component-name='newshub-product'>
-	<div data-sly-test="${productSlider.headline}" class="cmp-newshub-product__headline-wrapper ${productSlider.alignment}">
-		<h2 class="cmp-newshub-product__headline">
-			${productSlider.headline @ context='html'}
-		</h2>
+	<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+		Configure ${component.properties.jcr:title}
 	</div>
 
-	<div class="cmp-newshub-product__container swiper-container ${productSlider.alignment}">
-		<div class="cmp-newshub-product__wrapper swiper-wrapper" data-sly-list.product= "${productSlider.productItems}">
-			<a href="${product.productLink}" class="cmp-newshub-product__product swiper-slide">
-				<div class="cmp-newshub-product__product-image-wrapper">
-					<img data-sly-test="${product.productFileReference}" class="cmp-newshub-product__product-image" src="${product.productFileReference}" />
-				</div>
-				<div class="cmp-newshub-product__product-title-wrapper">
-					<h3 data-sly-test="${product.productTitle}" class="cmp-newshub-product__product-title text-overflow">
-						${product.productTitle}
-					</h3>
-				</div>
-				<div class="cmp-newshub-product__product-body-wrapper text-overflow">
-					<p data-sly-test="${product.productBody}" class="cmp-newshub-product__product-body text-overflow">
-						${product.productBody}
-					</p>
-				</div>
-				<div class="newshub-icon-arrow">
-					<i class="newshub-icon-arrow__icon">
-						<div class="newshub-icon-arrow__arrow cmp-newshub-product__product-arrow"></div>
-					</i>
-				</div>
-			</a>
+	<div class="cmp-newshub-product" data-component-name='newshub-product'>
+
+		<div data-sly-test="${productSlider.headline}" class="cmp-newshub-product__headline-wrapper ${productSlider.alignment}">
+			<h2 class="cmp-newshub-product__headline">
+				${productSlider.headline @ context='html'}
+			</h2>
 		</div>
-		<button class="cmp-newshub-product__prev"
-				type="button" aria-label="${'Previous' @ i18n}" data-cmp-hook-slider="previous"
-		>
-			<img
-					class="cmp-newshub-product__prev-icon"
-					src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-left-white.svg"
-			/>
-			<span class="cmp-newshub-product__prev-text" hidden>${'<' @ i18n}</span>
-		</button>
-		<button class="cmp-newshub-product__next"
-				type="button" aria-label="${'Next' @ i18n}" data-cmp-hook-slider="next"
-		>
-			<img
-					class="cmp-newshub-product__next-icon"
-					src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-right-white.svg"
-			/>
-			<span class="cmp-newshub-product__next-text" hidden>${'>' @ i18n}</span>
-		</button>
+
+		<div class="cmp-newshub-product__product-container swiper-container ${productSlider.alignment}">
+			<div class="cmp-newshub-product__product-wrapper swiper-wrapper" data-sly-list.product= "${productSlider.productItems}">
+				<a href="${product.productLink}" class="cmp-newshub-product__product swiper-slide">
+					<div class="cmp-newshub-product__product-image-wrapper">
+						<img data-sly-test="${product.productFileReference}" class="cmp-newshub-product__product-image" src="${product.productFileReference}" />
+					</div>
+					<div class="cmp-newshub-product__product-title-wrapper">
+						<h3 data-sly-test="${product.productTitle}" class="cmp-newshub-product__product-title text-overflow">
+							${product.productTitle}
+						</h3>
+					</div>
+					<div class="cmp-newshub-product__product-body-wrapper text-overflow">
+						<p data-sly-test="${product.productBody}" class="cmp-newshub-product__product-body text-overflow">
+							${product.productBody}
+						</p>
+					</div>
+					<div class="newshub-icon-arrow">
+						<i class="newshub-icon-arrow__icon">
+							<div class="newshub-icon-arrow__arrow cmp-newshub-product__product-arrow"></div>
+						</i>
+					</div>
+				</a>
+			</div>
+		</div>
 	</div>
 </div>

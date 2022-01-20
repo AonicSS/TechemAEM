@@ -31,10 +31,10 @@
   &__left {
     background-color: $color-background-dark;
     overflow: hidden;
-    padding: 70px 70px 70px 100px;
+    padding: 70px 70px 70px 110px;
 
     @include large {
-      padding: 70px 0 70px 32px;
+      padding: 70px 0 70px 30px;
     }
 
     @include small {

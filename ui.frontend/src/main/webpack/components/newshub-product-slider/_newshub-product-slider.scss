@@ -1,12 +1,12 @@
 .cmp-newshub-product {
-  padding: 100px 0;
+  padding: 100px 0 100px 100px;
 
   @include large {
-    padding: 70px 0;
+    padding: 70px 0 70px 30px;
   }
 
   @include small {
-    padding: 70px 0;
+    padding: 70px 0 70px 20px;
   }
 
   &__headline {
@@ -49,15 +49,7 @@
 
       &.left {
         text-align: left;
-        margin: 0 0 30px 100px;
-
-        @include large {
-          margin: 0 0 30px 30px;
-        }
-
-        @include small {
-          margin: 0 0 30px 20px;
-        }
+        margin-bottom: 30px;
 
         .cmp-newshub-product__headline {
           font-family: $font-universe-roman;
@@ -71,48 +63,10 @@
     }
   }
 
-  &__container {
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100px;
-      height: 100%;
-      background-color: $color-background;
-      z-index: 100;
-
-      @include large {
-        width: 30px;
-      }
-
-      @include small {
-        width: 20px;
-      }
-    }
-  }
-
-  &__wrapper {
-    width: 100%;
-    margin-left: 100px;
-
-    @include large {
-      margin-left: 30px;
-    }
-
-    @include small {
-      margin-left: 20px;
-    }
-  }
-
   &__product {
     width: 260px;
     text-decoration: none;
     display: block;
-    height: max-content;
-    max-height: max-content;
 
     @include large {
       width: 180px;
@@ -132,6 +86,10 @@
           width: 29px;
         }
       }
+    }
+
+    &-wrapper {
+      width: 100%;
     }
 
     &-image {
@@ -189,68 +147,6 @@
       font-style: normal;
       line-height: 1.63;
       letter-spacing: -0.1px;
-    }
-  }
-
-  /* Slider Navigation Buttons */
-  &__next,
-  &__prev {
-    display: block;
-    position: absolute;
-    box-sizing: border-box;
-    top: 20%;
-    border: none;
-    border-radius: 50%;
-    height: 55px;
-    width: 55px;
-    padding: 0;
-    margin: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 11px 1px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-
-    @media (pointer: coarse) and (max-width: 1024px) {
-      display: none;
-    }
-
-    &-icon {
-      filter: invert(1);
-      position: absolute;
-      width: 15px;
-      height: 30px;
-    }
-  }
-
-  &__next {
-    right: 75px;
-
-    @media (pointer: fine) and (max-width: 1024px) {
-      right: 10px;
-    }
-
-    &-icon {
-      right: 32%;
-    }
-  }
-
-  &__prev {
-    left: 75px;
-
-    @media (pointer: fine) and (max-width: 1024px) {
-      left: 10px;
-    }
-
-    &-icon {
-      left: 32%;
-    }
-  }
-
-  &__navigation {
-    &--disabled {
-      display: none;
     }
   }
 }

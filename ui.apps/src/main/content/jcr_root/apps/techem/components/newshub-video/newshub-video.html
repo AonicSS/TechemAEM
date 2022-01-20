@@ -1,61 +1,35 @@
 <sly data-sly-use.newsModel="com.techem.core.models.NewshubVideoArticles" />
 <sly data-sly-test.newshubVideoArticles="${newsModel.videoArticles.entrySet}" />
 
-<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
-    Configure ${component.properties.jcr:title}
-</div>
-
 <div class="cmp-newshub-video" data-component-name="newshub-video">
-    <div class="cmp-newshub-video__container swiper-container">
-        <div class="cmp-newshub-video__wrapper swiper-wrapper"
-             data-sly-list.videoArticle="${newshubVideoArticles}"
+    <div class="cmp-newshub-video__article-container swiper-container">
+        <div
+                class="cmp-newshub-video__article-wrapper swiper-wrapper"
+                data-sly-list.videoArticle="${newshubVideoArticles}"
         >
-            <div class="cmp-newshub-video__video swiper-slide">
-                <div class="cmp-newshub-video__video-container">
-                    <sly
-                            data-sly-use.template="/apps/techem/components/video-consent/video-consent-template.html"
-                            data-sly-call="${template.videoCookieConsent @  youtubeVideoId = videoArticle.value.videoID, consentMessage = newsModel.cookieConsentMessage, consentButtonLabel = newsModel.cookieConsentButtonLabel}"
-                    >
-                    </sly>
+            <div class="cmp-newshub-video__article-video-container swiper-slide">
+                <div class="cmp-newshub-video__article-video-wrapper">
+                    <div class="cmp-newshub-video__article-video">
+                        <sly
+                                data-sly-use.template="/apps/techem/components/video-consent/video-consent-template.html"
+                                data-sly-call="${template.videoCookieConsent @  youtubeVideoId = videoArticle.value.videoID, consentMessage = newsModel.cookieConsentMessage, consentButtonLabel = newsModel.cookieConsentButtonLabel}"
+                        >
+                        </sly>
+                    </div>
                 </div>
 
-                <a href="${videoArticle.value.articlePath}.html" class="cmp-newshub-video__link">
-                    <div class="cmp-newshub-video__title">
-                        <h2 class="cmp-newshub-video__title-text">${videoArticle.key.headline}</h2>
+                <a href="${videoArticle.value.articlePath}.html" class="cmp-newshub-video__article-link">
+                    <div class="cmp-newshub-video__article-title">
+                        <h2 class="cmp-newshub-video__article-title-text">${videoArticle.key.headline}</h2>
                     </div>
                     <div class="newshub-icon-arrow">
                         <i class="newshub-icon-arrow__icon">
-                            <div class="newshub-icon-arrow__arrow cmp-newshub-video__arrow"></div>
+                            <div class="newshub-icon-arrow__arrow cmp-newshub-video__article-arrow"></div>
                         </i>
                     </div>
                 </a>
             </div>
         </div>
-
-        <button
-                class="cmp-newshub-video__prev"
-                type="button"
-                aria-label="${'Previous' @ i18n}"
-                data-cmp-hook-slider="previous"
-        >
-            <img
-                    class="cmp-newshub-video__prev-icon"
-                    src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-left-white.svg"
-            />
-            <span class="cmp-newshub-video__prev-text" hidden>${'<' @ i18n}</span>
-        </button>
-        <button
-                class="cmp-newshub-video__next"
-                type="button"
-                aria-label="${'Next' @ i18n}"
-                data-cmp-hook-slider="next"
-        >
-            <img
-                    class="cmp-newshub-video__next-icon"
-                    src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-right-white.svg"
-            />
-            <span class="cmp-newshub-video__next-text" hidden>${'>' @ i18n}</span>
-        </button>
     </div>
 
     <div class="cmp-newshub-video__buttons">
