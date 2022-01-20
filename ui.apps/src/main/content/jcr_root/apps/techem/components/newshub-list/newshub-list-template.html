@@ -1,27 +1,27 @@
-<div data-sly-use.container="com.adobe.cq.wcm.core.components.models.LayoutContainer"
-     data-sly-use.newshubListContainer="com.techem.core.models.NewshubListContainer">
+<template data-sly-template.news_textStage = "${ @ stageText}">
+    <a class="cmp-newshub-list-item" href="${stageText.path}" target="_self">
+        <div data-sly-test="${stageText.image}" class="cmp-newshub-list-item__image-wrapper">
+            <img class="cmp-newshub-list-item__image" src="${stageText.image}" />
+        </div>
 
-    <div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
-        Configure ${component.properties.jcr:title}
-    </div>
-
-    <div class="cmp-newshub-list" data-component-name="newshub-list">
-        <h2 class="cmp-newshub-list__headline" data-sly-test="${newshubListContainer.containerHeadline}">${newshubListContainer.containerHeadline @ context='html'}</h2>
-
-        <div data-sly-test="${newshubListContainer.insertionType}">
-            <sly data-sly-test.newsArticles="${newshubListContainer.newsArticles || newshubListContainer.insertionType == 'automatically' ? newshubListContainer.newsArticles : newshubListContainer.articleListManually}"/>
-            <div class="cmp-newshub-list__container" data-sly-list.articles="${newsArticles}">
-                <sly data-sly-use.template="newshub-list-template.html" data-sly-call="${template.news_textStage @ stageText=articles}">
-                </sly>
+        <div class="cmp-newshub-list-item__body">
+            <div class="cmp-newshub-list-item__category-wrapper" data-sly-test="${stageText.date && stageText.category}">
+                <h3 class="cmp-newshub-list-item__category">${stageText.category} - ${stageText.date}</h3>
+            </div>
+            <div class="cmp-newshub-list-item__headline-wrapper">
+                <h2 class="cmp-newshub-list-item__headline" data-sly-test="${stageText.headline}">
+                    ${stageText.headline}
+                </h2>
+                <div class="cmp-newshub-list-item__description" data-sly-test="${stageText.text}">
+                    ${stageText.text @ context='html'}
+                </div>
+            </div>
+            <div class="newshub-icon-arrow cmp-newshub-list-item__icon">
+                <i class="newshub-icon-arrow__icon">
+                    <div class="newshub-icon-arrow__arrow"></div>
+                </i>
             </div>
         </div>
 
-        <div class="cmp-newshub-list__buttons">
-            <a data-sly-test="${newshubListContainer.buttonLabel}"
-               class="cmp-button button-primary"
-               href="${newshubListContainer.buttonLink}" target="_blank">
-                ${newshubListContainer.buttonLabel}
-            </a>
-        </div>
-    </div>
-</div>
+    </a>
+</template>

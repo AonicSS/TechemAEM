@@ -67,7 +67,7 @@ public class NewshubRelatedArticle {
                     return item.getValueMap().get(JcrConstants.JCR_PRIMARYTYPE).equals(NameConstants.NT_PAGE)
                             && item.getChild(JcrConstants.JCR_CONTENT).adaptTo(ValueMap.class).get("sling:resourceType")
                             .equals("techem/components/structure/news-page");
-                }).limit(maxArticles).collect(Collectors.toList());
+                }).collect(Collectors.toList());
                 filterByTags();
                 orderList();
             }
@@ -120,6 +120,7 @@ public class NewshubRelatedArticle {
             if(sortOrder.equals("descending")) {
                 Collections.reverse(newsArticles);
             }
+            newsArticles = newsArticles.stream().limit(maxArticles).collect(Collectors.toList());
         }
     }
 
