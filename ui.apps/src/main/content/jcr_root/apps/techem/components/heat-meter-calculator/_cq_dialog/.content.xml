@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+        xmlns:cq="http://www.day.com/jcr/cq/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Heat Meter Calculator"
+        sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            granite:class="cmp-teaser__editor"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items
+                        jcr:primaryType="nt:unstructured"
+                        sling:hideChildren="[image,text,actions]">
+                    <properties
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Properties"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <headline
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Headline of the Dimensioning calculator"
+                                                    fieldLabel="Headline"
+                                                    maxlength="{Long}80"
+                                                    name="./headline" />
+                                            <description
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                    fieldDescription="Description of the Dimensioning calculator"
+                                                    fieldLabel="Description"
+                                                    name="./description" />
+                                            <title
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Title of the Dimensioning calculator"
+                                                    fieldLabel="Title"
+                                                    name="./title" />
+                                            <legend
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Legend for the radio buttons"
+                                                    fieldLabel="Radio Buttons Legend"
+                                                    name="./legend" />
+                                            <radioButtonConstantLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Please provide a label for the first radio button with value constant"
+                                                    fieldLabel="Radio Button Label - Constant"
+                                                    name="./radioButtonConstantLabel" />
+                                            <radioButtonVariableLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Please provide a label for the second radio button with value variable"
+                                                    fieldLabel="Radio Button Label - Variable"
+                                                    name="./radioButtonVariableLabel" />
+                                            <temperatureDifferenceLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Please provide a label for the temperature difference textfield"
+                                                    fieldLabel="Temperature Difference Textfield Label"
+                                                    name="./temperatureDifferenceLabel" />
+                                            <temperatureDifferenceErrorLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Please provide a label for the temperature difference error message"
+                                                    fieldLabel="Temperature Difference Error Label"
+                                                    name="./temperatureDifferenceErrorLabel" />
+                                            <heatPowerLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Please provide a label for the heat power textfield"
+                                                    fieldLabel="Heat Power Textfield Label"
+                                                    name="./heatPowerLabel" />
+                                            <heatPowerErrorLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Please provide a label for the heat power error message"
+                                                    fieldLabel="Heat Power Error Label"
+                                                    name="./heatPowerErrorLabel" />
+                                            <flowMinResultLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="The result message for the minimal nominal flow"
+                                                    fieldLabel="Minimal nominal flow label"
+                                                    name="./flowMinResultLabel" />
+                                            <flowBestResultLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="The result message for the best nominal flow"
+                                                    fieldLabel="Best nominal flow label"
+                                                    name="./flowBestResultLabel" />
+                                            <submitButtonLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="The label for the submit button"
+                                                    fieldLabel="Submit Button Label"
+                                                    name="./submitButtonLabel" />
+                                            <individualInvitation
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Statement to invite the user to get an individual proposal"
+                                                    fieldLabel="Individual Invitation Statement"
+                                                    name="./individualInvitation" />
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

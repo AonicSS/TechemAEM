@@ -1,0 +1,74 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+  Configure ${component.properties.jcr:title}
+</div>
+
+<div class="cmp-heat-meter" data-component-name="heat-meter" data-sly-use.heatMeterModel="com.techem.core.models.HeatMeterCalculator">
+  <h2 class="cmp-heat-meter__headline">
+    ${heatMeterModel.headline}
+  </h2>
+  <p class="cmp-heat-meter__description">
+    ${heatMeterModel.description}
+  </p>
+  <h3 class="cmp-heat-meter__title">${heatMeterModel.title}</h3>
+  <form class="cmp-heat-meter__form">
+    <fieldset class="cmp-heat-meter__fieldset cmp-heat-meter__radio">
+      <legend class="cmp-heat-meter__legend bold">
+        ${heatMeterModel.legend}
+      </legend>
+      <label for="constant" class="cmp-heat-meter__label">
+        <input class="cmp-heat-meter__input" type="radio" id="constant" name="flow" value="constant" />
+        <span class="cmp-heat-meter__checkmark"></span>
+        <span class="cmp-heat-meter__label-text">
+          ${heatMeterModel.radioButtonConstantLabel}
+        </span>
+      </label>
+      <label for="variable" class="cmp-heat-meter__label">
+        <input class="cmp-heat-meter__input" type="radio" id="variable" name="flow" value="variable" />
+        <span class="cmp-heat-meter__checkmark"></span>
+        <span class="cmp-heat-meter__label-text">${heatMeterModel.radioButtonVariableLabel}</span>
+      </label>
+    </fieldset>
+    <fieldset class="cmp-heat-meter__fieldset cmp-heat-meter__temperature">
+      <label for="temperature-difference" class="cmp-heat-meter__label">
+        <span class="cmp-heat-meter__label-text bold">
+          ${heatMeterModel.temperatureDifferenceLabel}
+        </span>
+        <input class="cmp-heat-meter__input" type="text" id="temperature-difference" name="Temperature Difference" />
+      </label>
+      <span class="cmp-heat-meter__input-error temperature-difference" hidden>
+        ${heatMeterModel.temperatureDifferenceErrorLabel}
+      </span>
+    </fieldset>
+    <fieldset class="cmp-heat-meter__fieldset cmp-heat-meter__power">
+      <label for="heat-power" class="cmp-heat-meter__label">
+        <span class="cmp-heat-meter__label-text bold">
+          ${heatMeterModel.heatPowerLabel}
+        </span>
+        <input class="cmp-heat-meter__input" type="text" id="heat-power" name="Heat Power" />
+      </label>
+      <span class="cmp-heat-meter__input-error heat-power" hidden>
+        ${heatMeterModel.heatPowerErrorLabel}
+      </span>
+    </fieldset>
+    <fieldset class="cmp-heat-meter__fieldset cmp-heat-meter__submit">
+      <div class="cmp-heat-meter__result-container">
+        <div class="cmp-heat-meter__result-wrapper">
+          <span class="cmp-heat-meter__flow-min">
+            ${heatMeterModel.flowMinResultLabel} =
+            <span class="cmp-heat-meter__flow-min-value"></span>
+          </span>
+          <span class="cmp-heat-meter__flow-best">
+            ${heatMeterModel.flowBestResultLabel} =
+            <span class="cmp-heat-meter__flow-best-value"></span>
+          </span>
+        </div>
+      </div>
+      <button class="cmp-heat-meter__submit-btn cmp-button button-primary" type="submit">
+        ${heatMeterModel.submitButtonLabel}
+      </button>
+    </fieldset>
+  </form>
+  <span class="cmp-heat-meter__individual-text" hidden>
+    ${heatMeterModel.individualInvitation}
+  </span>
+</div>
