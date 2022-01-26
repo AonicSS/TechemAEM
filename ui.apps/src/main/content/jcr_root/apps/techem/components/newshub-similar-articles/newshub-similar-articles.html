@@ -1,32 +1,23 @@
-<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
-    Configure ${component.properties.jcr:title}
-</div>
+<div
+        class="cmp-similar-articles"
+        data-sly-use.similarArticles="com.techem.core.models.NewshubSimilarArticles"
+        data-component-name="similar-articles">
 
-<div 
-    class="cmp-similar-articles"
-    data-sly-use.similarArticlesModel="com.techem.core.models.NewshubSimilarArticles"
-    data-component-name="similar-articles">
-
-    <div class="cmp-similar-articles__headline-wrapper">
-        <h2 class="cmp-similar-articles__headline">${similarArticlesModel.headline}</h2>
+    <div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+        Configure ${component.properties.jcr:title}
     </div>
-    <div class="cmp-similar-articles__article-container swiper-container">
-        <div class="cmp-similar-articles__article-wrapper swiper-wrapper" data-sly-list.article="${similarArticlesModel.articles}">
-            <a href="${article.articleLink}" class="cmp-similar-articles__article swiper-slide">
-                <div class="cmp-similar-articles__article-image-wrapper">
-                    <img class="cmp-similar-articles__article-image" src="${article.articleFileReference}" />
-                </div>  
-                <div class="cmp-similar-articles__article-title-wrapper">
-                    <h3 class="cmp-similar-articles__article-title">
-                        ${article.articleTitle}
-                    </h3>
-                </div>
-                <div class="newshub-icon-arrow">
-                    <i class="newshub-icon-arrow__icon">
-                        <div class="newshub-icon-arrow__arrow cmp-similar-articles__article-arrow"></div>
-                    </i>
-                </div>
-            </a>
+
+    <div data-sly-test="${similarArticles.containerHeadline}" class="cmp-similar-articles__headline-wrapper">
+        <h2 class="cmp-similar-articles__headline">${similarArticles.containerHeadline}</h2>
+    </div>
+
+    <div data-sly-test="${similarArticles.insertionType}">
+        <sly data-sly-test.newsArticles="${similarArticles.newsArticles || similarArticles.insertionType == 'automatically' ? similarArticles.newsArticles : similarArticles.articleListManually}"/>
+        <div class="cmp-similar-articles__article-container swiper-container">
+            <div class="cmp-similar-articles__article-wrapper swiper-wrapper" data-sly-list.articles="${newsArticles}">
+                <sly data-sly-use.template="newshub-similar-articles-template.html" data-sly-call="${template.similar_artis @ similareArtis=articles}">
+                </sly>
+            </div>
         </div>
     </div>
     <div class="cmp-similar-articles__pagination"></div>
