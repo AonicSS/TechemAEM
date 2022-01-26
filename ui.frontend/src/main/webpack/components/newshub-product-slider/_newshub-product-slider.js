@@ -1,46 +1,69 @@
-import Swiper from "swiper";
+import Swiper, { Navigation } from "swiper";
 
 (function ($) {
-	"use strict";
+  "use strict";
 
-	function initSwiper(el) {
-		const swiperOptions = {
-			slidesPerView: "auto",
-			observer: true,
-			observeSlideChildren: true,
-			observeParents: true,
-			grabCursor: true,
-			spaceBetween: 45,
-			slidesOffsetAfter: 80,
-			slidesPerGroup: 1,
+  function initSwiper(el) {
+    const swiperContainer = el.querySelector(".cmp-newshub-product__container");
+    const slides = swiperContainer.querySelectorAll(".swiper-slide");
 
-			breakpoints: {
-				1025: {
-					slidesPerView: "auto",
-					spaceBetween: 160,
-					slidesOffsetAfter: 240,
-					slidesPerGroup: 3
-				},
+    let isNotSlideable = false;
 
-				768: {
-					slidesPerView: "auto",
-					slidesOffsetAfter: 148,
-					spaceBetween: 60,
-					slidesOffsetAfter: 78,
-					slidesPerGroup: 1
-				},
-			},
-		};
+    if (slides.length < 4) {
+      isNotSlideable = true;
+    }
 
-		const swiperContainer = el.querySelector(".cmp-newshub-product__product-container ");
-		const swiper = new Swiper(swiperContainer, swiperOptions);
-	}
-	$(document).ready(function () {
-		const $productSlider = $("div[data-component-name='newshub-product']");
-		Array.prototype.forEach.call($productSlider, function (element) {
-			if (element && element.dataset.initialized !== "true") {
-				initSwiper(element);
-			}
-		});
-	});
+    const swiperOptions = {
+      modules: [Navigation],
+
+      slidesPerView: "auto",
+      observer: true,
+      observeSlideChildren: true,
+      observeParents: true,
+      watchOverflow: true,
+      grabCursor: true,
+      spaceBetween: 45,
+      slidesOffsetBefore: 1,
+      slidesOffsetAfter: 79,
+      slidesPerGroup: 1,
+
+      navigation: {
+        nextEl: el.querySelector(".cmp-newshub-product__next"),
+        prevEl: el.querySelector(".cmp-newshub-product__prev"),
+        disabledClass: "cmp-newshub-product__navigation--disabled",
+        hiddenClass: "cmp-newshub-product__navigation--hidden",
+      },
+
+      breakpoints: {
+        1400: {
+          spaceBetween: 155,
+          slidesOffsetBefore: 1,
+          slidesOffsetAfter: isNotSlideable ? 0 : 210,
+        },
+
+        1025: {
+          spaceBetween: 155,
+          slidesOffsetBefore: 1,
+          slidesOffsetAfter: isNotSlideable ? 0 : 124,
+        },
+
+        768: {
+          spaceBetween: 60,
+          slidesOffsetBefore: 1,
+          slidesOffsetAfter: isNotSlideable ? 0 : 78,
+        },
+      },
+    };
+
+    const swiper = new Swiper(swiperContainer, swiperOptions);
+  }
+
+  $(document).ready(function () {
+    const $productSlider = $("div[data-component-name='newshub-product']");
+    Array.prototype.forEach.call($productSlider, function (element) {
+      if (element && element.dataset.initialized !== "true") {
+        initSwiper(element);
+      }
+    });
+  });
 })(jQuery);
