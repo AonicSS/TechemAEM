@@ -153,6 +153,8 @@
   &__submit {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    min-height: 61px;
 
     @include small {
       flex-direction: column-reverse;
@@ -161,7 +163,7 @@
 
     span {
       margin: 0;
-      font-size: 12px;
+      font-size: 16px;
       line-height: 1.67;
       letter-spacing: normal;
       color: $color-dark-grey;
@@ -170,6 +172,7 @@
     &-btn {
       width: 170px;
       justify-self: end;
+      flex: 0 0 auto;
     }
   }
 
@@ -188,7 +191,7 @@
 
   &__flow-min,
   &__flow-best {
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.67;
     letter-spacing: normal;
     color: $color-dark-grey;

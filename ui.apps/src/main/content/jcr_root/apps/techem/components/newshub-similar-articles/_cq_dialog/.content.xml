@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-          jcr:primaryType="nt:unstructured"
-          jcr:title="Newshub Similar Articles"
-          extraClientlibs="[techem.validator.multifield.minmax]"
-          sling:resourceType="cq/gui/components/authoring/dialog">
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Newshub Similar Articles"
+    extraClientlibs="[techem.validator.multifield.minmax]"
+    sling:resourceType="cq/gui/components/authoring/dialog">
     <content
-            granite:class="cmp-teaser__editor"
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="granite/ui/components/coral/foundation/container">
+        granite:class="cmp-teaser__editor"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
         <items jcr:primaryType="nt:unstructured">
             <tabs
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
-                    maximized="{Boolean}true">
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
                 <items
-                        jcr:primaryType="nt:unstructured"
-                        sling:hideChildren="[image,text,actions]">
+                    jcr:primaryType="nt:unstructured"
+                    sling:hideChildren="[image,text,actions]">
                     <articles
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Articles"
@@ -64,61 +64,61 @@
                                                     sling:resourceType="granite/ui/components/coral/foundation/container">
                                                 <items jcr:primaryType="nt:unstructured">
                                                     <multi
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        composite="{Boolean}true"
+                                                        required="{Boolean}true"
+                                                        validation="techem-validate-multifield"
+                                                        fieldLabel="Add articles">
+                                                    <granite:data
                                                             jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                                                            composite="{Boolean}true"
-                                                            required="{Boolean}true"
-                                                            validation="techem-validate-multifield"
-                                                            fieldLabel="Add articles">
-                                                        <granite:data
-                                                                jcr:primaryType="nt:unstructured"
-                                                                min="1"
-                                                                max="3"/>
-                                                        <field
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/container"
-                                                                name="./articleListManually">
-                                                            <items jcr:primaryType="nt:unstructured">
-                                                                <column
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        sling:resourceType="granite/ui/components/coral/foundation/container">
-                                                                    <items jcr:primaryType="nt:unstructured">
+                                                            min="1"
+                                                            max="3"/>
+                                                    <field
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                            name="./articleListManually">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <column
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
                                                                         <image
-                                                                                jcr:primaryType="nt:unstructured"
-                                                                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
-                                                                                allowUpload="{Boolean}false"
-                                                                                autoStart="{Boolean}false"
-                                                                                class="cq-droptarget"
-                                                                                fieldDescription="Pick an image for this article."
-                                                                                fieldLabel="Picture"
-                                                                                fileNameParameter="./fileName"
-                                                                                fileReferenceParameter="./image"
-                                                                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
-                                                                                multiple="{Boolean}false"
-                                                                                name="./file"
-                                                                                title="Upload Item Image"
-                                                                                uploadUrl="${suffix.path}"
-                                                                                useHTML5="{Boolean}true" />
-                                                                        <articleTitle
-                                                                                jcr:primaryType="nt:unstructured"
-                                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                                                fieldDescription="A title for the article"
-                                                                                fieldLabel="Article title"
-                                                                                name="./headline"
-                                                                                required="true"/>
-                                                                        <articleLink
-                                                                                jcr:primaryType="nt:unstructured"
-                                                                                sling:resourceType="cq/gui/components/coral/common/form/pagefield"
-                                                                                fieldDescription="Link applied to the article. URL or path to a content page."
-                                                                                fieldLabel="Link"
-                                                                                required="true"
-                                                                                name="./path"
-                                                                                rootPath="/content"
-                                                                                wrapperClass="foundation-toggleable cmp-teaser__editor-link-url"/>
-                                                                    </items>
-                                                                </column>
-                                                            </items>
-                                                        </field>
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                                            allowUpload="{Boolean}false"
+                                                                            autoStart="{Boolean}false"
+                                                                            class="cq-droptarget"
+                                                                            fieldDescription="Pick an image for this article."
+                                                                            fieldLabel="Picture"
+                                                                            fileNameParameter="./fileName"
+                                                                            fileReferenceParameter="./image"
+                                                                            mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                                            multiple="{Boolean}false"
+                                                                            name="./file"
+                                                                            title="Upload Item Image"
+                                                                            uploadUrl="${suffix.path}"
+                                                                            useHTML5="{Boolean}true" />
+                                                                    <articleTitle
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            fieldDescription="A title for the article"
+                                                                            fieldLabel="Article title"
+                                                                            name="./headline"
+                                                                            required="true"/>
+                                                                    <articleLink
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="cq/gui/components/coral/common/form/pagefield"
+                                                                            fieldDescription="Link applied to the article. URL or path to a content page."
+                                                                            fieldLabel="Link"
+                                                                            required="true"
+                                                                            name="./path"
+                                                                            rootPath="/content"
+                                                                            wrapperClass="foundation-toggleable cmp-teaser__editor-link-url"/>
+                                                                </items>
+                                                            </column>
+                                                        </items>
+                                                    </field>
                                                     </multi>
                                                 </items>
                                                 <granite:data
@@ -135,10 +135,10 @@
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
                                                             fieldDescription="Choose the maximum number of articles that will be displayed"
                                                             fieldLabel="Max articles"
-                                                            defaultValue="5"
-                                                            max="{Long}40"
-                                                            min="{Long}2"
-                                                            value="5"
+                                                            defaultValue="3"
+                                                            max="{Long}3"
+                                                            min="{Long}1"
+                                                            value="3"
                                                             required="{Boolean}true"
                                                             name="./maxArticles"/>
                                                     <filePath
@@ -160,12 +160,12 @@
                                                             autocreateTag="true"
                                                             required="{Boolean}true"/>
                                                     <orderBy
-                                                            granite:class="cq-dialog-dropdown"
-                                                            jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                            fieldDescription="Order List By"
-                                                            fieldLabel="Order By"
-                                                            name="./orderBy">
+                                                        granite:class="cq-dialog-dropdown"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldDescription="Order List By"
+                                                        fieldLabel="Order By"
+                                                        name="./orderBy">
                                                         <items jcr:primaryType="nt:unstructured">
                                                             <dateArticle
                                                                     jcr:primaryType="nt:unstructured"
@@ -183,19 +183,19 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     text="Title"
                                                                     value="artiTitle"/>
-                                                            <artiCategory
+                                                             <artiCategory
                                                                     jcr:primaryType="nt:unstructured"
                                                                     text="Category"
-                                                                    value="artiCategory"/>
+                                                                    value="artiCategory"/>                                                             
                                                         </items>
                                                     </orderBy>
                                                     <sortOrder
-                                                            granite:class="cq-dialog-dropdown"
-                                                            jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                            fieldDescription="The order of the items."
-                                                            fieldLabel="Sort Order"
-                                                            name="./sortOrder">
+                                                        granite:class="cq-dialog-dropdown"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldDescription="The order of the items."
+                                                        fieldLabel="Sort Order"
+                                                        name="./sortOrder">
                                                         <items jcr:primaryType="nt:unstructured">
                                                             <ascending
                                                                     jcr:primaryType="nt:unstructured"
@@ -209,8 +209,8 @@
                                                     </sortOrder>
                                                 </items>
                                                 <granite:data
-                                                        jcr:primaryType="nt:unstructured"
-                                                        showhidetargetvalue="automatically"/>
+                                                    jcr:primaryType="nt:unstructured"
+                                                    showhidetargetvalue="automatically"/>
                                             </automatically>
                                         </items>
                                     </column>
