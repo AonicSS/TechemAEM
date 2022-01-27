@@ -1,34 +1,58 @@
-import Swiper from "swiper";
+import Swiper, { Navigation } from "swiper";
 
 (function ($) {
   "use strict";
 
   function initSwiper(el) {
+    const swiperContainer = el.querySelector(".cmp-newshub-video__container");
+    const slides = swiperContainer.querySelectorAll(".swiper-slide");
+    let isNotSlideable = false;
+
+    if (slides.length < 2) {
+      isNotSlideable = true;
+    }
+
     const swiperOptions = {
+      modules: [Navigation],
+
       slidesPerView: "auto",
       observer: true,
       observeSlideChildren: true,
       observeParents: true,
       grabCursor: true,
       spaceBetween: 40,
-      slidesOffsetAfter: 100,
+      watchOverflow: true,
+      slidesOffsetBefore: 1,
+      slidesOffsetAfter: isNotSlideable ? 0 : 80,
+
+      navigation: {
+        nextEl: el.querySelector(".cmp-newshub-video__next"),
+        prevEl: el.querySelector(".cmp-newshub-video__prev"),
+        disabledClass: "cmp-newshub-video__navigation--disabled",
+        hiddenClass: "cmp-newshub-video__navigation--hidden",
+      },
 
       breakpoints: {
+        1400: {
+          spaceBetween: 105,
+          slidesOffsetBefore: 1,
+          slidesOffsetAfter: isNotSlideable ? 0 : 221,
+        },
+
         1025: {
-          spaceBetween: 100,
-          slidesOffsetAfter: 280,
+          spaceBetween: 105,
+          slidesOffsetBefore: 1,
+          slidesOffsetAfter: isNotSlideable ? 0 : 280,
         },
 
         768: {
           spaceBetween: 60,
-          slidesOffsetAfter: 160,
+          slidesOffsetBefore: 1,
+          slidesOffsetAfter: isNotSlideable ? 0 : 88,
         },
       },
     };
 
-    const swiperContainer = el.querySelector(
-      ".cmp-newshub-video__article-container"
-    );
     const swiper = new Swiper(swiperContainer, swiperOptions);
   }
 

@@ -1,27 +1,36 @@
 <div data-sly-use.container="com.adobe.cq.wcm.core.components.models.LayoutContainer"
-     data-sly-use.newshubListContainer="com.techem.core.models.NewshubListContainer">
+	 data-sly-use.newshubListContainer="com.techem.core.models.NewshubListContainer">
 
-    <div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
-        Configure ${component.properties.jcr:title}
-    </div>
+	<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+		Configure ${component.properties.jcr:title}
+	</div>
 
-    <div class="cmp-newshub-list" data-component-name="newshub-list">
-        <h2 class="cmp-newshub-list__headline" data-sly-test="${newshubListContainer.containerHeadline}">${newshubListContainer.containerHeadline @ context='html'}</h2>
+	<div class="cmp-newshub-list" 
+		data-component-name="newshub-list"
+		data-sly-test.newsArticles="${newshubListContainer.newsArticles || newshubListContainer.insertionType == 'automatically' ? newshubListContainer.newsArticles : newshubListContainer.articleListManually}" 
+		data-increase-by="${newshubListContainer.artisToAdd}" 
+		data-initial="${newshubListContainer.initialAmount}" 
+		data-max="${newsArticles.size}">
 
-        <div data-sly-test="${newshubListContainer.insertionType}">
-            <sly data-sly-test.newsArticles="${newshubListContainer.newsArticles || newshubListContainer.insertionType == 'automatically' ? newshubListContainer.newsArticles : newshubListContainer.articleListManually}"/>
-            <div class="cmp-newshub-list__container" data-sly-list.articles="${newsArticles}">
-                <sly data-sly-use.template="newshub-list-template.html" data-sly-call="${template.news_textStage @ stageText=articles}">
-                </sly>
-            </div>
-        </div>
+		<h2 class="cmp-newshub-list__headline" data-sly-test="${newshubListContainer.containerHeadline}">${newshubListContainer.containerHeadline @ context='html'}</h2>
+		
+		<div data-sly-test="${newshubListContainer.insertionType}">
+			<div class="cmp-newshub-list__container" data-sly-list.articles="${newsArticles}">
+				<sly data-sly-use.template="newshub-list-template.html" data-sly-call="${template.news_textStage @ stageText=articles,listType=newshubListContainer.buttonType == 'loadmore' ? 'dynamic' : 'static'}">
+				</sly>
+			</div>
+		</div>
 
-        <div class="cmp-newshub-list__buttons">
-            <a data-sly-test="${newshubListContainer.buttonLabel}"
-               class="cmp-button button-primary"
-               href="${newshubListContainer.buttonLink}" target="_blank">
-                ${newshubListContainer.buttonLabel}
-            </a>
-        </div>
-    </div>
+		<div class="cmp-newshub-list__buttons">
+			<a data-sly-test="${newshubListContainer.buttonType == 'link'}"
+			   class="cmp-button button-primary"
+			   href="${newshubListContainer.buttonLink}" target="_blank">
+				${newshubListContainer.buttonLabelLink}
+			</a>
+			<a data-sly-test="${newshubListContainer.buttonType == 'loadmore'}"
+				class="cmp-button button-primary button-loadmore">
+				${newshubListContainer.buttonLabel}
+			</a>
+		</div>
+	</div>
 </div>

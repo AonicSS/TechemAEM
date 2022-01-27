@@ -45,6 +45,9 @@ public class NewshubListContainer {
     @ValueMapValue(name="buttonLabel")
     private String buttonLabel;
 
+    @ValueMapValue(name="buttonLabelLink")
+    private String buttonLabelLink;
+
     @ValueMapValue(name="buttonLink")
     private String buttonLink;
 
@@ -59,12 +62,21 @@ public class NewshubListContainer {
 
     @ValueMapValue(name="maxArticles")
     private int maxArticles;
-
+    
     @ValueMapValue(name="filePath")
     private String filePath;
 
     @ValueMapValue(name="filteringTags")
     private String[] filteringTags;
+
+    @ValueMapValue(name="buttonType")
+    private String buttonType;
+
+    @ValueMapValue(name="artisToAdd")
+    private int artisToAdd;
+
+    @ValueMapValue(name="initialAmount")
+    private int initialAmount;
 
     private List<Stage> newsArticles;
 
@@ -82,7 +94,7 @@ public class NewshubListContainer {
                 filterByTags();
                 orderList();
             }
-
+            
             if(insertionType.equals("manually")) {
                 if(articleListManually != null && articleListManually.size() > 0) {
                     for(Stage arti : articleListManually) {
@@ -117,12 +129,12 @@ public class NewshubListContainer {
     private void filterByTags() {
         if (CollectionUtils.isNotEmpty(newsItems)) {
             newsArticles = new ArrayList<>();
-
+            
             for(Resource res : newsItems) {
                 Resource artiContent = res.getChild(JcrConstants.JCR_CONTENT);
                 String[] artiTags = (String[]) artiContent.getValueMap().get(NameConstants.PN_TAGS);
                 boolean isNoCommonElements = true;
-
+                
                 if(artiTags != null){
                     isNoCommonElements = Collections.disjoint(Arrays.asList(artiTags), Arrays.asList(filteringTags));
 
@@ -137,23 +149,23 @@ public class NewshubListContainer {
     }
 
     private void orderList() {
-        if(orderBy != null && sortOrder != null) {
+        if(orderBy != null && sortOrder != null) {            
             switch(orderBy) {
                 case "dateArticle":
                     newsArticles.sort(Comparator.comparing(o -> ((Stage) o).getDateObject()));
-                    break;
-                case "dateModified":
+                break;
+                case "dateModified":    
                     newsArticles.sort(Comparator.comparing(o -> ((Stage) o).getLastModifiedObject()));
-                    break;
+                break;
                 case "dateCreation":
                     newsArticles.sort(Comparator.comparing(o -> ((Stage) o).getCreatedDate()));
-                    break;
+                break;
                 case "artiTitle":
                     newsArticles.sort(Comparator.comparing(o -> ((Stage) o).getHeadline().toLowerCase().replaceAll("\\s+", "")));
-                    break;
-                case "artiCategory":
+                break;
+                case "artiCategory": 
                     newsArticles.sort(Comparator.comparing(o -> ((Stage) o).getCategory().toLowerCase().replaceAll("\\s+", "")));
-                    break;
+                break;
                 default: break;
             }
 
@@ -192,8 +204,20 @@ public class NewshubListContainer {
         return containerHeadline;
     }
 
+    public String buttonLabelLink() {
+        return buttonLabelLink;
+    }
+
     public String getButtonLabel() {
         return buttonLabel;
+    }
+
+    public String getButtonType() {
+        return buttonType;
+    }
+
+    public int getArtisToAdd() {
+        return artisToAdd;
     }
 
     public String getButtonLink() {
@@ -206,6 +230,10 @@ public class NewshubListContainer {
 
     public int getMaxArticles() {
         return maxArticles;
+    }
+
+    public int getInitialAmount() {
+        return initialAmount;
     }
 
     public String getFilePath() {

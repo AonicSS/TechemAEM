@@ -1,0 +1,17 @@
+<template data-sly-template.similar_artis = "${ @ similareArtis}">
+    <a data-sly-test="${similareArtis.path}" href="${similareArtis.path}" class="cmp-similar-articles__article swiper-slide">
+        <div class="cmp-similar-articles__article-image-wrapper">
+            <img class="cmp-similar-articles__article-image" src="${similareArtis.image}" />
+        </div>  
+        <div class="cmp-similar-articles__article-title-wrapper">
+            <h3 class="cmp-similar-articles__article-title">
+                ${similareArtis.headline}
+            </h3>
+        </div>
+        <div class="newshub-icon-arrow">
+            <i class="newshub-icon-arrow__icon">
+                <div class="newshub-icon-arrow__arrow cmp-similar-articles__article-arrow"></div>
+            </i>
+        </div>
+    </a>
+</template>

@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL, resourceType = "techem/components/newshub-related-article")
 public class NewshubRelatedArticle {
-
+    
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Inject
@@ -77,12 +77,12 @@ public class NewshubRelatedArticle {
     private void filterByTags() {
         if (CollectionUtils.isNotEmpty(newsItems)) {
             newsArticles = new ArrayList<>();
-
+            
             for(Resource res : newsItems) {
                 Resource artiContent = res.getChild(JcrConstants.JCR_CONTENT);
                 String[] artiTags = (String[]) artiContent.getValueMap().get(NameConstants.PN_TAGS);
                 boolean isNoCommonElements = true;
-
+                
                 if(artiTags != null){
                     isNoCommonElements = Collections.disjoint(Arrays.asList(artiTags), Arrays.asList(filteringTags));
 
@@ -97,23 +97,23 @@ public class NewshubRelatedArticle {
     }
 
     private void orderList() {
-        if(orderBy != null && sortOrder != null) {
+        if(orderBy != null && sortOrder != null) {            
             switch(orderBy) {
                 case "dateArticle":
                     newsArticles.sort(Comparator.comparing(o -> ((Stage) o).getDateObject()));
-                    break;
-                case "dateModified":
+                break;
+                case "dateModified":    
                     newsArticles.sort(Comparator.comparing(o -> ((Stage) o).getLastModifiedObject()));
-                    break;
+                break;
                 case "dateCreation":
                     newsArticles.sort(Comparator.comparing(o -> ((Stage) o).getCreatedDate()));
-                    break;
+                break;
                 case "artiTitle":
                     newsArticles.sort(Comparator.comparing(o -> ((Stage) o).getHeadline().toLowerCase().replaceAll("\\s+","")));
-                    break;
-                case "artiCategory":
+                break;
+                case "artiCategory": 
                     newsArticles.sort(Comparator.comparing(o -> ((Stage) o).getCategory().toLowerCase().replaceAll("\\s+","")));
-                    break;
+                break;
                 default: break;
             }
 

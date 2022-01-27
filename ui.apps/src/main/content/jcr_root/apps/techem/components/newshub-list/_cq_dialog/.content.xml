@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-          jcr:primaryType="nt:unstructured"
-          jcr:title="Newshub list item"
-          sling:resourceType="cq/gui/components/authoring/dialog"
-          extraClientlibs="[core.wcm.components.teaser.v1.editor]"
-          helpPath="https://www.adobe.com/go/aem_cmp_teaser_v1"
-          trackingFeature="core-components:teaser:v1">
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Newshub list item"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[core.wcm.components.teaser.v1.editor]"
+    helpPath="https://www.adobe.com/go/aem_cmp_teaser_v1"
+    trackingFeature="core-components:teaser:v1">
     <content
-            granite:class="cmp-teaser__editor"
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="granite/ui/components/coral/foundation/container">
+        granite:class="cmp-teaser__editor"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
         <items jcr:primaryType="nt:unstructured">
             <tabs
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
-                    maximized="{Boolean}true">
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
                 <items
-                        jcr:primaryType="nt:unstructured"
-                        sling:hideChildren="[text,actions,image]">
+                    jcr:primaryType="nt:unstructured"
+                    sling:hideChildren="[text,actions,image]">
                     <text-descrptions
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Text Description"
-                            sling:resourceType="granite/ui/components/coral/foundation/container"
-                            margin="{Boolean}true">
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Text Description"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
                             <columns
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                                    margin="{Boolean}true">
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
                                 <items jcr:primaryType="nt:unstructured">
                                     <column
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
                                             <containerHeadline
                                                     jcr:primaryType="nt:unstructured"
@@ -96,16 +96,91 @@
                                                     </cui>
                                                 </uiSettings>
                                             </containerHeadline>
-                                            <buttonLabel
+                                            <listButton
+                                                    granite:class="cq-dialog-dropdown-showhide"
                                                     jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                    fieldLabel="Button label"
-                                                    name="./buttonLabel" />
-                                            <buttonLink
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldDescription="Choose the behaviour of the button."
+                                                    fieldLabel="Button Behaviour"
+                                                    name="./buttonType">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <btnHidden
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Hidden"
+                                                            value="hidden"/>
+                                                    <btnLink
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Link"
+                                                            value="link"/>
+                                                    <btnLoadMore
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Load More"
+                                                            value="loadmore"/>
+                                                </items>
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        cq-dialog-dropdown-showhide-target=".articles-showhide-target-button"/>
+                                            </listButton>
+                                            <btnLink
+                                                    granite:class="articles-showhide-target-button"
                                                     jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                    fieldLabel="Button link"
-                                                    name="./buttonLink" />
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <buttonLabel
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Button label"
+                                                            required="{Boolean}true"
+                                                            name="./buttonLabelLink" />
+                                                    <buttonLink
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Button link"
+                                                            required="{Boolean}true"
+                                                            name="./buttonLink" />
+                                                </items>
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        showhidetargetvalue="link"/>
+                                            </btnLink>
+                                            <btnLoadMore
+                                                    granite:class="articles-showhide-target-button"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <buttonLabel
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Button label"
+                                                            required="{Boolean}true"
+                                                            name="./buttonLabel" />
+                                                    <initialAmount
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                            fieldDescription="Initial amount of articles out of the total to show."
+                                                            fieldLabel="Initial Amount"
+                                                            defaultValue="1"
+                                                            max="{Long}50"
+                                                            min="{Long}1"
+                                                            value="1"
+                                                            required="{Boolean}true"
+                                                            name="./initialAmount"/>
+                                                    <artisToAdd
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                            fieldDescription="Amount of articles to add after each button press."
+                                                            fieldLabel="Number of articles to add"
+                                                            defaultValue="10"
+                                                            max="{Long}50"
+                                                            min="{Long}10"
+                                                            value="10"
+                                                            required="{Boolean}true"
+                                                            name="./artisToAdd"/>
+                                                </items>
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        showhidetargetvalue="loadmore"/>
+                                            </btnLoadMore>
                                             <manualorautomatically
                                                     granite:class="cq-dialog-dropdown-showhide"
                                                     jcr:primaryType="nt:unstructured"
@@ -187,14 +262,14 @@
                                                                                 fieldLabel="Category"
                                                                                 name="./category"/>
                                                                         <date
-                                                                                jcr:primaryType="nt:unstructured"
-                                                                                sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
-                                                                                displayedFormat="YYYY-MM-DD HH:mm"
-                                                                                fieldDescription="The date of the article. Leave this blank to fetch it directly from the article."
-                                                                                fieldLabel="Article Date"
-                                                                                minDate="today"
-                                                                                name="./date"
-                                                                                type="datetime"/>
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                                            displayedFormat="YYYY-MM-DD HH:mm"
+                                                                            fieldDescription="The date of the article. Leave this blank to fetch it directly from the article."
+                                                                            fieldLabel="Article Date"
+                                                                            minDate="today"
+                                                                            name="./date"
+                                                                            type="datetime"/>
                                                                         <teaserText
                                                                                 jcr:primaryType="nt:unstructured"
                                                                                 sling:resourceType="cq/gui/components/authoring/dialog/richtext"
@@ -250,7 +325,7 @@
                                                     <maxArticles
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
-                                                            fieldDescription="Choose the maximum number of articles that will be displayed"
+                                                            fieldDescription="Choose the maximum number of articles that will be displayed."
                                                             fieldLabel="Max articles"
                                                             defaultValue="5"
                                                             max="{Long}40"
@@ -277,12 +352,12 @@
                                                             autocreateTag="true"
                                                             required="{Boolean}true"/>
                                                     <orderBy
-                                                            granite:class="cq-dialog-dropdown"
-                                                            jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                            fieldDescription="Order List By"
-                                                            fieldLabel="Order By"
-                                                            name="./orderBy">
+                                                        granite:class="cq-dialog-dropdown"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldDescription="Order List By"
+                                                        fieldLabel="Order By"
+                                                        name="./orderBy">
                                                         <items jcr:primaryType="nt:unstructured">
                                                             <dateArticle
                                                                     jcr:primaryType="nt:unstructured"
@@ -300,19 +375,19 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     text="Title"
                                                                     value="artiTitle"/>
-                                                            <artiCategory
+                                                             <artiCategory
                                                                     jcr:primaryType="nt:unstructured"
                                                                     text="Category"
-                                                                    value="artiCategory"/>
+                                                                    value="artiCategory"/>                                                             
                                                         </items>
                                                     </orderBy>
                                                     <sortOrder
-                                                            granite:class="cq-dialog-dropdown"
-                                                            jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                            fieldDescription="The order of the items."
-                                                            fieldLabel="Sort Order"
-                                                            name="./sortOrder">
+                                                        granite:class="cq-dialog-dropdown"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldDescription="The order of the items."
+                                                        fieldLabel="Sort Order"
+                                                        name="./sortOrder">
                                                         <items jcr:primaryType="nt:unstructured">
                                                             <ascending
                                                                     jcr:primaryType="nt:unstructured"
@@ -326,8 +401,8 @@
                                                     </sortOrder>
                                                 </items>
                                                 <granite:data
-                                                        jcr:primaryType="nt:unstructured"
-                                                        showhidetargetvalue="automatically"/>
+                                                    jcr:primaryType="nt:unstructured"
+                                                    showhidetargetvalue="automatically"/>
                                             </automatically>
                                         </items>
                                     </column>

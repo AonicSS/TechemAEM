@@ -1,0 +1,213 @@
+.cmp-heat-meter {
+  max-width: 780px;
+  margin: 0 auto;
+  padding-bottom: 70px;
+
+  &__headline {
+    font-size: 40px;
+    line-height: 1.4;
+    letter-spacing: -0.17px;
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include large {
+      font-size: 32px;
+      line-height: normal;
+      letter-spacing: -0.14px;
+      margin-bottom: 20px;
+    }
+
+    @include small {
+      font-size: 24px;
+      line-height: 1.42;
+      letter-spacing: normal;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 1.75;
+    letter-spacing: -0.1px;
+    color: $color-dark-grey;
+    margin-bottom: 50px;
+
+    @include large {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    font-size: 16px;
+    line-height: 1.75;
+    letter-spacing: normal;
+    margin-bottom: 30px;
+  }
+
+  &__fieldset {
+    position: relative;
+    border: none;
+    margin: 0 0 15px 0;
+    padding: 0;
+
+    @include small {
+      margin: 0 0 20px 0;
+    }
+  }
+
+  &__legend {
+    font-size: 16px;
+    line-height: 1.75;
+    letter-spacing: normal;
+    margin-bottom: 17px;
+  }
+
+  &__label {
+    display: block;
+    padding-bottom: 25px;
+
+    &-text {
+      display: block;
+      line-height: 1.63;
+      letter-spacing: -0.1px;
+      color: $color-dark-grey;
+      margin: 0 0 20px 0;
+    }
+  }
+
+  &__radio {
+    margin-bottom: 25px;
+
+    .cmp-heat-meter {
+      &__label {
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        display: flex;
+        height: max-content;
+        align-items: center;
+        margin-bottom: 25px;
+        padding: 0;
+
+        &-text {
+          margin: 0 0 0 10px;
+        }
+      }
+
+      &__input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+
+      &__checkmark {
+        height: 20px;
+        width: 20px;
+        border: 2px solid $color-separator;
+        border-radius: 50%;
+        position: relative;
+
+        &::after {
+          content: "";
+          display: none;
+          width: 20px;
+          height: 20px;
+          background-color: $color-headline-red;
+          -webkit-box-shadow: inset 0 0 0 5px $color-background;
+          box-shadow: inset 0 0 0 5px $color-background;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      &__input:checked + .cmp-heat-meter__checkmark {
+        &::after {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__input {
+    margin: 0;
+    padding: 0;
+
+    &-error {
+      color: $color-headline-red;
+      font-size: 12px;
+      display: none;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  &__submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 61px;
+
+    @include small {
+      flex-direction: column-reverse;
+      align-items: flex-end;
+    }
+
+    span {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.67;
+      letter-spacing: normal;
+      color: $color-dark-grey;
+    }
+
+    &-btn {
+      width: 170px;
+      justify-self: end;
+      flex: 0 0 auto;
+    }
+  }
+
+  &__result {
+    &-container {
+      @include small {
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+
+    &-wrapper {
+      display: none;
+    }
+  }
+
+  &__flow-min,
+  &__flow-best {
+    font-size: 16px;
+    line-height: 1.67;
+    letter-spacing: normal;
+    color: $color-dark-grey;
+    display: block;
+  }
+
+  .bold {
+    font-family: $font-universe-roman-bold;
+  }
+
+  input[type="text"] {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: solid 1.5px $color-separator;
+    width: 100%;
+    height: 48px;
+    padding: 5px 10px;
+  }
+}

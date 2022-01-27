@@ -1,5 +1,5 @@
-<template data-sly-template.news_textStage = "${ @ stageText}">
-    <a class="cmp-newshub-list-item" href="${stageText.path}" target="_self">
+<template data-sly-template.news_textStage = "${ @ stageText,listType}">
+    <a class="cmp-newshub-list-item ${listType == 'dynamic' ? 'cmp-newshub-list-item-hidden' : 'cmp-newshub-list-item-visible'}" href="${stageText.path}" target="_self">
         <div data-sly-test="${stageText.image}" class="cmp-newshub-list-item__image-wrapper">
             <img class="cmp-newshub-list-item__image" src="${stageText.image}" />
         </div>

@@ -1,10 +1,7 @@
 <sly data-sly-use.newsModel="com.techem.core.models.NewshubNews" />
 <sly data-sly-test.newsArticles="${newsModel.newsArticles.entrySet}" />
 
-<div
-  data-sly-test="${(wcmmode.edit || wcmmode.preview)}"
-  class="cq-placeholder"
->
+<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
   Configure ${component.properties.jcr:title}
 </div>
 
@@ -13,32 +10,32 @@
     ${newsModel.headline}
   </div>
   <div class="cmp-newshub-news-slider__container swiper-container">
-    <div
-      class="cmp-newshub-news-slider-wrapper swiper-wrapper"
-      data-sly-list.articles="${newsArticles}"
-    >
-      <sly
-        data-sly-use.template="newshub-templates.html"
-        data-sly-call="${template.news_textStage @ stageText = articles.key, newsArticle = articles.value}"
-      >
+    <div class="cmp-newshub-news-slider__wrapper swiper-wrapper" data-sly-list.articles="${newsArticles}">
+      <sly data-sly-use.template="newshub-templates.html"
+           data-sly-call="${template.news_textStage @ stageText = articles.key, newsArticle = articles.value}">
       </sly>
     </div>
   </div>
+  <button class="cmp-newshub-news-slider__prev" type="button"
+          aria-label="${'Previous' @ i18n}" data-cmp-hook-slider="previous">
+    <img class="cmp-newshub-news-slider__prev-icon"
+         src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-left-white.svg" />
+    <span class="cmp-newshub-news-slider__prev-text" hidden>${'<' @ i18n}</span>
+  </button>
+  <button class="cmp-newshub-news-slider__next"
+          type="button" aria-label="${'Next' @ i18n}" data-cmp-hook-slider="next">
+    <img class="cmp-newshub-news-slider__next-icon"
+         src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-right-white.svg" />
+    <span class="cmp-newshub-news-slider__next-text" hidden>${'>' @ i18n}</span>
+  </button>
+
   <div class="cmp-newshub-news-slider__button-wrapper section button">
-    <a
-      data-sly-test="${newsModel.primaryButtonLabel}"
-      class="cmp-newshub-news-slider__button cmp-button button-primary"
-      href="${newsModel.primaryButtonLink}"
-      target="_blank"
-    >
+    <a data-sly-test="${newsModel.primaryButtonLabel}" class="cmp-newshub-news-slider__button cmp-button button-primary"
+       href="${newsModel.primaryButtonLink}" target="_blank">
       ${newsModel.primaryButtonLabel}
     </a>
-    <a
-      data-sly-test="${newsModel.secondaryButtonLabel}"
-      class="cmp-newshub-news-slider__button cmp-button button-secondary"
-      href="${newsModel.secondaryButtonLink}"
-      target="_blank"
-    >
+    <a data-sly-test="${newsModel.secondaryButtonLabel}" class="cmp-newshub-news-slider__button cmp-button button-secondary"
+       href="${newsModel.secondaryButtonLink}" target="_blank">
       ${newsModel.secondaryButtonLabel}
     </a>
   </div>

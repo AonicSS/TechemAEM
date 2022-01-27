@@ -1,39 +1,69 @@
-import Swiper from "swiper";
+import Swiper, { Navigation } from "swiper";
 
 (function ($) {
   "use strict";
 
   function initSwiper(el) {
-    const swiperOptions = {
-      slidesPerView: "auto",
-      observer: true,
-      observeSlideChildren: true,
-      observeParents: true,
-      grabCursor: true,
-      spaceBetween: 40,
-      slidesOffsetAfter: 80,
-      slidesPerGroup: 1,
-
-      breakpoints: {
-        1025: {
-          slidesPerView: "auto",
-          spaceBetween: 105,
-          slidesOffsetAfter: 293,
-          slidesPerGroup: 3
-        },
-
-        768: {
-          slidesPerView: "auto",
-          spaceBetween: 75,
-          slidesOffsetAfter: 75,
-          slidesPerGroup: 1
-        }
-      }
-    };
 
     const swiperContainer = el.querySelector(
       ".cmp-newshub-news-slider__container"
     );
+    const slides = swiperContainer.querySelectorAll(".swiper-slide");
+
+    let isNotSlideable = false;
+    let notSlideableOnTablet = false;
+
+    if (slides.length < 4) {
+      isNotSlideable = true;
+
+      if (slides.length < 3) {
+        notSlideableOnTablet = true;
+      }
+    }
+
+    const swiperOptions = {
+      modules: [Navigation],
+
+      slidesPerView: "auto",
+      observer: true,
+      observeSlideChildren: true,
+      observeParents: true,
+
+      watchOverflow: true,
+      grabCursor: true,
+      spaceBetween: 40,
+      slidesOffsetBefore: 1,
+      slidesOffsetAfter: 75,
+      slidesPerGroup: 1,
+
+      navigation: {
+        nextEl: el.querySelector(".cmp-newshub-news-slider__next"),
+        prevEl: el.querySelector(".cmp-newshub-news-slider__prev"),
+        disabledClass: "cmp-newshub-news-slider__navigation--disabled",
+        hiddenClass: "cmp-newshub-news-slider__navigation--hidden"
+      },
+
+      breakpoints: {
+        1400: {
+          spaceBetween: 105,
+          slidesOffsetBefore: 1,
+          slidesOffsetAfter: isNotSlideable ? 0 : 160
+        },
+
+        1025: {
+          spaceBetween: 105,
+          slidesOffsetBefore: 1,
+          slidesOffsetAfter: isNotSlideable ? 0 : 145
+        },
+
+        768: {
+          spaceBetween: 75,
+          slidesOffsetBefore: isNotSlideable ? 0 : 1,
+          slidesOffsetAfter: notSlideableOnTablet ? 0 : 100
+        }
+      }
+    };
+
     const swiper = new Swiper(swiperContainer, swiperOptions);
   }
 

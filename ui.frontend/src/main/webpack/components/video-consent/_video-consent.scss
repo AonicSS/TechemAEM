@@ -1,13 +1,10 @@
 .cmp-video-consent {
   height: 100%;
+  width: 100%;
   position: relative;
 
   &__empty {
     padding-bottom: 56.25%;
-
-    @include small {
-      padding-bottom: 62%;
-    }
   }
 
   &__container {
@@ -52,16 +49,13 @@
   }
 
   &__iframe {
-    &:after {
-      padding-top: 56.25%;
-      display: block;
-      content: "";
-    }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
     iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
     }
