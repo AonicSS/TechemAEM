@@ -68,6 +68,7 @@
             }
 
             &__headline {
+                max-width: 990px;
                 font-family: $font-universe-roman-bold;
                 font-size: 50px;
                 font-weight: 300;
@@ -98,6 +99,7 @@
                     line-height: 1.75;
                     letter-spacing: -0.1px;
                     color: $color-separator-dark;
+                    display: flex;
 
                     @media only screen and (max-width:1024px) {
                         margin: 0 0 30px 0;
@@ -130,10 +132,14 @@ body.news-page {
                 }
 
                 ul {
+                    display: flex;
+                    flex-direction: column;
                     padding-left: 18px;
                 }
 
                 ul, p {
+                  min-width: 100px;
+
                     @include large {
                         box-sizing: border-box;
                         margin: auto;
