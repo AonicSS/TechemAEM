@@ -13,6 +13,15 @@
     }
   }
 
+  &__sub-headline {
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: $color-separator-dark;
+    font-family: $font-universe-roman;
+    letter-spacing: 0.51px;
+    text-transform: uppercase;
+  }
+
   &__headline {
     margin: 0;
     line-height: normal;
