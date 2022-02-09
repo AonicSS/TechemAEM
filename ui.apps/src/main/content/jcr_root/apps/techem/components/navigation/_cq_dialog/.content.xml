@@ -178,6 +178,60 @@
                             </columns>
                         </items>
                     </portal>
+                    <target
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Target groups"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <targetBtnLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Target group button label"
+                                                    name="./targetBtnLabel"/>
+                                            <multi
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                    composite="{Boolean}true">
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        max-items="3"/>
+                                                <field
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                        name="./targetItems">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <label
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                fieldDescription="Enter the button label"
+                                                                fieldLabel="Label"
+                                                                name="./targetItemLabel"/>
+                                                        <portalLink
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="cq/gui/components/coral/common/form/pagefield"
+                                                                fieldDescription="Link to a content page, external URL or page anchor."
+                                                                fieldLabel="Link"
+                                                                name="./targetItemLink"
+                                                                required="{Boolean}true"/>
+                                                    </items>
+                                                </field>
+                                            </multi>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </target>
                 </items>
             </tabs>
         </items>
