@@ -50,11 +50,8 @@ public class Navigation {
     @ValueMapValue(name = "targetBtnLabel")
     private String targetBtnLabel;
 
-    @ValueMapValue(name = "targetItemLabel")
-    private String targetItemLabel;
-
-    @ValueMapValue(name = "targetItemLink")
-    private String targetItemLink;
+    @ValueMapValue(name = "targetOpenNewTab")
+    private Boolean targetOpenNewTab;
 
     @ValueMapValue(name = "logoLink")
     private String logoLink;
@@ -154,23 +151,12 @@ public class Navigation {
         return portalBtnLabel;
     }
 
-    public String getTargetItemLabel() {
-        return targetItemLabel;
-    }
-
-    public String getTargetItemLink() {
-        if (targetItemLink != null) {
-            Resource pathResource = resourceResolver.getResource(targetItemLink);
-            // check if resource exists and link is internal
-            if (pathResource != null) {
-                targetItemLink = targetItemLink + ".html";
-            }
-        }
-        return targetItemLink;
-    }
-
     public String getTargetBtnLabel() {
         return targetBtnLabel;
+    }
+
+    public Boolean getTargetOpenNewTab() {
+        return targetOpenNewTab;
     }
 
     public String getButtonLink() { return buttonLink; }

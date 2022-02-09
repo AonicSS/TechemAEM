@@ -198,6 +198,14 @@
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                     fieldLabel="Target group button label"
                                                     name="./targetBtnLabel"/>
+                                            <targetOpenNewTab
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    fieldDescription="Opens the links in a new window/tab"
+                                                    name="./targetOpenNewTab"
+                                                    text="Open link in new window"
+                                                    uncheckedValue="{Boolean}false"
+                                                    value="{Boolean}true"/>
                                             <multi
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
@@ -216,7 +224,7 @@
                                                                 fieldDescription="Enter the button label"
                                                                 fieldLabel="Label"
                                                                 name="./targetItemLabel"/>
-                                                        <portalLink
+                                                        <targetLink
                                                                 jcr:primaryType="nt:unstructured"
                                                                 sling:resourceType="cq/gui/components/coral/common/form/pagefield"
                                                                 fieldDescription="Link to a content page, external URL or page anchor."

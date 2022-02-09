@@ -21,7 +21,7 @@
                     <sly data-sly-test="${navigation.targetItemList.size != 0}">
                         <button class="header__target-trigger">${navigation.targetBtnLabel}</button>
                         <sly data-sly-use.templates="navigation-templates.html"
-                             data-sly-call="${templates.targetSelector @ targetItems = navigation.targetItemList}">
+                             data-sly-call="${templates.targetSelector @ targetItems = navigation.targetItemList, targetOpenNewTab = navigation.targetOpenNewTab}">
                         </sly>
                     </sly>
                 </div>
@@ -93,7 +93,7 @@
 
                 <sly data-sly-test="${navigation.targetItemList.size == 1 && mapList.last}" data-sly-list.item="${navigation.targetItemList}">
                     <li class="navigation__link-config navigation__link-target-nav">
-                        <a class="navigation__sub-link" href="${item.targetItemLink @ context='uri'}" target="_blank">
+                        <a class="navigation__sub-link" href="${item.targetItemLink @ context='uri'}" target="${navigation.targetOpenNewTab ? '_blank' : ''}">
                             ${item.targetItemLabel}
                             <i class="header-icon-mobile">
                                 <div class="header-arrow"></div>
@@ -172,7 +172,7 @@
                             </div>
                             <div class="headline-wrapper">
                                 <sly data-sly-use.lib="navigation-templates.html"
-                                     data-sly-call="${lib.dropdown_content_target @  targetItems = navigation.targetItemList}">
+                                     data-sly-call="${lib.dropdown_content_target @  targetItems = navigation.targetItemList, targetOpenNewTab = navigation.targetOpenNewTab}">
                                 </sly>
                             </div>
                         </div>
