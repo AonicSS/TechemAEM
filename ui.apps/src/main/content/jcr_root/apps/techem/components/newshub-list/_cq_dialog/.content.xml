@@ -328,7 +328,7 @@
                                                             fieldDescription="Choose the maximum number of articles that will be displayed."
                                                             fieldLabel="Max articles"
                                                             defaultValue="5"
-                                                            max="{Long}40"
+                                                            max="{Long}4000"
                                                             min="{Long}2"
                                                             value="5"
                                                             required="{Boolean}true"
