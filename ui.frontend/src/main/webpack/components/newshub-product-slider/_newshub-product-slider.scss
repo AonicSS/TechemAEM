@@ -2,6 +2,13 @@
   position: relative;
   padding: 100px 0 100px 100px;
 
+  @media screen and (min-width: 1460px) {
+    margin: 0 auto;
+    margin-left: calc((100% - 77pc) / 2);
+    max-width: 77pc;
+    padding: 100px 0 100px 0;
+  }
+
   @include large {
     padding: 70px 0 70px 30px;
   }
@@ -72,6 +79,10 @@
     height: max-content;
     max-height: max-content;
 
+    @media screen and (min-width: 1460px) {
+      width: 307px;
+    }
+
     @include large {
       width: 180px;
     }
@@ -107,6 +118,10 @@
         overflow: hidden;
         position: relative;
         margin-bottom: 20px;
+
+        @media screen and (min-width: 1460px) {
+          height: 230px;
+        }
 
         @include large {
           height: 135px;
@@ -164,7 +179,7 @@
     padding: 0;
     margin: 0;
     z-index: 900;
-    box-shadow: 0 2px 11px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 11px 1px rgba(0, 0, 0, 0.4);
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -189,6 +204,10 @@
       right: 10px;
     }
 
+    @media screen and (min-width: 1460px) {
+      right: -100px;
+    }
+
     &-icon {
       right: 32%;
     }
@@ -199,6 +218,10 @@
 
     @media (pointer: fine) and (max-width: 1024px) {
       left: 10px;
+    }
+
+    @media screen and (min-width: 1460px) {
+      left: -100px;
     }
 
     &-icon {
