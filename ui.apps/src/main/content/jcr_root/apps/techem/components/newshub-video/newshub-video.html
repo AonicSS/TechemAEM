@@ -29,18 +29,20 @@
             </div>
         </div>
     </div>
-    <button class="cmp-newshub-video__prev" type="button"
-            aria-label="${'Previous' @ i18n}" data-cmp-hook-slider="previous">
-        <img class="cmp-newshub-video__prev-icon"
-             src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-left-white.svg" />
-        <span class="cmp-newshub-video__prev-text" hidden>${'<' @ i18n}</span>
-    </button>
-    <button class="cmp-newshub-video__next" type="button"
-            aria-label="${'Next' @ i18n}" data-cmp-hook-slider="next">
-        <img class="cmp-newshub-video__next-icon"
-             src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-right-white.svg" />
-        <span class="cmp-newshub-video__next-text" hidden>${'>' @ i18n}</span>
-    </button>
+    <div class="cmp-newshub-video__button-container">
+        <button class="cmp-newshub-video__prev" type="button"
+                aria-label="${'Previous' @ i18n}" data-cmp-hook-slider="previous">
+            <img class="cmp-newshub-video__prev-icon"
+                 src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-left-white.svg" />
+            <span class="cmp-newshub-video__prev-text" hidden>${'<' @ i18n}</span>
+        </button>
+        <button class="cmp-newshub-video__next" type="button"
+                aria-label="${'Next' @ i18n}" data-cmp-hook-slider="next">
+            <img class="cmp-newshub-video__next-icon"
+                 src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-right-white.svg" />
+            <span class="cmp-newshub-video__next-text" hidden>${'>' @ i18n}</span>
+        </button>
+    </div>
 
     <div class="cmp-newshub-video__buttons">
         <a data-sly-test="${newsModel.primaryButtonLabel}" class="cmp-newshub-video__button cmp-button button-primary"

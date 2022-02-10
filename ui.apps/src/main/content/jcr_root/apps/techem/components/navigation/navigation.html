@@ -10,11 +10,22 @@
     <div class="header__wrapper">
         <div class="header__components">
             <div class="header__left">
-            <span class="header__logo">
-                <a data-sly-test="${navigation.logoImage}" href="${navigation.logoLink}" target="_self">
-                    <img class="header__logo-image" src="${navigation.logoImage}">
-                </a>
-            </span>
+                <span class="header__logo">
+                    <a data-sly-test="${navigation.logoImage}" href="${navigation.logoLink}" target="_self">
+                        <img class="header__logo-image" src="${navigation.logoImage}">
+                    </a>
+                </span>
+
+                <div class="header__target">
+
+                    <sly data-sly-test="${navigation.targetItemList.size != 0}">
+                        <button class="header__target-trigger">${navigation.targetBtnLabel}</button>
+                        <sly data-sly-use.templates="navigation-templates.html"
+                             data-sly-call="${templates.targetSelector @ targetItems = navigation.targetItemList, targetOpenNewTab = navigation.targetOpenNewTab}">
+                        </sly>
+                    </sly>
+                </div>
+
             </div>
             <div data-sly-test="${navigation.enableSearchbar}" class="headerSearchBar" data-sly-resource="${'yext-search-bar' @ decorationTagName='div', resourceType='techem/components/yext-search-bar' }"></div>
             <div class="header__right">
@@ -43,7 +54,7 @@
                 <div class="header__lang-nav ${wcmmode.edit || wcmmode.preview ? '' : 'hidden'}">
                     <sly data-sly-resource="${'lang-nav' @ resourceType='techem/components/languagenavigation'}"></sly>
                 </div>
-                
+
                 <div class="header_burger-menu" data-sly-test="${navigationItems.size > 0 && !navigation.hideNavigation || navigation.PortalItemList.size > 0 || resource['lang-nav/jcr:primaryType']}">
                     <div class="burger-click-region">
                         <span class="burger-menu-piece"></span>
@@ -63,20 +74,41 @@
                 </li>
 
                 <sly data-sly-test="${navigation.PortalItemList.size == 1 && mapList.last}" data-sly-list.item="${navigation.PortalItemList}">
-                    <li class="navigation__link-portal-nav">
+                    <li class="navigation__link-config navigation__link-portal-nav">
                         <a class="navigation__sub-link" href="${item.portalItemLink @ context='uri'}" target="_blank">
                             ${item.portalItemLabel}
                             <i class="header-icon-mobile">
+                                <div class="header-arrow"></div>
+                            </i></a>
+                    </li>
+                </sly>
+
+                <sly data-sly-test="${navigation.PortalItemList.size > 1 && mapList.last}">
+                    <li class="navigation__link navigation__link-config navigation__link-portal-nav"  data-sly-attribute.dropdown-item="portal-nav">
+                        <a class="navigation__sub-link"  href="#"> ${navigation.portalBtnLabel} <i class="header-icon-mobile">
                             <div class="header-arrow"></div>
                         </i></a>
                     </li>
                 </sly>
 
-                <sly data-sly-test="${navigation.PortalItemList.size > 1 && mapList.last}">
-                    <li class="navigation__link navigation__link-portal-nav"  data-sly-attribute.dropdown-item="portal-nav">
-                        <a class="navigation__sub-link"  href="#"> ${navigation.portalBtnLabel} <i class="header-icon-mobile">
-                            <div class="header-arrow"></div>
-                        </i></a>
+                <sly data-sly-test="${navigation.targetItemList.size == 1 && mapList.last}" data-sly-list.item="${navigation.targetItemList}">
+                    <li class="navigation__link-config navigation__link-target-nav">
+                        <a class="navigation__sub-link" href="${item.targetItemLink @ context='uri'}" target="${navigation.targetOpenNewTab ? '_blank' : ''}">
+                            ${item.targetItemLabel}
+                            <i class="header-icon-mobile">
+                                <div class="header-arrow"></div>
+                            </i>
+                        </a>
+                    </li>
+                </sly>
+
+                <sly data-sly-test="${navigation.targetItemList.size > 1 && mapList.last}">
+                    <li class="navigation__link navigation__link-config navigation__link-target-nav" data-sly-attribute.dropdown-item="target-nav">
+                        <a class="navigation__sub-link"  href="#"> ${navigation.targetBtnLabel}
+                            <i class="header-icon-mobile">
+                                <div class="header-arrow"></div>
+                            </i>
+                        </a>
                     </li>
                 </sly>
             </ul>
@@ -122,6 +154,25 @@
                             <div class="headline-wrapper">
                                 <sly data-sly-use.lib="navigation-templates.html"
                                      data-sly-call="${lib.dropdown_content_portal @  portalItems = navigation.PortalItemList}">
+                                </sly>
+                            </div>
+                        </div>
+                        <div class="close">
+                            <i class="header-icon">
+                                <div class="header-arrow"></div>
+                            </i>
+                            <span>${navigation.backButtonText}</span>
+                        </div>
+                    </div>
+
+                    <div class="header__dropdown-content header__dropdown-hidden" data-sly-test="${mapList.last}" data-sly-attribute.name="target-nav">
+                        <div class="header-content__left">
+                            <div class="header-title-wrapper">
+                                <span class="header-title">${navigation.targetBtnLabel}</span>
+                            </div>
+                            <div class="headline-wrapper">
+                                <sly data-sly-use.lib="navigation-templates.html"
+                                     data-sly-call="${lib.dropdown_content_target @  targetItems = navigation.targetItemList, targetOpenNewTab = navigation.targetOpenNewTab}">
                                 </sly>
                             </div>
                         </div>

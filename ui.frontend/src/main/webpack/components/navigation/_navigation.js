@@ -14,8 +14,10 @@
             langNavBtn: '.cmp-languagenavigation__trigger',
             langNavActive: '.cmp-languagenavigation__item--active',
             portalNavBtn: '.header__portal-trigger',
+            targetNavBtn: '.header__target-trigger',
             langNavCmp: '.cmp-languagenavigation',
             portalNavCmp: '.header__portal',
+            targetNavCmp: '.header__target',
             langNavContent: '.cmp-languagenavigation__group',
             headerButton: ".header__button",
             active: "navigation-active",
@@ -38,6 +40,7 @@
             this.redirectButton();
             this.showLangNav();
             this.showPortalNav();
+            this.showTargetNav();
             this.hideNavigationOnSizeChange();
         }.bind(this);
 
@@ -64,6 +67,7 @@
 
             $langNavBtn.on('click', () => {
                 this.closePortalNav();
+                this.closeTargetNav();
                 $langNavCmp.toggleClass('is-open');
             });
         }.bind(this);
@@ -86,6 +90,21 @@
         this.closePortalNav = function () {
             const $portalNavCmp = this.$el.find(this.selectors.portalNavCmp);
             $portalNavCmp.removeClass('is-open');
+        }.bind(this);
+
+        this.showTargetNav = function () {
+            const $targetNavBtn = this.$el.find(this.selectors.targetNavBtn);
+            const $targetNavCmp = this.$el.find(this.selectors.targetNavCmp);
+
+            $targetNavBtn.on('click', () => {
+                this.closeLangNav();
+                $targetNavCmp.toggleClass('is-open');
+            });
+        }.bind(this);
+
+        this.closeTargetNav = function () {
+            const $targetNavCmp = this.$el.find(this.selectors.targetNavCmp);
+            $targetNavCmp.removeClass('is-open');
         }.bind(this);
 
         this.showAndHideDropdown = function () {

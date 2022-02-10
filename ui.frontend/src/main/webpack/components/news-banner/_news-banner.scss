@@ -1,10 +1,15 @@
 .cmp-news-banner {
-  max-width: 77pc;
   margin: 0 70px 70px 0;
   padding-left: 100px;
   display: flex;
-  justify-content: left;
+  justify-content: flex-end;
   flex-direction: row-reverse;
+
+  @media screen and (min-width: 1460px) {
+    padding: 0;
+    margin: 0 auto 70px auto;
+    max-width: 77pc;
+  }
 
   @include large {
     margin: 0 0 70px 0;
@@ -67,6 +72,11 @@
     width: auto;
     box-sizing: border-box;
     flex: 1 1 100%;
+
+    @media screen and (min-width: 1460px) {
+      max-width: unset;
+      max-height: unset;
+    }
 
     @include large {
       margin-left: 16px;

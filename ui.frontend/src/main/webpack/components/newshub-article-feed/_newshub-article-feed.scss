@@ -1,7 +1,9 @@
 .cmp-newshub-feed {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  max-width: 1920px;
   min-height: 790px;
+  margin: 0 auto;
 
   @include large {
     grid-template-columns: 1fr;
@@ -261,7 +263,6 @@
   }
 
   &__title {
-    display: block;
     font-size: 32px;
     line-height: normal;
     letter-spacing: -0.53px;
@@ -279,7 +280,6 @@
     text-overflow: ellipsis;
 
     @include large {
-      display: inline-block;
       margin-bottom: 0;
     }
 

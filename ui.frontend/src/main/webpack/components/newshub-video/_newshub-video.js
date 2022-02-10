@@ -33,19 +33,29 @@ import Swiper, { Navigation } from "swiper";
       },
 
       breakpoints: {
+        1460: {
+          slidesPerView: 1,
+          spaceBetween: 50,
+          slidesOffsetBefore: 1,
+          slidesOffsetAfter: 0,
+        },
+
         1400: {
+          slidesPerView: "auto",
           spaceBetween: 105,
           slidesOffsetBefore: 1,
           slidesOffsetAfter: isNotSlideable ? 0 : 221,
         },
 
         1025: {
+          slidesPerView: "auto",
           spaceBetween: 105,
           slidesOffsetBefore: 1,
           slidesOffsetAfter: isNotSlideable ? 0 : 280,
         },
 
         768: {
+          slidesPerView: "auto",
           spaceBetween: 60,
           slidesOffsetBefore: 1,
           slidesOffsetAfter: isNotSlideable ? 0 : 88,

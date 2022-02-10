@@ -2,12 +2,12 @@
 <sly data-sly-test.stage="${stageModel.stageContentPage}"/>
 
 <div class="cmp-text-stage aem-Grid aem-Grid--12 aem-Grid--default--12">
-    <h1 data-sly-test="${stage.headline}" class="cmp-text-stage__headline aem-GridColumn aem-GridColumn--phone--12 aem-GridColumn--default--10">
+    <h1 data-sly-test="${stage.headline}" class="cmp-text-stage__headline aem-GridColumn aem-GridColumn--phone--12 aem-GridColumn--default--12">
         ${stage.headline}
     </h1>
     <div data-sly-test="${stage.text}" class="cmp-text-stage__text-wrapper aem-Grid aem-Grid--12 aem-Grid--default--12">
         <div class="cmp-text-stage__text aem-GridColumn aem-GridColumn--phone--12 aem-GridColumn--default--12">
-            ${stage.text}
+            <p>${stage.text}</p>
         </div>
     </div>
 </div>

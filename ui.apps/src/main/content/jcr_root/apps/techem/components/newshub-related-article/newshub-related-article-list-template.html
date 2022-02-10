@@ -1,6 +1,7 @@
 <template data-sly-template.related_artis = "${ @ relatedArticle}">
     <section class="cmp-newshub-related-article">
         <div class="cmp-newshub-related-article-wrapper">
+            <h3 class="cmp-newshub-related-article__sub-headline" data-sly-test="${relatedArticle.subHeadline}">${relatedArticle.subHeadline}</h3>
             <h2 class="cmp-newshub-related-article__headline">${relatedArticle.headline}</h2>
             <div class="cmp-newshub-related-article__body">
                 <aside class="cmp-newshub-related-article__aside">

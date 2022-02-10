@@ -78,6 +78,12 @@
                                                                         jcr:primaryType="nt:unstructured"
                                                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                                                     <items jcr:primaryType="nt:unstructured">
+                                                                        <subHeadline
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                fieldLabel="Sub-Headline"
+                                                                                maxlength="{Long}400"
+                                                                                name="./subHeadline" />
                                                                         <headline
                                                                                 jcr:primaryType="nt:unstructured"
                                                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"

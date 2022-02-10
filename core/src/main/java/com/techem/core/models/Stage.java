@@ -26,6 +26,9 @@ public class Stage {
     @SlingObject
     private ResourceResolver resourceResolver;
 
+    @ValueMapValue(name = "subHeadline")
+    private String subHeadline;
+
     @ValueMapValue(name = "headline")
     private String headline;
 
@@ -70,6 +73,10 @@ public class Stage {
         return headline;
     }
 
+    public String getSubHeadline() {
+        return subHeadline;
+    }
+
     public String getText() {
         return text;
     }
@@ -99,6 +106,10 @@ public class Stage {
 
     public void setHeadline(String headLine) {
         if(headLine != null && !(headLine.trim().length() == 0)) { headline = headLine; }
+    }
+
+    public void setSubHeadline(String subHeadLine) {
+        if(subHeadLine != null && !(subHeadLine.trim().length() == 0)) { subHeadline = subHeadLine; }
     }
 
     public void setCategory(String categoryStr) {

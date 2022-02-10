@@ -47,6 +47,12 @@ public class Navigation {
     @ValueMapValue(name = "portalItemLink")
     private String portalItemLink;
 
+    @ValueMapValue(name = "targetBtnLabel")
+    private String targetBtnLabel;
+
+    @ValueMapValue(name = "targetOpenNewTab")
+    private Boolean targetOpenNewTab;
+
     @ValueMapValue(name = "logoLink")
     private String logoLink;
 
@@ -70,14 +76,18 @@ public class Navigation {
 
     @ValueMapValue(name = "hideNavigation")
     private Boolean hideNavigation;
-    
+
     @ValueMapValue(name = "enableSearchbar")
     private Boolean enableSearchbar;
 
     @ChildResource(name = "portalItems")
     private Resource portalItems;
 
+    @ChildResource(name = "targetItems")
+    private Resource targetItems;
+
     private List<PortalItem> portalItemList = Collections.emptyList();
+    private List<TargetItem> targetItemList = Collections.emptyList();
 
     @SlingObject
     private ResourceResolver resourceResolver;
@@ -114,6 +124,15 @@ public class Navigation {
                         .collect(toCollection(LinkedList::new));
             }
         }
+
+        if(Objects.nonNull(targetItems)) {
+            final List<Resource> targetList = org.apache.commons.compress.utils.Lists.newArrayList(targetItems.getChildren().iterator());
+
+            if (CollectionUtils.isNotEmpty(targetList)) {
+                targetItemList = targetList.stream().map(item -> item.adaptTo(TargetItem.class))
+                        .collect(toCollection(LinkedList::new));
+            }
+        }
     }
 
     public Map<Header, Map<String, List<NavigationDetails>>> getNavigationItems() {
@@ -132,6 +151,14 @@ public class Navigation {
         return portalBtnLabel;
     }
 
+    public String getTargetBtnLabel() {
+        return targetBtnLabel;
+    }
+
+    public Boolean getTargetOpenNewTab() {
+        return targetOpenNewTab;
+    }
+
     public String getButtonLink() { return buttonLink; }
 
     public String getLogoLink() {
@@ -142,7 +169,8 @@ public class Navigation {
                 logoLink = logoLink + ".html";
             }
         }
-        return logoLink; }
+        return logoLink;
+    }
 
     public String getButtonIcon() { return buttonIcon; }
 
@@ -158,6 +186,10 @@ public class Navigation {
 
     public List<PortalItem> getPortalItemList() {
         return ImmutableList.copyOf(portalItemList);
+    }
+
+    public List<TargetItem> getTargetItemList() {
+        return ImmutableList.copyOf(targetItemList);
     }
 
     public Boolean getHideNavigation() {
@@ -185,7 +217,7 @@ public class Navigation {
                 resourcePage -> Lists.newArrayList(resourcePage.getChildren().iterator()).
                         stream().filter(isPage()).
                         filter(isNotNavHidden()).map(page ->
-                                            page.getChild(JcrConstants.JCR_CONTENT).adaptTo(NavigationDetails.class))
+                        page.getChild(JcrConstants.JCR_CONTENT).adaptTo(NavigationDetails.class))
                         .collect(Collectors.toList()), (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
 
@@ -196,7 +228,7 @@ public class Navigation {
     private Predicate<Resource> isNotNavHidden() {
         return r ->  {
             Resource child = r.getChild(JcrConstants.JCR_CONTENT);
-            
+
             /* Check if resource exists before getting the value to avoid a NPE. */
             if(child != null) {
                 return child.getValueMap().get(HIDDEN_PROPERTY, Boolean.class) == null;

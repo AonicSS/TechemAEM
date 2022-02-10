@@ -42,3 +42,25 @@
         </div>
     </sly>
 </template>
+
+<template data-sly-template.targetSelector = "${ @ targetItems, targetOpenNewTab}">
+    <ul class="header__target-group" data-sly-list.targetItem="${targetItems}">
+        <li><a href="${targetItem.targetItemLink @ context='uri'}" target="${targetOpenNewTab ? '_blank' : ''}">${targetItem.targetItemLabel}</a></li>
+    </ul>
+</template>
+
+<template data-sly-template.dropdown_content_target = "${ @ targetItems, targetOpenNewTab}">
+    <sly data-sly-list.targetItem="${targetItems}">
+        <div class="headline">
+            <div class="headline-title__wrapper">
+                <a href="${targetItem.targetItemLink @ context='uri'}" class="headline__title" target="${targetOpenNewTab ? '_blank' : ''}">
+                    ${targetItem.targetItemLabel}
+                    <i class="header-icon">
+                        <div class="header-arrow"></div>
+                    </i>
+                </a>
+            </div>
+            <p data-sly-test="${pageDetails.pageDescription}" class="headline__description">${pageDetails.pageDescription} </p>
+        </div>
+    </sly>
+</template>
