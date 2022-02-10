@@ -2,11 +2,12 @@
     <a data-sly-test="${similareArtis.path}" href="${similareArtis.path}" class="cmp-similar-articles__article swiper-slide">
         <div class="cmp-similar-articles__article-image-wrapper">
             <img class="cmp-similar-articles__article-image" src="${similareArtis.image}" />
-        </div>  
+        </div>
+        <h3 class="cmp-similar-articles__article-subtitle" data-sly-test="${similareArtis.category}"> ${similareArtis.category} - ${similareArtis.date} </h3>
         <div class="cmp-similar-articles__article-title-wrapper">
-            <h3 class="cmp-similar-articles__article-title">
+            <h2 class="cmp-similar-articles__article-title">
                 ${similareArtis.headline}
-            </h3>
+            </h2>
         </div>
         <div class="newshub-icon-arrow">
             <i class="newshub-icon-arrow__icon">

@@ -118,6 +118,19 @@
         font-size: 18px;
       }
     }
+
+    &-subtitle {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: $color-separator-dark;
+      font-family: $font-universe-roman;
+      margin: 0 0 10px 0;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 0.51px;
+    }
   }
 
   &__pagination {
