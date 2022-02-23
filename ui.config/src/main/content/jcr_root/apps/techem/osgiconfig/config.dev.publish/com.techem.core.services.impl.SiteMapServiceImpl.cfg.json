@@ -1,0 +1,34 @@
+{
+  "resourceTypes": [
+    "techem/components/page"
+  ],
+  "useVanity": true,
+  "includeLastMod": true,
+  "encoding": "UTF-8",
+  "extensionless": true,
+  "excludeTemplates": [
+    ""
+  ],
+  "changeFreq": [
+    ""
+  ],
+  "removeTrailing": true,
+  "rewrites": [
+    "/content/techem:"
+  ],
+  "includeInherit": false,
+  "excludeRedirects": true,
+  "damAssets": "content/dam/techem",
+  "damAssetsMIMEs": [
+    ""
+  ],
+  "priority": [
+    ""
+  ],
+  "exclude": [
+    "hideInSitemap",
+    "noIndex"
+  ],
+  "externalizerDomain": "publish",
+  "siteMapIndexRoot": "/content/techem"
+}

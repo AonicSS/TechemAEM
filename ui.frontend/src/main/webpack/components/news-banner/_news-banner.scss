@@ -1,9 +1,10 @@
 .cmp-news-banner {
-  margin: 0 70px 70px 0;
-  padding-left: 100px;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row-reverse;
+  margin: 0 100px 70px 100px;
+  display: grid;
+  gap: 50px;
+  grid-template-areas: "content img";
+  grid-template-columns: 1fr 1fr;
+  box-sizing: border-box;
 
   @media screen and (min-width: 1460px) {
     padding: 0;
@@ -12,13 +13,12 @@
   }
 
   @include large {
-    margin: 0 0 70px 0;
-    padding-left: 32px;
+    margin: 0 32px 70px 32px;
+    gap: 25px;
   }
 
   @include small {
-    margin: 0 0 50px 0;
-    padding: 0 20px;
+    margin: 0 20px 50px 20px;
     display: block;
   }
 
@@ -26,11 +26,22 @@
     text-decoration: none;
 
     h2 {
-      font-size: 50px;
+      font-size: 50px; // fallback
+      font-size: clamp(30px, 4vw, 50px);
       line-height: 1.28;
+      hyphens: auto;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      display: -moz-box;
+      -moz-line-clamp: 4;
+      -moz-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       @include large {
-        font-size: 30px;
+        font-size: 40px; // fallback
+        font-size: clamp(30px, 4vw, 40px);
       }
 
       @include small {
@@ -52,41 +63,19 @@
   }
 
   &__content {
-    max-width: 570px;
-    flex: 1 1 100%;
-
-    @include large {
-      max-width: 345px;
-    }
-
-    @include small {
-      max-width: 100%;
-    }
+    width: 100%;
+    grid-area: content;
+    box-sizing: border-box;
   }
 
   &__img-wrap {
-    margin-left: 50px;
-    max-width: 520px;
-    max-height: 390px;
-    height: auto;
-    width: auto;
+    height: 0;
+    width: 100%;
     box-sizing: border-box;
-    flex: 1 1 100%;
-
-    @media screen and (min-width: 1460px) {
-      max-width: unset;
-      max-height: unset;
-    }
-
-    @include large {
-      margin-left: 16px;
-      max-width: 300px;
-      height: 225px;
-    }
+    position: relative;
+    padding-bottom: 75%;
 
     @include small {
-      max-width: 100%;
-      margin-left: 0;
       margin-bottom: 12px;
     }
   }
@@ -98,6 +87,11 @@
     border-radius: $border-radius-top-l-bottom-r;
     object-fit: cover;
     object-position: top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   &__subtitle {
@@ -108,7 +102,8 @@
     letter-spacing: 0.51px;
     color: $color-separator-dark;
     text-transform: uppercase;
-    margin: 50px 0 20px 0;
+    margin: 50px 0 20px 0; // fallback
+    margin-top: clamp(0.063rem, unquote("(-8.3065rem + 13.0645vw)"), 3.125rem);
 
     @include large {
       margin: 20px 0 20px 0;
@@ -136,7 +131,7 @@
       border-width: 2px 2px 0 0;
       right: 0;
       transform: rotate(45deg);
-      transition: all .2s ease-in;
+      transition: all 0.2s ease-in;
     }
 
     &::after {
@@ -150,7 +145,7 @@
       width: 28px;
       height: 0;
       border-width: 2px 0 0;
-      transition: all .2s ease-in;
+      transition: all 0.2s ease-in;
     }
   }
 }

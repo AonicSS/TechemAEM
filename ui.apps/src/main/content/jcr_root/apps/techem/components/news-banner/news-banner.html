@@ -9,7 +9,7 @@
     <div class="cmp-news-banner__content">
         <p class="cmp-news-banner__subtitle d-sm-none">${newsBanner.articleSubTitle}</p>
         <a class="cmp-news-banner__title" href="${newsBanner.articlePath}.html">
-            <h2>${newsBanner.articleTitle}</h2>
+            <h2>${newsBanner.articleTitle @ context='html'}</h2>
             <div class="cmp-news-banner__arrow"></div>
         </a>
     </div>

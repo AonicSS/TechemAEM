@@ -6,200 +6,109 @@ import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.DamConstants;
+import com.day.cq.wcm.api.NameConstants;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
+import com.techem.core.services.SiteMapService;
+import com.techem.core.services.SiteMapService.SiteMapServiceConfig;
+
+import org.apache.commons.lang.time.FastDateFormat;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.time.FastDateFormat;
-import org.apache.felix.scr.annotations.*;
-import org.apache.felix.scr.annotations.Properties;
+
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
-import org.apache.sling.commons.osgi.PropertiesUtil;
+import org.apache.sling.servlets.annotations.SlingServletPaths;
+import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.propertytypes.ServiceDescription;
+import org.osgi.service.component.propertytypes.ServiceRanking;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.apache.sling.api.servlets.HttpConstants;
+import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 import java.io.IOException;
 import java.net.URI;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
-@Component(metatype = true, label = "Techem Sitemap Servlet - Customized configuration from ACS AEM Commons - Site Map Servlet", description = "Techem Sitemap Servlet - Customized configuration from ACS AEM Commons - Site Map Servlet", configurationFactory = true, policy = ConfigurationPolicy.REQUIRE)
-@Service
-@SuppressWarnings("serial")
-@Properties({
-        @Property(name = "sling.servlet.resourceTypes", unbounded = PropertyUnbounded.ARRAY, label = "Sling Resource Type", description = "Sling Resource Type for the Home Page component or components.", value = "techem/components/page"),
-        @Property(name = "sling.servlet.selectors", value = "sitemap", propertyPrivate = true),
-        @Property(name = "sling.servlet.extensions", value = "xml", propertyPrivate = true),
-        @Property(name = "sling.servlet.methods", value = "GET", propertyPrivate = true),
-        @Property(name = "webconsole.configurationFactory.nameHint", value = "Site Map for: {externalizer.domain}, on resource types: [{sling.servlet.resourceTypes}]")})
-public final class SiteMapServlet extends SlingSafeMethodsServlet {
-
-    private static final Logger log = LoggerFactory.getLogger(SiteMapServlet.class);
+@Component(service = { Servlet.class }, configurationPolicy = ConfigurationPolicy.REQUIRE, configurationPid = "com.techem.core.services.impl.SiteMapServiceImpl")
+@SlingServletResourceTypes(
+        resourceTypes="techem/components/page",
+        methods=HttpConstants.METHOD_GET,
+        selectors = "sitemap",
+        extensions="xml")
+@SlingServletPaths({"/eu/techem/sitemap_index"})
+@ServiceRanking(1000)
+@ServiceDescription("Techem Sitemap")
+public class SiteMapServlet extends SlingSafeMethodsServlet {
 
     private static final FastDateFormat DATE_FORMAT = FastDateFormat.getInstance("yyyy-MM-dd");
-
-    private static final boolean DEFAULT_INCLUDE_LAST_MODIFIED = true;
-
-    private static final boolean DEFAULT_INCLUDE_INHERITANCE_VALUE = false;
-
-    private static final String DEFAULT_EXTERNALIZER_DOMAIN = "publish";
-
-    private static final boolean DEFAULT_EXTENSIONLESS_URLS = false;
-
-    private static final boolean DEFAULT_REMOVE_TRAILING_SLASH = false;
-
-    private static final boolean DEFAULT_USE_VANITY_URL = true;
-
-    private static final String DEFAULT_DAM_ASSETS_FOLDER = "/content/dam/techem";
-
-    private static final String DEFAULT_ENCODING = "UTF-8";
-
-    private static final String DEFAULT_RESOURCE_TYPE = "techem/components/page";
-
-    @Property(value = DEFAULT_EXTERNALIZER_DOMAIN, label = "Externalizer Domain", description = "Must correspond to a configuration of the Externalizer component. If blank the externalization will prepend the current request's scheme combined with the current request's host header.")
-    private static final String PROP_EXTERNALIZER_DOMAIN = "externalizer.domain";
-
-    @Property(boolValue = DEFAULT_INCLUDE_LAST_MODIFIED, label = "Include Last Modified", description = "If true, the last modified value will be included in the sitemap.")
-    private static final String PROP_INCLUDE_LAST_MODIFIED = "include.lastmod";
-
-    @Property(label = "Change Frequency Properties", unbounded = PropertyUnbounded.ARRAY, description = "The set of JCR property names which will contain the change frequency value.")
-    private static final String PROP_CHANGE_FREQUENCY_PROPERTIES = "changefreq.properties";
-
-    @Property(label = "Priority Properties", unbounded = PropertyUnbounded.ARRAY, description = "The set of JCR property names which will contain the priority value.")
-    private static final String PROP_PRIORITY_PROPERTIES = "priority.properties";
-
-    @Property(label = "DAM Folder Property", description = "The JCR property name which will contain DAM folders to include in the sitemap.")
-    private static final String PROP_DAM_ASSETS_PROPERTY = "damassets.property";
-
-    @Property(label = "DAM Asset MIME Types", unbounded = PropertyUnbounded.ARRAY, description = "MIME types allowed for DAM assets.")
-    private static final String PROP_DAM_ASSETS_TYPES = "damassets.types";
-
-    @Property(label = "Exclude Pages (by properties of boolean values) from Sitemap Property", description = "The boolean [cq:Page]/jcr:content property name which indicates if the Page should be hidden from the Sitemap.")
-    private static final String PROP_EXCLUDE_FROM_SITEMAP_PROPERTY = "exclude.property";
-
-    @Property(label = "URL Rewrites", unbounded = PropertyUnbounded.ARRAY, description = "Colon separated URL rewrites to adjust the <loc> to match your dispatcher's apache rewrites")
-    private static final String PROP_URL_REWRITES = "url.rewrites";
-
-    @Property(boolValue = DEFAULT_INCLUDE_INHERITANCE_VALUE, label = "Include Inherit Value", description = "If true searches for the frequency and priority attribute in the current page if null looks in the parent.")
-    private static final String PROP_INCLUDE_INHERITANCE_VALUE = "include.inherit";
-
-    @Property(boolValue = DEFAULT_EXTENSIONLESS_URLS, label = "Extensionless URLs", description = "If true, page links included in sitemap are generated without .html extension and the path is included with a trailing slash, e.g. /content/geometrixx/en/.")
-    private static final String PROP_EXTENSIONLESS_URLS = "extensionless.urls";
-
-    @Property(boolValue = DEFAULT_REMOVE_TRAILING_SLASH, label = "Remove Trailing Slash from Extensionless URLs", description = "Only relevant if Extensionless URLs is selected.  If true, the trailing slash is removed from extensionless page links, e.g. /content/geometrixx/en.")
-    private static final String PROP_REMOVE_TRAILING_SLASH = "remove.slash";
-
-    @Property(label = "Character Encoding", description = "If not set, the container's default is used (ISO-8859-1 for Jetty)")
-    private static final String PROP_CHARACTER_ENCODING_PROPERTY = "character.encoding";
-
-    @Property(label = "Exclude Pages (by Template) from Sitemap", description = "Excludes pages that have a matching value at [cq:Page]/jcr:content@cq:Template")
-    private static final String TEMPLATE_EXCLUDE_FROM_SITEMAP_PROPERTY = "exclude.templates";
-
-    @Property(boolValue = DEFAULT_USE_VANITY_URL, label = "Use Vanity URLs", description = "Use the Vanity URL for generating the Page URL")
-    private static final String USE_VANITY_URL = "use.vanity";
-
-    private static final String NS = "http://www.sitemaps.org/schemas/sitemap/0.9";
+    private Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Reference
     private transient Externalizer externalizer;
 
-    private String externalizerDomain;
+    @Reference
+    private SiteMapService siteMapService;
 
-    private boolean includeInheritValue;
-
-    private boolean includeLastModified;
-
-    private String[] changefreqProperties;
-
-    private String[] priorityProperties;
-
-    private String damAssetProperty;
-
-    private List<String> damAssetTypes;
-
-    private List<String> excludeFromSiteMapProperty;
-
-    private String characterEncoding;
-
-    private boolean extensionlessUrls;
-
-    private Map<String, String> urlRewrites;
-
-    private boolean removeTrailingSlash;
-
-    private List<String> excludedPageTemplates;
-
-    private boolean useVanityUrl;
-
-    @Activate
-    protected void activate(Map<String, Object> properties) {
-        this.externalizerDomain = PropertiesUtil.toString(properties.get(PROP_EXTERNALIZER_DOMAIN),
-                DEFAULT_EXTERNALIZER_DOMAIN);
-        this.includeLastModified = PropertiesUtil.toBoolean(properties.get(PROP_INCLUDE_LAST_MODIFIED),
-                DEFAULT_INCLUDE_LAST_MODIFIED);
-        this.includeInheritValue = PropertiesUtil.toBoolean(properties.get(PROP_INCLUDE_INHERITANCE_VALUE),
-                DEFAULT_INCLUDE_INHERITANCE_VALUE);
-        this.changefreqProperties = PropertiesUtil.toStringArray(properties.get(PROP_CHANGE_FREQUENCY_PROPERTIES),
-                new String[0]);
-        this.priorityProperties = PropertiesUtil.toStringArray(properties.get(PROP_PRIORITY_PROPERTIES), new String[0]);
-        this.damAssetProperty = PropertiesUtil.toString(properties.get(PROP_DAM_ASSETS_PROPERTY), DEFAULT_DAM_ASSETS_FOLDER);
-        this.damAssetTypes = Arrays
-                .asList(PropertiesUtil.toStringArray(properties.get(PROP_DAM_ASSETS_TYPES), new String[0]));
-        this.excludeFromSiteMapProperty = Arrays.asList(PropertiesUtil.toStringArray(properties.get(PROP_EXCLUDE_FROM_SITEMAP_PROPERTY),
-                new String[0]));
-        this.characterEncoding = PropertiesUtil.toString(properties.get(PROP_CHARACTER_ENCODING_PROPERTY), DEFAULT_ENCODING);
-        this.extensionlessUrls = PropertiesUtil.toBoolean(properties.get(PROP_EXTENSIONLESS_URLS),
-                DEFAULT_EXTENSIONLESS_URLS);
-        this.urlRewrites = ParameterUtil.toMap(PropertiesUtil.toStringArray(properties.get(PROP_URL_REWRITES), new String[0]), ":", true, "");
-        this.removeTrailingSlash = PropertiesUtil.toBoolean(properties.get(PROP_REMOVE_TRAILING_SLASH),
-                DEFAULT_REMOVE_TRAILING_SLASH);
-        this.excludedPageTemplates = Arrays.asList(PropertiesUtil.toStringArray(properties.get(TEMPLATE_EXCLUDE_FROM_SITEMAP_PROPERTY), new String[0]));
-        this.useVanityUrl = PropertiesUtil.toBoolean(properties.get(USE_VANITY_URL), DEFAULT_USE_VANITY_URL);
-    }
+    private SiteMapServiceConfig siteMapConfig;
 
     @Override
-    protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType(request.getResponseContentType());
-        if (StringUtils.isNotEmpty(this.characterEncoding)) {
-            response.setCharacterEncoding(characterEncoding);
+    protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
+        if(siteMapService == null) { return; }
+
+        siteMapConfig = siteMapService.getConfig();
+
+        boolean isIndex = request.getPathInfo().equals("/sitemap.xml") || request.getPathInfo().equals("/eu/techem/sitemap_index");
+        response.setContentType(SiteMapService.CONTENT_TYPE);
+
+        if (StringUtils.isNotEmpty(siteMapConfig.encoding())) {
+            response.setCharacterEncoding(siteMapConfig.encoding());
         }
+
         ResourceResolver resourceResolver = request.getResourceResolver();
         PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
-        Page page = pageManager.getContainingPage(request.getResource());
-
+        Page page = pageManager.getContainingPage(isIndex ? resourceResolver.getResource(siteMapConfig.siteMapIndexRoot()) : request.getResource());
         XMLOutputFactory outputFactory = XMLOutputFactory.newFactory();
         XMLStreamWriter stream = null;
+
         try {
             stream = outputFactory.createXMLStreamWriter(response.getWriter());
             stream.writeStartDocument("1.0");
 
-            stream.writeStartElement("", "urlset", NS);
-            stream.writeNamespace("", NS);
+            stream.writeStartElement("", isIndex ? SiteMapService.SITEMAP_INDEX : SiteMapService.SITEMAP_URLSET, SiteMapService.NAME_SPACE);
+            stream.writeNamespace("", SiteMapService.NAME_SPACE);
 
-            // first do the current page
-            write(page, stream, request);
+            write(page, stream, request, isIndex);
 
-            for (Iterator<Page> children = page.listChildren(new PageFilter(false, true), true); children.hasNext(); ) {
-                write(children.next(), stream, request);
+            for (Iterator<Page> children = page.listChildren(new PageFilter(false, true), !isIndex); children.hasNext(); ) {
+                write(children.next(), stream, request, isIndex);
             }
 
-            if (damAssetTypes.size() > 0 && damAssetProperty.length() > 0) {
+            if (!isIndex && siteMapConfig.damAssetsMIMEs().length > 0 && siteMapConfig.damAssets().length() > 0) {
                 for (Resource assetFolder : getAssetFolders(page, resourceResolver)) {
                     writeAssets(stream, assetFolder, request);
                 }
             }
 
             stream.writeEndElement();
-
             stream.writeEndDocument();
         } catch (XMLStreamException e) {
             throw new IOException(e);
@@ -217,7 +126,7 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
     private Collection<Resource> getAssetFolders(Page page, ResourceResolver resolver) {
         List<Resource> allAssetFolders = new ArrayList<Resource>();
         ValueMap properties = page.getProperties();
-        String[] configuredAssetFolderPaths = properties.get(damAssetProperty, String[].class);
+        String[] configuredAssetFolderPaths = properties.get(siteMapConfig.damAssets(), String[].class);
         if (configuredAssetFolderPaths != null) {
             // Sort to aid in removal of duplicate paths.
             Arrays.sort(configuredAssetFolderPaths);
@@ -242,6 +151,8 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
     private String applyUrlRewrites(String url) {
         try {
             String path = URI.create(url).getPath();
+            Map<String, String> urlRewrites = ParameterUtil.toMap(siteMapConfig.rewrites(), ":", true, "");
+
             for (Map.Entry<String, String> rewrite : urlRewrites.entrySet()) {
                 if (path.startsWith(rewrite.getKey())) {
                     return url.replaceFirst(rewrite.getKey(), rewrite.getValue());
@@ -253,43 +164,46 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
         }
     }
 
-    @SuppressWarnings("squid:S1192")
-    private void write(Page page, XMLStreamWriter stream, SlingHttpServletRequest request) throws XMLStreamException {
-        if (isHiddenByPageProperty(page) || isHiddenByPageTemplate(page)) {
+    private void write(Page page, XMLStreamWriter stream, SlingHttpServletRequest request, boolean isIndex) throws XMLStreamException {
+
+        if (isHiddenByPageProperty(page) || isHiddenByPageTemplate(page) || !isIndex && isHiddenByPageRedirect(page)) {
             return;
         }
-        stream.writeStartElement(NS, "url");
+
+        stream.writeStartElement(SiteMapService.NAME_SPACE, isIndex ? SiteMapService.SITEMAP_ELEMENT : SiteMapService.SITEMAP_URLELEMENT);
         String loc = "";
 
-        if (useVanityUrl && !StringUtils.isEmpty(page.getVanityUrl())) {
+        if (siteMapConfig.useVanity() && !StringUtils.isEmpty(page.getVanityUrl())) {
             loc = externalizeUri(request, page.getVanityUrl());
-        } else if (!extensionlessUrls) {
+        } else if (!siteMapConfig.extensionless()) {
             loc = externalizeUri(request, String.format("%s.html", page.getPath()));
         } else {
-            String urlFormat = removeTrailingSlash ? "%s" : "%s/";
+            String urlFormat = siteMapConfig.removeTrailing() ? "%s" : "%s/";
             loc = externalizeUri(request, String.format(urlFormat, page.getPath()));
         }
 
         loc = applyUrlRewrites(loc);
 
-        writeElement(stream, "loc", loc);
+        writeElement(stream, SiteMapService.SITEMAP_LOCELEMENT, loc + (isIndex ? ".sitemap.xml" : ""));
 
-        if (includeLastModified) {
+        if (siteMapConfig.includeLastMod()) {
             Calendar cal = page.getLastModified();
             if (cal != null) {
-                writeElement(stream, "lastmod", DATE_FORMAT.format(cal));
+                writeElement(stream, SiteMapService.SITEMAP_LASTMOD, DATE_FORMAT.format(cal));
             }
         }
 
-        if (includeInheritValue) {
-            HierarchyNodeInheritanceValueMap hierarchyNodeInheritanceValueMap = new HierarchyNodeInheritanceValueMap(
-                    page.getContentResource());
-            writeFirstPropertyValue(stream, "changefreq", changefreqProperties, hierarchyNodeInheritanceValueMap);
-            writeFirstPropertyValue(stream, "priority", priorityProperties, hierarchyNodeInheritanceValueMap);
-        } else {
-            ValueMap properties = page.getProperties();
-            writeFirstPropertyValue(stream, "changefreq", changefreqProperties, properties);
-            writeFirstPropertyValue(stream, "priority", priorityProperties, properties);
+        if(!isIndex) {
+            if (siteMapConfig.includeInherit()) {
+                HierarchyNodeInheritanceValueMap hierarchyNodeInheritanceValueMap = new HierarchyNodeInheritanceValueMap(
+                        page.getContentResource());
+                writeFirstPropertyValue(stream, SiteMapService.SITEMAP_CHANGEFREQ, siteMapConfig.changeFreq(), hierarchyNodeInheritanceValueMap);
+                writeFirstPropertyValue(stream, SiteMapService.SITEMAP_PRIORITY, siteMapConfig.priority(), hierarchyNodeInheritanceValueMap);
+            } else {
+                ValueMap properties = page.getProperties();
+                writeFirstPropertyValue(stream, SiteMapService.SITEMAP_CHANGEFREQ, siteMapConfig.changeFreq(), properties);
+                writeFirstPropertyValue(stream, SiteMapService.SITEMAP_PRIORITY, siteMapConfig.priority(), properties);
+            }
         }
 
         stream.writeEndElement();
@@ -297,27 +211,31 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
 
     private boolean isHiddenByPageProperty(Page page) {
         boolean flag = false;
-        if (this.excludeFromSiteMapProperty != null) {
-            for (String pageProperty : this.excludeFromSiteMapProperty) {
+        if (siteMapConfig.exclude() != null) {
+            for (String pageProperty : siteMapConfig.exclude()) {
                 flag = flag || page.getProperties().get(pageProperty, Boolean.FALSE);
             }
         }
         return flag;
     }
 
+    private boolean isHiddenByPageRedirect(Page page) {
+        return siteMapConfig.excludeRedirects() && page.getProperties().get(NameConstants.PN_REDIRECT_TARGET) != null;
+    }
+
     private boolean isHiddenByPageTemplate(Page page) {
         boolean flag = false;
-        if (this.excludedPageTemplates != null) {
-            for (String pageTemplate : this.excludedPageTemplates) {
-                flag = flag || page.getProperties().get("cq:template", StringUtils.EMPTY).equalsIgnoreCase(pageTemplate);
+        if (siteMapConfig.excludeTemplates() != null) {
+            for (String pageTemplate : siteMapConfig.excludeTemplates()) {
+                flag = flag || page.getProperties().get(NameConstants.NN_TEMPLATE, StringUtils.EMPTY).equalsIgnoreCase(pageTemplate);
             }
         }
         return flag;
     }
 
     private String externalizeUri(SlingHttpServletRequest request, String path) {
-        if (StringUtils.isNotBlank(externalizerDomain)) {
-            return externalizer.externalLink(request.getResourceResolver(), externalizerDomain, path);
+        if (StringUtils.isNotBlank(siteMapConfig.externalizerDomain())) {
+            return externalizer.externalLink(request.getResourceResolver(), siteMapConfig.externalizerDomain(), path);
         } else {
             log.debug("No externalizer domain configured, take into account current host header {} and current scheme {}", request.getServerName(), request.getScheme());
             return externalizer.absoluteLink(request, request.getScheme(), path);
@@ -325,29 +243,29 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
     }
 
     private void writeAsset(Asset asset, XMLStreamWriter stream, SlingHttpServletRequest request) throws XMLStreamException {
-        stream.writeStartElement(NS, "url");
+        stream.writeStartElement(SiteMapService.NAME_SPACE, SiteMapService.SITEMAP_URLELEMENT);
 
         String loc = externalizeUri(request, asset.getPath());
-        writeElement(stream, "loc", loc);
+        writeElement(stream, SiteMapService.SITEMAP_LOCELEMENT, loc);
 
-        if (includeLastModified) {
+        if (siteMapConfig.includeLastMod()) {
             long lastModified = asset.getLastModified();
             if (lastModified > 0) {
-                writeElement(stream, "lastmod", DATE_FORMAT.format(lastModified));
+                writeElement(stream, SiteMapService.SITEMAP_LASTMOD, DATE_FORMAT.format(lastModified));
             }
         }
 
         Resource contentResource = asset.adaptTo(Resource.class).getChild(JcrConstants.JCR_CONTENT);
         if (contentResource != null) {
-            if (includeInheritValue) {
+            if (siteMapConfig.includeInherit()) {
                 HierarchyNodeInheritanceValueMap hierarchyNodeInheritanceValueMap = new HierarchyNodeInheritanceValueMap(
                         contentResource);
-                writeFirstPropertyValue(stream, "changefreq", changefreqProperties, hierarchyNodeInheritanceValueMap);
-                writeFirstPropertyValue(stream, "priority", priorityProperties, hierarchyNodeInheritanceValueMap);
+                writeFirstPropertyValue(stream, SiteMapService.SITEMAP_CHANGEFREQ, siteMapConfig.changeFreq(), hierarchyNodeInheritanceValueMap);
+                writeFirstPropertyValue(stream, SiteMapService.SITEMAP_PRIORITY, siteMapConfig.priority(), hierarchyNodeInheritanceValueMap);
             } else {
                 ValueMap properties = contentResource.getValueMap();
-                writeFirstPropertyValue(stream, "changefreq", changefreqProperties, properties);
-                writeFirstPropertyValue(stream, "priority", priorityProperties, properties);
+                writeFirstPropertyValue(stream, SiteMapService.SITEMAP_CHANGEFREQ, siteMapConfig.changeFreq(), properties);
+                writeFirstPropertyValue(stream, SiteMapService.SITEMAP_PRIORITY, siteMapConfig.priority(), properties);
             }
         }
 
@@ -361,7 +279,7 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
             if (assetFolderChild.isResourceType(DamConstants.NT_DAM_ASSET)) {
                 Asset asset = assetFolderChild.adaptTo(Asset.class);
 
-                if (damAssetTypes.contains(asset.getMimeType())) {
+                if (Arrays.asList(siteMapConfig.damAssetsMIMEs()).contains(asset.getMimeType())) {
                     writeAsset(asset, stream, request);
                 }
             } else {
@@ -381,7 +299,6 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
         }
     }
 
-    @SuppressWarnings("squid:S1144")
     private void writeFirstPropertyValue(final XMLStreamWriter stream, final String elementName,
                                          final String[] propertyNames, final InheritanceValueMap properties) throws XMLStreamException {
         for (String prop : propertyNames) {
@@ -398,7 +315,7 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
 
     private void writeElement(final XMLStreamWriter stream, final String elementName, final String text)
             throws XMLStreamException {
-        stream.writeStartElement(NS, elementName);
+        stream.writeStartElement(SiteMapService.NAME_SPACE, elementName);
         stream.writeCharacters(text);
         stream.writeEndElement();
     }

@@ -44,6 +44,12 @@ import Swiper, { Navigation } from "swiper";
       },
 
       breakpoints: {
+        1460: {
+          spaceBetween: 105,
+          slidesOffsetBefore: 1,
+          slidesOffsetAfter: 0
+        },
+
         1400: {
           spaceBetween: 105,
           slidesOffsetBefore: 1,

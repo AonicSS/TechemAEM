@@ -7941,6 +7941,9 @@ RewriteRule ^/(.*).html$ /$1 [R=301,L,QSA]
 # Redirect the URL with trailing slash to the preferred one without /
 RewriteRule ^/?(.+)/$ /$1 [R=301,L]
 
+# Rewrite Sitemap to point to the sitemap servlet
+RewriteRule ^/sitemap.xml$ /eu/techem/sitemap_index [PT,L]
+
 # rewrite for sitemap
 RewriteRule ^/(.*).sitemap.xml$ /content/techem/$1.sitemap.xml [PT,L]
 
