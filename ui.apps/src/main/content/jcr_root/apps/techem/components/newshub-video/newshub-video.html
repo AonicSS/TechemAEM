@@ -16,9 +16,9 @@
                     </sly>
                 </div>
 
-                <a href="${videoArticle.value.articlePath}.html" class="cmp-newshub-video__link">
+                <a href="${videoArticle.value.linkTo || videoArticle.value.articlePath}" class="cmp-newshub-video__link">
                     <div class="cmp-newshub-video__title">
-                        <h2 class="cmp-newshub-video__title-text">${videoArticle.key.headline}</h2>
+                        <h2 class="cmp-newshub-video__title-text">${videoArticle.value.headline || videoArticle.key.headline}</h2>
                     </div>
                     <div class="newshub-icon-arrow">
                         <i class="newshub-icon-arrow__icon">

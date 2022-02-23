@@ -1,7 +1,6 @@
 package com.techem.core.models;
 
 import com.day.crx.JcrConstants;
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -18,6 +17,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.Objects;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class NewshubVideoArticles {
@@ -26,10 +26,10 @@ public class NewshubVideoArticles {
 
     @SlingObject
     private ResourceResolver resourceResolver;
-    
+
     @Inject
     @Named("newsItems")
-    private List<Resource> newsItems;
+    private List<NewshubVideoArticle> newsItems;
 
     @ValueMapValue(name = "primaryButtonLabel")
     private String primaryButtonLabel;
@@ -53,20 +53,21 @@ public class NewshubVideoArticles {
 
     @PostConstruct
     protected void init() {
-        if(CollectionUtils.isNotEmpty(newsItems)) {
-            videoArticles = getArticles();
-        } else {
-            logger.info("The newsItems are null or empty {}");
+        try {
+            videoArticles = newsItems.stream()
+                    .collect(Collectors.toMap(
+                            item -> {
+                                if (Objects.nonNull(item.getArticleResource())
+                                        && Objects.nonNull(item.getArticleResource().getChild(JcrConstants.JCR_CONTENT))) {
+                                    return item.getArticleResource().getChild(JcrConstants.JCR_CONTENT).adaptTo(Stage.class);
+                                } else {
+                                    return new Stage();
+                                }
+                            },
+                            newsArticle -> newsArticle, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+        } catch (Exception e) {
+            logger.error(e.toString());
         }
-    }
-
-    protected Map<Stage, NewshubVideoArticle> getArticles() {
-        return newsItems.stream()
-                .map(item -> item.adaptTo(NewshubVideoArticle.class))
-                .collect(Collectors.toMap(
-                        item -> item.getArticleResource().
-                                getChild(JcrConstants.JCR_CONTENT).adaptTo(Stage.class),
-                        newsArticle -> newsArticle, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
 
     public String getPrimaryButtonLabel() {
