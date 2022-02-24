@@ -1,3 +1,7 @@
+:root {
+  --product-slide-margin: 1px;
+}
+
 .cmp-newshub-product {
   position: relative;
   padding: 100px 0 100px 100px;
@@ -78,16 +82,27 @@
     display: block;
     height: max-content;
     max-height: max-content;
+    margin-right: 155px;
+
+    &:last-child {
+      margin-right: var(--product-slide-margin);
+
+      @media screen and (min-width: 1460px) {
+        margin-right: 0;
+      }
+    }
 
     @media screen and (min-width: 1460px) {
       width: 307px;
     }
 
     @include large {
+      margin-right: 60px;
       width: 180px;
     }
 
     @include small {
+      margin-right: 45px;
       width: 275px;
     }
 

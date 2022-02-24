@@ -4,7 +4,6 @@ import Swiper, { Navigation } from "swiper";
   "use strict";
 
   function initSwiper(el) {
-
     const swiperContainer = el.querySelector(
       ".cmp-newshub-news-slider__container"
     );
@@ -28,49 +27,40 @@ import Swiper, { Navigation } from "swiper";
       observer: true,
       observeSlideChildren: true,
       observeParents: true,
-
       watchOverflow: true,
       grabCursor: true,
-      spaceBetween: 40,
-      slidesOffsetBefore: 1,
-      slidesOffsetAfter: 75,
-      slidesPerGroup: 1,
 
       navigation: {
         nextEl: el.querySelector(".cmp-newshub-news-slider__next"),
         prevEl: el.querySelector(".cmp-newshub-news-slider__prev"),
         disabledClass: "cmp-newshub-news-slider__navigation--disabled",
         hiddenClass: "cmp-newshub-news-slider__navigation--hidden"
-      },
-
-      breakpoints: {
-        1460: {
-          spaceBetween: 105,
-          slidesOffsetBefore: 1,
-          slidesOffsetAfter: 0
-        },
-
-        1400: {
-          spaceBetween: 105,
-          slidesOffsetBefore: 1,
-          slidesOffsetAfter: isNotSlideable ? 0 : 160
-        },
-
-        1025: {
-          spaceBetween: 105,
-          slidesOffsetBefore: 1,
-          slidesOffsetAfter: isNotSlideable ? 0 : 145
-        },
-
-        768: {
-          spaceBetween: 75,
-          slidesOffsetBefore: isNotSlideable ? 0 : 1,
-          slidesOffsetAfter: notSlideableOnTablet ? 0 : 100
-        }
       }
     };
 
     const swiper = new Swiper(swiperContainer, swiperOptions);
+  }
+
+  function setLastSlideMargin() {
+    const windowWidth = $(window).width();
+    const $container = $(".cmp-newshub-news-slider__article-wrapper");
+    const containerWidth = $container.width();
+    const containerMargin = parseInt($container.css("margin-right"));
+    const newsPadding = parseInt(
+      $(".cmp-newshub-news-slider").css("padding-left")
+    );
+    const root = document.documentElement;
+    let margin;
+
+    if (window.matchMedia("(max-width: 650px )").matches) {
+      margin = windowWidth - newsPadding - containerWidth;
+    } else if (window.matchMedia("(min-width: 1280px )").matches) {
+      margin = windowWidth - newsPadding - (3 * containerWidth + 2 * containerMargin);
+    } else {
+      margin = windowWidth - newsPadding - (2 * containerWidth + containerMargin);
+    }
+
+    root.style.setProperty("--news-slide-margin", margin + "px");
   }
 
   $(document).ready(function () {
@@ -79,6 +69,17 @@ import Swiper, { Navigation } from "swiper";
       if (element && element.dataset.initialized !== "true") {
         initSwiper(element);
       }
+    });
+
+    let timer;
+    setLastSlideMargin();
+
+    window.addEventListener("resize", () => {
+      clearTimeout(timer);
+
+      timer = setTimeout(() => {
+        setLastSlideMargin();
+      }, 300);
     });
   });
 })(jQuery);
