@@ -45,9 +45,9 @@ import Swiper, { Navigation } from "swiper";
     const root = document.documentElement;
     let margin;
 
-    if (window.matchMedia("(max-width: 768px )").matches) {
+    if (window.matchMedia("(max-width: 767px )").matches) {
       margin = windowWidth - productPadding - containerWidth;
-    } else if (window.matchMedia("(min-width: 1025px )").matches) {
+    } else if (window.matchMedia("(min-width: 1025px ) and (max-width: 1229px )").matches) {
       margin = windowWidth - productPadding - (2 * containerWidth + containerMargin);
     } else {
       margin = windowWidth - productPadding - (3 * containerWidth + 2 * containerMargin);

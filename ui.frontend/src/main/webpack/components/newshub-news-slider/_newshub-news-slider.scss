@@ -35,6 +35,7 @@
   /* article items */
   &__article {
     &-wrapper {
+      -webkit-transform: translateZ(0);
       padding: 0;
       width: 310px;
       margin-right: 105px;
