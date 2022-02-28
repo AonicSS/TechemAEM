@@ -1,3 +1,7 @@
+:root {
+  --video-slide-margin: 1px;
+}
+
 .cmp-newshub-video {
   box-sizing: border-box;
   position: relative;
@@ -48,26 +52,40 @@
 
   &__wrapper {
     box-sizing: border-box;
+    width: fit-content;
   }
 
   &__video {
+    -webkit-transform: translateZ(0);
     box-sizing: border-box;
     width: 82vw; // for older safari versions
     max-width: 1145px;
     width: clamp(660px, 82vw, 1145px);
+    margin-right: 105px;
+
+    &:last-child {
+      margin-right: var(--video-slide-margin);
+
+      @media screen and (min-width: 1460px) {
+        margin-right: 0;
+      }
+    }
 
     @media screen and (min-width: 1460px) {
-      max-width: unset;
+      margin-right: 105px;
+      max-width: 77pc;
       width: 100%;
     }
 
     @include large {
+      margin-right: 60px;
       width: 86vw; // for older safari versions
       max-width: 660px;
       width: clamp(275px, 86vw, 660px);
     }
 
     @include small {
+      margin-right: 40px;
       width: 71vw; // for older safari versions
       min-width: 275px;
       width: clamp(275px, 71vw, 660px);
@@ -243,20 +261,20 @@
     text-align: center;
     flex-wrap: wrap;
     z-index: 1;
-    width: 100%;
+    width: 100vw;
     box-sizing: border-box;
-    margin-right: 100px;
+    margin-left: -100px;
 
-    @media screen and (min-width: 2180px) {
+    @media screen and (min-width: 1460px) {
       margin: 0;
     }
 
     @include large {
-      margin-right: 30px;
+      margin-left: -30px;
     }
 
     @include small {
-      margin-right: 20px;
+      margin-left: -20px;
     }
 
     .cmp-button {
@@ -271,7 +289,6 @@
       margin: 10px 15px;
 
       @include small {
-        margin: 10px;
         padding: 10px 25px;
         text-overflow: ellipsis;
         overflow: hidden;

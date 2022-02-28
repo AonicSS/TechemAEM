@@ -20,50 +20,29 @@ import Swiper, { Navigation } from "swiper";
       observeSlideChildren: true,
       observeParents: true,
       grabCursor: true,
-      spaceBetween: 40,
       watchOverflow: true,
-      slidesOffsetBefore: 1,
-      slidesOffsetAfter: isNotSlideable ? 0 : 80,
-
       navigation: {
         nextEl: el.querySelector(".cmp-newshub-video__next"),
         prevEl: el.querySelector(".cmp-newshub-video__prev"),
         disabledClass: "cmp-newshub-video__navigation--disabled",
-        hiddenClass: "cmp-newshub-video__navigation--hidden",
-      },
-
-      breakpoints: {
-        1460: {
-          slidesPerView: 1,
-          spaceBetween: 50,
-          slidesOffsetBefore: 1,
-          slidesOffsetAfter: 0,
-        },
-
-        1400: {
-          slidesPerView: "auto",
-          spaceBetween: 105,
-          slidesOffsetBefore: 1,
-          slidesOffsetAfter: isNotSlideable ? 0 : 221,
-        },
-
-        1025: {
-          slidesPerView: "auto",
-          spaceBetween: 105,
-          slidesOffsetBefore: 1,
-          slidesOffsetAfter: isNotSlideable ? 0 : 280,
-        },
-
-        768: {
-          slidesPerView: "auto",
-          spaceBetween: 60,
-          slidesOffsetBefore: 1,
-          slidesOffsetAfter: isNotSlideable ? 0 : 88,
-        },
-      },
+        hiddenClass: "cmp-newshub-video__navigation--hidden"
+      }
     };
 
     const swiper = new Swiper(swiperContainer, swiperOptions);
+  }
+
+  function setLastSlideMargin() {
+    const windowWidth = $(window).width();
+    const containerWidth = $(".cmp-newshub-video__video").width();
+    const videoPadding = parseInt(
+      $(".cmp-newshub-video").css("padding-left")
+    );
+    const root = document.documentElement;
+
+    const margin = windowWidth - videoPadding - containerWidth;
+
+    root.style.setProperty("--video-slide-margin", margin + "px");
   }
 
   $(document).ready(function () {
@@ -72,6 +51,17 @@ import Swiper, { Navigation } from "swiper";
       if (element && element.dataset.initialized !== "true") {
         initSwiper(element);
       }
+    });
+
+    let timer;
+    setLastSlideMargin();
+
+    window.addEventListener("resize", () => {
+      clearTimeout(timer);
+
+      timer = setTimeout(() => {
+        setLastSlideMargin();
+      }, 300);
     });
   });
 })(jQuery);

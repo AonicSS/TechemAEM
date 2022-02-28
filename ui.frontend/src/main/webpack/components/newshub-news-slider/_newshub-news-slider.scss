@@ -1,3 +1,7 @@
+:root {
+  --news-slide-margin: 1px;
+}
+
 .cmp-newshub-news-slider {
   position: relative;
   margin: 30px 0;
@@ -31,9 +35,18 @@
   /* article items */
   &__article {
     &-wrapper {
+      -webkit-transform: translateZ(0);
       padding: 0;
-      margin: 0;
       width: 310px;
+      margin-right: 105px;
+
+      &:last-child {
+        margin-right: var(--news-slide-margin);
+
+        @media screen and (min-width: 1460px) {
+          margin-right: 0;
+        }
+      }
 
       @media screen and (min-width: 1460px) {
         width: 340px;
@@ -41,12 +54,13 @@
 
       @include large {
         width: 280px;
+        margin-right: 75px;
       }
 
       @include small {
         width: 280px;
         justify-self: center;
-        margin: 0 auto;
+        margin-right: 40px;
       }
 
       &:hover {
