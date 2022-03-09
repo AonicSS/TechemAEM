@@ -8368,7 +8368,7 @@ RewriteRule ^/plogin$ https://www.techembg.com [L,R=301,NE,QSA]
 
 # SALESP-511: Redirect /de to /de/de
 RewriteCond %{REQUEST_URI} ^/de/?$
-RewriteRule ^/de/?$ https://www.techem.com/de/de/ [L,R=301,NE,QSA]
+RewriteRule ^/de/?$ https://www.techem.com/de/de [L,R=301,NE,QSA]
 
 # SALESP-752: Redirect portal.techem.de
 RewriteCond %{HTTP_HOST} ^portal\.techem\.de [NC]
