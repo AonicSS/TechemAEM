@@ -211,14 +211,15 @@
                                                         fieldLabel="Sort Order"
                                                         name="./sortOrder">
                                                         <items jcr:primaryType="nt:unstructured">
+                                                            <descending
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Descending"
+                                                                    selected="{Boolean}true"
+                                                                    value="descending"/>
                                                             <ascending
                                                                     jcr:primaryType="nt:unstructured"
                                                                     text="Ascending"
                                                                     value="ascending"/>
-                                                            <descending
-                                                                    jcr:primaryType="nt:unstructured"
-                                                                    text="Descending"
-                                                                    value="descending"/>
                                                         </items>
                                                     </sortOrder>
                                                 </items>
