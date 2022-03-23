@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+            cq:tags="[]"
+            cq:template="/conf/techem/settings/wcm/templates/pressrelease-page"
+            jcr:isCheckedOut="{Boolean}true"
+            jcr:mixinTypes="[mix:versionable]"
+            jcr:primaryType="cq:PageContent"
+            sling:resourceType="techem/components/structure/news-page"
+            category="Pressemitteilung"
+            date="{Date}2021-04-21T00:00:00.000Z"
+            headline="APIs für die Immobilienverwaltung: Techem bietet neue Schnittstellen-Lösung"
+            hideBreadcrumbs="false"
+            hideImageInHeader="false"
+            hideInSitemap="false"
+            hidePagePathInFlyout="false"
+            image="/content/dam/techem/initial/über-uns/newsroom/bilder/TECHEM-frau-im-buero_ansicht.jpg"
+            noFollow="false"
+            noIndex="false"
+            pwaCachestrategy="staleWhileRevalidate"
+            pwaDisplay="standalone"
+            pwaOrientation="any"
+            text="&lt;ul>&#xd;&#xa;&lt;li>Neue Schnittstelle für digitale Immobilienverwaltung verfügbar&lt;br />&#xd;&#xa;&lt;/li>&#xd;&#xa;&lt;li>API ermöglicht Anbindung an eigene Systeme für automatisierten Datenaustausch und Aufbau digitaler Ökosysteme&lt;/li>&#xd;&#xa;&lt;li>DXS Connector als alternative Lösung für kleinere Kunden zum einfachen Datenaustausch&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;"
+            textIsRich="true">
+        <root
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="techem/components/container">
+            <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="techem/components/container"
+                    layout="responsiveGrid">
+                <text
+                        cq:styleIds="[1614083699866]"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="techem/components/text"
+                        preferenceList="bulleted"
+                        text="&lt;p>&lt;b>Eschborn, 21. April 2021.&lt;/b> Techem erweitert sein Angebot um eine smarte Schnittstelle und eine Client-Anwendung für den einfachen Filetransfer. Damit schafft der Serviceanbieter für smarte und nachhaltige Gebäude die Basis zur Automatisierung von Verwaltungsprozessen seiner Kunden. Laut „Digital Economy and Society Index“ der &lt;a href=&quot;https://ec.europa.eu/digital-single-market/en/digital-economy-and-society-index-desi&quot;>Europäischen Kommission&lt;/a> liegt Deutschland bei der Digitalisierung in diesem Bereich auf Platz 21 von 28. Dabei könnten Programmierschnittstellen schon heute eine Antwort auf immer komplexere Anforderungen in der Verwaltung sein. Die Möglichkeit, ganze Industriezweige und Branchen miteinander zu vernetzen, macht sie auch für die Immobilienwirtschaft zu einer zukunftsweisenden Technologie.&amp;nbsp;&lt;/p>&#xd;&#xa;&lt;p>Die Komplexität von Verwaltungsaufgaben im privatwirtschaftlichen Sektor steigt kontinuierlich an: Immer neue rechtliche Vorgaben, gestiegene Anforderungen von Kundinnen und Kunden und die Vielzahl an digitalen Services mit unterschiedlichen technischen Voraussetzungen und Ansprüchen machen die Digitalisierung in der Verwaltung zu einem Hürdenlauf. Dabei können digitalisierte Prozesse den Aufwand für alle Beteiligten deutlich reduzieren und Arbeitsschritte vereinfachen. Techem stellt seinen Kunden mit der „DXS Dynamic API“ und dem „DXS Connector“ automatisierte Lösungen für eine zeitgemäße Immobilienverwaltung bereit.&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;h3>Mit zeitgemäßer Datenintegration digitale Ökosysteme schaffen&lt;br>&#xd;&#xa;&lt;/h3>&#xd;&#xa;&lt;p>Mit der DXS Dynamic API bietet Techem eine stabile Schnittstelle als Basis für eine intelligente, digitale Immobilienverwaltung. Kunden und ihre Softwarepartner können ihre ERP-Systeme oder Nutzerportale über die Schnittstelle direkt an das Techem System anbinden und auf ihre Infrastruktur zugeschnittene Lösungen programmieren. Das ermöglicht Immobilienverantwortlichen einen sicheren und komfortablen Datenaustausch, wie die Übermittlung von Stammdaten, Verbrauchswerten oder Reparaturaufträgen. Die API vereinfacht außerdem die Zusammenarbeit mit PropTechs und anderen Dienstleistern, indem Daten an zentraler Stelle für alle Berechtigten zur Erbringung der Dienstleistung zugänglich werden. Auf diese Weise lässt sich ein digitales Ökosystem erschließen, in dem Anbieter wie Techem ihre Services nicht nur ihren Kunden, sondern auch Partnern zur Verfügung stellen.&lt;/p>&#xd;&#xa;"
+                        textIsRich="true"/>
+                <download_list
+                        cq:styleIds="[1614083648986]"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="techem/components/download-list"
+                        headline="Downloads"
+                        textIsRich="true">
+                    <download_2126186580
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="techem/components/download"
+                            fileReference="/content/dam/techem/downloads/newsroom/pdfs/Infografik DXS.pdf"
+                            iconFormat="PDF"
+                            inline="true"
+                            text="Infografik DXS"/>
+                    <download
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="techem/components/download"
+                            fileReference="/content/dam/techem/initial/über-uns/newsroom/bilder/Infografik DXS 300 dpi.jpg"
+                            iconFormat="JPG"
+                            inline="true"
+                            text="Infografik DXS"/>
+                    <download_362561031
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="techem/components/download"
+                            fileReference="/content/dam/techem/initial/über-uns/newsroom/bilder/TECHEM-frau-im-buero.jpg"
+                            iconFormat="JPG"
+                            inline="false"
+                            text="Bild: Frau im Büro"/>
+                </download_list>
+                <container
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="techem/components/container"
+                        background="gray"
+                        layout="full">
+                    <experiencefragment_c
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="techem/components/experiencefragment"
+                            fragmentVariationPath="/content/experience-fragments/techem/de/de/contact-tiles/contact-tiles"/>
+                </container>
+                <newshub_similar_arti
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="techem/components/newshub-similar-articles"
+                        containerHeadline="Ähnliche Beiträge "
+                        insertionType="manually"
+                        maxArticles="3"
+                        orderBy="dateArticle"
+                        sortOrder="descending">
+                    <articleListManually jcr:primaryType="nt:unstructured">
+                        <item0
+                                jcr:primaryType="nt:unstructured"
+                                date="{Date}2022-03-14T00:00:00.000+02:00"
+                                headline="Article title"
+                                path="#"/>
+                    </articleListManually>
+                </newshub_similar_arti>
+            </container>
+        </root>
+        <experiencefragment-header
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="techem/components/experiencefragment"
+                fragmentVariationPath=""
+                id="news-header"/>
+        <experiencefragment-footer
+                jcr:lastModified="{Date}2021-02-18T17:41:09.897Z"
+                jcr:lastModifiedBy="dorothea.heller@techem.de"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="techem/components/experiencefragment"
+                fragmentVariationPath=""
+                id="news-footer"/>
+    </jcr:content>
+</jcr:root>
