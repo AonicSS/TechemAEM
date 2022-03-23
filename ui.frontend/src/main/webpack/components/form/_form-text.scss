@@ -4,6 +4,10 @@
   label {
     display: block;
   }
+
+  input::placeholder {
+    letter-spacing: -0.1px;
+  }
 }
 .cmp-form-text__help-block {}
 .cmp-form-text__textarea {
