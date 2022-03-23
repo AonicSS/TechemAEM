@@ -55,9 +55,11 @@ import Swiper, { Navigation } from "swiper";
     if (window.matchMedia("(max-width: 650px )").matches) {
       margin = windowWidth - newsPadding - containerWidth;
     } else if (window.matchMedia("(min-width: 1280px )").matches) {
-      margin = windowWidth - newsPadding - (3 * containerWidth + 2 * containerMargin);
+      margin =
+        windowWidth - newsPadding - (3 * containerWidth + 2 * containerMargin);
     } else {
-      margin = windowWidth - newsPadding - (2 * containerWidth + containerMargin);
+      margin =
+        windowWidth - newsPadding - (2 * containerWidth + containerMargin);
     }
 
     root.style.setProperty("--news-slide-margin", margin + "px");
@@ -68,18 +70,18 @@ import Swiper, { Navigation } from "swiper";
     Array.prototype.forEach.call($newsArticles, function (element) {
       if (element && element.dataset.initialized !== "true") {
         initSwiper(element);
-      }
-    });
-
-    let timer;
-    setLastSlideMargin();
-
-    window.addEventListener("resize", () => {
-      clearTimeout(timer);
-
-      timer = setTimeout(() => {
         setLastSlideMargin();
-      }, 300);
+
+        let timer;
+
+        window.addEventListener("resize", () => {
+          clearTimeout(timer);
+
+          timer = setTimeout(() => {
+            setLastSlideMargin();
+          }, 300);
+        });
+      }
     });
   });
 })(jQuery);

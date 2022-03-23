@@ -27,8 +27,8 @@ import Swiper, { Navigation } from "swiper";
         nextEl: el.querySelector(".cmp-newshub-product__next"),
         prevEl: el.querySelector(".cmp-newshub-product__prev"),
         disabledClass: "cmp-newshub-product__navigation--disabled",
-        hiddenClass: "cmp-newshub-product__navigation--hidden",
-      },
+        hiddenClass: "cmp-newshub-product__navigation--hidden"
+      }
     };
 
     const swiper = new Swiper(swiperContainer, swiperOptions);
@@ -47,10 +47,16 @@ import Swiper, { Navigation } from "swiper";
 
     if (window.matchMedia("(max-width: 767px )").matches) {
       margin = windowWidth - productPadding - containerWidth;
-    } else if (window.matchMedia("(min-width: 1025px ) and (max-width: 1229px )").matches) {
-      margin = windowWidth - productPadding - (2 * containerWidth + containerMargin);
+    } else if (
+      window.matchMedia("(min-width: 1025px ) and (max-width: 1229px )").matches
+    ) {
+      margin =
+        windowWidth - productPadding - (2 * containerWidth + containerMargin);
     } else {
-      margin = windowWidth - productPadding - (3 * containerWidth + 2 * containerMargin);
+      margin =
+        windowWidth -
+        productPadding -
+        (3 * containerWidth + 2 * containerMargin);
     }
 
     root.style.setProperty("--product-slide-margin", margin + "px");
@@ -61,18 +67,18 @@ import Swiper, { Navigation } from "swiper";
     Array.prototype.forEach.call($productSlider, function (element) {
       if (element && element.dataset.initialized !== "true") {
         initSwiper(element);
-      }
-    });
 
-    let timer;
-    setLastSlideMargin();
-
-    window.addEventListener("resize", () => {
-      clearTimeout(timer);
-
-      timer = setTimeout(() => {
+        let timer;
         setLastSlideMargin();
-      }, 300);
+
+        window.addEventListener("resize", () => {
+          clearTimeout(timer);
+
+          timer = setTimeout(() => {
+            setLastSlideMargin();
+          }, 300);
+        });
+      }
     });
   });
 })(jQuery);
