@@ -70,6 +70,25 @@ header.experiencefragment{
     top: 0;
 }
 
+.experiencefragment-header {
+  .header.header-hide-nav {
+    position: relative;
+    margin-bottom: 40px;
+
+    @media only screen and (max-width: 1024px) {
+      margin-bottom: -40px;
+    }
+
+    .header__divider, .navigation {
+        display: none;
+    }
+  }
+
+  &.mb--none .header.header-hide-nav {
+    margin-bottom: 0;
+  }
+}
+
 .navigation {
     &.aem-GridColumn {
         padding: 0;
@@ -85,19 +104,6 @@ header.experiencefragment{
         box-shadow: 0 1px 5px 0 rgba(83, 83, 83, 0.4);
         z-index: 1000;
         transition: transform .35s ease-out,-webkit-transform .35s ease-out;
-
-        &.header-hide-nav {
-            position: relative;
-            margin-bottom: 40px;
-
-            .header__divider, .navigation {
-                display: none;
-            }
-
-            @media only screen and (max-width: 1024px) {
-                margin-bottom: -40px;
-            }
-        }
 
         &__components {
             position: relative;
@@ -120,13 +126,13 @@ header.experiencefragment{
                 -webkit-box-flex: 1;
                 -ms-flex: 1;
                 flex: 1;
-        
+
                 @media screen and (max-width: 1024px) {
                   display: none;
                   height: 100%;
                   min-width: unset;
                 }
-        
+
                 .yext-search-bar {
                   @media screen and (max-width: 1024px) {
                     height: 100%;

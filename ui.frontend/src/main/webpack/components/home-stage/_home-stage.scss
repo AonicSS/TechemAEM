@@ -1,3 +1,10 @@
+.home-stage.carousel.mt--none {
+  margin: 0 auto;
+
+  @media only screen and (max-width: 1024px) {
+    margin-top: 0;
+  }
+}
 .home-stage.carousel {
     max-width: 1920px;
     margin: 141px auto 0;
@@ -152,10 +159,11 @@
         }
     }
 }
+
 @media only screen and (max-width: 1024px) {
-    .home-stage.carousel {
-        margin-top: 60px;
-    }
+  .home-stage.carousel {
+    margin-top: 60px;
+  }
 }
 
 @media only screen and (max-width: 768px) {

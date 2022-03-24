@@ -35,9 +35,7 @@ import Swiper, { Navigation } from "swiper";
   function setLastSlideMargin() {
     const windowWidth = $(window).width();
     const containerWidth = $(".cmp-newshub-video__video").width();
-    const videoPadding = parseInt(
-      $(".cmp-newshub-video").css("padding-left")
-    );
+    const videoPadding = parseInt($(".cmp-newshub-video").css("padding-left"));
     const root = document.documentElement;
 
     const margin = windowWidth - videoPadding - containerWidth;
@@ -50,18 +48,18 @@ import Swiper, { Navigation } from "swiper";
     Array.prototype.forEach.call($newshubVideo, function (element) {
       if (element && element.dataset.initialized !== "true") {
         initSwiper(element);
-      }
-    });
 
-    let timer;
-    setLastSlideMargin();
-
-    window.addEventListener("resize", () => {
-      clearTimeout(timer);
-
-      timer = setTimeout(() => {
+        let timer;
         setLastSlideMargin();
-      }, 300);
+
+        window.addEventListener("resize", () => {
+          clearTimeout(timer);
+
+          timer = setTimeout(() => {
+            setLastSlideMargin();
+          }, 300);
+        });
+      }
     });
   });
 })(jQuery);

@@ -2,6 +2,7 @@ package com.techem.core.models;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
@@ -22,6 +23,20 @@ public class LoginContainer {
     @ValueMapValue(name="linkURL")
     private String linkURL;
 
+    @ValueMapValue(name="emailPlaceholder")
+    private String emailPlaceholder;
+
+    @ValueMapValue(name="passwordPlaceholder")
+    private String passwordPlaceholder;
+
+    @ValueMapValue(name="emailLabel")
+    @Default(values = "Username")
+    private String emailLabel;
+
+    @ValueMapValue(name="passwordLabel")
+    @Default(values = "Password")
+    private String passwordLabel;
+
     @PostConstruct
     protected void init() {
     }
@@ -37,4 +52,19 @@ public class LoginContainer {
         return linkURL;
     }
 
+    public String getEmailPlaceholder() {
+        return emailPlaceholder;
+    }
+
+    public String getPasswordPlaceholder() {
+        return passwordPlaceholder;
+    }
+
+    public String getEmailLabel() {
+        return emailLabel;
+    }
+
+    public String getPasswordLabel() {
+        return passwordLabel;
+    }
 }
