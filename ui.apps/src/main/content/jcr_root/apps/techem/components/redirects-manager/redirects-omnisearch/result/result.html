@@ -1,0 +1,32 @@
+<coral-card data-sly-use.rule="com.techem.core.models.RedirectRule" class="foundation-collection-navigator granite-security-card"
+        data-foundation-collection-navigator-href="/techem/utilities/redirects?rule=${rule.path}"
+        data-rule-path="${rule.path}">
+        
+    <coral-card-info>
+        <coral-alert variant="success" data-sly-test="${rule.published == 'Activate'}">
+            <coral-alert-header>Active</coral-alert-header>
+            <coral-alert-content>This rule is published.</coral-alert-content>
+        </coral-alert>
+    </coral-card-info>
+    <coral-card-content>
+        <coral-card-context>Redirect Rule</coral-card-context>
+        <coral-card-title>${rule.from}</coral-card-title>
+        <coral-card-asset>
+            <div class="authorizable-card-icon-container">
+                <coral-icon icon="fileGlobe" size="XXL"></coral-icon>
+            </div>
+        </coral-card-asset>
+        <coral-card-propertylist class="truncate-string">
+            <coral-card-property icon="globeEnter" class="rule-from-omnisearch">${rule.from}</coral-card-property>
+            <coral-card-property icon="globeExit">${rule.to}</coral-card-property>
+            <coral-card-property icon="123">${rule.code}</coral-card-property>
+        </coral-card-propertylist>
+    </coral-card-content>
+    <link rel="properties" href="/techem/utilities/redirects?rule=${rule.path}"/>
+</coral-card>
+<coral-quickactions target="_prev">
+    <coral-quickactions-item class="foundation-collection-item-activator" icon="check">${'Select' @ i18n}</coral-quickactions-item>
+    <coral-quickactions-item data-sly-test="${rule.published != 'Activate'}" class="foundation-collection-action" data-foundation-collection-action='{"action": "techem.redirects.activate"}' icon="globe">${'Activate' @ i18n}</coral-quickactions-item>
+    <coral-quickactions-item data-sly-test="${rule.published == 'Activate'}" icon="globeRemove" class="foundation-collection-action" data-foundation-collection-action='{"action": "techem.redirects.deactivate"}'>${'Deactivate' @ i18n}</coral-quickactions-item>
+    <coral-quickactions-item icon="delete" class="foundation-collection-action" data-foundation-collection-action='{"action": "techem.redirects.delete"}'>${'Delete' @ i18n}</coral-quickactions-item>
+</coral-quickactions>

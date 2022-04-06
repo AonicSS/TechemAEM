@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:Folder"
+    jcr:title="Redirects"
+    actionsPath="/apps/techem/components/redirects-manager/redirects-omnisearch/actions/selection"
+    cardPath="/apps/techem/components/redirects-manager/redirects-omnisearch/result"
+    clientlibs="[granite.shared,coralui3,granite.ui.coral.foundation,granite.ui.coral.foundation.admin,granite.security.ui.authorizable.list,granite.security.ui.backhref,techem.redirectsmanager]"
+    defaultSearchPath="/etc/redirects"
+    includeInSuggestions="{Boolean}true"
+    listItemPath="/apps/techem/components/redirects-manager/redirects-entry"
+    listOrder="{Long}8"
+    nodeType="techem/components/redirects-manager/redirects-entry"/>

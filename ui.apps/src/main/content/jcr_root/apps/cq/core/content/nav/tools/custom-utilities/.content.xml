@@ -3,5 +3,6 @@
           id="cq-tools-custom-utilities"
           jcr:title="Custom AEM Utilities"
           jcr:primaryType="sling:OrderedFolder">
-    <bulkimport/>
+          <bulkimport/>
+          <redirectsmanager/>
 </jcr:root>

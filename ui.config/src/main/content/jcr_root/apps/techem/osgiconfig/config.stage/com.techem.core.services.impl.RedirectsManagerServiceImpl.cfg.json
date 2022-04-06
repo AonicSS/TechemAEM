@@ -1,0 +1,17 @@
+{
+    "enabled": true,
+    "path": "/etc/redirects",
+    "exceptions": [
+        "/apps/?|/apps/.+?",
+        "/bin/?|/bin/.+?",
+        "/eu/?|/eu/.+?",
+        "/etc/?|/etc/.+?",
+        "/home/?|/home/.+?",
+        "/libs/?|/libs/.+?",
+        "/saml_login/?|/saml_login/.+?",
+        "/system/?|/system/.+?",
+        "/tmp/?|/tmp/.+?",
+        "/var/?|/var/.+?",
+        "/mnt/?|/mnt/.+?"
+    ]
+}

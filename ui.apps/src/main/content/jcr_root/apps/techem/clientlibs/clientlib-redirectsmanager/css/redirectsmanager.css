@@ -1,0 +1,41 @@
+.redirect-service-disabled {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 15px;
+}
+
+.published-col .date, .publishedby {
+    display: block;
+}
+
+.published-col .publishedby, .status-col .status-details {
+    font-weight: normal;
+    color: rgba(0,0,0,0.4);
+}
+
+.status-col .status-success, .status-error, .status-details {
+    display: block;
+}
+
+.status-col .status-success {
+    color: green;
+}
+
+.status-col .status-error {
+    color: red;
+}
+
+.truncate-string {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.granite-collection-switcher {
+    display: none;
+}
+
+.create-btn {
+    margin-right: 1rem;
+}

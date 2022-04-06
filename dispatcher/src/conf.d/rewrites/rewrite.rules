@@ -8386,6 +8386,7 @@ RewriteCond %{REQUEST_URI} !^/system [NC]
 RewriteCond %{REQUEST_URI} !^/tmp [NC]
 RewriteCond %{REQUEST_URI} !^/var [NC]
 RewriteCond %{REQUEST_URI} !^/dispatcher [NC]
+RewriteCond %{REQUEST_URI} !^/mnt [NC]
 RewriteCond %{HTTP_HOST} !^sales-stage\.techem\.de$ [NC]
 RewriteCond %{HTTP_HOST} !^sales-dev\.techem\.de$ [NC]
 RewriteCond %{HTTP_HOST} !^localhost [NC]
@@ -8402,11 +8403,13 @@ RewriteRule ^/eu/techem/(.*) - [NC,L]
 RewriteRule ^/content/techem/(.*).html?$ /$1 [R=301,L]
 
 # Redirect the .html URL to extensionless URL
-RewriteCond %{REQUEST_URI} \.html$
-RewriteRule ^/(.*).html$ /$1 [R=301,L,QSA]
+RewriteCond %{REQUEST_URI} ^/(de/?|de/.+?|at/?|at/.+?|ch/?|ch/.+?|corp/?|corp/.+?|master/?|master/.+?|es/?|es/.+?|fr/?|fr/.+?|lu/?|lu/.+?)$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/(be/?|be/.+?|no/?|no/.+?|sk/?|sk/.+?|ro/?|ro/.+?|pl/?|pl/.+?|hu/?|hu/.+?|cz/?|cz/.+?|bg/?|bg/.+?|it/?|it/.+?|dk/?|dk/.+?)$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/(ae/?|ae/.+?|br/?|br/.+?|nl/?|nl/.+?|investor-relations/?|investor-relations/.+?|manuals/?|manuals/.+?|test-page/?|test-page/.+?|urteile/?|urteile/.+?)$ [NC]
+RewriteRule ^/(.*)(.html|/)$ /$1 [R=301,L,QSA]
 
 # Redirect the URL with trailing slash to the preferred one without /
-RewriteRule ^/?(.+)/$ /$1 [R=301,L]
+# RewriteRule ^/?(.+)/$ /$1 [R=301,L]
 
 # Rewrite Sitemap to point to the sitemap servlet
 RewriteRule ^/sitemap.xml$ /eu/techem/sitemap_index [PT,L]
@@ -8416,17 +8419,36 @@ RewriteRule ^/(.*).sitemap.xml$ /content/techem/$1.sitemap.xml [PT,L]
 
 # Append the .html for extensionless URLs before sending to publisher
 # Do not rewrite requests under /etc.clientlibs (js,css,fonts,images,etc,.)
-RewriteCond %{REQUEST_URI} !^/apps
-RewriteCond %{REQUEST_URI} !^/bin
-RewriteCond %{REQUEST_URI} !^/content
-RewriteCond %{REQUEST_URI} !^/etc
-RewriteCond %{REQUEST_URI} !^/home
-RewriteCond %{REQUEST_URI} !^/libs
-RewriteCond %{REQUEST_URI} !^/saml_login
-RewriteCond %{REQUEST_URI} !^/system
-RewriteCond %{REQUEST_URI} !^/tmp
-RewriteCond %{REQUEST_URI} !^/var
+RewriteCond %{REQUEST_URI} !^/apps [NC]
+RewriteCond %{REQUEST_URI} !^/bin [NC]
+RewriteCond %{REQUEST_URI} !^/content [NC]
+RewriteCond %{REQUEST_URI} !^/etc [NC]
+RewriteCond %{REQUEST_URI} !^/home [NC]
+RewriteCond %{REQUEST_URI} !^/libs [NC]
+RewriteCond %{REQUEST_URI} !^/saml_login [NC]
+RewriteCond %{REQUEST_URI} !^/system [NC]
+RewriteCond %{REQUEST_URI} !^/tmp [NC]
+RewriteCond %{REQUEST_URI} !^/var [NC]
+RewriteCond %{REQUEST_URI} !^/dispatcher [NC]
+RewriteCond %{REQUEST_URI} !^/mnt [NC]
+RewriteCond %{REQUEST_URI} ^/(de/?|de/.+?|at/?|at/.+?|ch/?|ch/.+?|corp/?|corp/.+?|master/?|master/.+?|es/?|es/.+?|fr/?|fr/.+?|lu/?|lu/.+?)$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/(be/?|be/.+?|no/?|no/.+?|sk/?|sk/.+?|ro/?|ro/.+?|pl/?|pl/.+?|hu/?|hu/.+?|cz/?|cz/.+?|bg/?|bg/.+?|it/?|it/.+?|dk/?|dk/.+?)$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/(ae/?|ae/.+?|br/?|br/.+?|nl/?|nl/.+?|investor-relations/?|investor-relations/.+?|manuals/?|manuals/.+?|test-page/?|test-page/.+?|urteile/?|urteile/.+?)$ [NC]
 RewriteRule ^/(.*)$ /content/techem/$1.html [PT,L,QSA]
+
+RewriteCond %{REQUEST_URI} !^/apps [NC]
+RewriteCond %{REQUEST_URI} !^/bin [NC]
+RewriteCond %{REQUEST_URI} !^/content [NC]
+RewriteCond %{REQUEST_URI} !^/etc [NC]
+RewriteCond %{REQUEST_URI} !^/home [NC]
+RewriteCond %{REQUEST_URI} !^/libs [NC]
+RewriteCond %{REQUEST_URI} !^/saml_login [NC]
+RewriteCond %{REQUEST_URI} !^/system [NC]
+RewriteCond %{REQUEST_URI} !^/tmp [NC]
+RewriteCond %{REQUEST_URI} !^/var [NC]
+RewriteCond %{REQUEST_URI} !^/dispatcher [NC]
+RewriteCond %{REQUEST_URI} !^/mnt [NC]
+RewriteRule ^/(.*)$ /content/techem/content/$1 [PT,L,QSA]
 
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin

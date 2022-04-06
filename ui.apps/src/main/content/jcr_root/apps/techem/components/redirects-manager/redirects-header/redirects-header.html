@@ -1,0 +1,11 @@
+<sly data-sly-use.redirectsContainer="com.techem.core.models.RedirectsContainer">
+    <coral-alert data-sly-test.isEnabled="${!redirectsContainer.enabled}" class="redirect-service-disabled" size="L" variant="warning">
+        <coral-alert-header>
+            Redirect Manager Disabled
+        </coral-alert-header>
+        <coral-alert-content>
+            The Redirects Manager is currently disabled and must be enabled from the OSGi PID: <b>${redirectsContainer.cfgPID}</b>. 
+            The redirects defined in the list below will not take effect unless the Redirects Manager is enabled.
+        </coral-alert-content>
+    </coral-alert>
+</sly>
