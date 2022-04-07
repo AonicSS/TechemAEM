@@ -12,7 +12,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Content Form"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/apps/techem/components/form/button,/apps/techem/components/form/hidden,/apps/techem/components/form/options,/apps/techem/components/form/text]">
+                        components="[/apps/techem/components/form/button,/apps/techem/components/form/hidden,/apps/techem/components/form/options,/apps/techem/components/form/text,/apps/techem/components/form/friendly-captcha]">
                         <jcr:content
                                 jcr:mixinTypes="[]"
                                 jcr:primaryType="nt:unstructured"/>
@@ -319,28 +319,28 @@
                     </cq:styleGroups>
                 </policy_footer>
                 <policy_1647437300118
-                        cq:styleDefaultClasses="mb--none"
-                        cq:styleDefaultElement="header"
-                        jcr:description="Sets a &lt;header> element without navigation on the page header experience fragment."
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Page Header No-Nav"
-                        sling:resourceType="wcm/core/components/policy/policy">
+                    cq:styleDefaultClasses="mb--none"
+                    cq:styleDefaultElement="header"
+                    jcr:description="Sets a &lt;header> element without navigation on the page header experience fragment."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Page Header No-Nav"
+                    sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
-                                cq:styleGroupLabel="Margin Bottom (custom)"
-                                jcr:primaryType="nt:unstructured">
+                            cq:styleGroupLabel="Margin Bottom (custom)"
+                            jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
-                                        cq:styleClasses=""
-                                        cq:styleId="1647425077013"
-                                        cq:styleLabel="Default"
-                                        jcr:primaryType="nt:unstructured"/>
+                                    cq:styleClasses=""
+                                    cq:styleId="1647425077013"
+                                    cq:styleLabel="Default"
+                                    jcr:primaryType="nt:unstructured"/>
                                 <item1
-                                        cq:styleClasses="mb--none"
-                                        cq:styleId="1647425085393"
-                                        cq:styleLabel="None"
-                                        jcr:primaryType="nt:unstructured"/>
+                                    cq:styleClasses="mb--none"
+                                    cq:styleId="1647425085393"
+                                    cq:styleLabel="None"
+                                    jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
                     </cq:styleGroups>
@@ -590,6 +590,45 @@
                     </cq:styleGroups>
                 </policy_general-tabs-container>
             </general-tabs-container>
+            <form-container-frc jcr:primaryType="nt:unstructured">
+                <policy_form-container-frc
+                        jcr:description="Allows to add only form elements"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Form with Friendly Captcha rules"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/apps/techem/components/form/hidden,/apps/techem/components/form/options,/apps/techem/components/form/text]"
+                        layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                                cq:styleGroupLabel="Margin top (custom)"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="mt--xsmall"
+                                        cq:styleId="1614083648901"
+                                        cq:styleLabel="Extra Small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                        cq:styleClasses="mt--small"
+                                        cq:styleId="1614083648986"
+                                        cq:styleLabel="Small"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                        cq:styleClasses="mt--large"
+                                        cq:styleId="1614083665068"
+                                        cq:styleLabel="Large"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item3
+                                        cq:styleClasses="mt--none"
+                                        cq:styleId="1614083699866"
+                                        cq:styleLabel="No margin"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_form-container-frc>
+            </form-container-frc>
             <tabs-icon-number jcr:primaryType="nt:unstructured">
                 <policy_tabs-icon-number
                     jcr:description="Allows only General Container to add in it the necessary Icon-Number-Tiles"
@@ -638,28 +677,28 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_home-stage>
                 <policy_1647506175380
-                        cq:styleDefaultClasses="mt--none"
-                        jcr:description="Allows the components to be dropped into this container"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Home Stage Component NoMargin"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        components="/apps/techem/components/home-stage-item" >
+                    cq:styleDefaultClasses="mt--none"
+                    jcr:description="Allows the components to be dropped into this container"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Home Stage Component NoMargin"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/techem/components/home-stage-item" >
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:styleGroups jcr:primaryType="nt:unstructured">
                         <item0
-                                cq:styleGroupLabel="Margin Top (custom)"
-                                jcr:primaryType="nt:unstructured">
+                            cq:styleGroupLabel="Margin Top (custom)"
+                            jcr:primaryType="nt:unstructured">
                             <cq:styles jcr:primaryType="nt:unstructured">
                                 <item0
-                                        cq:styleClasses="mt--none"
-                                        cq:styleId="1647503640758"
-                                        cq:styleLabel="None"
-                                        jcr:primaryType="nt:unstructured"/>
+                                    cq:styleClasses="mt--none"
+                                    cq:styleId="1647503640758"
+                                    cq:styleLabel="None"
+                                    jcr:primaryType="nt:unstructured"/>
                                 <item1
-                                        cq:styleClasses=""
-                                        cq:styleId="1647503753225"
-                                        cq:styleLabel="Default"
-                                        jcr:primaryType="nt:unstructured"/>
+                                    cq:styleClasses=""
+                                    cq:styleId="1647503753225"
+                                    cq:styleLabel="Default"
+                                    jcr:primaryType="nt:unstructured"/>
                             </cq:styles>
                         </item0>
                     </cq:styleGroups>
@@ -839,7 +878,15 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_marketo>
             </embed>
-
+            <gated-content jcr:primaryType="nt:unstructured">
+                <policy
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Gated Content Component"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="group:Techem - Content">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy>
+            </gated-content>
         </components>
     </techem>
 </jcr:root>

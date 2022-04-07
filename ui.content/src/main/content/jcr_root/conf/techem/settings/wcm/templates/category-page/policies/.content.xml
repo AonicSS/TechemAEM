@@ -35,6 +35,10 @@
                             cq:policy="techem/components/download-list/policy_1613048840560"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <form-container-frc
+                            cq:policy="techem/components/form-container-frc/policy_form-container-frc"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping"/>
                     </components>
                 </techem>
             </container>
