@@ -12,8 +12,17 @@ $include "./default_filters.any"
 # allow sitemap URLs
 /0102 { /type "allow" /url "/*/*.sitemap.xml" }
 
+# Allow downloadable files to be accessed
+/0103 { /type "allow" /extension '(zip|rar|pptx|xlsx|docx?)' /path "/content/dam/*" }
+/0104 { /type "allow" /extension '(mp3|mp4|mkv|ogg|oga|avi|mov|qt|mpe?ga?|wav|bmp)' /path "/content/dam/*" }
+
 #allow custom servlet requests
 /0201 { /type "allow" /url "/eu/techem/sendmail"}
 /0202 { /type "allow" /url "/eu/techem/changepw" }
 /0203 { /type "allow" /url "/eu/techem/techemLogin" }
 /0204 { /type "allow" /url "/eu/techem/sitemap_index" }
+/0205 { /type "allow" /url "/eu/techem/friendlycaptcha" }
+/0206 { /type "allow" /url "/eu/techem/customsubmitmail" }
+
+# Allow content re-routing
+/0300 { /type "allow" /url "/content/techem/content/*" }

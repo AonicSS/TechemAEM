@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured">
+    <list jcr:primaryType="nt:unstructured">
+        <columns jcr:primaryType="nt:unstructured">
+            <select
+                jcr:primaryType="nt:unstructured"
+                fixedWidth="{Boolean}true"
+                select="{Boolean}true"/>
+            <from
+                jcr:primaryType="nt:unstructured"
+                jcr:title="From"
+                sortable="{Boolean}true"/>
+            <to
+                jcr:primaryType="nt:unstructured"
+                jcr:title="To"
+                sortable="{Boolean}true"/>
+            <code
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Code"
+                alignment="center"
+                sortable="{Boolean}true"/>
+            <until
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Until"
+                alignment="center"
+                sortable="{Boolean}true"/>
+            <published
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Published"
+                alignment="center"
+                sortable="{Boolean}true"/>
+            <status
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Status"
+                alignment="center"
+                sortable="{Boolean}true"/>
+        </columns>
+    </list>
+</jcr:root>

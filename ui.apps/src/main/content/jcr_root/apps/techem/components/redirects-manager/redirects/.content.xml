@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[]"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Custom AEM Utilities - Redirects Manager"
+    sling:resourceType="granite/ui/components/shell/collectionpage"
+    sling:vanityPath="/techem/utilities/redirects"
+    consoleId="techem-custom-redirects-manager"
+    currentView="${state['shell.collectionpage.layoutId'].string}"
+    omnisearchLocationPath="/apps/techem/components/redirects-manager/redirects-omnisearch"
+    modeGroup="custom-redirects-list"
+    targetCollection=".custom-redirects-list">
+    <head jcr:primaryType="nt:unstructured">
+        <clientlibs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+            categories="[granite.shared,coralui3,granite.ui.coral.foundation,granite.ui.coral.foundation.admin,granite.security.ui.authorizable.list,granite.security.ui.backhref,techem.redirectsmanager]"/>
+    </head>
+    <header
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <redirmngrHeader
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/include"
+                path="techem/components/redirects-manager/redirects-header"/>
+        </items>
+    </header>
+    <title
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Redirects"
+        sling:resourceType="granite/ui/components/shell/title"/>
+    <actions jcr:primaryType="nt:unstructured">
+        <primary jcr:primaryType="nt:unstructured">
+            <import
+                granite:id="importBtn"
+                granite:class="foundation-toggleable-control"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+                action="techem.redirects.import"
+                target=".custom-redirects-list"
+                text="Import"
+                icon="boxImport"
+                trackingElement="import redirects"
+                variant="secondary">
+                <granite:data
+                    jcr:primaryType="nt:unstructured"
+                    foundation-toggleable-control-target="#importRulesDiag"/>
+            </import>
+            <exportAll
+                granite:id="exportBtnAll"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+                action="techem.redirects.export"
+                text="Export All"
+                icon="boxExport"
+                activeSelectionCount="none"
+                trackingElement="export all redirects"
+                variant="secondary">
+            </exportAll>
+            <export
+                granite:id="exportBtn"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+                action="techem.redirects.export"
+                target=".custom-redirects-list"
+                activeSelectionCount="multiple"
+                text="Export"
+                icon="boxExport"
+                trackingElement="export redirects"
+                variant="secondary">
+                <granite:data
+                        jcr:primaryType="nt:unstructured"
+                        max-selection="200"/>
+            </export>
+        </primary>
+        <secondary jcr:primaryType="nt:unstructured">
+            <exportTemplate 
+                granite:id="exportTemplateBtn"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+                action="foundation.link"
+                text="Template"
+                icon="fileTemplate"
+                hideText="{Boolean}true"
+                trackingElement="export template"
+                variant="quiet">
+                <data
+                    jcr:primaryType="nt:unstructured"
+                    href.url="/content/dam/techem/redirectsTemplate.xlsx"/>
+            </exportTemplate>
+            <filter
+                granite:id="filterBtn"
+                granite:class="foundation-toggleable-control"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+                action="techem.redirects.filter"
+                target="#filterDiag"
+                text="Filter"
+                icon="viewList"
+                hideText="{Boolean}true"
+                trackingElement="filter"
+                variant="quiet">
+                <granite:data
+                    jcr:primaryType="nt:unstructured"
+                    foundation-toggleable-control-target="#filterDiag"/>
+            </filter>
+            <create
+                granite:id="createBtn"
+                granite:class="foundation-toggleable-control create-btn"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+                action="techem.redirects.create"
+                target="#editRuleDiag"
+                text="New Rule"
+                icon="add"
+                trackingElement="create redirect"
+                variant="primary">
+                <granite:data
+                    jcr:primaryType="nt:unstructured"
+                    foundation-toggleable-control-target="#editRuleDiag"/>
+            </create>
+        </secondary>
+        <selection jcr:primaryType="nt:unstructured">
+            <edit
+                granite:id="editBtn"
+                granite:class="foundation-toggleable-control"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+                actionConfigName="granite/ui/shell/actions/properties"
+                action="techem.redirects.edit"
+                activeSelectionCount="single"
+                variant="actionBar">
+                <granite:data
+                    jcr:primaryType="nt:unstructured"
+                    foundation-toggleable-control-target="#editRuleDiag"/>
+            </edit>
+            <delete
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+                action="techem.redirects.delete"
+                actionConfigName="granite/ui/shell/actions/delete"
+                variant="actionBar"/>
+            <activate
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+                action="techem.redirects.activate"
+                icon="globe"
+                text="Activate"
+                variant="actionBar"/>
+            <deactivate
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+                action="techem.redirects.deactivate"
+                icon="globeRemove"
+                text="Deactivate"
+                variant="actionBar"/>
+            <checkRule
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+                action="techem.redirects.check"
+                icon="globeCheck"
+                text="Check"
+                variant="actionBar"/>
+            <preview
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+                action="techem.redirects.preview"
+                target=".custom-redirects-list"
+                icon="globeSearch"
+                text="Preview"
+                activeSelectionCount="single"
+                trackingElement="preview redirect"
+                variant="actionBar">
+            </preview>
+        </selection>
+    </actions>
+    <views jcr:primaryType="nt:unstructured">
+        <list
+            granite:rel="custom-redirects-list"
+            jcr:primaryType="nt:unstructured"
+            jcr:title="List View"
+            sling:resourceType="granite/ui/components/coral/foundation/table"
+            itemResourceType="techem/components/redirects-manager/redirects-entry"
+            icon="viewList"
+            layoutId="list"
+            limit="{Long}40"
+            size="20"
+            modeGroup="custom-redirects-list"
+            selectionMode="row"
+            src="/techem/utilities/redirects/redirects-list{.offset,limit}.html"
+            stateId="shell.collectionpage">
+            <columns jcr:primaryType="nt:unstructured">
+                <select
+                    jcr:primaryType="nt:unstructured"
+                    fixedWidth="{Boolean}true"
+                    select="{Boolean}true"/>
+                <from
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="From"
+                    sortable="{Boolean}true"/>
+                <to
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="To"
+                    sortable="{Boolean}true"/>
+                <code
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Code"
+                    alignment="center"
+                    sortable="{Boolean}true"/>
+                <until
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Until"
+                    alignment="center"
+                    sortable="{Boolean}true"/>
+                <published
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Published"
+                    alignment="center"
+                    sortable="{Boolean}true"/>
+                <status
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Status"
+                    alignment="center"
+                    sortable="{Boolean}true"/>
+            </columns>
+            <datasource
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="/eu/techem/redirmngr"/>
+        </list>
+        <card
+            granite:rel="custom-redirects-list"
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Card View"
+            sling:resourceType="granite/ui/components/coral/foundation/masonry"
+            itemResourceType="/apps/techem/components/redirects-manager/redirects-omnisearch/result"
+            icon="viewCard"
+            layoutId="card"
+            limit="{Long}40"
+            size="20"
+            modeGroup="custom-redirects-list"
+            selectionMode="row"
+            src="/techem/utilities/redirects/redirects-list{.offset,limit}.html"
+            stateId="shell.collectionpage">
+        </card>
+    </views>
+    <footer
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <sacrificialDiv
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <!-- Avoid an AEM exception that would disable the edit dialog when reloading the page.
+                         No idea how this fixes it or why it happens. AEM wonders. -->
+                </items>
+            </sacrificialDiv>
+            <editRuleDiag
+                granite:id="editRuleDiag"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Edit Rule"
+                sling:resourceType="granite/ui/components/coral/foundation/dialog"
+                closable="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <form
+                        granite:id="editRuleForm"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form"
+                        action="#"
+                        foundationForm="{Boolean}true"
+                        margin="{Boolean}true"
+                        style="aligned">
+                        <items jcr:primaryType="nt:unstructured">
+                            <from
+                                granite:class="edit-rule-from"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Enter source URL. This field accepts RegEx and will prepend ^ and append $ automatically if not already present."
+                                fieldLabel="Source URL"
+                                name="from"
+                                required="{Boolean}true"/>
+                            <to
+                                granite:class="edit-rule-to"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Enter destination URL"
+                                fieldLabel="New URL"
+                                name="to"
+                                required="{Boolean}true"/>
+                            <market
+                                granite:class="edit-rule-market"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="The market will be used for filtering purposes."
+                                fieldLabel="Market"
+                                name="market"/>
+                            <code
+                                granite:class="edit-rule-code"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldDescription="HTTP Status Code of the redirect"
+                                fieldLabel="Status Code"
+                                name="code"
+                                required="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <x302
+                                        jcr:primaryType="nt:unstructured"
+                                        text="302 (Temporarily Moved)"
+                                        value="302"/>
+                                    <x301
+                                        jcr:primaryType="nt:unstructured"
+                                        text="301 (Permanently Moved)"
+                                        value="301"/>
+                                    <x410
+                                        jcr:primaryType="nt:unstructured"
+                                        text="410 (Gone)"
+                                        value="410"/>
+                                </items>
+                            </code>
+                            <until
+                                granite:class="edit-rule-date"
+                                granite:rel="until-date-picker"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                displayedFormat="DD-MM-YYYY HH:mm"
+                                displayTimezoneMessage="{Boolean}true"
+                                emptyText="Until Date"
+                                fieldDescription="(Optional) Enforce rule until date"
+                                fieldLabel="Redirect Until"
+                                minDate="today"
+                                name="until"
+                                type="datetime"/>
+                            <queryString
+                                granite:class="edit-rule-queryString"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Forward the query string to the new URL (the ?key=value part of the URL)."
+                                text="Keep Query String"
+                                value="true"
+                                uncheckedValue="false"
+                                name="keepQS"/>
+                            <checkRuleCreate
+                                granite:class="edit-rule-check"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Checks if the destination path is valid on creation. NOTE: This impacts creation time."
+                                text="Check Rule"
+                                value="true"
+                                uncheckedValue="false"
+                                name="checkRuleEdit"/>
+                        </items>
+                    </form>
+                </items>
+                <footer jcr:primaryType="nt:unstructured">
+                    <close
+                        granite:id="editDiagCloseBtn"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                        text="Cancel">
+                        <parentConfig
+                            jcr:primaryType="nt:unstructured"
+                            close="{Boolean}true"/>
+                    </close>
+                    <submit
+                        granite:class="foundation-validation-bind"
+                        granite:id="editBtnSubmit"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                        disabled="{Boolean}true"
+                        formId="editRuleForm"
+                        text="Save"
+                        type="submit"
+                        variant="primary"/>
+                </footer>
+            </editRuleDiag>
+            <importRulesDiag
+                granite:id="importRulesDiag"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Import Rules"
+                sling:resourceType="granite/ui/components/coral/foundation/dialog"
+                closable="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <form
+                        granite:id="importRulesForm"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form"
+                        action="#"
+                        foundationForm="{Boolean}true"
+                        margin="{Boolean}true"
+                        style="vertical">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fileUpload
+                                granite:id="importRulesData"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/fileupload"
+                                autoStart="{Boolean}false"
+                                emptyText="Choose File"
+                                fieldLabel="Select Rules File"
+                                icon="upload"
+                                mimeTypes="[.xlsx]"
+                                multiple="{Boolean}false"
+                                name="importRulesData"
+                                required="{Boolean}true"
+                                text="Choose File"/>
+                            <checkRules
+                                granite:class="import-rules-check"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Check rules destination on import. THIS WILL IMPACT IMPORT TIMES! You can also check individual rules after the import."
+                                text="Check Rule Destination"
+                                value="true"
+                                uncheckedValue="false"
+                                name="importCheckRules"/>
+                        </items>
+                    </form>
+                </items>
+                <footer jcr:primaryType="nt:unstructured">
+                    <close
+                        granite:id="importRulesDiagCloseBtn"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                        text="Cancel">
+                        <parentConfig
+                            jcr:primaryType="nt:unstructured"
+                            close="{Boolean}true"/>
+                    </close>
+                    <submit
+                        granite:class="foundation-validation-bind"
+                        granite:id="importBtnSubmit"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                        disabled="{Boolean}true"
+                        formId="importRulesForm"
+                        text="Import"
+                        type="submit"
+                        variant="primary"/>
+                </footer>
+            </importRulesDiag>
+            <filterDiag
+                granite:id="filterDiag"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Filter"
+                sling:resourceType="granite/ui/components/coral/foundation/dialog"
+                closable="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <form
+                        granite:id="filterForm"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form"
+                        action="#"
+                        foundationForm="{Boolean}true"
+                        margin="{Boolean}true"
+                        style="vertical">
+                        <items jcr:primaryType="nt:unstructured">
+                            <selectMarket
+                                granite:class="filter-market-field"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldDescription="Filter rules by market."
+                                fieldLabel="Markets"
+                                name="filterMarket"
+                                emptyOption="{Boolean}true"
+                                ds_type="markets">
+                                <datasource
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="/eu/techem/redirmngr"/>
+                            </selectMarket>
+                        </items>
+                    </form>
+                </items>
+                <footer jcr:primaryType="nt:unstructured">
+                    <close
+                        granite:id="filterDiagCloseBtn"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                        text="Cancel">
+                        <parentConfig
+                            jcr:primaryType="nt:unstructured"
+                            close="{Boolean}true"/>
+                    </close>
+                    <submit
+                        granite:class="foundation-validation-bind"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                        disabled="{Boolean}true"
+                        granite:id="filterBtnSubmit"
+                        formId="filterForm"
+                        text="Filter"
+                        type="submit"
+                        variant="primary"/>
+                </footer>
+            </filterDiag>
+        </items>
+    </footer>
+</jcr:root>

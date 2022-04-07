@@ -1,0 +1,95 @@
+<sly data-sly-use.redirectsContainer="com.techem.core.models.RedirectsContainer">
+    <sly data-sly-test.redirects="${redirectsContainer.redirects}"/>
+    <table is="coral-table" class="custom-redirects-list foundation-layout-util-maximized-alt foundation-collection foundation-layout-table _coral-Table-wrapper--default _coral-Table-wrapper _coral-Table-wrapper--sticky is-ready" variant="default" data-foundation-collection-src="/techem/utilities/redirects/redirects-list{.offset,limit}.html" data-foundation-selections-mode="multiple" data-foundation-mode-group="custom-redirects-list" data-foundation-layout-table-hasmore="${redirects ? 'true' : 'false'}" data-foundation-layout="{&quot;name&quot;:&quot;foundation-layout-table&quot;,&quot;limit&quot;:40,&quot;size&quot;:20,&quot;sortMode&quot;:null,&quot;rowReorderAction&quot;:null,&quot;layoutId&quot;:&quot;list&quot;,&quot;trackingFeature&quot;:null,&quot;trackingElement&quot;:null}" selectable="" multiple="" role="presentation">
+        <thead is="coral-table-head" sticky="" _observe="on" divider="row" class="_coral-Table-divider--row _coral-Table-head">
+            <tr is="coral-table-row" class="_coral-Table-row">
+                <th is="coral-table-headercell" role="columnheader" scope="col" class="_coral-Table-headerCell" fixedwidth="" sortabledirection="default" alignment="left">
+                    <coral-table-headercell-content aria-sort="none">
+                        <coral-checkbox coral-table-select="" trackingelement="table-select" labelled="Select All" title="Select All" class="_coral-Checkbox">
+                            <input type="checkbox" handle="input" class=" _coral-Checkbox-input" id="coral-id-16" aria-label="Select All">
+                            <span class=" _coral-Checkbox-box" handle="checkbox">
+                                <svg focusable="false" aria-hidden="true" class="_coral-Icon--svg _coral-Icon _coral-Checkbox-checkmark _coral-UIIcon-CheckmarkSmall">
+                                    <use xlink:href="#spectrum-css-icon-CheckmarkSmall"></use>
+                                </svg>
+
+                                <svg focusable="false" aria-hidden="true" class="_coral-Icon--svg _coral-Icon _coral-Checkbox-partialCheckmark _coral-UIIcon-DashSmall">
+                                    <use xlink:href="#spectrum-css-icon-DashSmall"></use>
+                                </svg>
+                            </span>
+                        </coral-checkbox>
+                    </coral-table-headercell-content>
+                </th>
+                
+                <th is="coral-table-headercell" role="columnheader" scope="col" class="_coral-Table-headerCell" sortable="" sortabledirection="default" alignment="left">
+                    <coral-table-headercell-content tabindex="0" aria-sort="none">
+                        From
+                    </coral-table-headercell-content>
+                </th>
+                
+                <th is="coral-table-headercell" role="columnheader" scope="col" class="_coral-Table-headerCell" sortable="" sortabledirection="default" alignment="left">
+                    <coral-table-headercell-content tabindex="0" aria-sort="none">
+                        To
+                    </coral-table-headercell-content>
+                </th>
+                
+                <th is="coral-table-headercell" role="columnheader" scope="col" class="_coral-Table-headerCell" sortable="" sortabledirection="default" alignment="center">
+                    <coral-table-headercell-content tabindex="0" aria-sort="none">
+                        Code
+                    </coral-table-headercell-content>
+                </th>
+
+                <th is="coral-table-headercell" role="columnheader" scope="col" class="_coral-Table-headerCell" sortable="" sortabledirection="default" alignment="center">
+                    <coral-table-headercell-content tabindex="0" aria-sort="none">
+                        Until
+                    </coral-table-headercell-content>
+                </th>
+
+                <th is="coral-table-headercell" role="columnheader" scope="col" class="_coral-Table-headerCell" sortable="" sortabledirection="default" alignment="center">
+                    <coral-table-headercell-content tabindex="0" aria-sort="none">
+                        Published
+                    </coral-table-headercell-content>
+                </th>
+
+                <th is="coral-table-headercell" role="columnheader" scope="col" class="_coral-Table-headerCell" sortable="" sortabledirection="default" alignment="center">
+                    <coral-table-headercell-content tabindex="0" aria-sort="none">
+                        Status
+                    </coral-table-headercell-content>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody is="coral-table-body" _observe="on" divider="row" class="_coral-Table-divider--row _coral-Table-body"> 
+            <sly data-sly-test="${redirects}">
+                <sly data-sly-list.redirList="${redirects}">
+                    <sly data-sly-use.template="redirects-entry-template.html" data-sly-call="${template.redirects @ properties=redirList}">
+                    </sly>
+                </sly>
+            </sly>
+
+            <sly data-sly-test="${!redirects}">
+                <tr is="coral-table-row">
+                    <td is="coral-table-cell" colspan="7" alignment="center">There is no item.</td>
+                </tr>
+            </sly>
+        </tbody>
+        
+        <colgroup>
+            <col is="coral-table-column" alignment="left" fixedwidth="" class="_coral-Table-column" sortabletype="alphanumeric" sortabledirection="default">
+            <col is="coral-table-column" sortable="" data-foundation-layout-table-column-name="from" class="_coral-Table-column" sortabletype="alphanumeric" sortabledirection="default" alignment="left">
+            <col is="coral-table-column" sortable="" data-foundation-layout-table-column-name="to" class="_coral-Table-column" sortabletype="alphanumeric" sortabledirection="default" alignment="left">
+            <col is="coral-table-column" alignment="center" sortable="" data-foundation-layout-table-column-name="code" class="_coral-Table-column" sortabletype="alphanumeric" sortabledirection="default">
+            <col is="coral-table-column" alignment="center" sortable="" data-foundation-layout-table-column-name="until" class="_coral-Table-column" sortabletype="alphanumeric" sortabledirection="default">
+            <col is="coral-table-column" alignment="center" sortable="" data-foundation-layout-table-column-name="published" class="_coral-Table-column" sortabletype="alphanumeric" sortabledirection="default">
+            <col is="coral-table-column" alignment="center" sortable="" data-foundation-layout-table-column-name="status" class="_coral-Table-column" sortabletype="alphanumeric" sortabledirection="default">
+        </colgroup>
+        
+        <tfoot class="granite-collection-loading-title" is="coral-table-foot">
+            <tr class="granite-collection-loading-container" is="coral-table-row">
+                <td is="coral-table-cell" colspan="7">
+                    <coral-wait class="granite-collection-loading-wait"></coral-wait>
+                    <span>Loading more items</span>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</sly>

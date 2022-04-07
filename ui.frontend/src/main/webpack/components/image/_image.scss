@@ -1,7 +1,3 @@
-.cmp-image__image {
-    height: auto;
-}
-
 .cmp-image-b-radius {
   @include cmpMarginTop();
 
@@ -12,7 +8,6 @@
   .cmp-image__image {
     border-radius: $border-radius-top-l-bottom-r;
     width: auto;
-    height: auto;
     max-width: 100%;
     display: block;
   }
@@ -27,5 +22,18 @@
     .cmp-image, .cmp-image__image {
       margin: 0 auto;
     }
+  }
+}
+
+.cmp-image__title {
+  display: block;
+  max-width: 87%;
+  font-size: 12px;
+  line-height: 22px;
+  margin-top: 20px;
+
+  @include large {
+    margin-top: 15px;
+    max-width: 100%;
   }
 }

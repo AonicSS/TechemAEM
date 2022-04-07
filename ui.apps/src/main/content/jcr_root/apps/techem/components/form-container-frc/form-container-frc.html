@@ -1,0 +1,54 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.js @ categories='granite.jquery'}"/>
+<form data-sly-use.text="com.adobe.cq.wcm.core.components.models.form.Text"
+      data-sly-use.loginContainer="com.techem.core.models.LoginContainer"
+      data-sly-use.container="com.adobe.cq.wcm.core.components.models.form.Container"
+      data-sly-use.container="com.adobe.cq.wcm.core.components.models.LayoutContainer"
+      data-sly-use.FriendlyCaptcha="com.techem.core.models.FriendlyCaptcha"
+      method="POST" action="/eu/techem/customsubmitmail" id="login-form"
+      enctype="enctype"
+      class="cmp-form">
+    <sly data-sly-use.responsiveGridTemplate="responsiveGrid.html"
+         data-sly-call="${responsiveGridTemplate.responsiveGrid @ container=container}"></sly>
+    <div id="linkForRedirect" data-link-url="${loginContainer.linkURL}" hidden></div>
+    <input hidden name="emailData" value="${FriendlyCaptcha.endpointEmail}" />
+    <div class="friendly-captcha-container aem-GridColumn">
+        <div data-component-name="friendly-captcha"
+             class="cmp-friendly-captcha ${wcmmode.edit ? 'author-mode': 'hidden'}" id="friendly-captcha">
+
+            <p data-sly-test="${!wcmmode.disabled}">Friendly Captcha</p>
+            <div class="frc-captcha frc-captcha-margin" data-sitekey="FCMQ78B1KFJCV9SB" data-callback="myCallback"></div>
+        </div>
+        <div id="error-friendly" class="cmp-alert cmp-alert__invalid alert-warning" hidden>Something went wrong during validation. Please try again later.</div>
+
+    </div>
+    <div class="button aem-GridColumn aem-GridColumn--default--12 cq-Editable-dom">
+        <button data-sly-use.submitButton="com.adobe.cq.wcm.core.components.models.form.Button"
+            type="submit"
+            formmethod="post"
+            id="submit-button"
+            class="cmp-form-button">Submit</button>
+    </div>
+</form>
+<script>
+    $(function(){
+        if($("div[data-component-name='friendly-captcha']").length > 0) {
+            $(":submit.cmp-form-button").prop('disabled', true);
+        }
+    });
+    function myCallback(solution) {
+        const errorMsg = $("#error-friendly");
+        var submitBtnFriendly = $(":submit.cmp-form-button");
+        $.ajax({
+                type: "POST",
+                url: "/eu/techem/friendlycaptcha",
+                data: {'solution' : solution},
+                success: function (data) {
+                    submitBtnFriendly.prop('disabled', false);
+                },
+                error: function (data) {
+                    errorMsg.show();
+                    submitBtnFriendly.prop('disabled', true);
+                }
+            });
+        }
+</script>

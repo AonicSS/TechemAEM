@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured">
+    <selection jcr:primaryType="nt:unstructured">
+        <edit
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+            action="foundation.link"
+            actionConfigName="granite/ui/shell/actions/properties"
+            activeSelectionCount="single"
+            variant="actionBar">
+            <data
+                jcr:primaryType="nt:unstructured"
+                href.uritemplate="/techem/utilities/redirects?rule={item}"/>
+        </edit>
+        <delete
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+            action="techem.redirects.delete"
+            actionConfigName="granite/ui/shell/actions/delete"
+            variant="actionBar"/>
+        <activate
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+            action="techem.redirects.activate"
+            icon="globe"
+            text="Activate"
+            variant="actionBar"/>
+        <deactivate
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+            action="techem.redirects.deactivate"
+            icon="globeRemove"
+            text="Deactivate"
+            variant="actionBar"/>
+        <checkRule
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+            action="techem.redirects.check"
+            icon="globeCheck"
+            text="Check"
+            variant="actionBar"/>
+        <preview
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/collection/action"
+            action="techem.redirects.preview"
+            icon="globeSearch"
+            text="Preview"
+            activeSelectionCount="single"
+            trackingElement="preview redirect"
+            variant="actionBar">
+        </preview>
+    </selection>
+</jcr:root>

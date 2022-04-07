@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:description="Create and manage AEM redirects."
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Redirects Manager"
+    href="/techem/utilities/redirects"
+    icon="fileGlobe"
+    id="techem-redirectsmanager"/> 

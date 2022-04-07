@@ -1,0 +1,51 @@
+<tr is="coral-table-row" 
+    class="foundation-collection-item" 
+    data-foundation-collection-item-id="${properties.path}" 
+    data-rule-keep-qs="${properties.keepQS}" 
+    data-rule-market="${properties.market}">
+    <td is="coral-table-cell">
+        <coral-checkbox coral-table-rowselect></coral-checkbox>
+    </td>
+    <td is="coral-table-cell">${properties.from}</td>
+    <td is="coral-table-cell">${properties.to}</td>
+    <td is="coral-table-cell">${properties.code}</td>
+    <sly data-sly-test="${properties.until}">
+        <td is="coral-table-cell" class="date-cell" data-date-time-value="${'yyyy-MM-dd HH:mm' @ format=properties.until, type='date'}">${'dd-MM-yyyy, HH:mm' @ format=properties.until, type='date'}</td>
+    </sly>
+    <sly data-sly-test="${!properties.until}">
+        <td is="coral-table-cell" class="date-cell">-</td>
+    </sly>
+    <td is="coral-table-cell" class="published-col">
+        <sly data-sly-test="${properties.published == 'Activate'}">
+            <span class="date">
+                <foundation-time value="${'yyyy-MM-dd HH:mm:ss' @ format=properties.publishDate, type='date'}" format="short" type="datetime">
+                    <time role="presentation" datetime="${properties.publishDate}"></time>
+                </foundation-time>
+            </span>
+            <span class="publishedby">
+                ${properties.publishedBy}
+            </span>
+        </sly>
+        <sly data-sly-test="${properties.published != 'Activate'}">
+            Not Published
+        </sly>
+    </td>
+    <td is="coral-table-cell" class="status-col">
+        <sly data-sly-test="${properties.statusCode}">
+            <span class="status-success" data-sly-test="${properties.statusCode >= 200 && properties.statusCode <= 302}">
+                Path/URL OK (${properties.statusCode})
+            </span>
+            <span class="status-error" data-sly-test="${properties.statusCode >= 400 && properties.statusCode <= 599}">
+                Path/URL NOT OK (${properties.statusCode})
+            </span>
+            <span class="status-details" data-sly-test="${properties.statusDate}">
+                <foundation-time value="${'yyyy-MM-dd HH:mm:ss' @ format=properties.statusDate, type='date'}" format="short" type="datetime">
+                    Last checked <time role="presentation" datetime="${properties.statusDate}"></time>
+                </foundation-time>
+            </span>
+        </sly>
+        <sly data-sly-test="${!properties.statusCode}">
+            <span>-</span>
+        </sly>
+    </td>
+</tr>

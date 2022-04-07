@@ -11,6 +11,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 import com.day.cq.commons.jcr.JcrConstants;
+import com.techem.core.services.RedirectsManagerService;
 import com.techem.core.services.URLsFilterService;
 
 import org.apache.jackrabbit.oak.commons.PropertiesUtil;
@@ -30,10 +31,10 @@ import org.osgi.service.component.propertytypes.ServiceRanking;
 
 @Component(service = Filter.class)
 @SlingServletFilter(
-        scope = SlingServletFilterScope.ERROR,
-        methods = HttpConstants.METHOD_GET,
-        resourceTypes = { Resource.RESOURCE_TYPE_NON_EXISTING },
-        pattern = ".+.html$"
+    scope = SlingServletFilterScope.ERROR,
+    methods = HttpConstants.METHOD_GET,
+    resourceTypes = { Resource.RESOURCE_TYPE_NON_EXISTING },
+    pattern = "^/content/techem/content.+|.+.html$"
 )
 @ServiceDescription("Enables URLs to be case insensitive.")
 @ServiceRanking(1900)
@@ -50,9 +51,9 @@ public class URLsFilter implements Filter {
         SlingHttpServletRequest slingRequest = (SlingHttpServletRequest) request;
         SlingHttpServletResponse slingResponse = (SlingHttpServletResponse) response;
         ResourceResolver resourceResolver = slingRequest.getResourceResolver();
-
+        
         if(resourceResolver != null && urlsFilterService != null && urlsFilterService.getConfig().enabled()) {
-            String resPath = slingRequest.getPathInfo().replaceAll(".html", "").toLowerCase();
+            String resPath = slingRequest.getPathInfo().replaceAll(".html", "").replace("/content/techem/content/", "/content/techem/").toLowerCase();
             String resExt = slingRequest.getRequestPathInfo().getExtension();
             boolean isAllowed = urlsFilterService.isAllowedExt(resExt) && urlsFilterService.isAllowedPath(resPath);
             Resource resolvedRes = findResource(resourceResolver, resPath);
@@ -60,7 +61,7 @@ public class URLsFilter implements Filter {
             if(resolvedRes != null && !ResourceUtil.isNonExistingResource(resolvedRes) && isAllowed) {
                 Resource resolvedResContent = null;
                 boolean isRedirectPage = resolvedRes.isResourceType(URLsFilterService.SLING_REDIRECT);
-
+                
                 if(isRedirectPage) {
                     String redirectTarget = PropertiesUtil.toString(resolvedRes.getValueMap().get(URLsFilterService.SLING_TARGET), "").replaceAll(".html", "");
                     Resource redirectTargetRes = resourceResolver.getResource(redirectTarget);
@@ -73,10 +74,17 @@ public class URLsFilter implements Filter {
                 }
 
                 boolean isCaseSensitive = resolvedResContent != null && PropertiesUtil.toBoolean(resolvedResContent.getValueMap().get(URLsFilterService.CASE_SENSITIVE), false);
-
+                
                 if(!isCaseSensitive) {
-                    RequestDispatcher dp = slingRequest.getRequestDispatcher(resolvedRes);
-                    dp.forward(slingRequest, slingResponse);
+                    boolean isRedirectContent = slingRequest.getPathInfo().startsWith(RedirectsManagerService.REDIRECT_CONTENT_PATH);
+                    RequestDispatcher dp = slingRequest.getRequestDispatcher(resolvedRes.getPath() + ".html");
+                    
+                    if(isRedirectContent) {
+                        dp.include(slingRequest, slingResponse);
+                    }else {
+                        dp.forward(slingRequest, slingResponse);
+                    }
+
                     return;
                 }
             }
@@ -115,5 +123,5 @@ public class URLsFilter implements Filter {
         }
         return resFound.getPath().toLowerCase().equals(resPath) ? resFound : new NonExistingResource(resResolver, resPath);
     }
-
+    
 }
