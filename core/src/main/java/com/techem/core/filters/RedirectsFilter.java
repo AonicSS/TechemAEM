@@ -2,6 +2,7 @@ package com.techem.core.filters;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 import java.net.URLEncoder;
 
 import javax.servlet.Filter;
@@ -17,6 +18,7 @@ import com.techem.core.services.RedirectsManagerService;
 import com.techem.core.services.URLsFilterService;
 import com.techem.core.servlets.ResourceResolverUtil;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -137,7 +139,9 @@ public class RedirectsFilter implements Filter {
 
         if(req == null || !validateRequest(req)) { return null; }
         boolean isReqContent = !req.getPathInfo().startsWith(RedirectsManagerService.REDIRECT_CONTENT_PATH);
-        String reqURL = req.getRequestURL().toString().replaceAll(RedirectsManagerService.REDIRECT_CONTENT_PATH + "|" + URLsFilterService.CONTENT_ROOT, "");
+        boolean isForeignURL = StringUtils.equals(req.getPathInfo(), RedirectsManagerService.REDIRECT_GLOBAL_IDENTIFIER) && StringUtils.contains(req.getQueryString(), RedirectsManagerService.REDIRECT_GLOBAL_IDENTIFIER_QS);
+        String reqURLTmp = isForeignURL ? getQStringVal(req.getQueryString(), RedirectsManagerService.REDIRECT_GLOBAL_IDENTIFIER_QS) : req.getRequestURL().toString();
+        String reqURL = reqURLTmp.replaceAll(RedirectsManagerService.REDIRECT_CONTENT_PATH + "|" + URLsFilterService.CONTENT_ROOT, "");
         String reqPath = req.getPathInfo().replaceAll(RedirectsManagerService.REDIRECT_CONTENT_PATH + "|" + URLsFilterService.CONTENT_ROOT, "");
 
         if(isReqContent) {
@@ -174,6 +178,16 @@ public class RedirectsFilter implements Filter {
             }
         }
 
+        if(isForeignURL) {
+            try {
+                RedirectRule tmpRule = new RedirectRule();
+                tmpRule.setTo(RedirectsManagerService.REDIRECT_GLOBAL_LOCATION + new URL(reqURLTmp).getPath());
+                tmpRule.setCode(302);
+                tmpRule.setKeepQS(true);
+                return tmpRule;
+            }catch(Exception e) { }
+        }
+
         return null;
     }
 
@@ -202,14 +216,27 @@ public class RedirectsFilter implements Filter {
     private String keepQueryString(String ruleTo, String queryStr) {
         if(queryStr == null) { return ruleTo; }
         
-        if(queryStr.contains("wcmmode")) {
-            queryStr = queryStr.replaceAll("(&?wcmmode=\\w+$)|(wcmmode=\\w+&)", "");
-        }
+        queryStr = queryStr.replaceAll("(&?wcmmode=\\w+&?)|(&?" + RedirectsManagerService.REDIRECT_GLOBAL_IDENTIFIER_QS + "=(?:.+&|.+$))", "");
         
         if(queryStr.length() > 0) {
             return ruleTo + "?" + queryStr;
         }
         
         return ruleTo;
+    }
+    
+    private String getQStringVal(String qString, String qKey) {
+
+        String[] qsSplit = qString.split("\\&");
+        
+        if(qsSplit != null && qsSplit.length >= 1) {
+            
+            for(String str : qsSplit) {
+                if(str.substring(0, str.indexOf("=")).equals(qKey)) {
+                    return str.substring(str.indexOf("=")+1, str.length());
+                }
+            }
+        }
+        return null;
     }
 }
