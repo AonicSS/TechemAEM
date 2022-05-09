@@ -122,10 +122,6 @@
                         <embed
                                 cq:policy="techem/components/embed/policy_marketo"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="wcm/core/components/policies/mapping"/>'
-                        <form-container-frc
-                                cq:policy="techem/components/form-container-frc/policy_form-container-frc"
-                                jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                         <gated-content
                                 cq:policy="techem/components/margin-top/policy"

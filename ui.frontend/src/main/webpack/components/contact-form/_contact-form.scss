@@ -1,0 +1,258 @@
+.contact-form {
+    &__container {
+      display: block;
+      position: absolute;
+      top: 175px;
+      right: 105px;
+      z-index: 1000;
+      box-sizing: border-box;
+      padding: 30px 50px;
+      border-radius: $border-radius-top-l-bottom-r;
+      box-shadow: 0 12px 30px 0 rgba(182, 178, 178, 0.63);
+      background-color: $color-background;
+      max-width: 365px;
+      max-height: auto;
+      height: auto;
+  
+      @include large {
+        display: none;
+        position: fixed;
+        top: unset;
+        bottom: 20px;
+        right: 20px;
+      }
+  
+      @include small {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        max-width: 100%;
+        border-radius: 21px 21px 0 0;
+      }
+    }
+  
+    &__form {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    &__wrapper {
+      height: 100%;
+    }
+  
+    &__legend {
+      font-family: $font-universe-roman-bold;
+      font-size: 20px;
+      line-height: 1.4;
+      letter-spacing: 0.2px;
+      margin-bottom: 20px;
+  
+      @include small {
+        padding-right: 20px;
+      }
+    }
+  
+    &__label {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+  
+      a {
+        font-family: $font-universe-roman-bold;
+        color: $color-headline-red;
+  
+        &:hover {
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+  
+    &__checkbox {
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+  
+      input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        display: inline;
+        margin: 0;
+        min-height: unset;
+        top: 4px;
+        left: 2px;
+      }
+  
+      span {
+        display: inline-block;
+        color: $color-dark-grey;
+        margin-left: 5px;
+        font-size: 12px;
+        line-height: 1.5;
+        letter-spacing: normal;
+      }
+    }
+  
+    &__friendly-captcha {
+      min-height: 30px;
+    }
+  
+    &__select {
+      cursor: pointer;
+      background-color: $color-grey;
+      color: $color-dark-grey;
+      width: 100%;
+      min-height: 48px;
+      box-sizing: border-box;
+      border: none;
+      position: relative;
+  
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+  
+      &::after {
+        content: "";
+        position: absolute;
+        top: 20px;
+        right: 16px;
+        width: 16px;
+        height: 10px;
+        background-image: url(/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-bottom.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 0;
+        filter: brightness(0.2);
+      }
+  
+      select {
+        position: absolute;
+        top: 0;
+        left: 0;
+        appearance: none;
+        background-color: transparent;
+        color: $color-dark-grey;
+        border: none;
+        padding: 10px 20px;
+        margin: 0;
+        width: 100%;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: inherit;
+        line-height: inherit;
+        z-index: 1;
+      }
+  
+      select::-ms-expand {
+        display: none;
+      }
+    }
+  
+    &__input {
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 48px;
+      padding: 10px 20px;
+      border: none;
+      background-color: $color-grey;
+    }
+  
+    &__success {
+      display: block;
+      color: $color-success;
+      margin: 10px 0;
+      text-align: center;
+    }
+  
+    &__submit-btn.button-primary {
+      width: 100%;
+      border: none;
+      color: $color-background;
+  
+      &:disabled {
+        background-color: $border-color;
+        color: $color-inactive-tab;
+      }
+    }
+  
+    ::placeholder {
+      color: $color-foreground-header;
+      opacity: 1;
+      font-size: 16px;
+      line-height: 1.63;
+      letter-spacing: -0.1px;
+    }
+  
+    &__trigger-btn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      width: auto;
+  
+      @include large {
+        display: block;
+      }
+  
+      @include small {
+        padding: 8px 20px;
+      }
+  
+      img {
+        width: 16px;
+        height: 10px;
+        margin-left: 10px;
+        filter: invert(1);
+      }
+    }
+  
+    &__close-btn {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 34px;
+      background-color: unset;
+      border: none;
+      height: max-content;
+      margin: 0;
+      padding: 0;
+  
+      &:hover {
+        cursor: pointer;
+      }
+  
+      @include large {
+        display: flex;
+      }
+  
+      img {
+        width: 16px;
+        height: 10px;
+        filter: brightness(0.2);
+      }
+    }
+  
+    .hidden {
+      display: none;
+    }
+  
+    .visible {
+      display: block;
+    }
+  
+    .max {
+      max-height: 85vh;
+      height: 85vh;
+      overflow-y: auto;
+  
+      .contact-form__submit-btn {
+        margin-bottom: 20px;
+      }
+    }
+  }

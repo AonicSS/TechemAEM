@@ -1,95 +1,86 @@
 package com.techem.core.servlets;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
-import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.osgi.service.component.propertytypes.ServiceDescription;
+import org.apache.sling.api.wrappers.ValueMapDecorator;
 
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-import javax.net.ssl.HttpsURLConnection;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.jcr.Node;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
-import java.io.*;
-import java.net.URL;
 
-@Component(service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "=Servlet for verifying friendly captcha solution", "sling.servlet.methods="+ HttpConstants.METHOD_POST, "sling.servlet.paths=/eu/techem/friendlycaptcha" })
+import com.adobe.granite.ui.components.ds.DataSource;
+import com.adobe.granite.ui.components.ds.SimpleDataSource;
+import com.adobe.granite.ui.components.ds.ValueMapResource;
+import com.day.cq.commons.jcr.JcrConstants;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.techem.core.services.FriendlyCaptchaService;
+
+@Component(service = Servlet.class, property = { "sling.servlet.methods={ " + HttpConstants.METHOD_POST + "}", "sling.servlet.paths=/eu/techem/friendlycaptcha" })
+@ServiceDescription("FriendlyCaptcha Validation Servlet")
 public class FriendlyCaptchaServlet extends SlingAllMethodsServlet {
 
-    private Logger log = LoggerFactory.getLogger(FriendlyCaptchaServlet.class);
-
-    private String postSolution = "false";
-
-    private int responseCode = 500;
-
     @Reference
-    private ResourceResolverFactory resourceResolverFactory;
-
-    private String secret = "A19716EFHHG25O3RGTREUTRPLGQ2K5NIVU3OI1P3DOOM85LNHMSI4DBPU8";
+    private transient FriendlyCaptchaService fCaptchaService;
 
     @Override
-    protected void doPost( SlingHttpServletRequest req, SlingHttpServletResponse resp) throws ServletException, IOException {
-        JsonReader jsonReader = null;
+    protected void doGet(final SlingHttpServletRequest req, final SlingHttpServletResponse resp) throws ServletException, IOException {
+        if(fCaptchaService == null) { return; }
+        
+        Resource reqRes = req.getResource();
+        boolean isLangList = reqRes.getValueMap().get(FriendlyCaptchaService.FC_LANG_LIST) != null && reqRes.getValueMap().get(FriendlyCaptchaService.FC_LANG_LIST).equals("true");
+
+        if(!isLangList) { return; }
+
+        ResourceResolver resResolver = req.getResourceResolver();
+        Resource jsonRes = resResolver.getResource(FriendlyCaptchaService.FC_LANG_PATH);
+
+        if(jsonRes == null) { return; }
 
         try {
-            String solution = req.getParameter("solution");
+            String jsonData = jsonRes.getChild(JcrConstants.JCR_CONTENT).adaptTo(Node.class).getProperty(JcrConstants.JCR_DATA).getString();
+            JsonArray jsonObject = new Gson().fromJson(jsonData, JsonElement.class).getAsJsonArray();
+            List<Resource> values = new ArrayList<Resource>();
 
-            if( req.getPathInfo().equals("/eu/techem/friendlycaptcha")) {
-                URL obj = new URL("https://api.friendlycaptcha.com/api/v1/siteverify");
-                HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
-
-                // add reuqest header
-                con.setRequestMethod("POST");
-                con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
-
-                String postParams = "solution=" + solution + "&secret="
-                        + secret;
-
-                // Send post request
-                con.setDoOutput(true);
-                DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-                wr.writeBytes(postParams);
-                wr.flush();
-                wr.close();
-
-                responseCode = con.getResponseCode();
-
-                BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                String inputLine;
-                StringBuffer response = new StringBuffer();
-
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                in.close();
-
-                jsonReader = Json.createReader(new StringReader(response.toString()));
-                JsonObject jsonObject = jsonReader.readObject();
-                postSolution = jsonObject.get("success").toString();
-                if (postSolution == "false")
-                    log.error("FRIENDLY CAPTCHA SOLUTION FALSE: " + jsonObject.getString("details").toString());
+            for(JsonElement el : jsonObject) {
+                ValueMap vm = new ValueMapDecorator(new HashMap<String, Object>());
+                vm.put("text", el.getAsJsonObject().getAsJsonPrimitive("text").getAsString());
+                vm.put("value", el.getAsJsonObject().getAsJsonPrimitive("value").getAsString());
+                values.add(new ValueMapResource(req.getResourceResolver(), jsonRes.getPath(), jsonRes.getResourceType(), vm));
             }
-            else {
-                if(postSolution == "true" || responseCode == 200)
-                    resp.setStatus(200);
-                else
-                    resp.setStatus(500);
-            }
-        } catch (Exception e) {
-            log.error("Post failed: ", e);
-            resp.setStatus(302);
-            return;
-        } finally {
-            if(jsonReader != null) {
-                jsonReader.close();
-            }
+
+            DataSource ds = new SimpleDataSource(values.iterator());
+            req.setAttribute(DataSource.class.getName(), ds);
+        } catch (Exception e) {}
+    }
+
+    @Override
+    protected void doPost(SlingHttpServletRequest req, SlingHttpServletResponse resp) throws ServletException, IOException {
+        
+        if(fCaptchaService == null) { return; }
+
+        String solData = req.getParameter(FriendlyCaptchaService.FCC_SOLUTION);
+        boolean isValidated = false;
+
+        if(StringUtils.isNotBlank(solData)) {
+            isValidated = fCaptchaService.validateCaptcha(solData);
         }
+
+        resp.setStatus(isValidated ? 200 : 302);
     }
 }
