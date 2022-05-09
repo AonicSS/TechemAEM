@@ -1,5 +1,6 @@
 package com.techem.core.models;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -20,12 +21,12 @@ import static com.day.cq.wcm.api.NameConstants.PN_PAGE_LAST_MOD;
 
 @Model(adaptables = Resource.class,  defaultInjectionStrategy =  DefaultInjectionStrategy.OPTIONAL)
 public class Stage {
-
+    
     private static final String DATE_PATTERN = "dd.MM.yyy";
-
+    
     @SlingObject
     private ResourceResolver resourceResolver;
-
+    
     @ValueMapValue(name = "subHeadline")
     private String subHeadline;
 
@@ -43,6 +44,9 @@ public class Stage {
 
     @ValueMapValue(name = JcrConstants.JCR_CREATED)
     private Date createdDate;
+
+    @ValueMapValue(name = "customURL")
+    private String customURL;
 
     @ValueMapValue(name = "path")
     private String path;
@@ -65,9 +69,9 @@ public class Stage {
 
     public Date getDateObject() { return Objects.nonNull(dateObject) ? (Date) dateObject.clone() : null; }
 
-    public Date getLastModifiedObject() { return  Objects.nonNull(lastModifiedObject) ? (Date) lastModifiedObject.clone() : null;}
+    public Date getLastModifiedObject() { return Objects.nonNull(lastModifiedObject) ? (Date) lastModifiedObject.clone() : null;}
 
-    public Date getCreatedDate() { return  Objects.nonNull(createdDate) ? (Date) createdDate : null; }
+    public Date getCreatedDate() { return Objects.nonNull(createdDate) ? (Date) createdDate : null; }
 
     public String getHeadline() {
         return headline;
@@ -83,6 +87,10 @@ public class Stage {
 
     public String getCategory() {
         return category;
+    }
+
+    public String getCustomURL() {
+        return customURL;
     }
 
     public String getPath() {
@@ -105,15 +113,15 @@ public class Stage {
     }
 
     public void setHeadline(String headLine) {
-        if(headLine != null && !(headLine.trim().length() == 0)) { headline = headLine; }
+        if(StringUtils.isNotBlank(headLine)) { headline = headLine; }
     }
 
     public void setSubHeadline(String subHeadLine) {
-        if(subHeadLine != null && !(subHeadLine.trim().length() == 0)) { subHeadline = subHeadLine; }
+        if(StringUtils.isNotBlank(subHeadLine)) { subHeadline = subHeadLine; }
     }
 
     public void setCategory(String categoryStr) {
-        if(categoryStr != null && !(categoryStr.trim().length() == 0)) { category = categoryStr; }
+        if(StringUtils.isNotBlank(categoryStr)) { category = categoryStr; }
     }
 
     public void setDateObj(Object dateObj) {
@@ -121,6 +129,10 @@ public class Stage {
             DateFormat formatter = new SimpleDateFormat(DATE_PATTERN);
             date = formatter.format(dateObj);
         }
+    }
+
+    public void setCustomURL(String cURL) {
+        customURL = cURL;
     }
 
     public String getDate() { return date; }

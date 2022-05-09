@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,26 +12,29 @@ import javax.inject.Inject;
 
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.wcm.api.NameConstants;
+import com.day.cq.wcm.api.PageManager;
+import com.day.cq.wcm.api.Page;
 import com.google.common.collect.Lists;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.jcr.resource.api.JcrResourceConstants;
+import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.collections4.CollectionUtils;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL, resourceType = "techem/components/newshub-related-article")
 public class NewshubRelatedArticle {
-    
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Inject
     private List<Stage> articleListManually;
+
+    @Inject
+    private List<Stage> customAutoArti;
 
     @SlingObject
     private ResourceResolver resourceResolver;
@@ -55,22 +57,28 @@ public class NewshubRelatedArticle {
     @ValueMapValue(name="filteringTags")
     private String[] filteringTags;
 
+    @ValueMapValue(name="teaserType")
+    @Default(values = "artiText")
+    private String teaserType;
+
+    @ValueMapValue(name="maxTeaserText")
+    @Default(intValues = 1000)
+    private int maxTeaserText;
+
     private List<Stage> newsArticles;
 
     private List<Resource> newsItems;
 
+    private static final String NEWSPAGE_RESOURCE_TYPE = "techem/components/structure/news-page";
+    private static final String TEXT_RESOURCE_TYPE = "techem/components/text";
+
     @PostConstruct
     protected void init() {
-        if (insertionType != null && !insertionType.isEmpty()) {
-            if (insertionType.equals("automatically")) {
-                newsItems = Lists.newArrayList(getArticleResources()).stream().filter((item) -> {
-                    return item.getValueMap().get(JcrConstants.JCR_PRIMARYTYPE).equals(NameConstants.NT_PAGE)
-                            && item.getChild(JcrConstants.JCR_CONTENT).adaptTo(ValueMap.class).get("sling:resourceType")
-                            .equals("techem/components/structure/news-page");
-                }).collect(Collectors.toList());
-                filterByTags();
-                orderList();
-            }
+        if (StringUtils.isNotBlank(insertionType) && insertionType.equals("automatically")) {
+            newsItems = getArticleResources();
+            filterByTags();
+            customizeArticles();
+            orderList();
         }
     }
 
@@ -97,7 +105,7 @@ public class NewshubRelatedArticle {
     }
 
     private void orderList() {
-        if(orderBy != null && sortOrder != null) {            
+        if(StringUtils.isNotBlank(orderBy) && StringUtils.isNotBlank(sortOrder) && CollectionUtils.isNotEmpty(newsArticles)) {
             switch(orderBy) {
                 case "dateArticle":
                     newsArticles.sort(Comparator.comparing(o -> ((Stage) o).getDateObject()));
@@ -124,24 +132,40 @@ public class NewshubRelatedArticle {
         }
     }
 
-    private Iterator<Resource> getArticleResources() {
-        if (filePath == null || filePath.isEmpty()) {
-            return Collections.emptyIterator();
+    private List<Resource> getArticleResources() {
+        if (StringUtils.isBlank(filePath)) {
+            return Collections.emptyList();
         }
 
-        Resource resource = null;
+        Resource artiRes = resourceResolver.getResource(filePath);
 
-        try {
-            resource = resourceResolver.getResource(filePath);
-        } catch (Exception ex) {
-            logger.error("Could not fetch resource. Ex: ", ex);
+        return Lists.newArrayList(artiRes.getChildren()).stream().filter((item) -> {
+            PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
+            Page page = pageManager.getPage(item.getPath());
+            return page != null && page.hasContent() && page.getContentResource().getValueMap().get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY).equals(NEWSPAGE_RESOURCE_TYPE);
+        }).collect(Collectors.toList());
+    }
+
+    private void customizeArticles() {
+        if(CollectionUtils.isNotEmpty(customAutoArti)) {
+            for(Stage cArti : customAutoArti) {
+                Stage arti = newsArticles.stream().filter(p -> StringUtils.isNotBlank(p.getPath()) && p.getPath().equals(cArti.getPath())).findFirst().orElse(null);
+                if(arti == null) { continue; }
+                
+                arti.setCustomURL(cArti.getCustomURL());
+                arti.setCategory(cArti.getCategory());
+            }
         }
 
-        if (resource == null) {
-            return Collections.emptyIterator();
-        }
+        if(StringUtils.isNotBlank(teaserType) && teaserType.equals("artiText")) {
+            for(Stage artiStage : newsArticles) {
+                String artiText = findArticleText(artiStage.getPath());
 
-        return resource.listChildren();
+                if(StringUtils.isNotBlank(artiText)) {
+                    artiStage.setText(artiText);
+                }
+            }
+        }
     }
 
     public List<Stage> getArticleListManually() {
@@ -166,6 +190,31 @@ public class NewshubRelatedArticle {
 
     public List<Stage> getNewsArticles() {
         return newsArticles;
+    }
+
+    private String findArticleText(String path) {
+        if(StringUtils.isBlank(path)) { return StringUtils.EMPTY; }
+
+        path = path.replaceAll(".html", "");
+
+        Resource artiRes = resourceResolver.getResource(path);
+        String artiText = StringUtils.EMPTY;
+
+        if(artiRes != null) {
+            Resource containerRes = artiRes.getChild(JcrConstants.JCR_CONTENT + "/root/container");
+            
+            if(containerRes != null) {
+                for(Resource children : containerRes.getChildren()) {
+                    if(children.isResourceType(TEXT_RESOURCE_TYPE)) {
+                        artiText = (String) children.getValueMap().getOrDefault("text", StringUtils.EMPTY);
+                        artiText = artiText.length() >= maxTeaserText ? artiText.substring(0, maxTeaserText) + "..." : artiText;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        return artiText;
     }
 
 }
