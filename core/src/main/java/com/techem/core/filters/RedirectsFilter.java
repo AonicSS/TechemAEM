@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import com.day.cq.commons.Externalizer;
 import com.day.cq.wcm.api.WCMMode;
 import com.techem.core.models.RedirectRule;
 import com.techem.core.services.RedirectsManagerService;
@@ -181,7 +182,11 @@ public class RedirectsFilter implements Filter {
         if(isForeignURL) {
             try {
                 RedirectRule tmpRule = new RedirectRule();
-                tmpRule.setTo(RedirectsManagerService.REDIRECT_GLOBAL_LOCATION + new URL(reqURLTmp).getPath());
+                String tmpPath = new URL(reqURLTmp).getPath();
+                Externalizer externalizer = resResolver.adaptTo(Externalizer.class);
+
+                String tmpURLTo = externalizer != null ? externalizer.publishLink(resResolver, tmpPath) : RedirectsManagerService.REDIRECT_GLOBAL_LOCATION + tmpPath;
+                tmpRule.setTo(tmpURLTo);
                 tmpRule.setCode(302);
                 tmpRule.setKeepQS(true);
                 return tmpRule;
