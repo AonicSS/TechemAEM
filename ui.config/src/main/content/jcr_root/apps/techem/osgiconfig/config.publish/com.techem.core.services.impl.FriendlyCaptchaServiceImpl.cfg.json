@@ -1,0 +1,5 @@
+{
+	"apiEndpoint": "https://api.friendlycaptcha.com/api/v1/siteverify",
+	"apiSecret": "A19716EFHHG25O3RGTREUTRPLGQ2K5NIVU3OI1P3DOOM85LNHMSI4DBPU8",
+	"apiSiteKey": "FCMQ78B1KFJCV9SB"
+}

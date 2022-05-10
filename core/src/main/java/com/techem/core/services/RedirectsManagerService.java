@@ -55,6 +55,9 @@ public interface RedirectsManagerService {
         public static final String REDIRECT_ENTRY_RES_TYPE = "techem/components/redirects-manager/redirects-entry";
         /** Path from where content is being routed. This is also defined in the dispatcher rewrite.rules file. */
         public static final String REDIRECT_CONTENT_PATH = "/content/techem/content";
+        public static final String REDIRECT_GLOBAL_IDENTIFIER = REDIRECT_CONTENT_PATH + "/redir";
+        public static final String REDIRECT_GLOBAL_IDENTIFIER_QS = "gURL";
+        public static final String REDIRECT_GLOBAL_LOCATION = "https://sales-dev.techem.de";
 
         /** Configuration for the Redirects Manager Service. */
         @ObjectClassDefinition(name = "Redirect Manager Config", description = "Configures the behaviour of the redirects manager.")

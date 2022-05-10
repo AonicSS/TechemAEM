@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
     jcr:title="Friendly Captcha"
     sling:resourceType="cq/gui/components/authoring/dialog">
@@ -29,40 +29,102 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <startTimeString
+                                            <fcLanguage
+                                                granite:class="cq-dialog-dropdown-showhide"
                                                 jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/hidden"
-                                                name="./startTime@TypeHint"
-                                                value="String"/>
-                                            <startTime
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldDescription="Change Friendly Captcha Display Language"
+                                                fieldLabel="Friendly Captcha Language"
+                                                emptyOption="{Boolean}true"
+                                                fcLangList="true"
+                                                name="./fcLanguage">
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="/eu/techem/friendlycaptcha"/>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-dialog-dropdown-showhide-target=".lang-showhide-target"/>
+                                            </fcLanguage>
+                                            <customLang
+                                                granite:class="lang-showhide-target"
                                                 jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
-                                                displayedFormat="HH:mm"
-                                                displayTimezoneMessage="false"
-                                                emptyText="Choose a start time"
-                                                fieldLabel="Start time"
-                                                name="./startTime"
-                                                renderReadOnly="true"
-                                                required="{Boolean}true"
-                                                type="time"
-                                                valueFormat="HH:mm"/>
-                                            <endTimeString
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/hidden"
-                                                name="./endTime@TypeHint"
-                                                value="String"/>
-                                            <endTime
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
-                                                displayedFormat="HH:mm"
-                                                displayTimezoneMessage="false"
-                                                emptyText="Choose an end time"
-                                                fieldLabel="End time"
-                                                name="./endTime"
-                                                renderReadOnly="true"
-                                                required="{Boolean}true"
-                                                type="time"
-                                                valueFormat="HH:mm"/>
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <langInit
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Text shown while the widget is starting: usually not visible as it initializes instantly."
+                                                        fieldLabel="Initialising Text"
+                                                        required="{Boolean}true"
+                                                        name="./langInit"/>
+                                                    <langReady
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Title of the widget shown before the verification has started."
+                                                        fieldLabel="Ready Text"
+                                                        required="{Boolean}true"
+                                                        name="./langReady"/>
+                                                    <langButtonReady
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Text shown on the button before the verification has started."
+                                                        fieldLabel="Button Ready Text"
+                                                        required="{Boolean}true"
+                                                        name="./langButtonReady"/>
+                                                    <langFetching
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Title of the widget shown while the widget fetches a validation challenge. Eg: Loading..."
+                                                        fieldLabel="Fetching Challenge Text"
+                                                        required="{Boolean}true"
+                                                        name="./langFetching"/>
+                                                    <langSolving
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Title of the widget shown while the widget is validating."
+                                                        fieldLabel="Solving Challenge Text"
+                                                        required="{Boolean}true"
+                                                        name="./langSolving"/>
+                                                    <langCompleted
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Title of the widget shown on successful captcha validation."
+                                                        fieldLabel="Completed Challenge Text"
+                                                        required="{Boolean}true"
+                                                        name="./langCompleted"/>
+                                                    <langExpired
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Title of the widget shown if the captcha validation has expired."
+                                                        fieldLabel="Expired Challenge Text"
+                                                        required="{Boolean}true"
+                                                        name="./langExpired"/>
+                                                    <langExpiredButton
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Text shown on the button if the captcha validation has expired."
+                                                        fieldLabel="Expired Challenge Button Text"
+                                                        required="{Boolean}true"
+                                                        name="./langExpiredButton"/>
+                                                    <langError
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Title of the widget shown when an error has occured."
+                                                        fieldLabel="Error Text"
+                                                        required="{Boolean}true"
+                                                        name="./langError"/>
+                                                    <langErrorButton
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Text shown on the button when an error has occured. Eg: Retry"
+                                                        fieldLabel="Error Button Text"
+                                                        required="{Boolean}true"
+                                                        name="./langErrorButton"/>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    showhidetargetvalue="custom"/>
+                                            </customLang>
                                         </items>
                                     </column>
                                 </items>

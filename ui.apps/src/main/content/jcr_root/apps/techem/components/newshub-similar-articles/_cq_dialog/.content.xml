@@ -163,6 +163,33 @@
                                                             required="{Boolean}true"
                                                             rootPath="/content"
                                                             name="./filePath" />
+                                                    <multi
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        composite="{Boolean}true"
+                                                        fieldLabel="Additional Paths">
+                                                        <field
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                            name="./additionalPaths">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <column
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <additionalPath
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="cq/gui/components/coral/common/form/pagefield"
+                                                                            fieldDescription="Root path of articles"
+                                                                            fieldLabel="Path"
+                                                                            required="true"
+                                                                            name="./path"
+                                                                            rootPath="/content"/>
+                                                                </items>
+                                                            </column>
+                                                        </items>
+                                                    </field>
+                                                    </multi>
                                                     <filteringTags
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="cq/gui/components/coral/common/form/tagfield"

@@ -1,0 +1,73 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.js @ categories='granite.jquery'}"/>
+<sly data-sly-use.contactFormModel="com.techem.core.models.ContactForm"></sly>
+<sly data-sly-use.FriendlyCaptcha="com.techem.core.models.FriendlyCaptcha"></sly>
+
+<div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+  Configure ${component.properties.jcr:title}
+</div>
+
+<div class="contact-form" data-component-name="contact-form">
+  <div class="contact-form__container">
+    <button class="contact-form__close-btn" type="button">
+      <span hidden> Close </span>
+      <img src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-bottom.svg" />
+    </button>
+    <form class="contact-form__form" method="post" action="/eu/techem/customsubmitmail">
+
+      <h3 class="contact-form__legend">${contactFormModel.title}</h3>
+
+      <div class="contact-form__wrapper">
+        <input hidden name=":emailData" value="${contactFormModel.endpointEmail}" />
+
+        <label class="contact-form__label" for="salutation">
+          <span hidden>${contactFormModel.salutationLabel}</span>
+          <div class="contact-form__select">
+            <select id="salutation" name="salutation" required>
+              <option value="" selected disabled>${contactFormModel.salutationLabel}*</option>
+              <sly data-sly-list.option="${contactFormModel.options}">
+                <option value="${option.inputValue}">${option.inputLabel}</option>
+              </sly>
+            </select>
+          </div>
+        </label>
+
+        <label class="contact-form__label" for="name-input">
+          <span hidden>${contactFormModel.nameLabel}</span>
+          <input class="contact-form__input" id="name-input" name="fullname" type="text"
+                 placeholder="${contactFormModel.nameLabel}*" required />
+        </label>
+
+        <label class="contact-form__label" for="tel-input">
+          <span hidden>${contactFormModel.phoneLabel}</span>
+          <input class="contact-form__input" id="tel-input" name="telephone" type="tel"
+                 placeholder="${contactFormModel.phoneLabel}*" required />
+        </label>
+
+        <label class="contact-form__label" for="mail-input">
+          <span hidden>${contactFormModel.mailLabel}</span>
+          <input class="contact-form__input" id="mail-input" name="email" type="email"
+                 placeholder="${contactFormModel.mailLabel}*" required />
+        </label>
+
+        <sly data-sly-test="${contactFormModel.showFriendlyCaptcha}" data-sly-resource="${resource @ resourceType='techem/components/form/friendly-captcha'}"></sly>
+
+        <label class="contact-form__label contact-form__checkbox cmp-form-options__field-label"
+               for="checkbox-input" data-sly-test="${contactFormModel.checkboxLabel}">
+          <input class="contact-form__input cmp-form-options__field cmp-form-options__field--checkbox"
+                 id="checkbox-input" name="${contactFormModel.checkboxName}" type="checkbox"
+                 data-sly-attribute.required="${contactFormModel.checkboxRequired}" />
+          <div class="cmp-form-options__field-description">
+            <span>${contactFormModel.checkboxLabel @ context='html'}</span>
+          </div>
+        </label>
+
+        <span class="contact-form__success hidden">${contactFormModel.successMessage}</span>
+        <button type="submit" class="contact-form__submit-btn cmp-button button-primary" data-sly-attribute.disabled="${contactFormModel.showFriendlyCaptcha || contactFormModel.checkboxRequired}">${contactFormModel.submitLabel}</button>
+      </div>
+    </form>
+  </div>
+  <button class="contact-form__trigger-btn cmp-button button-primary">
+    ${contactFormModel.shortTitle}
+    <img src="/etc.clientlibs/techem/clientlibs/clientlib-site/resources/images/navigation-chevron-top.svg" />
+  </button>
+</div>

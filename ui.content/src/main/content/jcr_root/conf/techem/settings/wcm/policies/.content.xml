@@ -508,7 +508,7 @@
                     jcr:title="Generic Page"
                     sling:resourceType="wcm/core/components/policy/policy"
                     ampMode="pairedAmp"
-                    clientlibs="[techem.dependencies,techem.site]"
+                    clientlibs="[techem.dependencies,techem.site,techem.videoplayer]"
                     clientlibsJsHead="techem.dependencies">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
@@ -590,45 +590,6 @@
                     </cq:styleGroups>
                 </policy_general-tabs-container>
             </general-tabs-container>
-            <form-container-frc jcr:primaryType="nt:unstructured">
-                <policy_form-container-frc
-                        jcr:description="Allows to add only form elements"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Form with Friendly Captcha rules"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/apps/techem/components/form/hidden,/apps/techem/components/form/options,/apps/techem/components/form/text]"
-                        layoutDisabled="false">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <cq:styleGroups jcr:primaryType="nt:unstructured">
-                        <item0
-                                cq:styleGroupLabel="Margin top (custom)"
-                                jcr:primaryType="nt:unstructured">
-                            <cq:styles jcr:primaryType="nt:unstructured">
-                                <item0
-                                        cq:styleClasses="mt--xsmall"
-                                        cq:styleId="1614083648901"
-                                        cq:styleLabel="Extra Small"
-                                        jcr:primaryType="nt:unstructured"/>
-                                <item1
-                                        cq:styleClasses="mt--small"
-                                        cq:styleId="1614083648986"
-                                        cq:styleLabel="Small"
-                                        jcr:primaryType="nt:unstructured"/>
-                                <item2
-                                        cq:styleClasses="mt--large"
-                                        cq:styleId="1614083665068"
-                                        cq:styleLabel="Large"
-                                        jcr:primaryType="nt:unstructured"/>
-                                <item3
-                                        cq:styleClasses="mt--none"
-                                        cq:styleId="1614083699866"
-                                        cq:styleLabel="No margin"
-                                        jcr:primaryType="nt:unstructured"/>
-                            </cq:styles>
-                        </item0>
-                    </cq:styleGroups>
-                </policy_form-container-frc>
-            </form-container-frc>
             <tabs-icon-number jcr:primaryType="nt:unstructured">
                 <policy_tabs-icon-number
                     jcr:description="Allows only General Container to add in it the necessary Icon-Number-Tiles"

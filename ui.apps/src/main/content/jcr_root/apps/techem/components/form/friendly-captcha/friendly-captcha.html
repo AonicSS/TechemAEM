@@ -1,24 +1,12 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.js @ categories='granite.jquery'}"/>
 <div class="friendly-captcha-container">
     <div data-component-name="friendly-captcha"
-         class="cmp-friendly-captcha ${wcmmode.edit ? 'author-mode': 'hidden'}" id="friendly-captcha">
+         data-sly-use.FriendlyCaptcha="com.techem.core.models.FriendlyCaptcha"
+         class="cmp-friendly-captcha ${wcmmode.edit ? 'author-mode': ''}" id="friendly-captcha">
 
         <p data-sly-test="${!wcmmode.disabled}">Friendly Captcha</p>
-        <div class="frc-captcha frc-captcha-margin" data-sitekey="FCMQ78B1KFJCV9SB" data-callback="myCallback"></div>
+        <div class="friendly-captcha frc-captcha-margin" data-sitekey="${FriendlyCaptcha.siteKey}" data-sly-attribute.data-fc-lang="${FriendlyCaptcha.fcLanguage}"></div>
+        <input type="hidden" name=":captchaEnabled" value="true" hidden/>
     </div>
-    <div id="error-friendly-cmp" class="cmp-alert cmp-alert__invalid alert-warning" hidden>Something went wrong during validation. Please try again later.</div>
-
+    <div class="cmp-alert cmp-alert__invalid alert-warning error-friendly-cmp" hidden>Something went wrong during validation. Please try again later.</div>
 </div>
-<script>
-    function myCallback(solution) {
-        const errorMsg = $("#error-friendly-cmp");
-        var submitBtnFriendly = $(":submit.cmp-form-button");
-        $.ajax({
-                type: "POST",
-                url: "/eu/techem/friendlycaptcha",
-                data: {'solution' : solution},
-                error: function (data) {
-                    errorMsg.show();
-                }
-            });
-        }
-</script>

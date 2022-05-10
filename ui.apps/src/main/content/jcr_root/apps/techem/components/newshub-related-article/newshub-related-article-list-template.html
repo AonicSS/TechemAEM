@@ -8,7 +8,8 @@
                     <div class="cmp-newshub-related-article__image-wrapper">
                         <img class="cmp-newshub-related-article__image" src="${relatedArticle.image}" />
                     </div>
-                    <a data-sly-test="${relatedArticle.path}" class="cmp-newshub-related-article__link" href="${relatedArticle.path}">
+                    <sly data-sly-test.artiLink="${relatedArticle.customURL || relatedArticle.path}"></sly>
+                    <a data-sly-test="${artiLink}" class="cmp-newshub-related-article__link" href="${artiLink}">
                         <span class="cmp-newshub-related-article__image-detail" data-sly-test="${relatedArticle.category}">${relatedArticle.category}</span>
                         <div class="newshub-icon-arrow">
                             <i class="newshub-icon-arrow__icon">
@@ -16,7 +17,7 @@
                             </i>
                         </div>
                     </a>
-                    <span data-sly-test="${!relatedArticle.path && relatedArticle.category}" class="cmp-newshub-related-article__image-detail">${relatedArticle.category}</span>
+                    <span data-sly-test="${!artiLink && relatedArticle.category}" class="cmp-newshub-related-article__image-detail">${relatedArticle.category}</span>
                 </aside>
                 ${relatedArticle.text @ context='html'}
             </div>
