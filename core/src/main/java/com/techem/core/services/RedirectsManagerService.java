@@ -57,7 +57,7 @@ public interface RedirectsManagerService {
         public static final String REDIRECT_CONTENT_PATH = "/content/techem/content";
         public static final String REDIRECT_GLOBAL_IDENTIFIER = REDIRECT_CONTENT_PATH + "/redir";
         public static final String REDIRECT_GLOBAL_IDENTIFIER_QS = "gURL";
-        public static final String REDIRECT_GLOBAL_LOCATION = "https://sales-dev.techem.de";
+        public static final String REDIRECT_GLOBAL_LOCATION = "https://www.techem.com";
 
         /** Configuration for the Redirects Manager Service. */
         @ObjectClassDefinition(name = "Redirect Manager Config", description = "Configures the behaviour of the redirects manager.")
