@@ -60,6 +60,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
     function hideForm() {
       enableBodyScroll(formContainer);
+      $("body").removeAttr("style");
       formContainer.classList.add("hidden");
       formContainer.classList.remove("visible");
       triggerButton.classList.remove("hidden");
@@ -68,6 +69,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
     function showForm() {
       disableBodyScroll(formContainer);
+      $("body").css("right", 0);
       formContainer.classList.remove("hidden");
       formContainer.classList.add("visible");
       triggerButton.classList.add("hidden");

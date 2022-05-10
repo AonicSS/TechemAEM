@@ -508,7 +508,7 @@
                     jcr:title="Generic Page"
                     sling:resourceType="wcm/core/components/policy/policy"
                     ampMode="pairedAmp"
-                    clientlibs="[techem.dependencies,techem.site]"
+                    clientlibs="[techem.dependencies,techem.site,techem.videoplayer]"
                     clientlibsJsHead="techem.dependencies">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
