@@ -2,7 +2,7 @@
   "resourceTypes": [
     "techem/components/page"
   ],
-  "useVanity": true,
+  "useVanity": false,
   "includeLastMod": true,
   "encoding": "UTF-8",
   "extensionless": true,
