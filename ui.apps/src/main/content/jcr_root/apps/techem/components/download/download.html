@@ -4,20 +4,66 @@
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
      id="${component.id}">
     <a data-sly-unwrap="${!download.url}" class="cmp-download__link" target="_blank" href="${download.url}">
+        <sly data-sly-test.isPDF="${techemDownload.iconFormat=='PPT'}" >
+            <span class="cmp-download__ext-ico cmp-download__ppt"></span>
+        </sly>
+        <sly data-sly-test.isPDF="${techemDownload.iconFormat=='XLS'}" >
+            <span class="cmp-download__ext-ico cmp-download__xls"></span>
+        </sly>
+        <sly data-sly-test.isPDF="${techemDownload.iconFormat=='DOC'}" >
+            <span class="cmp-download__ext-ico cmp-download__doc"></span>
+        </sly>
         <sly data-sly-test.isPDF="${techemDownload.iconFormat=='PDF'}" >
-            <span class="cmp-download-pdf"></span>
+            <span class="cmp-download__ext-ico cmp-download__pdf"></span>
         </sly>
-        <sly data-sly-test.isImg="${techemDownload.iconFormat=='PNG' || techemDownload.iconFormat=='JPG'}" >
-            <span class="cmp-download-img"></span>
+        <sly data-sly-test.isPDF="${techemDownload.iconFormat=='ZIP'}" >
+            <span class="cmp-download__ext-ico cmp-download__zip"></span>
         </sly>
-        <sly data-sly-test.isZip="${techemDownload.iconFormat=='ZIP'}" >
-            <span class="cmp-download-zip"></span>
+        <sly data-sly-test.isPDF="${techemDownload.iconFormat=='MP3'}" >
+            <span class="cmp-download__ext-ico cmp-download__mp3"></span>
         </sly>
+        <sly data-sly-test.isPDF="${techemDownload.iconFormat=='MP4'}" >
+            <span class="cmp-download__ext-ico cmp-download__mp4"></span>
+        </sly>
+        <sly data-sly-test.isPDF="${techemDownload.iconFormat=='PNG'}" >
+            <span class="cmp-download__ext-ico cmp-download__png"></span>
+        </sly>
+        <sly data-sly-test.isPDF="${techemDownload.iconFormat=='JPG'}" >
+            <span class="cmp-download__ext-ico cmp-download__jpg"></span>
+        </sly>
+        <sly data-sly-test.isPDF="${techemDownload.iconFormat=='JPEG'}" >
+            <span class="cmp-download__ext-ico cmp-download__jpeg"></span>
+        </sly>
+        <sly data-sly-test.isPDF="${techemDownload.iconFormat=='SVG'}" >
+            <span class="cmp-download__ext-ico cmp-download__svg"></span>
+        </sly>
+        <sly data-sly-test.isPDF="${techemDownload.iconFormat=='VIDEO'}" >
+            <span class="cmp-download__ext-ico cmp-download__video"></span>
+        </sly>
+        <sly data-sly-test.isPDF="${techemDownload.iconFormat=='MOV'}" >
+            <span class="cmp-download__ext-ico cmp-download__mov"></span>
+        </sly>
+
+        <!--/* Generic icons */-->
+        <sly data-sly-test="${techemDownload.iconFormat=='images'}" >
+            <span class="cmp-download__ext-ico cmp-download__images"></span>
+        </sly>
+        <sly data-sly-test="${techemDownload.iconFormat=='document'}" >
+            <span class="cmp-download__ext-ico cmp-download__document"></span>
+        </sly>
+        <sly data-sly-test="${techemDownload.iconFormat=='videos'}" >
+            <span class="cmp-download__ext-ico cmp-download__videos"></span>
+        </sly>
+        <sly data-sly-test="${techemDownload.iconFormat=='audio'}" >
+            <span class="cmp-download__ext-ico cmp-download__audio"></span>
+        </sly>
+
         <div class="cmp-download__title">${techemDownload.text}</div>
-        <dl data-sly-test="${(download.displaySize && download.size) && techemDownload.iconFormat!='noIcon'}" class="cmp-download__properties">
+
+        <dl data-sly-test="${(download.displaySize && download.size) && techemDownload.iconFormat!='noIcon' && techemDownload.iconFormat!='images' && techemDownload.iconFormat!='document' && techemDownload.iconFormat!='videos' && techemDownload.iconFormat!='audio'}" class="cmp-download__properties">
             <div class="cmp-download__format">${techemDownload.iconFormat} ${download.size}</div>
         </dl>
-        <dl data-sly-test="${(download.displaySize && download.size) && techemDownload.iconFormat=='noIcon'}" class="cmp-download__properties">
+        <dl data-sly-test="${(download.displaySize && download.size) && (techemDownload.iconFormat=='noIcon' || techemDownload.iconFormat=='images' || techemDownload.iconFormat=='document' || techemDownload.iconFormat=='videos' || techemDownload.iconFormat=='audio')}" class="cmp-download__properties">
             <div class="cmp-download__format">${download.size}</div>
         </dl>
         <div data-sly-test.isDescription="${techemDownload.description}" class="cmp-download__description">${techemDownload.description}</div>

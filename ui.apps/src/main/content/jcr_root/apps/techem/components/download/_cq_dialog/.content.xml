@@ -86,10 +86,34 @@
                                                         jcr:primaryType="nt:unstructured"
                                                         text="No icon displayed"
                                                         value="noIcon"/>
+                                                    <ppt
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="PPT"
+                                                        value="PPT"/>
+                                                    <xls
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="XLS"
+                                                        value="XLS"/>
+                                                    <doc
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="DOC"
+                                                        value="DOC"/>
+                                                    <zip
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Zip"
+                                                        value="ZIP"/>
                                                     <pdf
                                                         jcr:primaryType="nt:unstructured"
                                                         text="PDF"
                                                         value="PDF"/>
+                                                    <mp3
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="MP3"
+                                                        value="MP3"/>
+                                                    <mp4
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="MP4"
+                                                        value="MP4"/>
                                                     <png
                                                         jcr:primaryType="nt:unstructured"
                                                         text="PNG"
@@ -98,10 +122,38 @@
                                                         jcr:primaryType="nt:unstructured"
                                                         text="JPG"
                                                         value="JPG"/>
-                                                    <zip
+                                                    <jpeg
                                                         jcr:primaryType="nt:unstructured"
-                                                        text="Zip"
-                                                        value="ZIP"/>
+                                                        text="JPEG"
+                                                        value="JPEG"/>
+                                                    <svg
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="SVG"
+                                                        value="SVG"/>
+                                                    <video
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Video"
+                                                        value="VIDEO"/>
+                                                    <mov
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="MOV"
+                                                        value="MOV"/>
+                                                    <images
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Images"
+                                                        value="images"/>
+                                                    <document
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Document"
+                                                        value="document"/>
+                                                    <videos
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Videos"
+                                                        value="videos"/>
+                                                    <audio
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Audio"
+                                                        value="audio"/>
                                                 </items>
                                             </iconFormat>
                                             <description

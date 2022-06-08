@@ -96,3 +96,72 @@
         }
     }
 }
+
+.cmp-download {
+    &__ext-ico {
+        width: 23px;
+        height: 31px;
+        background-size: contain;
+        margin-right: 23px;
+        display: inline-block;
+        vertical-align: middle;
+        position: absolute;
+        left: 15px;
+        
+        @media only screen and (max-width: 768px) {
+            left: 0;
+        }
+    }
+
+    &__ppt {
+        background: url(#{$iconsPath}/extensions/ppt.svg) center center no-repeat;
+    }
+    &__xls {
+        background: url(#{$iconsPath}/extensions/xls.svg) center center no-repeat;
+    }
+    &__doc {
+        background: url(#{$iconsPath}/extensions/doc.svg) center center no-repeat;
+    }
+    &__pdf {
+        background: url(#{$iconsPath}/extensions/pdf.svg) center center no-repeat;
+    }
+    &__zip {
+        background: url(#{$iconsPath}/extensions/zip.svg) center center no-repeat;
+    }
+    &__mp3 {
+        background: url(#{$iconsPath}/extensions/mp3.svg) center center no-repeat;
+    }
+    &__mp4 {
+        background: url(#{$iconsPath}/extensions/mp4.svg) center center no-repeat;
+    }
+    &__png {
+        background: url(#{$iconsPath}/extensions/png.svg) center center no-repeat;
+    }
+    &__jpg {
+        background: url(#{$iconsPath}/extensions/jpg.svg) center center no-repeat;
+    }
+    &__jpeg {
+        background: url(#{$iconsPath}/extensions/image.svg) center center no-repeat;
+    }
+    &__svg {
+        background: url(#{$iconsPath}/extensions/image.svg) center center no-repeat;
+    }
+    &__video {
+        background: url(#{$iconsPath}/extensions/video.svg) center center no-repeat;
+    }
+    &__mov {
+        background: url(#{$iconsPath}/extensions/video.svg) center center no-repeat;
+    }
+    &__images {
+        background: url(#{$iconsPath}/extensions/image.svg) center center no-repeat;
+    }
+    &__document {
+        background: url(#{$iconsPath}/extensions/document.svg) center center no-repeat;
+    }
+    &__videos {
+        background: url(#{$iconsPath}/extensions/video.svg) center center no-repeat;
+    }
+    &__audio {
+        background: url(#{$iconsPath}/extensions/audio.svg) center center no-repeat;
+    }
+}
