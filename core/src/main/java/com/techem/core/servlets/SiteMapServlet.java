@@ -39,7 +39,9 @@ import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -47,6 +49,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 @Component(service = { Servlet.class }, configurationPolicy = ConfigurationPolicy.REQUIRE, configurationPid = "com.techem.core.services.impl.SiteMapServiceImpl")
 @SlingServletResourceTypes(
@@ -69,14 +72,15 @@ public class SiteMapServlet extends SlingSafeMethodsServlet {
     private SiteMapService siteMapService;
 
     private SiteMapServiceConfig siteMapConfig;
+    private boolean isIndex = false;
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
         if(siteMapService == null) { return; }
-
+        
         siteMapConfig = siteMapService.getConfig();
 
-        boolean isIndex = request.getPathInfo().equals("/sitemap.xml") || request.getPathInfo().equals("/eu/techem/sitemap_index");
+        isIndex = request.getPathInfo().equals("/sitemap.xml") || request.getPathInfo().equals("/eu/techem/sitemap_index");
         response.setContentType(SiteMapService.CONTENT_TYPE);
 
         if (StringUtils.isNotEmpty(siteMapConfig.encoding())) {
@@ -96,10 +100,33 @@ public class SiteMapServlet extends SlingSafeMethodsServlet {
             stream.writeStartElement("", isIndex ? SiteMapService.SITEMAP_INDEX : SiteMapService.SITEMAP_URLSET, SiteMapService.NAME_SPACE);
             stream.writeNamespace("", SiteMapService.NAME_SPACE);
 
-            write(page, stream, request, isIndex);
+            if(!isPageNotShowable(page)) {
+                write(page, stream, request);
+            }
 
-            for (Iterator<Page> children = page.listChildren(new PageFilter(false, true), !isIndex); children.hasNext(); ) {
-                write(children.next(), stream, request, isIndex);
+            List<CompletableFuture<Void>> urlCheckers = new ArrayList<CompletableFuture<Void>>();
+            List<Page> pChildren = new ArrayList<>();
+            for(Iterator<Page> children = page.listChildren(new PageFilter(false, true), !isIndex); children.hasNext();) {
+                Page p = children.next();
+                
+                if(isPageNotShowable(p)) {
+                    continue;
+                }
+
+                /* Avoid dispatcher cached pages by supplying a query string to the URL. Grrr. */
+                String url = processPath(request, p);
+                urlCheckers.add(CompletableFuture.runAsync(() -> {
+                    if(!isIndex && isHiddenByStatus(url + "?noCache=1")){
+                        return;
+                    }
+                    pChildren.add(p);
+                }));
+            }
+
+            urlCheckers.forEach(CompletableFuture::join);
+
+            for (Page p : pChildren) {
+                write(p, stream, request);
             }
 
             if (!isIndex && siteMapConfig.damAssetsMIMEs().length > 0 && siteMapConfig.damAssets().length() > 0) {
@@ -107,10 +134,10 @@ public class SiteMapServlet extends SlingSafeMethodsServlet {
                     writeAssets(stream, assetFolder, request);
                 }
             }
-
+            
             stream.writeEndElement();
             stream.writeEndDocument();
-        } catch (XMLStreamException e) {
+        } catch (Exception e) {
             throw new IOException(e);
         } finally {
             if (stream != null) {
@@ -152,7 +179,7 @@ public class SiteMapServlet extends SlingSafeMethodsServlet {
         try {
             String path = URI.create(url).getPath();
             Map<String, String> urlRewrites = ParameterUtil.toMap(siteMapConfig.rewrites(), ":", true, "");
-
+            
             for (Map.Entry<String, String> rewrite : urlRewrites.entrySet()) {
                 if (path.startsWith(rewrite.getKey())) {
                     return url.replaceFirst(rewrite.getKey(), rewrite.getValue());
@@ -164,26 +191,10 @@ public class SiteMapServlet extends SlingSafeMethodsServlet {
         }
     }
 
-    private void write(Page page, XMLStreamWriter stream, SlingHttpServletRequest request, boolean isIndex) throws XMLStreamException {
-
-        if (isHiddenByPageProperty(page) || isHiddenByPageTemplate(page) || !isIndex && isHiddenByPageRedirect(page)) {
-            return;
-        }
+    private void write(Page page, XMLStreamWriter stream, SlingHttpServletRequest request) throws XMLStreamException {
+        String loc = processPath(request, page);
 
         stream.writeStartElement(SiteMapService.NAME_SPACE, isIndex ? SiteMapService.SITEMAP_ELEMENT : SiteMapService.SITEMAP_URLELEMENT);
-        String loc = "";
-
-        if (siteMapConfig.useVanity() && !StringUtils.isEmpty(page.getVanityUrl())) {
-            loc = externalizeUri(request, page.getVanityUrl());
-        } else if (!siteMapConfig.extensionless()) {
-            loc = externalizeUri(request, String.format("%s.html", page.getPath()));
-        } else {
-            String urlFormat = siteMapConfig.removeTrailing() ? "%s" : "%s/";
-            loc = externalizeUri(request, String.format(urlFormat, page.getPath()));
-        }
-
-        loc = applyUrlRewrites(loc);
-
         writeElement(stream, SiteMapService.SITEMAP_LOCELEMENT, loc + (isIndex ? ".sitemap.xml" : ""));
 
         if (siteMapConfig.includeLastMod()) {
@@ -209,6 +220,27 @@ public class SiteMapServlet extends SlingSafeMethodsServlet {
         stream.writeEndElement();
     }
 
+    private boolean isPageNotShowable(Page p) {
+        return isHiddenByPageProperty(p) || isHiddenByPageTemplate(p) || !isIndex && isHiddenByPageRedirect(p);
+    }
+
+    private String processPath(SlingHttpServletRequest request, Page page) {
+        String loc = "";
+
+        if (siteMapConfig.useVanity() && !StringUtils.isEmpty(page.getVanityUrl())) {
+            loc = externalizeUri(request, page.getVanityUrl());
+        } else if (!siteMapConfig.extensionless()) {
+            loc = externalizeUri(request, String.format("%s.html", page.getPath()));
+        } else {
+            String urlFormat = siteMapConfig.removeTrailing() ? "%s" : "%s/";
+            loc = externalizeUri(request, String.format(urlFormat, page.getPath()));
+        }
+
+        loc = applyUrlRewrites(loc);
+
+        return loc;
+    }
+
     private boolean isHiddenByPageProperty(Page page) {
         boolean flag = false;
         if (siteMapConfig.exclude() != null) {
@@ -231,6 +263,20 @@ public class SiteMapServlet extends SlingSafeMethodsServlet {
             }
         }
         return flag;
+    }
+
+    private boolean isHiddenByStatus(String URL) {
+        try {
+            URL pageURL = new URL(URL);
+            HttpURLConnection testConn = (HttpURLConnection) pageURL.openConnection();
+            testConn.setRequestMethod("HEAD");
+            testConn.setInstanceFollowRedirects(false);
+            return testConn.getResponseCode() != HttpURLConnection.HTTP_OK;
+        } catch (Exception e) {
+            log.error("Could not check URL for {}", URL);
+        }
+
+        return true;
     }
 
     private String externalizeUri(SlingHttpServletRequest request, String path) {
