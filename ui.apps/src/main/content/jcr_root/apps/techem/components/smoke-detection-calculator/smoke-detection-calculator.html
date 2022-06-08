@@ -1,0 +1,18 @@
+<div class="cmp-smoke-detection-calculator" data-component-name="smoke-detection-calculator">
+
+    <div data-sly-test="${(wcmmode.edit || wcmmode.preview)}" class="cq-placeholder">
+        ${component.properties.jcr:title} Component
+    </div>
+
+    <div id="techem-rwm"></div>
+
+</div>
+
+<script src="https://app-nld102.marketo.com/js/forms2/js/forms2.min.js"></script>
+<script src="https://www2.techem.com/rs/549-BHO-641/images/form-handler.js"></script>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='techem.smokedetection'}"/>
+</sly>
+
+<link rel="stylesheet" href="https://www2.techem.com/rs/549-BHO-641/images/mkto_landingpage-forms.css">
