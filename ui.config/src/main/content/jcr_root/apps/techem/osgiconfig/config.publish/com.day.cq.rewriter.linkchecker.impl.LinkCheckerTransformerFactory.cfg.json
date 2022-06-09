@@ -1,4 +1,4 @@
 {
-    "linkcheckertransformer.disableRewriting": true,
+    "linkcheckertransformer.disableRewriting": false,
     "linkcheckertransformer.disableChecking": true
 }
