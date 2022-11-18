@@ -10,11 +10,17 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 @Component(service = EnvironmentSelector.class, configurationPolicy = ConfigurationPolicy.OPTIONAL, immediate = true)
 public class EnvironmentSelectorImpl implements EnvironmentSelector
 {
+
+    private static final String AUTHOR_MODE = "author";
+
     @ObjectClassDefinition(name = "Environment", description = "Get run mode environment")
     public @interface Config
     {
         @AttributeDefinition(name = "Environment", description = "Get run mode environment")
         String environment() default StringUtils.EMPTY;
+
+        @AttributeDefinition(name = "Environment mode", description = "Environment mode, author or publish")
+        String mode() default AUTHOR_MODE;
     }
     private EnvironmentSelectorImpl.Config config;
     @Activate
@@ -32,4 +38,11 @@ public class EnvironmentSelectorImpl implements EnvironmentSelector
     {
         return this.config.environment();
     }
+
+    @Override
+    public boolean isAuthor() {
+        return StringUtils.equalsIgnoreCase(this.config.mode(), AUTHOR_MODE);
+    }
+
+
 }

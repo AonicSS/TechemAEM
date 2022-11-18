@@ -49,13 +49,15 @@ public class ExperienceFragment {
         if (Objects.nonNull(resource)) {
             xfNodeName = resource.getName();
             currentPage = resource.getParent();
-            target = currentPage.getPath().replace(CONTENT_ROOT_PATH, "");
-            marketLang = target.substring(0, target.indexOf("/", target.indexOf("/") + 1));
-            marketLangHome = CONTENT_ROOT_PATH + marketLang + "/" + JcrConstants.JCR_CONTENT;
-            currentPageXfHeader = currentPage.getValueMap().get("xfHeader", String.class);
-            currentPageXfFooter = currentPage.getValueMap().get("xfFooter", String.class);
-            xfHeader = currentPageXfHeader != null ? currentPageXfHeader : getMarketParentXf("xfHeader", marketLangHome);
-            xfFooter = currentPageXfFooter != null ? currentPageXfFooter : getMarketParentXf("xfFooter", marketLangHome);
+            if (currentPage != null) {
+                target = currentPage.getPath().replace(CONTENT_ROOT_PATH, "");
+                marketLang = target.substring(0, target.indexOf("/", target.indexOf("/") + 1));
+                marketLangHome = CONTENT_ROOT_PATH + marketLang + "/" + JcrConstants.JCR_CONTENT;
+                currentPageXfHeader = currentPage.getValueMap().get("xfHeader", String.class);
+                currentPageXfFooter = currentPage.getValueMap().get("xfFooter", String.class);
+                xfHeader = currentPageXfHeader != null ? currentPageXfHeader : getMarketParentXf("xfHeader", marketLangHome);
+                xfFooter = currentPageXfFooter != null ? currentPageXfFooter : getMarketParentXf("xfFooter", marketLangHome);
+            }
         }
     }
 
