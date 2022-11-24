@@ -1,7 +1,10 @@
 package com.techem.core.selectors;
 
 import org.apache.commons.lang.StringUtils;
-import org.osgi.service.component.annotations.*;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
@@ -29,10 +32,7 @@ public class EnvironmentSelectorImpl implements EnvironmentSelector
     {
         this.config = config;
     }
-    @Deactivate
-    public void deactivate()
-    {
-    }
+
     @Override
     public String getEnvironment()
     {

@@ -22,6 +22,7 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.propertytypes.ServiceDescription;
 
 import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
@@ -29,7 +30,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-@Component(service = Servlet.class, property = { "sling.servlet.methods={ " + HttpConstants.METHOD_POST + "}", "sling.servlet.paths=/eu/techem/friendlycaptcha" })
+import static java.util.Objects.requireNonNull;
+
+@Component(service = Servlet.class, property = {"sling.servlet.methods={ " + HttpConstants.METHOD_POST + "}", "sling.servlet.paths=/eu/techem/friendlycaptcha"})
 @ServiceDescription("FriendlyCaptcha Validation Servlet")
 public class FriendlyCaptchaServlet extends SlingAllMethodsServlet {
 
@@ -38,25 +41,36 @@ public class FriendlyCaptchaServlet extends SlingAllMethodsServlet {
 
     @Override
     protected void doGet(final SlingHttpServletRequest req, final SlingHttpServletResponse resp) throws ServletException, IOException {
-        if(fCaptchaService == null) { return; }
-        
+        if (fCaptchaService == null) {
+            return;
+        }
+
         Resource reqRes = req.getResource();
         boolean isLangList = reqRes.getValueMap().get(FriendlyCaptchaService.FC_LANG_LIST) != null && reqRes.getValueMap().get(FriendlyCaptchaService.FC_LANG_LIST).equals("true");
 
-        if(!isLangList) { return; }
+        if (!isLangList) {
+            return;
+        }
 
         ResourceResolver resResolver = req.getResourceResolver();
         Resource jsonRes = resResolver.getResource(FriendlyCaptchaService.FC_LANG_PATH);
 
-        if(jsonRes == null) { return; }
+        if (jsonRes == null) {
+            return;
+        }
 
         try {
-            String jsonData = jsonRes.getChild(JcrConstants.JCR_CONTENT).adaptTo(Node.class).getProperty(JcrConstants.JCR_DATA).getString();
-            JsonArray jsonObject = new Gson().fromJson(jsonData, JsonElement.class).getAsJsonArray();
-            List<Resource> values = new ArrayList<Resource>();
 
-            for(JsonElement el : jsonObject) {
-                ValueMap vm = new ValueMapDecorator(new HashMap<String, Object>());
+            Resource resource = jsonRes.getChild(JcrConstants.JCR_CONTENT);
+            if (resource == null) {
+                return;
+            }
+            String jsonData = requireNonNull(resource.adaptTo(Node.class)).getProperty(JcrConstants.JCR_DATA).getString();
+            JsonArray jsonObject = new Gson().fromJson(jsonData, JsonElement.class).getAsJsonArray();
+            List<Resource> values = new ArrayList<>();
+
+            for (JsonElement el : jsonObject) {
+                ValueMap vm = new ValueMapDecorator(new HashMap<>());
                 vm.put("text", el.getAsJsonObject().getAsJsonPrimitive("text").getAsString());
                 vm.put("value", el.getAsJsonObject().getAsJsonPrimitive("value").getAsString());
                 values.add(new ValueMapResource(req.getResourceResolver(), jsonRes.getPath(), jsonRes.getResourceType(), vm));
@@ -64,18 +78,22 @@ public class FriendlyCaptchaServlet extends SlingAllMethodsServlet {
 
             DataSource ds = new SimpleDataSource(values.iterator());
             req.setAttribute(DataSource.class.getName(), ds);
-        } catch (Exception e) {}
+        } catch (RepositoryException e) {
+            //Need to include logger here
+        }
     }
 
     @Override
     protected void doPost(SlingHttpServletRequest req, SlingHttpServletResponse resp) throws ServletException, IOException {
-        
-        if(fCaptchaService == null) { return; }
+
+        if (fCaptchaService == null) {
+            return;
+        }
 
         String solData = req.getParameter(FriendlyCaptchaService.FCC_SOLUTION);
         boolean isValidated = false;
 
-        if(StringUtils.isNotBlank(solData)) {
+        if (StringUtils.isNotBlank(solData)) {
             isValidated = fCaptchaService.validateCaptcha(solData);
         }
 

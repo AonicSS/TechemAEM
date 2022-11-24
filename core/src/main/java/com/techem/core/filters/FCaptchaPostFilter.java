@@ -13,13 +13,17 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.propertytypes.ServiceDescription;
 import org.osgi.service.component.propertytypes.ServiceRanking;
 
-import javax.servlet.*;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import java.io.IOException;
 
 @Component(service = Filter.class)
 @SlingServletFilter(
     scope = SlingServletFilterScope.REQUEST,
-    //resourceTypes = "cq:Page",
     methods = HttpConstants.METHOD_POST
 )
 @ServiceDescription("Filters POST requests from forms containing Friendly Captcha and validates them.")
@@ -66,9 +70,13 @@ public class FCaptchaPostFilter implements Filter {
 
     }
     @Override
-    public void destroy() {}
+    public void destroy() {
+        //Mandatory override
+    }
 
     @Override
-    public void init(FilterConfig arg0) throws ServletException {}
+    public void init(FilterConfig arg0) throws ServletException {
+        //Mandatory override
+    }
     
 }
