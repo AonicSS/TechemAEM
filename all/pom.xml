@@ -242,16 +242,12 @@
         <dependency>
             <groupId>com.adobe.acs</groupId>
             <artifactId>acs-aem-commons-ui.content</artifactId>
-            <version>5.0.4</version>
             <type>zip</type>
-            <classifier>min</classifier> <!-- optional, see below -->
         </dependency>
         <dependency>
             <groupId>com.adobe.acs</groupId>
             <artifactId>acs-aem-commons-ui.apps</artifactId>
-            <version>5.0.4</version>
             <type>zip</type>
-            <classifier>min</classifier> <!-- optional, see below -->
         </dependency>
 
         <dependency>
