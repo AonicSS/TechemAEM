@@ -51,6 +51,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <aem.sdk.api>2022.10.9398.20221020T071514Z-220900</aem.sdk.api>
+        <acs-aem-commons.version>5.4.0</acs-aem-commons.version>
         <componentGroupName>Techem</componentGroupName>
     </properties>
 
@@ -578,10 +579,21 @@ Bundle-DocURL:
             <dependency>
                 <groupId>com.adobe.acs</groupId>
                 <artifactId>acs-aem-commons-bundle</artifactId>
-                <version>5.4.0</version>
+                <version>${acs-aem-commons.version}</version>
                 <scope>provided</scope>
             </dependency>
-
+            <dependency>
+                <groupId>com.adobe.acs</groupId>
+                <artifactId>acs-aem-commons-ui.content</artifactId>
+                <version>${acs-aem-commons.version}</version>
+                <type>zip</type>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.acs</groupId>
+                <artifactId>acs-aem-commons-ui.apps</artifactId>
+                <version>${acs-aem-commons.version}</version>
+                <type>zip</type>
+            </dependency>
             <dependency>
                 <groupId>org.cid15.aem.groovy.console</groupId>
                 <artifactId>aem-groovy-console-all</artifactId>
