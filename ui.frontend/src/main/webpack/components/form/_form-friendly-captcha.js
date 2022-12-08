@@ -36,8 +36,6 @@ import { WidgetInstance } from "friendly-challenge";
             var widgetEl = el.querySelector(this.selectors.fCaptcha);
             var formSubmitBtn = parentForm.find(this.selectors.submitButton);
 
-            var skipButton = el.hasAttribute("data-skip-button");
-            
             if(!widgetEl) { return; }
             
             var widgetLang = $(widgetEl).data(this.selectors.fCaptchaLangData);
@@ -54,9 +52,6 @@ import { WidgetInstance } from "friendly-challenge";
                 We don't want that, so instead add it after creating our widget.
             */
             $(widgetEl).addClass("frc-captcha");
-            if (!skipButton) {
-                $(formSubmitBtn).attr("disabled", true);
-            }
         }.bind(this);
 
         this.fCaptchaCallback = function(solution) {
@@ -73,9 +68,6 @@ import { WidgetInstance } from "friendly-challenge";
 
             $.post(this.constants.fCaptchaServletURL, { solution: solution })
             .done(() => {
-                if(this.isFormValid()) {
-                    $(formSubmitBtn).removeAttr("disabled");
-                }
 
                 if(fCaptchaTknInput) {
                     fCaptchaTknInput.remove();
@@ -94,14 +86,10 @@ import { WidgetInstance } from "friendly-challenge";
         this.initFormSubmissionHandler = function() {
             var parentForm = this.fcEl.parents(this.selectors.parentForm).first();
             if(!parentForm || !this.widget) { return; }
-            var skipButton = el.hasAttribute("data-skip-button");
 
             $(parentForm).on("submit", (e) => {
                 var formSubmitBtn = parentForm.find(this.selectors.submitButton);
-                if (!skipButton) {
-                    $(formSubmitBtn).attr("disabled", true);
-                }
-                
+
                 if(!this.widget.valid) {
                     e.preventDefault();
                     return false;
@@ -114,7 +102,6 @@ import { WidgetInstance } from "friendly-challenge";
 
         this.initFormChangeHandler = function() {
             var parentForm = this.fcEl.parents(this.selectors.parentForm).first();
-            var skipButton = el.hasAttribute("data-skip-button");
 
             if(!parentForm || !this.widget) { return; }
 
@@ -123,8 +110,6 @@ import { WidgetInstance } from "friendly-challenge";
 
                 if(this.isFormValid() && this.widget.valid) {
                     $(formSubmitBtn).removeAttr("disabled");
-                }else if (!skipButton) {
-                    $(formSubmitBtn).attr("disabled", true);
                 }
             });
         }.bind(this);
