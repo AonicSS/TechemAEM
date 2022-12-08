@@ -12,6 +12,8 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.propertytypes.ServiceDescription;
 import org.osgi.service.component.propertytypes.ServiceRanking;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -36,6 +38,9 @@ import java.io.IOException;
 public class FCaptchaPostFilter implements Filter {
 
     private static final String FORM_START = ":formstart";
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
     @Reference
     private FriendlyCaptchaService fCaptchaService;
 
@@ -58,6 +63,8 @@ public class FCaptchaPostFilter implements Filter {
 
         if (!fCaptchaService.validateCaptchaToken(solData, captchaToken)) {
             slingResponse.sendError(403);
+            logger.error("Failed to validate catcha for {}",
+                    slingRequest.getRequestPathInfo().getResourcePath());
             return;
         }
 
