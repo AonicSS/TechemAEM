@@ -29,13 +29,6 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <skipButton
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                                fieldDescription="By default the captcha will disable the submit button until validation. Check this if you like to avoid the captcha to control the button."
-                                                name="./skipButton"
-                                                text="Skip Button"
-                                                value="true"/>
                                             <fcLanguage
                                                 granite:class="cq-dialog-dropdown-showhide"
                                                 jcr:primaryType="nt:unstructured"
