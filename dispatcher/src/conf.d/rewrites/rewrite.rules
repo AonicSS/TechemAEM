@@ -8401,13 +8401,13 @@ RewriteRule ^ https://www.techem.com/content/techem/content/redir?gURL=https://%
 # RewriteRule ^ https://sales-dev.techem.de/content/techem/content/redir?gURL=https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE,QSA]
 
 # rewrite for root redirect
-RewriteRule ^/content/techem/(.*)?$ $1 [R=301,L,QSA]
+RewriteRule ^/content/techem/(.*).html?$ https://www.techem.com/$1 [R=301,L,QSA]
 
 # Redirect the .html URL to extensionless URL
 RewriteCond %{REQUEST_URI} ^/(de/?|de/.+?|at/?|at/.+?|ch/?|ch/.+?|corp/?|corp/.+?|master/?|master/.+?|es/?|es/.+?|fr/?|fr/.+?|lu/?|lu/.+?)$ [NC,OR]
 RewriteCond %{REQUEST_URI} ^/(be/?|be/.+?|no/?|no/.+?|sk/?|sk/.+?|ro/?|ro/.+?|pl/?|pl/.+?|hu/?|hu/.+?|cz/?|cz/.+?|bg/?|bg/.+?|it/?|it/.+?|dk/?|dk/.+?)$ [NC,OR]
 RewriteCond %{REQUEST_URI} ^/(ae/?|ae/.+?|br/?|br/.+?|nl/?|nl/.+?|investor-relations/?|investor-relations/.+?|manuals/?|manuals/.+?|test-page/?|test-page/.+?|urteile/?|urteile/.+?)$ [NC]
-RewriteRule ^/(.*)(.html|/)$ $1 [R=301,L,QSA]
+RewriteRule ^/(.*)(.html|/)$ https://www.techem.com/$1 [R=301,L,QSA]
 
 # Redirect the URL with trailing slash to the preferred one without /
 # RewriteRule ^/?(.+)/$ https://www.techem.com/$1 [R=301,L,QSA]
