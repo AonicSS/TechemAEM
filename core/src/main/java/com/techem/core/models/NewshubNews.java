@@ -1,6 +1,7 @@
 package com.techem.core.models;
 
 import com.day.crx.JcrConstants;
+import com.google.common.collect.Lists;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -15,7 +16,6 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.google.common.collect.Lists;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
@@ -84,14 +84,19 @@ public class NewshubNews {
         if (CollectionUtils.isNotEmpty(newsItems)) {
             final Map<Stage, NewsArticle> tmpNewsArticles;
 
-            tmpNewsArticles = newsItems.stream().map(item -> item.adaptTo(NewsArticle.class))
-                    .collect(Collectors.toMap(
-                            item -> item.getArticleResource().getChild(JcrConstants.JCR_CONTENT).adaptTo(Stage.class),
-                            newsArticle -> newsArticle, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+            try {
+                tmpNewsArticles = newsItems.stream().map(item -> item.adaptTo(NewsArticle.class))
+                        .filter(Objects::nonNull)
+                        .collect(Collectors.toMap(
+                                item -> item.getArticleResource().getChild(JcrConstants.JCR_CONTENT).adaptTo(Stage.class),
+                                newsArticle -> newsArticle, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
-            newsArticles = tmpNewsArticles.entrySet().stream().sorted((d1, d2) -> compareByDate(d1, d2)).limit(6)
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (k, v) -> k, LinkedHashMap::new));
-
+                newsArticles = tmpNewsArticles.entrySet().stream().sorted(this::compareByDate).limit(6)
+                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (k, v) -> k, LinkedHashMap::new));
+            } catch (NullPointerException e) {
+                newsArticles = Collections.emptyMap();
+                logger.error("NPE trying to adapt item");
+            }
         } else {
             logger.error("NewsItems empty");
         }
@@ -119,7 +124,7 @@ public class NewshubNews {
 
         try {
             resource = resourceResolver.getResource(this.filePath);
-        } catch (Error error) {
+        } catch (Exception error) {
             logger.error("Error fetching Resource: " + error);
         }
 
