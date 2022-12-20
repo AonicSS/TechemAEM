@@ -1,0 +1,23 @@
+.rwm-stepper {
+	@apply tw-flex
+	tw-items-center;
+	margin-left: -20px;
+}
+
+.rwm-stepper__rectangle {
+	@apply tw-rectangle;
+}
+
+.rwm-stepper__rectangle--active {
+	@apply tw-rectangle-active;
+}
+
+.rwm-stepper__rectangle--disabled {
+	@apply tw-cursor-default
+	tw-rectangle-disabled;
+}
+
+div[name="myScrollToElement"] {
+	width: 100%;
+	height: 1px;
+}

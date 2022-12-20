@@ -1,0 +1,22 @@
+li span {
+	position: relative;
+	left: -7px;
+	top: -2px;
+}
+
+::marker {
+	font-size: 1.5em;
+}
+
+.rwm-best-price {
+	@apply tw-font-size-label-best-price;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: -15px -10px 0 0;
+	width: 120px;
+	height: 28px;
+	background-color: #e20913;
+	border-radius: 5px 0 5px 0;
+	padding-left: 6px;
+}

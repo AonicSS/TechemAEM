@@ -1,0 +1,123 @@
+{
+	"global": {
+		"appName": "Rauchwarnmelder"
+	},
+	"button": {
+		"next": "weiter",
+		"continue": "Trotzdem fortfahren"
+	},
+	"overlay": {
+		"4": {
+			"headline": "Ihr individuelles Angebot erhalten",
+			"contact-headline": "06196 522 7040",
+			"contact-body": "Mo bis Fr von 08:00 - 18:00 Uhr",
+			"body": {
+				"0": "Um den exakten Umfang Ihres Rauchwarnmelder-Service-Pakets ermitteln zu können rufen Sie uns gerne unter folgender Nummer an:",
+				"1": "Bitte beachten Sie, dass die Rauchwarnmelder-Service Preiskalkulation für Sie möglicherweise einen zu hohen Preis ermittelt."
+			}
+		},
+		"1": {
+			"headline": "Ihr individuelles Angebot",
+			"body": {
+				"0": "Für einen umfangreichen Auftrag unterbreiten wir Ihnen gerne ein individuelles Angebot, das ganz auf Ihre Anforderungen zugeschnitten ist. Sie erreichen uns unter:"
+			},
+			"contact-headline": "06196 522 7040",
+			"contact-body": "Mo bis Fr von 08:00 - 18:00 Uhr"
+		},
+		"3": {
+			"headline": {
+				"0": "Rauchwarnmelder - gesetzlich vorgeschrieben",
+				"1": "Rauchwarnmelder - unsere Empfehlung"
+			},
+			"body": {
+				"0": "In Schlafräumen, Kinderzimmern, Fluren und Räumen, die Fluchtwege sind gilt eine gesetzliche Rauchwarnmelderpflicht. Diese Räume müssen laut Gesetzgeber in jedem Fall mit Geräten ausgestattet werden.",
+				"1": "Techem empfiehlt, über den gesetzlich vorgeschriebenen Mindestschutz hinaus, Rauchwarnmelder auch in Wohn-, Arbeits-, und Zimmer mit sonstiger Nutzung anzubringen. Gleiches gilt für Treppenhäuser- denn Sie sind im Fall von Brand- oder Rauchentwicklung oft der Fluchtweg ins Freie. So werden Sie im Ernstfall frühzeitig gewarnt."
+			}
+		},
+		"6": {
+			"headline": "Unsere Rauchwarnmelder-Lösungen im Vergleich",
+			"body": {
+				"0": ""
+			}
+		}
+	},
+	"contact": {
+		"0": "Haben Sie Fragen?",
+		"1": "06196 522-7677",
+		"2": "Mo bis Fr von 08:00 - 18:00 Uhr"
+	},
+	"questions": {
+		"0": {
+			"question": "Wie viele Wohnungen möchten Sie ausstatten?",
+			"sublabel": "Eine Wohneinheit enspricht einem Mietobjekt, z.B. einer Wohnung.",
+			"answers": {
+				"0": {
+					"label": "Wohneinheit"
+				},
+				"1": {
+					"label": "Wohneinheiten"
+				}
+			}
+		},
+		"1": {
+			"question": "Wo befinden sich die auszustattenden Wohnungen?",
+			"sublabel": "Die gesetzlichen Bestimmungen zur Ausstattung mit Rauchwarnmeldern unterscheiden sich je nach Bundesland. Um die genaue Anzahl ermitteln zu können, ist daher die Angabe der Postleitzahl nötig.",
+			"answers": {}
+		},
+		"2": {
+			"question": "Die Wohnung umfasst diese Räume:",
+			"recommended": "empfohlen",
+			"required": "gesetzl. vorgeschrieben",
+			"answers": {
+				"bedrooms": "Schlafräume",
+				"nurseries": "Kinderzimmer",
+				"hallways": "Flure und Räume, die Fluchtwege sind",
+				"common": "Wohn-, Arbeits-, und Zimmer mit sonstiger Nutzung",
+				"stairs": "Treppenhäuser als weitere Verbindung zur Haustür"
+			}
+		},
+		"3": {
+			"question": "Sind Sie Kunde der Techem Heizkostenabrechnung?",
+			"answers": {
+				"0": {
+					"label": "Ja"
+				},
+				"1": {
+					"label": "Nein"
+				}
+			}
+		},
+		"4": {
+			"question": "Laufzeit Mietvertrag",
+			"answers": {
+				"0": {
+					"label": "Standard",
+					"body": {
+						"0": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+						"1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+						"2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor"
+					},
+					"btn": "Standard wählen"
+				},
+				"1": {
+					"label": "Standard 360",
+					"body": {
+						"0": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+						"1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+						"2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor"
+					},
+					"btn": "Standard 360 wählen"
+				},
+				"2": {
+					"label": "Standard 360 Adv",
+					"body": {
+						"0": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+						"1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+						"2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor"
+					},
+					"btn": "Standard wählen"
+				}
+			}
+		}
+	}
+}

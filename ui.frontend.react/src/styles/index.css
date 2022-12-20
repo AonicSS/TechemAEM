@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@import "./preflight.css";
+
+	@font-face {
+		font-family: 'Univers45Light';
+		src: local('UniversLTW02-45Light'),
+			url('../fonts/UniversLTW02-45Light.woff2') format('woff2'),
+			url('../fonts/UniversLTW02-45Light.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Univers45LightOblique';
+		src: local('UniversLTW02-45LightOblique'),
+			url('../fonts/UniversLTW02-45LightOblique.woff2') format('woff2'),
+			url('../fonts/UniversLTW02-45LightOblique.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Univers55Oblique';
+		src: local('UniversLTW02-55Oblique'),
+			url('../fonts/UniversLTW02-55Oblique.woff2') format('woff2'),
+			url('../fonts/UniversLTW02-55Oblique.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Univers55';
+		src: local('UniversLTW02-55Roman'),
+			url('../fonts/UniversLTW02-55Roman.woff2') format('woff2'),
+			url('../fonts/UniversLTW02-55Roman.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Univers65';
+		src: local('UniversLTW02-65Bold'),
+			url('../fonts/UniversLTW02-65Bold.woff2') format('woff2'),
+			url('../fonts/UniversLTW02-65Bold.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Univers65BoldOblique';
+		src: local('UniversLTW02-65BoldOblique'),
+			url('../fonts/UniversLTW02-65BoldOblique.woff2') format('woff2'),
+			url('../fonts/UniversLTW02-65BoldOblique.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Univers67BoldCond';
+		src: local('UniversLTW02-67BoldCond'),
+			url('../fonts/UniversLTW02-67BoldCond.woff2') format('woff2'),
+			url('../fonts/UniversLTW02-67BoldCond.woff') format('woff');
+	}
+}
+
+@layer components {
+	.rwm-calculator__page-section {
+		@apply tw-container
+		tw-max-w-screen-xl
+		tw-mx-auto
+		tw-flex
+		tw-justify-center;
+	}
+
+	.rwm-forms__page-section {
+		@apply tw-container
+		tw-mx-auto;
+		max-width: 660px;
+	}
+
+	.rwm-marketo__page-section {
+		@apply tw-container
+		tw-max-w-screen-xl
+		tw-mx-auto;
+	}
+}
