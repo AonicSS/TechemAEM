@@ -23,6 +23,7 @@ const ContactForm = () => {
 	const [emailAddress, setEmailAddress] = useState('');
 	const [marketingAgreement, setMarketing] = useState(false);
 	const [contactAgreement, setContact] = useState(false);
+	const [legalAgreement, setLegal] = useState(false);
 	// const [success, setSucccess] = useState(false);
 
 	const appData = useSelector((state: AppReduxStoreProps) => state.appData);
@@ -44,7 +45,8 @@ const ContactForm = () => {
 			telephone !== '' &&
 			residence !== '' &&
 			emailAddress !== '' &&
-			contactAgreement === true
+			contactAgreement === true &&
+			legalAgreement === true
 		) {
 			return true;
 		} else {
@@ -66,6 +68,7 @@ const ContactForm = () => {
 				emailAddress,
 				marketingAgreement: marketingAgreement ? 'Yes' : 'No',
 				contactAgreement: contactAgreement ? 'Yes' : 'No',
+				legalAgreement: legalAgreement ? 'Yes' : 'No',
 			},
 			formData: {
 				price: total.toFixed(2),
@@ -293,6 +296,42 @@ const ContactForm = () => {
 							/>
 						</div>
 					</div>
+
+					<div className="rwm-form__input-container-large tw-flex tw-flex-row tw-justify-start tw-items-start tw-mt-8">
+						<div className="round">
+							<input
+								type="checkbox"
+								id="legal"
+								defaultChecked={legalAgreement}
+								onChange={() => setLegal(!legalAgreement)}
+							/>
+							<label htmlFor="legal"></label>
+						</div>
+						<div className="rwm-form__input-container-large">
+							<p className="tw-font-size-label-small tw-pl-6">
+								Dem Angebot liegen die{' '}
+								<a
+									href="https://www.techem.com/agb"
+									target="_blank"
+									rel="noreferrer"
+								>
+									Allgemeinen Geschäftsbedingungen
+								</a>{' '}
+								und{' '}
+								<a
+									href="https://www.techem.com/bgrs"
+									target="_blank"
+									rel="noreferrer"
+								>
+									Besonderen Geschäftsbedingungen
+									Rauchwarnmelder-Service
+								</a>{' '}
+								von Techem zugrunde. Diese habe ich zur Kenntnis
+								genommen und akzeptiere sie.
+							</p>
+						</div>
+					</div>
+
 					<div className="rwm-form__input-container-large tw-flex tw-flex-row tw-justify-start tw-items-start tw-mt-8">
 						<div className="round">
 							<input
@@ -316,7 +355,11 @@ const ContactForm = () => {
 								Wirkung für die Zukunft jederzeit widerrufbar
 								Einzelheiten zum Datenschutz bei der Techem GmbH
 								entnehmen Sie bitte dem{' '}
-								<a href="https://www.techem.com/de/de/datenschutzhinweis">
+								<a
+									href="https://www.techem.com/de/de/datenschutzhinweis"
+									target="_blank"
+									rel="noreferrer"
+								>
 									Datenschutzhinweis.
 								</a>
 							</p>
