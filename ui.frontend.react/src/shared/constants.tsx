@@ -10,17 +10,17 @@ export const price: Price = {
 };
 
 export const userServices = {
-	standard: 2.14,
-	plus: 2.37,
+	standard: 2.26,
+	plus: 2.5,
 	smart: 71.4,
 };
 
 export const nonUserServices = {
-	standard: 2.8,
-	plus: 3.08,
+	standard: 2.95,
+	plus: 3.25,
 	smart: 71.4,
-	registration: 2.52,
-	instalation: 65.7,
-	radio: 14.28,
-	grundpreis: 44.74,
+	registration: 2.79,
+	instalation: 87.63,
+	radio: 15.36,
+	grundpreis: 47.92,
 };
