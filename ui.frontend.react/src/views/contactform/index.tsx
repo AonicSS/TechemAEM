@@ -309,7 +309,25 @@ const ContactForm = () => {
 						</div>
 						<div className="rwm-form__input-container-large">
 							<p className="tw-font-size-label-small tw-pl-6">
-							Dem Angebot liegen die{' '}<a href="https://www.techem.com/agb" target="_blank">Allgemeinen Geschäftsbedingungen</a>{' '}und{' '}<a href="https://www.techem.com/bgrs" target="_blank">Besonderen Geschäftsbedingungen Rauchwarnmelder-Service</a>{' '}von Techem zugrunde. Diese habe ich zur Kenntnis genommen und akzeptiere sie.
+								Dem Angebot liegen die{' '}
+								<a
+									href="https://www.techem.com/agb"
+									target="_blank"
+									rel="noreferrer"
+								>
+									Allgemeinen Geschäftsbedingungen
+								</a>{' '}
+								und{' '}
+								<a
+									href="https://www.techem.com/bgrs"
+									target="_blank"
+									rel="noreferrer"
+								>
+									Besonderen Geschäftsbedingungen
+									Rauchwarnmelder-Service
+								</a>{' '}
+								von Techem zugrunde. Diese habe ich zur Kenntnis
+								genommen und akzeptiere sie.
 							</p>
 						</div>
 					</div>
@@ -337,7 +355,11 @@ const ContactForm = () => {
 								Wirkung für die Zukunft jederzeit widerrufbar
 								Einzelheiten zum Datenschutz bei der Techem GmbH
 								entnehmen Sie bitte dem{' '}
-								<a href="https://www.techem.com/de/de/datenschutzhinweis" target="_blank">
+								<a
+									href="https://www.techem.com/de/de/datenschutzhinweis"
+									target="_blank"
+									rel="noreferrer"
+								>
 									Datenschutzhinweis.
 								</a>
 							</p>
