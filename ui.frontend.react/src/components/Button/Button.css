@@ -1,0 +1,161 @@
+.rwm-btn {
+	@apply tw-btn-size
+	tw-btn-font;
+	border-radius: 30px;
+}
+
+.rwn-btn-continue {
+	@apply tw-btn-size-close
+	tw-btn-font;
+	border-radius: 30px;
+}
+
+.rwm-button--active {
+	@apply tw-bg-btnBgColorActive
+	tw-text-white
+	tw-btn-border-active;
+}
+
+.rwm-button--primary {
+	@apply tw-bg-btnBgColorActive
+	tw-text-white
+	tw-btn-border-active;
+	width: fit-content;
+	border-radius: 30px;
+	margin-top: 10px;
+}
+
+.rwm-button--primary:hover {
+	background-color: #b00511;
+	border-color: #b00511;
+}
+
+.rwm-button--secondary {
+	@apply tw-bg-btnBgColorActive
+	tw-btn-border-active;
+	width: fit-content;
+	line-height: 17px;
+	background-color: #ffffff;
+	color: #e20613;
+	font-size: 14px;
+	border-radius: 30px;
+	margin-top: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+	.rwm-button--secondary {
+		@apply tw-bg-btnBgColorActive
+		tw-btn-border-active;
+		width: fit-content;
+		line-height: 17px;
+		background-color: #ffffff;
+		color: #e20613;
+		font-size: 14px;
+		border-radius: 30px;
+		margin-top: 120px;
+	}
+}
+
+.rwm-button--secondary:hover {
+	background-color: #e20613;
+	color: #ffffff;
+}
+
+.rwm-button--form-link {
+	@apply tw-bg-btnBgColorActive
+	tw-btn-border-active;
+	width: 230px;
+	height: 45px;
+	line-height: 17px;
+	background-color: #ffffff;
+	color: #e20613;
+	font-size: 14px;
+	border-radius: 30px;
+	margin-top: 15px;
+	padding: 13px 14px 15px 14px;
+}
+
+.rwm-button--form-link-primary {
+	@apply tw-bg-btnBgColorActive
+	tw-btn-border-active;
+	width: 230px;
+	height: 52px;
+	line-height: 17px;
+	color: #fff;
+}
+
+.rwm-button--form-link-primary:hover {
+	background-color: #b00511;
+	border-color: #b00511;
+}
+
+.rwm-button--link {
+	@apply tw-btn-font-thin;
+	color: #e20613;
+	text-decoration: underline;
+	font-size: 16px;
+	line-height: 26px;
+	margin-top: 30px;
+}
+
+.rwm-button--disabled {
+	@apply tw-bg-btnBgColorDisabled 
+	tw-text-btnColorDisabled
+	tw-btn-border-disabled;
+	pointer-events: none;
+}
+
+.rwm-icon {
+	@apply tw-h-6
+	tw-w-6
+	tw-p-1;
+}
+
+.rwm-icon--hidden {
+	@apply tw-h-6
+	tw-w-6
+	tw-p-1;
+}
+
+.rwm-arrow {
+	width: 17px;
+	height: 17px;
+	border: solid 2.8px #b2b2b1;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	transform: rotate(135deg);
+}
+
+.rwm-btn__container {
+	@apply tw-z-30
+	tw-flex
+	tw-justify-center
+	tw-items-center
+	tw-h-14
+	tw-w-14
+	tw-bg-btnBgColorActive
+	tw-rounded-full
+	tw-py-2
+	tw-px-4;
+}
+
+.rwm-btn-close {
+	fill: white;
+}
+
+.rwm-btn-info {
+	fill: #e20613;
+	width: 20px;
+	height: 20px;
+	margin: 3px 0 0px 7px;
+	cursor: pointer;
+}
+
+.rwm-btn-next-room {
+	fill: #e20613;
+	width: 20px;
+	height: 20px;
+	margin: 7px 0 0px 7px;
+	transform: rotate(270deg);
+	cursor: pointer;
+}
