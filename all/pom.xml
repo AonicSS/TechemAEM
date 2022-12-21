@@ -95,17 +95,10 @@
 <!--                        </embedded>-->
                         <embedded>
                             <groupId>com.adobe.acs</groupId>
-                            <artifactId>acs-aem-commons-ui.apps</artifactId>
+                            <artifactId>acs-aem-commons-content</artifactId>
                             <type>zip</type>
-                            <target>/apps/techem-packages/application/install</target>
+                            <target>/apps/techem-packages/content/install</target>
                         </embedded>
-                        <embedded>
-                            <groupId>com.adobe.acs</groupId>
-                            <artifactId>acs-aem-commons-ui.content</artifactId>
-                            <type>zip</type>
-                            <target>/apps/techem-packages/application/install</target>
-                        </embedded>
-
                         <embedded>
                             <groupId>org.cid15.aem.groovy.console</groupId>
                             <artifactId>aem-groovy-console-all</artifactId>
@@ -244,15 +237,9 @@
 <!--        </dependency>-->
         <dependency>
             <groupId>com.adobe.acs</groupId>
-            <artifactId>acs-aem-commons-ui.content</artifactId>
+            <artifactId>acs-aem-commons-content</artifactId>
             <type>zip</type>
         </dependency>
-        <dependency>
-            <groupId>com.adobe.acs</groupId>
-            <artifactId>acs-aem-commons-ui.apps</artifactId>
-            <type>zip</type>
-        </dependency>
-
         <dependency>
             <groupId>org.cid15.aem.groovy.console</groupId>
             <artifactId>aem-groovy-console-all</artifactId>
