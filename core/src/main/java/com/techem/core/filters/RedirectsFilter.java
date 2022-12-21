@@ -19,6 +19,8 @@ import com.techem.core.services.RedirectsManagerService;
 import com.techem.core.services.URLsFilterService;
 import com.techem.core.servlets.ResourceResolverUtil;
 
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -28,8 +30,6 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.propertytypes.ServiceDescription;
 import org.osgi.service.component.propertytypes.ServiceRanking;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -41,10 +41,12 @@ import org.apache.sling.servlets.annotations.SlingServletFilterScope;
 import org.apache.sling.servlets.annotations.SlingServletFilter;
 import org.apache.sling.api.servlets.HttpConstants;
 
+
 /**
     Sling filter for the Redirect Manager. Filters requests and matches them to any existing rule. <p>
     This task can be configured by OSGi config (PID: <code>com.techem.core.services.impl.RedirectsManagerServiceImpl</code>) and is <b>enabled</b> by default.
 */
+@Slf4j
 @Component(service = Filter.class)
 @SlingServletFilter(
     scope = { SlingServletFilterScope.REQUEST },
@@ -60,10 +62,7 @@ public class RedirectsFilter implements Filter {
 
     @Reference
     private RedirectsManagerService redirectsManager;
-    
-    private ResourceResolver resResolver = null;
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
-    
+
     @Override
     public void init(FilterConfig arg0) throws ServletException { }
     
@@ -74,7 +73,7 @@ public class RedirectsFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
         SlingHttpServletRequest slingReq = (SlingHttpServletRequest)req;
         SlingHttpServletResponse slingResp = (SlingHttpServletResponse)resp;
-        resResolver = ResourceResolverUtil.getResolver(resourceResolverFactory); 
+        ResourceResolver resResolver = ResourceResolverUtil.getResolver(resourceResolverFactory);
         
         if(redirectsManager == null || resResolver == null || !redirectsManager.getConfig().enabled()) {
             chain.doFilter(req, resp); 
@@ -82,7 +81,7 @@ public class RedirectsFilter implements Filter {
         }
 
         long t0 = System.currentTimeMillis();
-        RedirectRule ruleFromReq = matchRuleToRequest(slingReq);
+        RedirectRule ruleFromReq = matchRuleToRequest(slingReq, resResolver);
 
         if(ruleFromReq == null) { chain.doFilter(req, resp); return; }
 
@@ -94,7 +93,7 @@ public class RedirectsFilter implements Filter {
 
         slingResp.setStatus(ruleFromReq.getCode());
         slingResp.setHeader("Cache-Control", "no-cache");
-        logger.info("Redirected from {} to {} in {} ms.", slingReq.getRequestURL(), ruleFromReq.getTo(), System.currentTimeMillis() - t0);
+        LOGGER.info("Redirected from {} to {} in {} ms.", slingReq.getRequestURL(), ruleFromReq.getTo(), System.currentTimeMillis() - t0);
     }
 
     @Override
@@ -136,7 +135,7 @@ public class RedirectsFilter implements Filter {
         NOTE: If the rule has expired, <code>null</code> will be returned.
         @return <code>RedirectRule</code> if any rule has matched to the request, <code>null</code> otherwise.
     */
-    private RedirectRule matchRuleToRequest(SlingHttpServletRequest req) throws UnsupportedEncodingException {
+    private RedirectRule matchRuleToRequest(SlingHttpServletRequest req, ResourceResolver resResolver) throws UnsupportedEncodingException {
 
         if(req == null || !validateRequest(req)) { return null; }
         boolean isReqContent = !req.getPathInfo().startsWith(RedirectsManagerService.REDIRECT_CONTENT_PATH);
@@ -208,7 +207,7 @@ public class RedirectsFilter implements Filter {
             String fromRuleFormatted = (fromRule.startsWith("^") ? "" : "^") + fromRule + (fromRule.endsWith("$") ? "" : "$");
             return Pattern.compile(fromRuleFormatted).matcher(fromRequest).find();
         } catch (PatternSyntaxException ex) {
-            logger.error("Rule has invalid regex: {}. Ignoring rule.", fromRule);
+            LOGGER.error("Rule has invalid regex: {}. Ignoring rule.", fromRule);
         }
         return false;
     }

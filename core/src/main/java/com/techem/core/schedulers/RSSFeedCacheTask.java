@@ -15,6 +15,7 @@ import com.techem.core.models.FeedChannel;
 import com.techem.core.models.RSSFeedReader;
 import com.techem.core.servlets.ResourceResolverUtil;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.commons.scheduler.ScheduleOptions;
@@ -38,6 +39,7 @@ import org.apache.sling.api.resource.Resource;
  This task can be configured by OSGi config (PID: <code>com.techem.core.schedulers.RSSFeedCacheTask</code>) and is disabled by default.
  @see FeedChannel
  */
+@Slf4j
 @Designate(ocd = RSSFeedCacheTask.RSSConfig.class)
 @Component(immediate = true, service = Runnable.class, property = { Constants.SERVICE_ID + "=" + RSSFeedReader.RSS_TASK_NAME })
 public class RSSFeedCacheTask implements Runnable {
@@ -48,11 +50,8 @@ public class RSSFeedCacheTask implements Runnable {
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
 
-    private ResourceResolver resResolver;
     private boolean isEnabled = false;
     private String RSS_CACHE_LOCATION;
-
-    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      OSGi configuration related to the RSS Feed Cache Cron Task.
@@ -121,7 +120,7 @@ public class RSSFeedCacheTask implements Runnable {
     @Override
     public void run() {
         if(isEnabled) {
-            logger.info("Running job '{}'.", RSSFeedReader.RSS_TASK_NAME);
+            LOGGER.info("Running job '{}'.", RSSFeedReader.RSS_TASK_NAME);
             cacheRSSFeed();
         }
     }
@@ -129,11 +128,12 @@ public class RSSFeedCacheTask implements Runnable {
     /**
      Caches all RSS feeds present on the website while also removing cached data left over from removed components/components which bypass the cache.
      */
+    //TODO: Storing Data on JCR
     private void cacheRSSFeed() {
         try {
-            resResolver = ResourceResolverUtil.getResolver(resourceResolverFactory);
-            List<String> feedURLs = getArticleFeedURLs();
-            List<Resource> cachedFeeds = getCachedRSSFeeds();
+            ResourceResolver resResolver = ResourceResolverUtil.getResolver(resourceResolverFactory);
+            List<String> feedURLs = getArticleFeedURLs(resResolver);
+            List<Resource> cachedFeeds = getCachedRSSFeeds(resResolver);
 
             for(Resource cachedFeed : cachedFeeds) {
                 String feedURL = (String) cachedFeed.getValueMap().get(RSSFeedReader.RSS_FEED_LINK);
@@ -145,12 +145,12 @@ public class RSSFeedCacheTask implements Runnable {
             resResolver.commit();
 
             for(String url : feedURLs) {
-                logger.info("Updating cache for URL '{}'.", url);
+                LOGGER.info("Updating cache for URL '{}'.", url);
                 FeedChannel fChannel = new RSSFeedReader(url).readFeed(resResolver);
                 fChannel.cacheChannel();
             }
         } catch(Exception e) {
-            logger.error("Could not cache feed. Ex: ", e);
+            LOGGER.error("Could not cache feed. Ex: ", e);
         }
     }
 
@@ -159,8 +159,8 @@ public class RSSFeedCacheTask implements Runnable {
      Ignores duplicates and components which bypass cache.
      @return <code>List</code> of Strings representing the URLs pointing to RSS feeds.
      */
-    private List<String> getArticleFeedURLs() {
-        List<String> articleFeeds = new ArrayList<String>();
+    private List<String> getArticleFeedURLs(ResourceResolver resResolver) {
+        List<String> articleFeeds = new ArrayList<>();
         Map<String, String> predicateMap = new HashMap<>();
 
         predicateMap.put("path", "/content/techem");
@@ -168,7 +168,7 @@ public class RSSFeedCacheTask implements Runnable {
         predicateMap.put("1_property.value", "techem/components/newshub-article-feed");
         predicateMap.put("p.limit", "-1");
 
-        Iterator<Resource> resources = doQuery(predicateMap).getResources();
+        Iterator<Resource> resources = doQuery(predicateMap, resResolver).getResources();
 
         while (resources.hasNext()) {
             Resource feedRes = resources.next();
@@ -186,8 +186,8 @@ public class RSSFeedCacheTask implements Runnable {
      Gets all currently cached feeds.
      @return <code>List</code> of Resources representing the cached {@link FeedChannel}s.
      */
-    private List<Resource> getCachedRSSFeeds() {
-        List<Resource> rssFeeds = new ArrayList<Resource>();
+    private List<Resource> getCachedRSSFeeds(ResourceResolver resResolver) {
+        List<Resource> rssFeeds = new ArrayList<>();
 
         Resource rssRoot = resResolver.getResource(RSS_CACHE_LOCATION);
 
@@ -201,11 +201,13 @@ public class RSSFeedCacheTask implements Runnable {
     }
 
     /**
-     Executes the given query and returns the result.
-     @param predicateMap containing predicates needed for the search.
-     @return <code>SearchResult</code> the result of the query.
+     * Executes the given query and returns the result.
+     *
+     * @param predicateMap containing predicates needed for the search.
+     * @param resResolver
+     * @return <code>SearchResult</code> the result of the query.
      */
-    private SearchResult doQuery(Map<String, String> predicateMap) {
+    private SearchResult doQuery(Map<String, String> predicateMap, ResourceResolver resResolver) {
         QueryBuilder queryBuilder = resResolver.adaptTo(QueryBuilder.class);
         Session session = resResolver.adaptTo(Session.class);
         com.day.cq.search.Query query = queryBuilder.createQuery(PredicateGroup.create(predicateMap), session);

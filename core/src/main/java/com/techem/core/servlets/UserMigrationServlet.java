@@ -1,5 +1,6 @@
 package com.techem.core.servlets;
 
+import lombok.extern.slf4j.Slf4j;
 import org.osgi.framework.Constants;
 import org.apache.jackrabbit.api.security.user.User;
 import org.apache.jackrabbit.api.security.user.UserManager;
@@ -33,15 +34,14 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
+@Slf4j
 @Component(service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "=Bulk user import utility.", "sling.servlet.methods=POST", "sling.servlet.paths=" + "/bin/techem/bulkimport" })
 public class UserMigrationServlet extends SlingAllMethodsServlet {
 
     private static final long serialVersionUID = 1L;
     private static final String groupID = "cug_fe_investor-relations";
-    private Logger logger = LoggerFactory.getLogger(UserMigrationServlet.class);
-    private Session session;
-    private UserManager userMngr;
-    private ValueFactory valueFactory;
+
+    private transient ValueFactory valueFactory;
     private Random random = new Random();
     private int tally;
     private boolean importErrors;
@@ -50,8 +50,8 @@ public class UserMigrationServlet extends SlingAllMethodsServlet {
     protected void doPost(final SlingHttpServletRequest req, final SlingHttpServletResponse resp) throws ServletException, IOException {
         ResourceResolver resResolver = req.getResourceResolver();
         int totalEntries = 0;
-        session = resResolver.adaptTo(Session.class);
-        userMngr = resResolver.adaptTo(UserManager.class);
+        Session session = resResolver.adaptTo(Session.class);
+        UserManager userMngr = resResolver.adaptTo(UserManager.class);
         tally = 0;
         importErrors = false;
         boolean multiPart = ServletFileUpload.isMultipartContent(req);
@@ -70,8 +70,8 @@ public class UserMigrationServlet extends SlingAllMethodsServlet {
                 BufferedReader csvReader = new BufferedReader(new InputStreamReader(fileStream));
                 String row = "";
                 boolean headerLine = true;
-                List<String> csvHeaders = new ArrayList<String>();
-                HashMap<String, Value> userDetails = new HashMap<String, Value>();
+                List<String> csvHeaders = new ArrayList<>();
+                HashMap<String, Value> userDetails = new HashMap<>();
                 valueFactory = session.getValueFactory();
 
                 while ((row = csvReader.readLine()) != null) {
@@ -94,7 +94,7 @@ public class UserMigrationServlet extends SlingAllMethodsServlet {
                     }
                     totalEntries++;
                     if(data.length != csvHeaders.size()){
-                        logger.warn("Data size does not match header size. Please check CSV! Skipping current iteration.");
+                        LOGGER.warn("Data size does not match header size. Please check CSV! Skipping current iteration.");
                         importErrors = true;
                         continue;
                     }
@@ -106,14 +106,14 @@ public class UserMigrationServlet extends SlingAllMethodsServlet {
                     userDetails.put("isActivated", valueFactory.createValue(false));
                     userDetails.put("isMigrated", valueFactory.createValue(true));
 
-                    createUser(userDetails);
+                    createUser(userDetails, session, userMngr);
                     userDetails.clear();
                 }
 
                 csvReader.close();
 
             } catch(Exception e){
-                logger.error(e.getMessage(), e);
+                LOGGER.error(e.getMessage(), e);
             }
 
             String msg = tally > 0 ? "Total: " + totalEntries + " users<br/>Successfully imported: " + tally + " users<br/>" + (importErrors == true ? "Import errors: " + (totalEntries - tally) + " users skipped" : "") : "Users already exist or something went wrong. Please check logs!";
@@ -129,7 +129,7 @@ public class UserMigrationServlet extends SlingAllMethodsServlet {
         }
     }
 
-    private void createUser(HashMap<String, Value> details) {
+    private void createUser(HashMap<String, Value> details, Session session, UserManager userMngr) {
         try {
             String eMail = details.get("email").getString();
 
@@ -152,14 +152,14 @@ public class UserMigrationServlet extends SlingAllMethodsServlet {
                 Group userGroup = (Group) userMngr.getAuthorizable(groupID);
                 userGroup.addMember(userMngr.getAuthorizable(eMail)); // Add user to group
                 session.save(); // Save user data
-                logger.info("Successfully imported user " + eMail);
+                LOGGER.info("Successfully imported user " + eMail);
                 tally++;
             }else {
-                logger.warn("Could not import user, the user already exists, the groupID " + groupID + " is invalid or invalid user data.");
+                LOGGER.warn("Could not import user, the user already exists, the groupID " + groupID + " is invalid or invalid user data.");
                 importErrors = true;
             }
         }catch(Exception e) {
-            logger.error(e.getMessage(), e);
+            LOGGER.error(e.getMessage(), e);
         }
     }
 
