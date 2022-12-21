@@ -1,0 +1,75 @@
+{
+	"name": "techem-rwm",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@tailwindcss/forms": "^0.4.0",
+		"@testing-library/jest-dom": "^5.16.1",
+		"@testing-library/react": "^12.1.2",
+		"@testing-library/user-event": "^13.5.0",
+		"@types/jest": "^27.4.0",
+		"@types/node": "^16.11.19",
+		"@types/react": "^17.0.38",
+		"@types/react-dom": "^17.0.11",
+		"@types/react-redux": "^7.1.21",
+		"classnames": "^2.3.1",
+		"postcss": "^8.4.5",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-intl": "^5.24.1",
+		"react-redux": "^7.2.6",
+		"react-router-dom": "^6.2.1",
+		"react-scripts": "^5.0.0",
+		"react-scroll": "^1.8.6",
+		"redux-loop": "^6.2.0",
+		"typescript": "^4.5.4",
+		"validator": "^13.7.0",
+		"web-vitals": "^2.1.2"
+	},
+	"scripts": {
+		"prepare:i18n": "node ./tasks/i18n/flatten.js",
+		"start": "npm-run-all prepare:* && npm run watch:css && npx react-scripts start",
+		"build": "npm-run-all prepare:* && npm run watch:css && GENERATE_SOURCEMAP=false npx react-scripts build",
+		"test": "npm-run-all prepare:* && npx react-scripts test",
+		"eject": "react-scripts eject",
+		"watch:css": "postcss src/styles/index.css -o src/styles/output.css"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@types/react-scroll": "^1.8.3",
+		"@types/validator": "^13.7.1",
+		"@typescript-eslint/eslint-plugin": "^5.9.0",
+		"@typescript-eslint/parser": "^5.9.0",
+		"autoprefixer": "^10.4.1",
+		"chalk": "^4.1.2",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-config-react": "^1.1.7",
+		"eslint-plugin-import": "^2.25.4",
+		"eslint-plugin-prettier": "^4.0.0",
+		"eslint-plugin-react": "^7.28.0",
+		"eslint-plugin-react-hooks": "^4.3.0",
+		"glob": "^7.2.0",
+		"npm-run-all": "^4.1.5",
+		"postcss-cli": "^9.1.0",
+		"prettier": "^2.5.1",
+		"redux-devtools-extension": "^2.13.9",
+		"tailwindcss": "^3.0.22"
+	}
+}

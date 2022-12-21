@@ -1,0 +1,66 @@
+.rwm-overlay {
+	@apply tw-absolute
+  tw-inset-0
+  tw-flex
+  tw-items-center
+  tw-justify-center
+  tw-bg-black
+  tw-bg-opacity-80;
+	z-index: 1000;
+  position: fixed;
+}
+
+.rwm-overlay__container {
+	@apply tw-relative 
+  tw-px-5
+  tw-py-7 
+  md:tw-px-8
+  md:tw-py-12
+  tw-bg-white;
+  position: fixed;
+}
+
+.rwm-overlay__headline-container {
+	@apply tw-flex 
+  tw-items-center 
+  tw-justify-start;
+}
+
+.rwm-overlay__headline {
+	@apply tw-font-size-overlay-headline;
+}
+
+.rwm-overlay__body-container {
+	@apply tw-mt-4;
+}
+
+.rwm-overlay__body {
+	@apply tw-font-size-overlay-body;
+}
+
+.rwm-overlay__contact-container {
+	@apply tw-flex tw-flex-col tw-justify-center tw-items-center tw-mt-10 tw-mb-10;
+}
+
+.rwm-overlay__contact-headline {
+	@apply tw-font-size-overlay-contact-headline;
+}
+
+.rwm-overlay__contact-body {
+	@apply tw-font-size-overlay-contact-body;
+}
+
+.rwm-overlay__btn-container-close {
+	@apply tw-absolute;
+	top: -15px;
+	right: -15px;
+}
+
+.rwm-overlay__btn-container-continue {
+	@apply tw-flex
+  tw-flex-col
+  tw-justify-center
+  tw-items-center
+  tw-mt-4
+  md:tw-mt-10;
+}
