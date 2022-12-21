@@ -31,7 +31,10 @@ module.exports = {
 		'react/prop-types': 1, // We use TS. Do not need proptypes validation. >:#
 		'@typescript-eslint/no-explicit-any': 'off',
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
-		'@typescript-eslint/ban-ts-comment': 'off',
+		'react/jsx-no-target-blank': 'warn',
+		'prettier/prettier': 'warn',
+		'@typescript-eslint/ban-ts-comment': 'warn',
+
 		// '@typescript-eslint/ban-types': [
 		// 	'error',
 		// 	{
