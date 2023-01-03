@@ -97,7 +97,7 @@
                             <groupId>com.adobe.acs</groupId>
                             <artifactId>acs-aem-commons-content</artifactId>
                             <type>zip</type>
-                            <target>/apps/techem-packages/container/install</target>
+                            <target>/apps/techem-packages/application/install</target>
                             <filter>true</filter>
                             <isAllVersionsFilter>true</isAllVersionsFilter>
                         </embedded>
@@ -240,8 +240,10 @@
         <dependency>
             <groupId>com.adobe.acs</groupId>
             <artifactId>acs-aem-commons-content</artifactId>
+            <version>5.4.0</version>
             <type>zip</type>
         </dependency>
+
         <dependency>
             <groupId>org.cid15.aem.groovy.console</groupId>
             <artifactId>aem-groovy-console-all</artifactId>
