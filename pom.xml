@@ -582,6 +582,13 @@ Bundle-DocURL:
 <!--                <type>zip</type>-->
 <!--            </dependency>-->
             <dependency>
+                <groupId>com.adobe.acs</groupId>
+                <artifactId>acs-aem-commons-content</artifactId>
+                <version>${acs-aem-commons.version}</version>
+                <type>zip</type>
+            </dependency>
+
+            <dependency>
                 <groupId>org.cid15.aem.groovy.console</groupId>
                 <artifactId>aem-groovy-console-all</artifactId>
                 <version>17.0.0</version>
