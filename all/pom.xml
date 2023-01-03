@@ -240,6 +240,7 @@
         <dependency>
             <groupId>com.adobe.acs</groupId>
             <artifactId>acs-aem-commons-content</artifactId>
+            <version>5.4.0</version>
             <type>zip</type>
         </dependency>
 
