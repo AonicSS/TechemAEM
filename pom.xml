@@ -46,12 +46,12 @@
         <sling.password>admin</sling.password>
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
-        <core.wcm.components.version>2.11.0</core.wcm.components.version>
+        <core.wcm.components.version>2.19.0</core.wcm.components.version>
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2020.12.4615.20201203T130736Z-201201</aem.sdk.api>
-        <acs-aem-commons.version>5.0.4</acs-aem-commons.version>
+        <aem.sdk.api>2022.10.9398.20221020T071514Z-220900</aem.sdk.api>
+        <acs-aem-commons.version>5.4.0</acs-aem-commons.version>
         <componentGroupName>Techem</componentGroupName>
     </properties>
 
@@ -115,10 +115,10 @@
                 <plugin>
                     <groupId>com.github.eirslett</groupId>
                     <artifactId>frontend-maven-plugin</artifactId>
-                    <version>1.7.6</version>
+                    <version>1.12.0</version>
                     <configuration>
-                        <nodeVersion>v10.13.0</nodeVersion>
-                        <npmVersion>6.9.0</npmVersion>
+                        <nodeVersion>v16.17.1</nodeVersion>
+                        <npmVersion>8.15.0</npmVersion>
                     </configuration>
                     <executions>
                         <execution>
@@ -555,45 +555,32 @@ Bundle-DocURL:
             </dependency>
             <dependency>
                 <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.core</artifactId>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.extensions.amp</artifactId>
                 <version>${core.wcm.components.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.extensions.amp.content</artifactId>
-                <type>zip</type>
                 <version>${core.wcm.components.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.adobe.cq</groupId>
-                <artifactId>core.wcm.components.examples.ui.apps</artifactId>
-                <type>zip</type>
-                <version>${core.wcm.components.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.adobe.cq</groupId>
-                <artifactId>core.wcm.components.examples.ui.content</artifactId>
-                <type>zip</type>
-                <version>${core.wcm.components.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.adobe.acs</groupId>
-                <artifactId>acs-aem-commons-bundle</artifactId>
-                <version>${acs-aem-commons.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.adobe.acs</groupId>
-                <artifactId>acs-aem-commons-ui.content</artifactId>
-                <version>${acs-aem-commons.version}</version>
                 <type>zip</type>
             </dependency>
-            <dependency>
-                <groupId>com.adobe.acs</groupId>
-                <artifactId>acs-aem-commons-ui.apps</artifactId>
-                <version>${acs-aem-commons.version}</version>
-                <type>zip</type>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.adobe.cq</groupId>-->
+<!--                <artifactId>core.wcm.components.examples.ui.apps</artifactId>-->
+<!--                <version>${core.wcm.components.version}</version>-->
+<!--                <type>zip</type>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>com.adobe.cq</groupId>-->
+<!--                <artifactId>core.wcm.components.examples.ui.content</artifactId>-->
+<!--                <version>${core.wcm.components.version}</version>-->
+<!--                <type>zip</type>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>org.cid15.aem.groovy.console</groupId>
                 <artifactId>aem-groovy-console-all</artifactId>
@@ -637,6 +624,12 @@ Bundle-DocURL:
                 <groupId>uk.org.lidalia</groupId>
                 <artifactId>slf4j-test</artifactId>
                 <version>1.0.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-imaging</artifactId>
+                <version>1.0-alpha3</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>

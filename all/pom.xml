@@ -81,31 +81,26 @@
                             <type>zip</type>
                             <target>/apps/techem-packages/application/install</target>
                         </embedded>
-                        <embedded>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.examples.ui.apps</artifactId>
-                            <type>zip</type>
-                            <target>/apps/techem-vendor-packages/application/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.examples.ui.content</artifactId>
-                            <type>zip</type>
-                            <target>/apps/techem-vendor-packages/content/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.adobe.acs</groupId>
-                            <artifactId>acs-aem-commons-ui.apps</artifactId>
-                            <type>zip</type>
-                            <target>/apps/techem-packages/application/install</target>
-                        </embedded>
+<!--                        <embedded>-->
+<!--                            <groupId>com.adobe.cq</groupId>-->
+<!--                            <artifactId>core.wcm.components.examples.ui.apps</artifactId>-->
+<!--                            <type>zip</type>-->
+<!--                            <target>/apps/techem-vendor-packages/application/install</target>-->
+<!--                        </embedded>-->
+<!--                        <embedded>-->
+<!--                            <groupId>com.adobe.cq</groupId>-->
+<!--                            <artifactId>core.wcm.components.examples.ui.content</artifactId>-->
+<!--                            <type>zip</type>-->
+<!--                            <target>/apps/techem-vendor-packages/content/install</target>-->
+<!--                        </embedded>-->
                         <embedded>
                             <groupId>com.adobe.acs</groupId>
-                            <artifactId>acs-aem-commons-ui.content</artifactId>
+                            <artifactId>acs-aem-commons-content</artifactId>
                             <type>zip</type>
                             <target>/apps/techem-packages/application/install</target>
+                            <filter>true</filter>
+                            <isAllVersionsFilter>true</isAllVersionsFilter>
                         </embedded>
-
                         <embedded>
                             <groupId>org.cid15.aem.groovy.console</groupId>
                             <artifactId>aem-groovy-console-all</artifactId>
@@ -219,7 +214,10 @@
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
-
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.core</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.extensions.amp.content</artifactId>
@@ -229,31 +227,26 @@
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.extensions.amp</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.examples.ui.apps</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.examples.ui.content</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.acs</groupId>
-            <artifactId>acs-aem-commons-ui.content</artifactId>
-            <type>zip</type>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.adobe.cq</groupId>-->
+<!--            <artifactId>core.wcm.components.examples.ui.apps</artifactId>-->
+<!--            <type>zip</type>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.adobe.cq</groupId>-->
+<!--            <artifactId>core.wcm.components.examples.ui.content</artifactId>-->
+<!--            <type>zip</type>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.adobe.acs</groupId>
-            <artifactId>acs-aem-commons-ui.apps</artifactId>
+            <artifactId>acs-aem-commons-content</artifactId>
+            <version>5.4.0</version>
             <type>zip</type>
         </dependency>
 
         <dependency>
             <groupId>org.cid15.aem.groovy.console</groupId>
             <artifactId>aem-groovy-console-all</artifactId>
-            <version>17.0.0</version>
             <type>zip</type>
         </dependency>
     </dependencies>
