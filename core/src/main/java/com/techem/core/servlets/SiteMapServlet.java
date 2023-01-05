@@ -13,6 +13,7 @@ import com.day.cq.wcm.api.PageManager;
 import com.techem.core.services.SiteMapService;
 import com.techem.core.services.SiteMapService.SiteMapServiceConfig;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.time.FastDateFormat;
 import org.apache.commons.lang3.StringUtils;
 
@@ -51,6 +52,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
+@Slf4j
 @Component(service = { Servlet.class }, configurationPolicy = ConfigurationPolicy.REQUIRE, configurationPid = "com.techem.core.services.impl.SiteMapServiceImpl")
 @SlingServletResourceTypes(
         resourceTypes="techem/components/page",
@@ -63,15 +65,15 @@ import java.util.concurrent.CompletableFuture;
 public class SiteMapServlet extends SlingSafeMethodsServlet {
 
     private static final FastDateFormat DATE_FORMAT = FastDateFormat.getInstance("yyyy-MM-dd");
-    private Logger log = LoggerFactory.getLogger(this.getClass());
+    public static final int CONNECT_TIMEOUT = 2_000;
 
     @Reference
     private transient Externalizer externalizer;
 
     @Reference
-    private SiteMapService siteMapService;
+    private transient SiteMapService siteMapService;
 
-    private SiteMapServiceConfig siteMapConfig;
+    private transient SiteMapServiceConfig siteMapConfig;
     private boolean isIndex = false;
 
     @Override
@@ -104,7 +106,7 @@ public class SiteMapServlet extends SlingSafeMethodsServlet {
                 write(page, stream, request);
             }
 
-            List<CompletableFuture<Void>> urlCheckers = new ArrayList<CompletableFuture<Void>>();
+            List<CompletableFuture<Void>> urlCheckers = new ArrayList<>();
             List<Page> pChildren = new ArrayList<>();
             for(Iterator<Page> children = page.listChildren(new PageFilter(false, true), !isIndex); children.hasNext();) {
                 Page p = children.next();
@@ -144,14 +146,14 @@ public class SiteMapServlet extends SlingSafeMethodsServlet {
                 try {
                     stream.close();
                 } catch (XMLStreamException e) {
-                    log.warn("Can not close xml stream writer", e);
+                    LOGGER.warn("Can not close xml stream writer", e);
                 }
             }
         }
     }
 
     private Collection<Resource> getAssetFolders(Page page, ResourceResolver resolver) {
-        List<Resource> allAssetFolders = new ArrayList<Resource>();
+        List<Resource> allAssetFolders = new ArrayList<>();
         ValueMap properties = page.getProperties();
         String[] configuredAssetFolderPaths = properties.get(siteMapConfig.damAssets(), String[].class);
         if (configuredAssetFolderPaths != null) {
@@ -269,11 +271,12 @@ public class SiteMapServlet extends SlingSafeMethodsServlet {
         try {
             URL pageURL = new URL(URL);
             HttpURLConnection testConn = (HttpURLConnection) pageURL.openConnection();
+            testConn.setConnectTimeout(CONNECT_TIMEOUT);
             testConn.setRequestMethod("HEAD");
             testConn.setInstanceFollowRedirects(false);
             return testConn.getResponseCode() != HttpURLConnection.HTTP_OK;
         } catch (Exception e) {
-            log.error("Could not check URL for {}", URL);
+            LOGGER.error("Could not check URL for {}", URL);
         }
 
         return true;
@@ -283,7 +286,7 @@ public class SiteMapServlet extends SlingSafeMethodsServlet {
         if (StringUtils.isNotBlank(siteMapConfig.externalizerDomain())) {
             return externalizer.externalLink(request.getResourceResolver(), siteMapConfig.externalizerDomain(), path);
         } else {
-            log.debug("No externalizer domain configured, take into account current host header {} and current scheme {}", request.getServerName(), request.getScheme());
+            LOGGER.debug("No externalizer domain configured, take into account current host header {} and current scheme {}", request.getServerName(), request.getScheme());
             return externalizer.absoluteLink(request, request.getScheme(), path);
         }
     }

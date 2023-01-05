@@ -32,7 +32,7 @@ public class CustomSubmitMailServlet extends SlingAllMethodsServlet {
     private static final Logger log = LoggerFactory.getLogger(CustomSubmitMailServlet.class);
 
     @Reference
-    private MessageGatewayService messageGatewayService;
+    private transient MessageGatewayService messageGatewayService;
     
     @Reference
     private transient FriendlyCaptchaService fCaptchaService;

@@ -2,6 +2,7 @@ package com.techem.core.servlets;
 
 
 import com.day.crx.security.token.TokenUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.HttpConstants;
@@ -24,17 +25,16 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
 
+@Slf4j
 @Component(service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "=Custom login", "sling.servlet.methods="+ HttpConstants.METHOD_POST, "sling.servlet.paths=/eu/techem/techemLogin" })
 public class TechemLoginServlet extends SlingAllMethodsServlet {
 
-    private static final Logger log = LoggerFactory.getLogger(TechemLoginServlet.class);
-
     @Reference
-    private SlingRepository repository;
+    private transient SlingRepository repository;
 
     @Activate
     public void activate(ComponentContext context){
-        log.info("%%%%%%%%%%%%%%$$$$$$$$$$$%%%%%%%**************:   "+ "activate TechemLoginServlet");
+        LOGGER.info("%%%%%%%%%%%%%%$$$$$$$$$$$%%%%%%%**************:   "+ "activate TechemLoginServlet");
     }
 
     @Override
@@ -54,7 +54,7 @@ public class TechemLoginServlet extends SlingAllMethodsServlet {
                 }
             }
         } catch (RepositoryException e) {
-            log.error(this.getClass().getName() + " extractCredentials(..) Failed to log user in" + e.getMessage() + "; user id  -> " + credentials.getUserID(), e);
+            LOGGER.error(this.getClass().getName() + " extractCredentials(..) Failed to log user in" + e.getMessage() + "; user id  -> " + credentials.getUserID(), e);
             if (e.getMessage() == "UserId/Password mismatch."){
                 response.setStatus(401);
             }

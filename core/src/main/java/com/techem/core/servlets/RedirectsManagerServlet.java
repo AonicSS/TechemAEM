@@ -1,5 +1,6 @@
 package com.techem.core.servlets;
 
+import lombok.extern.slf4j.Slf4j;
 import org.osgi.framework.Constants;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -39,16 +40,15 @@ import org.apache.sling.api.servlets.HttpConstants;
     Servlet for the Redirects Manager. <p>
     This is used on the author-side, enabling the functionality of the Redirects Manager AEM console.
 */
+@Slf4j
 @Component(service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "=Redirect Manager Utility.", "sling.servlet.methods={"  + HttpConstants.METHOD_GET + ", " + HttpConstants.METHOD_POST + "}", "sling.servlet.paths=/eu/techem/redirmngr" })
 public class RedirectsManagerServlet extends SlingAllMethodsServlet {
 
 
     @Reference
-    private RedirectsManagerService redirectManager;
+    private transient RedirectsManagerService redirectManager;
 
     private static final long serialVersionUID = 1L;
-
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private static final String EXCELL_CONTENT_TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
@@ -118,7 +118,7 @@ public class RedirectsManagerServlet extends SlingAllMethodsServlet {
             DataSource ds = new SimpleDataSource(values.iterator());
             req.setAttribute(DataSource.class.getName(), ds);
         }catch (Exception e) {
-            logger.error("Could not complete GET request: ", e);
+            LOGGER.error("Could not complete GET request: ", e);
         }
     }
 
@@ -169,7 +169,7 @@ public class RedirectsManagerServlet extends SlingAllMethodsServlet {
             }
         } catch(Exception e) {
             resp.sendError(410);
-            logger.error("Could not complete request. Exception follows: ", e);
+            LOGGER.error("Could not complete request. Exception follows: ", e);
         }
     }
 }
