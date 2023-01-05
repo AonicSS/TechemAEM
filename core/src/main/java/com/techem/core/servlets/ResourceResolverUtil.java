@@ -1,26 +1,27 @@
 package com.techem.core.servlets;
 
+import lombok.extern.slf4j.Slf4j;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceResolverFactory;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+@Slf4j
 public class ResourceResolverUtil {
 
-    public static String SERVICE_USER = "userutilityservice";
-    private static Logger log = LoggerFactory.getLogger(ResourceResolverUtil.class);
+    private ResourceResolverUtil() {
+        //Private constructor
+    }
+    public static final String SERVICE_USER = "userutilityservice";
 
     public static ResourceResolver getResolver(ResourceResolverFactory rFactory) {
         try {
-            final Map<String, Object> paramMap = new HashMap<String, Object>();
+            final Map<String, Object> paramMap = new HashMap<>();
             paramMap.put(ResourceResolverFactory.SUBSERVICE, SERVICE_USER);
-            ResourceResolver resolver = rFactory.getServiceResourceResolver(paramMap);
-            return resolver;
+            return rFactory.getServiceResourceResolver(paramMap);
         }catch(Exception e) {
-            log.error("ex: ", e);
+            LOGGER.error("ex: ", e);
             return null;
         }
 
