@@ -1,52 +1,52 @@
 package com.techem.core.models;
 
+import lombok.Getter;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+
 import java.util.List;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
+@Getter
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL, resourceType = "techem/components/contact-form")
 public class ContactForm {
 
-  @Inject
-  @Named("salutationOptions")
+  @ChildResource(name = "salutationOptions")
   private List<ContactFormInput> options;
 
-  @ValueMapValue(name = "endpointEmail")
+  @ValueMapValue
   private String endpointEmail;
 
-  @ValueMapValue(name = "title")
+  @ValueMapValue
   private String title;
 
-  @ValueMapValue(name = "shortTitle")
+  @ValueMapValue
   private String shortTitle;
 
-  @ValueMapValue(name = "salutationLabel")
+  @ValueMapValue
   private String salutationLabel;
 
-  @ValueMapValue(name = "nameLabel")
+  @ValueMapValue
   private String nameLabel;
 
-  @ValueMapValue(name = "phoneLabel")
+  @ValueMapValue
   private String phoneLabel;
 
-  @ValueMapValue(name = "mailLabel")
+  @ValueMapValue
   private String mailLabel;
 
   @ValueMapValue(name = "friendlyCaptcha")
   private Boolean showFriendlyCaptcha;
 
-  @ValueMapValue(name = "checkboxLabel")
+  @ValueMapValue
   private String checkboxLabel;
 
-  @ValueMapValue(name = "checkboxName")
+  @ValueMapValue
   private String checkboxName;
 
-  @ValueMapValue(name = "checkboxRequired")
+  @ValueMapValue
   private Boolean checkboxRequired;
 
   @ValueMapValue(name = "successMessage")
@@ -54,61 +54,5 @@ public class ContactForm {
 
   @ValueMapValue(name = "submitLabel")
   private String submitLabel;
-
-  public String getEndpointEmail() {
-    return endpointEmail;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public String getShortTitle() {
-    return shortTitle;
-  }
-
-  public String getSalutationLabel() {
-    return salutationLabel;
-  }
-
-  public List<ContactFormInput> getOptions() {
-    return options;
-  }
-
-  public String getNameLabel() {
-    return nameLabel;
-  }
-
-  public String getPhoneLabel() {
-    return phoneLabel;
-  }
-
-  public String getMailLabel() {
-    return mailLabel;
-  }
-
-  public Boolean getShowFriendlyCaptcha() {
-    return showFriendlyCaptcha;
-  }
-
-  public String getCheckboxLabel() {
-    return checkboxLabel;
-  }
-
-  public String getCheckboxName() {
-    return checkboxName;
-  }
-
-  public Boolean getCheckboxRequired() {
-    return checkboxRequired;
-  }
-
-  public String getSuccessMessage() {
-    return successMessage;
-  }
-
-  public String getSubmitLabel() {
-    return submitLabel;
-  }
 
 }
