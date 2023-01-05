@@ -1,0 +1,36 @@
+{
+  "sling:resourceType": "techem/components/contact-form",
+  "phoneLabel": "Phone Label",
+  "salutationLabel": "Salutation Label",
+  "checkboxName": "Checkbox Name",
+  "checkboxRequired": "true",
+  "checkboxLabel": "Checkbox Label",
+  "friendlyCaptcha": "true",
+  "endpointEmail": "email@email.com",
+  "mailLabel": "Email Label",
+  "submitLabel": "Submit",
+  "title": "Title",
+  "nameLabel": "Name Label",
+  "successMessage": "Success Message",
+  "fcLanguage": "en",
+  "shortTitle": "Short Title",
+  "textIsRich": "true",
+  "salutationOptions": {
+    "item0": {
+      "inputLabel": "Mr",
+      "inputValue": "Mr"
+    },
+    "item1": {
+      "inputLabel": "Miss",
+      "inputValue": "Miss"
+    },
+    "item2": {
+      "inputLabel": "Ms",
+      "inputValue": "Ms"
+    },
+    "item3": {
+      "inputLabel": "Mrs",
+      "inputValue": "Mrs"
+    }
+  }
+}
