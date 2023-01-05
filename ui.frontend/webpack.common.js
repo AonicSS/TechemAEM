@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TSConfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -79,6 +80,7 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
         new ESLintPlugin({
             extensions: ['js', 'ts', 'tsx']
         }),
@@ -89,7 +91,11 @@ module.exports = {
             patterns: [
                 { from: path.resolve(__dirname, SOURCE_ROOT + '/resources'), to: './clientlib-site/' }
             ]
-        })
+        }),
+        new webpack.ProvidePlugin({
+			$: "jquery",
+			jQuery: "jquery"
+		})
     ],
     stats: {
         assetsSort: 'chunks',
