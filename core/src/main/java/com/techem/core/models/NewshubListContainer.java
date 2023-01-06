@@ -3,6 +3,7 @@ package com.techem.core.models;
 import com.day.cq.wcm.api.NameConstants;
 import com.day.crx.JcrConstants;
 import com.google.common.collect.Lists;
+import lombok.Getter;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -16,7 +17,6 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -34,6 +34,7 @@ public class NewshubListContainer {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Inject
+    @Getter
     private List<Stage> articleListManually;
 
     @SlingObject
@@ -66,6 +67,7 @@ public class NewshubListContainer {
     @ValueMapValue(name="filePath")
     private String filePath;
 
+    @Getter
     @ValueMapValue(name="filteringTags")
     private String[] filteringTags;
 
@@ -78,6 +80,7 @@ public class NewshubListContainer {
     @ValueMapValue(name="initialAmount")
     private int initialAmount;
 
+    @Getter
     private List<Stage> newsArticles;
 
     private List<Resource> newsItems;
@@ -196,9 +199,6 @@ public class NewshubListContainer {
         return resource.listChildren();
     }
 
-    public List<Stage> getArticleListManually() {
-        return articleListManually;
-    }
 
     public String getContainerHeadline() {
         return containerHeadline;
@@ -240,12 +240,6 @@ public class NewshubListContainer {
         return filePath;
     }
 
-    public String[] getFilteringTags() {
-        return filteringTags;
-    }
 
-    public List<Stage> getNewsArticles() {
-        return newsArticles;
-    }
 
 }

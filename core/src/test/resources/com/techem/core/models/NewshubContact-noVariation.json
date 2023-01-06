@@ -1,0 +1,21 @@
+{
+  "headline": "Headline",
+  "backgroundColor": "white",
+  "contactItems": {
+    "item0": {
+      "contactName": "Name",
+      "contactDescription": "Description",
+      "contactImageReference": "Image Reference"
+    },
+    "item1": {
+      "contactName": "Name",
+      "contactDescription": "Description",
+      "contactImageReference": "Image Reference"
+    },
+    "item2": {
+      "contactName": "Name",
+      "contactDescription": "Description",
+      "contactImageReference": "Image Reference"
+    }
+  }
+}

@@ -11,10 +11,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(AemContextExtension.class)
-public class ContactFormTest {
+class ContactFormTest {
 
     private final AemContext ctx = new AemContext();
 
@@ -24,15 +23,15 @@ public class ContactFormTest {
 
     @BeforeEach
     void setup() {
-        resource = ctx.load().json("/com/techem/core/models/ContactForm.json", "/techem/components/contact-form");
+        resource = ctx.load().json("/com/techem/core/models/ContactForm.json", "/contact-form");
     }
 
     @Test
-    public void shouldReturnContactForm() {
+    void shouldReturnContactForm() {
 
         contactForm = resource.adaptTo(ContactForm.class);
 
-        assertNotNull(contactForm);
+        assertThat(contactForm, notNullValue());
 
         assertThat(contactForm.getTitle(), is("Title"));
         assertThat(contactForm.getShortTitle(), is("Short Title"));
