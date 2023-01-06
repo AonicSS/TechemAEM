@@ -16,6 +16,7 @@ import com.day.cq.wcm.api.PageManager;
 import com.day.cq.wcm.api.Page;
 import com.google.common.collect.Lists;
 
+import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -31,6 +32,7 @@ import org.apache.commons.collections4.CollectionUtils;
 public class NewshubRelatedArticle {
 
     @Inject
+    @Getter
     private List<Stage> articleListManually;
 
     @Inject
@@ -39,6 +41,7 @@ public class NewshubRelatedArticle {
     @SlingObject
     private ResourceResolver resourceResolver;
 
+    @Getter
     @ValueMapValue(name="insertionType")
     private String insertionType;
 
@@ -48,12 +51,15 @@ public class NewshubRelatedArticle {
     @ValueMapValue(name="sortOrder")
     private String sortOrder;
 
+    @Getter
     @ValueMapValue(name="maxArticles")
     private int maxArticles;
 
+    @Getter
     @ValueMapValue(name="filePath")
     private String filePath;
 
+    @Getter
     @ValueMapValue(name="filteringTags")
     private String[] filteringTags;
 
@@ -65,6 +71,7 @@ public class NewshubRelatedArticle {
     @Default(intValues = 1000)
     private int maxTeaserText;
 
+    @Getter
     private List<Stage> newsArticles;
 
     private List<Resource> newsItems;
@@ -168,29 +175,9 @@ public class NewshubRelatedArticle {
         }
     }
 
-    public List<Stage> getArticleListManually() {
-        return articleListManually;
-    }
 
-    public String getInsertionType() {
-        return insertionType;
-    }
 
-    public int getMaxArticles() {
-        return maxArticles;
-    }
 
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public String[] getFilteringTags() {
-        return filteringTags;
-    }
-
-    public List<Stage> getNewsArticles() {
-        return newsArticles;
-    }
 
     private String findArticleText(String path) {
         if(StringUtils.isBlank(path)) { return StringUtils.EMPTY; }
