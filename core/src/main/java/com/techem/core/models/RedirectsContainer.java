@@ -1,5 +1,6 @@
 package com.techem.core.models;
 
+import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -29,6 +30,7 @@ public class RedirectsContainer {
     @SlingObject
     private SlingHttpServletRequest request;
 
+    @Getter
     @ValueMapValue(name="redirects")
     private List<RedirectRule> redirects;
 
@@ -65,10 +67,6 @@ public class RedirectsContainer {
                 redirects = rulesList.subList(offset, rulesList.size()).stream().limit(limit).collect(Collectors.toList());
             }
         }
-    }
-
-    public List<RedirectRule> getRedirects() {
-        return redirects;
     }
 
     public boolean getEnabled() {

@@ -1,0 +1,12 @@
+{
+  "feedHeadline": "Headline",
+  "maxArticles": "10",
+  "monthHeadline": "Headline",
+  "number": "5",
+  "numberUnit": "unit",
+  "numberDescription": "Description",
+  "rssFeedURL": "/some/path/feeds.rss",
+  "articleURLPath": "/some/path/article.html",
+  "backgroundImage": "/some/path/image.png",
+  "bypassCache": "false"
+}

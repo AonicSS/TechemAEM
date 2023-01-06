@@ -1,5 +1,8 @@
 package com.techem.core.models;
 
+import lombok.Getter;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -15,50 +18,62 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.apache.commons.collections4.CollectionUtils.*;
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+
+@Getter
 @Model(adaptables = Resource.class, adapters = NewshubArticleFeed.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL, resourceType = "techem/components/newshub-article-feed")
 public class NewshubArticleFeed {
 
     @SlingObject
     private ResourceResolver resourceResolver;
 
-    @ValueMapValue(name = "feedHeadline")
+    @ValueMapValue
     private String feedHeadline;
 
-    @ValueMapValue(name = "maxArticles")
+    @ValueMapValue
     private String maxArticles;
 
-    @ValueMapValue(name = "monthHeadline")
+    @ValueMapValue
     private String monthHeadline;
 
-    @ValueMapValue(name = "number")
+    @ValueMapValue
     private String number;
 
-    @ValueMapValue(name = "numberUnit")
+    @ValueMapValue
     private String numberUnit;
 
-    @ValueMapValue(name = "numberDescription")
+    @ValueMapValue
     private String numberDescription;
 
-    @ValueMapValue(name = "rssFeedURL")
+    @ValueMapValue
     private String rssFeedURL;
 
-    @ValueMapValue(name = "articleURLPath")
+    @ValueMapValue
     private String articleURLPath;
 
-    @ValueMapValue(name = "backgroundImage")
+    @ValueMapValue
     private String backgroundImage;
 
-    @ValueMapValue(name = "bypassCache")
+    @ValueMapValue
     private boolean bypassCache;
 
+    @Getter
     private List<FeedItem> rssArticles = new ArrayList<>();
 
     @PostConstruct
     protected void init() throws IOException, XMLStreamException {
 
-        if(rssFeedURL == null || rssFeedURL.length() == 0) { return; }
+        if (isEmpty(rssFeedURL)) {
+            return;
+        }
 
         FeedChannel fChannel = resourceResolver.adaptTo(FeedChannel.class);
+
+        if (fChannel == null) {
+            return;
+        }
+
         fChannel.setFeedLink(rssFeedURL);
 
         if(!fChannel.isCached() || bypassCache) {
@@ -77,49 +92,10 @@ public class NewshubArticleFeed {
             fChannel.readCache();
         }
 
-        if(fChannel != null && fChannel.getChannelItems().size() > 0) {
+        if(isNotEmpty(fChannel.getChannelItems())) {
             rssArticles = fChannel.getChannelItems().stream().limit(Long.parseLong(maxArticles)).collect(Collectors.toList());
             rssArticles.sort(Comparator.comparing(o -> ((FeedItem) o).getFeedPubDateTime()).reversed());
         }
     }
 
-    public List<FeedItem> getRssArticles() {
-        return rssArticles;
-    }
-
-    public String getFeedHeadline() {
-        return feedHeadline;
-    }
-
-    public String getMaxArticles() {
-        return maxArticles;
-    }
-
-    public String getMonthHeadline() {
-        return monthHeadline;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public String getNumberUnit() {
-        return numberUnit;
-    }
-
-    public String getNumberDescription() {
-        return numberDescription;
-    }
-
-    public String rssFeedURL() {
-        return rssFeedURL;
-    }
-
-    public String getBackgroundImage() {
-        return backgroundImage;
-    }
-
-    public String getArticleURLPath() {
-        return articleURLPath;
-    }
 }

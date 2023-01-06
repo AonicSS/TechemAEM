@@ -1,5 +1,6 @@
 package com.techem.core.models;
 
+import lombok.Getter;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.ListUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -31,7 +32,8 @@ import java.util.stream.Collectors;
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL,
         resourceType = "techem/components/newshub-similar-articles")
 public class NewshubSimilarArticles {
-    
+
+    @Getter
     @Inject
     private List<Stage> articleListManually;
 
@@ -41,9 +43,11 @@ public class NewshubSimilarArticles {
     @SlingObject
     private ResourceResolver resourceResolver;
 
+    @Getter
     @ValueMapValue(name="containerHeadline")
     private String containerHeadline;
 
+    @Getter
     @ValueMapValue(name="insertionType")
     private String insertionType;
 
@@ -53,15 +57,19 @@ public class NewshubSimilarArticles {
     @ValueMapValue(name="sortOrder")
     private String sortOrder;
 
+    @Getter
     @ValueMapValue(name="maxArticles")
     private int maxArticles;
     
+    @Getter
     @ValueMapValue(name="filePath")
     private String filePath;
 
+    @Getter
     @ValueMapValue(name="filteringTags")
     private String[] filteringTags;
 
+    @Getter
     private List<Stage> newsArticles;
 
     private List<Resource> newsItems;
@@ -154,25 +162,6 @@ public class NewshubSimilarArticles {
         return artiResources;
     }
 
-    public List<Stage> getArticleListManually() {
-        return articleListManually;
-    }
-
-    public String getContainerHeadline() {
-        return containerHeadline;
-    }
-
-    public String getInsertionType() {
-        return insertionType;
-    }
-
-    public int getMaxArticles() {
-        return maxArticles;
-    }
-
-    public String getFilePath() {
-        return filePath;
-    }
 
     public List<String> getAdditionalPaths() {
         if(CollectionUtils.isEmpty(additionalPaths)) { return Collections.emptyList(); }
@@ -189,11 +178,4 @@ public class NewshubSimilarArticles {
         return paths;
     }
 
-    public String[] getFilteringTags() {
-        return filteringTags;
-    }
-
-    public List<Stage> getNewsArticles() {
-        return newsArticles;
-    }
 }

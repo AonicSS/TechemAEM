@@ -1,5 +1,7 @@
 package com.techem.core.models;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -39,12 +41,15 @@ public class RedirectRule {
     @ValueMapValue(name = RedirectsManagerService.REDIRECT_CODE)
     private int code;
 
+    @Getter
+    @Setter
     @ValueMapValue(name = RedirectsManagerService.REDIRECT_UNTIL)
     private Date until;
 
     @ValueMapValue(name = NameConstants.PN_PAGE_LAST_REPLICATION_ACTION)
     private String published;
 
+    @Getter
     @ValueMapValue(name = NameConstants.PN_PAGE_LAST_REPLICATED)
     private Date publishDate;
 
@@ -54,6 +59,7 @@ public class RedirectRule {
     @ValueMapValue(name = RedirectsManagerService.REDIRECT_STATUS)
     private int statusCode;
 
+    @Getter
     @ValueMapValue(name = RedirectsManagerService.REDIRECT_STATUS_LAST_CHECKED)
     private Date statusDate;
 
@@ -89,10 +95,6 @@ public class RedirectRule {
         return code;
     }
 
-    public Date getUntil() {
-        return until;
-    }
-
     public String getPath() {
         return path;
     }
@@ -117,10 +119,6 @@ public class RedirectRule {
         keepQS = kqs;
     }
 
-    public void setUntil(Date date) {
-        until = date; 
-    }
-
     public String getPublished() {
         return published;
     }
@@ -132,17 +130,10 @@ public class RedirectRule {
         return publishedBy;
     }
 
-    public Date getPublishDate() {
-        return publishDate;
-    }
-
     public int getStatusCode() {
         return statusCode;
     }
 
-    public Date getStatusDate() {
-        return statusDate;
-    }
 
     public boolean getKeepQS() {
         return keepQS;
