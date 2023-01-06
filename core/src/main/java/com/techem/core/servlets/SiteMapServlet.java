@@ -272,6 +272,7 @@ public class SiteMapServlet extends SlingSafeMethodsServlet {
             URL pageURL = new URL(URL);
             HttpURLConnection testConn = (HttpURLConnection) pageURL.openConnection();
             testConn.setConnectTimeout(CONNECT_TIMEOUT);
+            testConn.setReadTimeout(CONNECT_TIMEOUT);
             testConn.setRequestMethod("HEAD");
             testConn.setInstanceFollowRedirects(false);
             return testConn.getResponseCode() != HttpURLConnection.HTTP_OK;
