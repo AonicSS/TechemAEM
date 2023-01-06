@@ -1,20 +1,19 @@
 package com.techem.core.models;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.annotation.PostConstruct;
-import javax.xml.stream.XMLStreamException;
-
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+
+import javax.annotation.PostConstruct;
+import javax.xml.stream.XMLStreamException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Model(adaptables = Resource.class, adapters = NewshubArticleFeed.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL, resourceType = "techem/components/newshub-article-feed")
 public class NewshubArticleFeed {
@@ -52,7 +51,7 @@ public class NewshubArticleFeed {
     @ValueMapValue(name = "bypassCache")
     private boolean bypassCache;
 
-    private List<FeedItem> rssArticles = new ArrayList<FeedItem>();
+    private List<FeedItem> rssArticles = new ArrayList<>();
 
     @PostConstruct
     protected void init() throws IOException, XMLStreamException {

@@ -1,20 +1,7 @@
 package com.techem.core.models;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.xml.stream.XMLStreamException;
-
 import com.day.cq.commons.jcr.JcrConstants;
-
+import lombok.extern.slf4j.Slf4j;
 import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -25,14 +12,26 @@ import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.osgi.service.cm.Configuration;
 import org.osgi.service.cm.ConfigurationAdmin;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static java.util.Collections.unmodifiableList;
 
 /**
  * Class representing a <a href="https://cyber.harvard.edu/rss/rss.html#requiredChannelElements">RSS Channel</a>.
  * A Channel will act as a parent and will contain the feed <a href="https://cyber.harvard.edu/rss/rss.html#hrelementsOfLtitemgt">items</a> data as children.
  * @see FeedItem
  */
+@Slf4j
 @Model(adaptables = { Resource.class, ResourceResolver.class }, adapters = FeedChannel.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class FeedChannel {
 
@@ -75,9 +74,8 @@ public class FeedChannel {
     @ValueMapValue(name = RSSFeedReader.RSS_FEED_SKIPDAYS)
     private String feedSkipDays;
 
-    private List<FeedItem> channelItems = new ArrayList<FeedItem>();
+    private List<FeedItem> channelItems = new ArrayList<>();
 
-    private final Logger logger = LoggerFactory.getLogger(getClass());
     private static final String RSS_CFG_PID = "com.techem.core.schedulers.RSSFeedCacheTask";
     private String RSS_CACHE_LOCATION;
 
@@ -88,15 +86,9 @@ public class FeedChannel {
     private ConfigurationAdmin configAdmin;
 
     @PostConstruct
-    protected void init() throws IOException, XMLStreamException {
+    protected void init() throws IOException {
         Configuration cfg = configAdmin.getConfiguration(RSS_CFG_PID);
         RSS_CACHE_LOCATION = cfg.getProperties().get("rssPath") == null ? RSSFeedReader.RSS_CACHE_DEFAULT : (String) cfg.getProperties().get("rssPath");
-    }
-
-    public FeedChannel() { }
-
-    public void setFeedItems(List<FeedItem> items) {
-        channelItems = items;
     }
 
     /**
@@ -105,7 +97,7 @@ public class FeedChannel {
      * @see FeedItem
      */
     public List<FeedItem> getChannelItems() {
-        return channelItems;
+        return unmodifiableList(channelItems);
     }
 
     public String getFeedTitle() {
@@ -275,7 +267,7 @@ public class FeedChannel {
             try {
                 rootRSSResource = ResourceUtil.getOrCreateResource(resourceResolver, RSS_CACHE_LOCATION, JcrConstants.NT_UNSTRUCTURED, JcrConstants.NT_UNSTRUCTURED, true);
             } catch (Exception e) {
-                logger.error("Could not create cache parent node. Ex: ", e);
+                LOGGER.error("Could not create cache parent node. Ex: ", e);
             }
         }
 
@@ -333,7 +325,7 @@ public class FeedChannel {
                 Resource itemNode = resourceResolver.getResource(channelNode.getPath() + "/" + itemNodeName);
 
                 if(itemNode != null) { resourceResolver.delete(itemNode); }
-                itemNode = resourceResolver.create(channelNode, itemNodeName, props);
+                resourceResolver.create(channelNode, itemNodeName, props);
 
             }
             resourceResolver.commit();
@@ -379,7 +371,7 @@ public class FeedChannel {
                 resourceResolver.delete(rootRSS);
                 resourceResolver.commit();
             } catch (PersistenceException e) {
-                logger.error("Could not invalidate cache for parent '{}'. Skipping. Ex: ", rootRSS.getName(), e);
+                LOGGER.error("Could not invalidate cache for parent '{}'. Skipping. Ex: ", rootRSS.getName(), e);
             }
         }
     }
